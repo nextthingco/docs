@@ -2,6 +2,8 @@
 
 set -ex
 
+CI_BUILD_REF_NAME=${CI_BUILD_REF_NAME:?cannot be empty}
+
 apt-get install wget
 
 [ -x "$(which wget)" ] || exit 1

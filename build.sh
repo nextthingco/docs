@@ -21,3 +21,5 @@ done
 
 # copy landing page
 cp -rf landingpage/* "${OUTPUT_DIR}"
+
+surge --project $PWD/output --domain ntc-docs-${CI_BUILD_REF_NAME}.surge.sh

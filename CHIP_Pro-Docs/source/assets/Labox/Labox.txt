@@ -1,0 +1,12 @@
+Labox is freeware and fully distributable with your application installer. This license pohibits charging money for the font independantly from a database application which uses it.
+
+Installable embedding of Labox is allowed. It may be embedded in documents and permanently installed on remote systems.
+
+Some helpful hints about Labox:
+- A is an 1000x1000 em units black square.
+- B to J are all the same height as A (1000 em), but the width of the box decreases by 100 em increments (so B is 1000x900, C is 1000x800, D is 1000x700, and so on).
+- K is 1000x50
+- L to V are the same width as A to K but half their height, and positioned in the vertical middle of the glyph.
+- a to k are the same measurements as L to V, but positioned at the very top of the glyph.
+- m to v are the same measurements as a to k, but positioned at the very bottom of the glyph.
+- zero is a 50 em wide blan 

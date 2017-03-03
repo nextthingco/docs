@@ -1,0 +1,29 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - test
+
+variables:
+  CONTAINER_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH:latest
+
+before_script:
+  - echo "CI_REGISTRY=$CI_REGISTRY"
+  - echo "CI_REGISTRY_IMAGE=$CI_REGISTRY_IMAGE"
+  - echo "CI_PROJECT_URL=$CI_PROJECT_URL"
+  - echo "CONTAINER_IMAGE=$CONTAINER_IMAGE"
+
+build:
+  stage: build
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker run --rm -e SURGE_LOGIN=$SURGE_LOGIN -e SURGE_TOKEN=$SURGE_TOKEN -e CI_BUILD_REPO=$CI_BUILD_REPO -e CI_BUILD_REF_NAME=$CI_BUILD_REF_NAME -v $PWD:/build -w /build $CONTAINER_IMAGE ./build.sh
+
+test:
+  stage: test
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker run --rm -e SURGE_LOGIN=$SURGE_LOGIN -e SURGE_TOKEN=$SURGE_TOKEN -e CI_BUILD_REPO=$CI_BUILD_REPO -e CI_BUILD_REF_NAME=$CI_BUILD_REF_NAME -v $PWD:/build -w /build $CONTAINER_IMAGE ./test.sh

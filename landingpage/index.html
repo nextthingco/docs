@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Next Thing Co. Docs</title>
+    <link rel="shortcut icon" href="//s3-us-west-2.amazonaws.com/ntcpublic/icon-16.png" type="image/x-icon">
+    <link rel="icon" href="//s3-us-west-2.amazonaws.com/ntcpublic/icon-16.png" type="image/x-icon">
+    <link rel='stylesheet' href='./public/main.min.css' />
+    <script>
+      // Closure-wrapped for security.
+      // from http://stackoverflow.com/questions/1305211/javascript-to-redirect-from-anchor-to-a-separate-page/21198129#21198129
+      (function () {
+        var anchorMap = {
+          //could build a lookup table and use it instead of 'nurl' below, so we only redirect what really needs it
+        }
+        var hash = window.location.hash.substring(1);
+        var urlSplit = document.URL.split("#");
+        var nurl = "chip.html#" + urlSplit[1];
+        if (hash) {
+            /*
+            * Best practice for javascript redirects:
+            * http://stackoverflow.com/a/506004/151365
+            * It is better than using window.location.href =,
+            * because replace() does not keep the originating page in the session history,
+            * meaning the user won't get stuck in a never-ending back-button fiasco.
+            * If you want to simulate someone clicking on a link, use location.href.
+            * If you want to simulate an HTTP redirect, use location.replace.
+            */
+            window.location.replace(nurl);
+        }
+      })();
+    </script>
+    
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Docs</h1>
+        <p>Find all the helpful documentation you need to get the most of your Next Thing Co. products with the links below!</p>
+      </div>
+    </header>
+
+    <section class="docs">
+      <div>
+        <a href="chip_pro.html" target="_blank"><div class="doc chip_pro"></div></a>
+        <a href="chip_pro_devkit.html" target="_blank"><div class="doc chip_pro_devkit"></div></a>
+        <a href="chip.html" target="_blank"><div class="doc chip"></div></a>
+        <a href="pocketchip.html" target="_blank"><div class="doc pc"></div></a>
+        <a href="dip.html" target="_blank"><div class="doc dip"></div></a>
+      </div>
+    </section>
+  </body>
+</html>

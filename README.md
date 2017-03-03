@@ -26,7 +26,14 @@ in to subdirectories of a single repository on ntc.githost.io/nextthingco/docs:
   - The landing page: https://ntc.githost.io/nextthingco/docs/landingpage
 
 
-## Auto-publishing
+## Auto-publishing / Branches
 
-Adding a `.gitlab-ci.yml` to `ntc.githost.io/nextthingco/doc`
+Adding a `.gitlab-ci.yml` to `ntc.githost.io/nextthingco/doc` will auto-publish
+on push to the repository.
 
+There are four branches:
+
+  - `docker`: Contains everything to build the docker container which then builds the docs. Don't touch unless you know what you're doing.
+  - `unstable`: Do your experiments in here. Breaking the build is explicitly allowed (as long as you fix it afterwards). Results will be published at http://ntc-docs-unstable.surge.sh.
+  - `testing`: Prepare the next release in here.  Proof-reading should be done at http://ntc-docs-testing.surge.sh.
+  - `stable`: Everything in here will be published to https://docs.getchip.com and https://docs.nextthing.co. Be careful what you do in here.

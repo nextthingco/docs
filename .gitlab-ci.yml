@@ -4,9 +4,9 @@ services:
   - docker:dind
 
 stages:
-  - build
+#  - build
   - test
-  - release
+#  - release
 
 #CI_PROJECT_PATH will be expanded to nextthingco/docs-builder
 variables:
@@ -20,13 +20,13 @@ before_script:
   - echo "CONTAINER_RELEASE_IMAGE=$CONTAINER_RELEASE_IMAGE"
   - echo "CI_PROJECT_URL=$CI_PROJECT_URL"
 
-build:
-  stage: build
-  script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker build --pull -t $CONTAINER_TEST_IMAGE .
-    - echo "docker push $CONTAINER_TEST_IMAGE"
-    - docker push $CONTAINER_TEST_IMAGE
+#build:
+#  stage: build
+#  script:
+#    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+#    - docker build --pull -t $CONTAINER_TEST_IMAGE .
+#    - echo "docker push $CONTAINER_TEST_IMAGE"
+#    - docker push $CONTAINER_TEST_IMAGE
 
 test:
   stage: test
@@ -36,13 +36,13 @@ test:
     - docker run --rm -e SURGE_LOGIN=$SURGE_LOGIN -e SURGE_TOKEN=$SURGE_TOKEN -e CI_BUILD_REPO=$CI_BUILD_REPO -v $PWD:/build -w /build $CONTAINER_TEST_IMAGE ./test.sh
     - docker run --rm -e SURGE_LOGIN=$SURGE_LOGIN -e SURGE_TOKEN=$SURGE_TOKEN -e CI_BUILD_REPO=$CI_BUILD_REPO -v $PWD:/build -w /build $CONTAINER_TEST_IMAGE ./test2.sh
 
-release:
-  stage: release
-  script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker pull $CONTAINER_TEST_IMAGE
-    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
-    - echo "docker push $CONTAINER_RELEASE_IMAGE"
-    - docker push $CONTAINER_RELEASE_IMAGE
-  only:
-    - docker
+#release:
+#  stage: release
+#  script:
+#    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+#    - docker pull $CONTAINER_TEST_IMAGE
+#    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+#    - echo "docker push $CONTAINER_RELEASE_IMAGE"
+#    - docker push $CONTAINER_RELEASE_IMAGE
+#  only:
+#    - docker

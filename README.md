@@ -1,9 +1,31 @@
-# NTC docs builder
+# Docs 
 
-This repository contains scripts to regenerate the documentation webpages for CHIP,
-PocketCHIP, DIPs, CHIP PRO and the CHIP PRO Devkit.
+This repository contains the sources of the documentation for CHIP, the DIPS, PocketCHIP, CHIP PRO, and the CHIP PRO DevKit.
 
-The documentations are hosted in separate respositories on [github](http://github.com/getchip):
+## Organisation
+
+In order to simplify things, all of the documention has been moved into subdirectories of this repository:
+
+  - The CHIP documentation: https://ntc.githost.io/nextthingco/docs/CHIP-docs
+  - The DIP documentation: https://ntc.githost.io/nextthingco/docs/DIP-docs
+  - The PocketCHIP documentation: https://ntc.githost.io/nextthingco/docs/PocketCHIP-docs
+  - The CHIP PRO documentation: https://ntc.githost.io/nextthingco/docs/CHIP_Pro-Docs
+  - The CHIP PRO Devkit documentation: https://ntc.githost.io/nextthingco/docs/CHIP_Pro-_DKit-Docs
+  - The landing page: https://ntc.githost.io/nextthingco/docs/landingpage
+
+## Branches
+
+There are four branches:
+
+  - `docker`: Contains everything to build the docker container which then builds the docs. Don't touch unless you know what you're doing.
+  - `unstable`: Do your experiments in here. Breaking the build is explicitly allowed (as long as you fix it afterwards). Results will be published at http://ntc-docs-unstable.surge.sh.
+  - `testing`: Prepare the next release in here.  Proof-reading should be done at http://ntc-docs-testing.surge.sh.
+  - `stable`: Everything in here will be published to https://docs.getchip.com and https://docs.nextthing.co. Be careful what you do in here.
+
+## History
+
+In the past, the documetation is spread over 6 different repositories on github.com:
+
   - The CHIP documentation: https://github.com/getchip/CHIP-docs
   - The DIP documentation: https://github.com/getchip/DIP-docs
   - The PocketCHIP documentation: https://github.com/getchip/PocketCHIP-docs
@@ -11,14 +33,4 @@ The documentations are hosted in separate respositories on [github](http://githu
   - The CHIP PRO Devkit documentation: https://github.com/getchip/CHIP_Pro-_DKit-Docs
   - The landing page: https://github.com/getchip/landingpage
 
-## History
-
-The documentation previously has been build on our Bamboo instance.
-As Atlassian cancelled it's hosted Bamboo service end of January 2017,
-the generation of the documentation has been moved to our hosted gitlab instance https://ntc.githost.io.
-
-## Gitlab / ntc.githost.io
-This repostiory contains a `.gitlab-ci.yml` file and new builds of the documentation
-can be triggered via webhooks.
-
-The actual documentation is currently hosted on github.com.
+They should soon be deleted.

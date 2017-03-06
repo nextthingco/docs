@@ -19,16 +19,20 @@
 
 ## Audio
 
-* Stereo analog input 44.1K or 48K sampling rate
-* Stereo analog output 44.1K or 48K sampling rate
+Stereo audio in and out is handled by a 24-bit DAC built-in to the GR8 processor. There are also digital options that you can use, but require configuration of the Linux kernel and additional hardware to access.
+
+* 24-bit ADC/DAC for stereo audio in and out
+* one-wire audio digital out
+* Stereo analog input 41K sampling rate
+* Stereo analog output 41K sampling rate
 * Programmable phantom power for mic in
-* Bi-directional I2S bus for external DAC codecs
+* Bi-directional I2S digital audio for interfacing with professional audio DACs
 
 ## Power and Battery Management
 
-* AXP209 power management unit, connected to a dedicated I2C bus
-* 2.9V to 6V
-* 0 to 70 degrees Celsius 
+* **AXP209 power management IC** connected to a dedicated I2C bus
+* **Operating Voltage** - 2.9V to 6V
+* **Operating Temp** - 0 to 70 degrees Celsius 
 
 ## Wireless Connectivity
 

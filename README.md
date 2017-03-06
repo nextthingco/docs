@@ -54,6 +54,7 @@ Push changes to sync upstream with your local computer:
 
 `git push`
 
+Review your changes at http://ntc-docs-unstable.surge.sh/
 
 ### Testing
 
@@ -79,7 +80,7 @@ Push and sync changes:
 
 `git push`
 
-Get peers to review your changes! 
+Get peers to review your changes at http://ntc-docs-testing.surge.sh/
 
 ## History
 

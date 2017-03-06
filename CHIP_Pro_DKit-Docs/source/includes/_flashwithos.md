@@ -1,58 +1,60 @@
 # Flash With An OS
-Before you start building with the C.H.I.P. Pro Dev Kit the C.H.I.P. Pro needs to be flashed with an operating system. Grab these items, then read on:
+Before you start building with the C.H.I.P. Pro Dev Kit the C.H.I.P. Pro needs to be flashed with an operating system. We at NTC have built examples that use two operating systems: Buildroot and Debian that are both based on Linux. It's worth mentioning here that a difference between C.H.I.P. and C.H.I.P. Pro is the former has 1GB of NAND and the latter has 512MB. This means that it's a good idea to know how much storage software will take before flashing and installing. 
+
+**Debian** is a classic amongst embedded Linux board users for rapid prototyping. It offers a full package manager and loads of precompiled software for many different architectures. 
+
+**Buildroot** is simple and stripped down making it efficient and good for single application use cases. 
+
+Ready to try out some examples? Grab these items, then read on!
 
  * C.H.I.P. Pro Dev Kit
  * USB A to Micro-USB B cable
  * Separate computer with [Chrome](https://www.google.com/chrome/browser/desktop/index.html) or [Chromium](https://www.chromium.org/getting-involved/download-chromium) browser 
 
-## Flash an Example
-You can select an OS and example from [flash.getchip.com](http://flash.getchip.com/pro) in Chrome or Chromium browser.
+## Examples
+You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com/pro) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing the C.H.I.P. Pro to know and get in the habit of. This process is explained below and is also illustrated on the flasher page.
 
-Plug the micro USB cable into the USB0 port on the Dev Kit (**not in the C.H.I.P. Pro!**). Hold down the FEL button and with the other hand plug the USB cable into the computer. The C.H.I.P. Pro will power up which will be indicated by the pink power and white status LEDs illuminating. 
+### Flashing Process
+Once you arrive at [flash.getchip.com](http://flash.getchip.com/pro) you will be prompted to install a Chrome extension. 
+
+Once the extension is installed, plug the micro USB cable into the USB0 port on the Dev Kit (**not on the C.H.I.P. Pro!**). Hold down the FEL button and with the other hand plug the USB cable into the computer. The C.H.I.P. Pro will power up which will be indicated by the pink power and white status LEDs illuminating. 
 
 ![pushing FELL button](images/pressPlug.jpg)
 
-The web flasher will search for and eventually recognize your board. Keep holding the FEL button down until the magnifying glass goes away and you have an option to choose an image to flash.
+The web flasher will then search for and eventually recognize the C.H.I.P. Pro Dev Kit. 
 
-Choose one of our three delightful examples:
+![searching for board](images/searchPageCrop.png)
 
-* Blinkenlights
-* VU Meter
-* Debian OS
+Keep holding the FEL button down until the magnifying glass goes away and the page with example images appear. Let go of the FEL button and choose an example image to flash.
 
-Except for the Debian example, when you connect to C.H.I.P. Pro [via serial](http://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection), you will be logged in as root.
+![image page](images/imagePage.png)
 
-If you want to learn more about C.H.I.P. Pro software, such as connecting to WiFi and accessing GPIO, head over to the official [C.H.I.P. Pro Docs page](http://docs.getchip.com/chip_pro.html#get-working-with-c-h-i-p-pro).
+#### Blinkenlights
 
-### Blinkenlights
+Size: ~60MB
 
-Controlling LEDs is fundamental to almost any hardware. This simple example provides easy-to-understand code with exciting results! Flash C.H.I.P. Pro with this image and watch the GPIO D0-D7 lights turn on and off in a cascading pattern and the two PWM LEDs pulse from dim to bright.   
+Controlling LEDs are fundamental to almost any hardware. This simple example provides easy-to-understand code with exciting results! Flash C.H.I.P. Pro with this image and watch the GPIO D0-D7 lights turn on and off in a cascading pattern and the two PWM LEDs pulse from dim to bright. Based on Buildroot.
 
-There are two scripts running in the background. If you want to modify the code for this example, connect via [USB-serial](http://docs.getchip.com/chip_pro_devkit.html#connect-and-control) and then you can use the `vi` editor to play around with the code: 
+#### VU Meter
 
-```
-vi /usr/bin/blink-leds
-vi /usr/bin/fade-pwms
-```
+Size: ~60MB
 
-This image is a very rudimentary Linux distribution, based on buildroot. It demonstrates a fast-booting system that boots into a software system that immediately controls hardware.
+Want to make sure your mics are working? Use this handy VU Meter example. Scream loudly, speak softly, tap the mics, and MAKE SOME NOISE, SPORTSFANS! You'll see the LEDs light proportional to the volume of the noise captured by the two built-in mics. Based on Buildroot.
 
-### VU Meter
+#### Debian
 
-Want to make sure your Mics are working? Use this handy VU Meter example. Scream loudly, speak softly, tap the mics, and MAKE SOME NOISE, SPORTSFANS! You'll see the LEDs light proportional to the volume of the noise captured by the two built-in mics.
+Size: ~180MB
 
-If you want to modify the code for this example, connect via [USB-serial](http://docs.getchip.com/chip_pro_devkit.html#connect-and-control) and then you can use `vi` to edit it: 
+We provide a standard Debian distribution. Once flashed connect to the C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection) and log in with the default username `chip` and password `chip`.
 
-```
-vi /usr/bin/vu-meter
-```
+If you want to configure and build the rootfs for the Debian image, take a look at our [github repo](https://github.com/NextThingCo/chip-os-pro)
 
-This image is a very rudimentary Linux distribution, based on buildroot. It demonstrates a fast-booting system that boots into a software system that reacts to the environment and controls hardware.
+### After Flashing Image
 
-### Debian
+![power off button](images/poweroffB.gif)
 
-We provide a standard Debian distribution, complete with all the package managers and conveniences you know and love. This package is ideal for development, since it is more flexible than the buildroot-based Gadget OS. However, you will want to keep track of your dependencies to more easily transition to the more nimble Gadget OS.
+When you are done or want to flash another example, hold down the power button on the Dev Kit until the Power and Activity LEDs shut off.
 
-When you connect to C.H.I.P. Pro, you can log in with username `chip` and password `chip`.
+### Troubleshooting Flashing Fails
 
-If you want to configure and build the kernel and rootfs for the Debian image, take a look at our [github repo](https://github.com/NextThingCo/chip-os-pro)
+If the flashing process fails we have [troubleshooting recommendations](https://docs.getchip.com/chip.html#web-flasher-os-specific-issues) based on your OS. 

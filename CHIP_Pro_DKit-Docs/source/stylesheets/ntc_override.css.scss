@@ -33,7 +33,7 @@
 // styling of an unordered list because it is ugly.
   
   .tocify-item {
-    transition: all .35s;
+    transition: all .35s;  
   }
   li.tocify-item:hover {
     background: $pink51;
@@ -45,6 +45,7 @@
 
   .tocify-header {
     font-size: 15px;
+    color: #00aedb;
   }
   // Subheaders are the submenus that slide open
   // in the table of contents.
@@ -54,8 +55,9 @@
 		font-size: 13px;
 		background-color: $nav-bg;
     .tocify-item>a {
-      font-size: 13px;
+      font-size: 13px;	
 		  padding-left: 15px;
+		  
     }
 
   }
@@ -89,7 +91,7 @@
   h1 {
     font-size: 26px;
     margin-top: 1em;
-    color: $pink51;
+    color: #00aedb;
   }
   
   h2 {
@@ -97,7 +99,6 @@
     margin-top: 2em;
     padding-top: .5em;
     padding-bottom: .5em;
-    color: $pink51;
   }
   
   h3, h4, h5, h6 {

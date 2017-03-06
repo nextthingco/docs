@@ -21,6 +21,65 @@ There are four branches:
   - `unstable`: Do your experiments in here. Breaking the build is explicitly allowed (as long as you fix it afterwards). Results will be published at http://ntc-docs-unstable.surge.sh.
   - `testing`: Prepare the next release in here.  Proof-reading should be done at http://ntc-docs-testing.surge.sh.
   - `stable`: Everything in here will be published to https://docs.getchip.com and https://docs.nextthing.co. Be careful what you do in here.
+  
+
+## Edit and Review Flow
+
+How to push and switch from unstable to testing to stable branches. 
+
+### Unstable
+
+To start working with the docs for the first time, clone the upstream branches:
+
+`git clone <upstream url>`
+
+Make sure you are on the unstable branch:
+
+`git branch`
+`git checkout unstable`
+
+Edit and add any files you need. When you are ready to review check out the branch status to see if there are any unchecked files:
+
+`git status`
+
+Add any unchecked files to git:
+
+`add <file path>`  You can add whole directory to make it quicker.
+
+Commit changes:
+
+`git commit -m "commit message"`
+
+Push changes to sync upstream with your local computer:
+
+`git push`
+
+
+### Testing
+
+How to move from unstable to testing branch.
+
+Commit all changes to unstable and switch to testing branch:
+
+`git checkout testing`
+
+Merge unstable with testing (everything from unstable will merge unless you cherry-pick):
+
+`git merge unstable`
+
+To choose a commit to merge, look at all the commits and grab commit-hash:
+
+`git log`
+
+Choose the commit to merge:
+
+`git cherry-pick <commit-hash>`
+
+Push and sync changes:
+
+`git push`
+
+Get peers to review your changes! 
 
 ## History
 

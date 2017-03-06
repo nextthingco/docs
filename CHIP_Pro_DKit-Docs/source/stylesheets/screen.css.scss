@@ -180,6 +180,7 @@ html, body {
     box-shadow: 0px 1px 0px $nav-active-shadow;
     background-color: $nav-active-bg;
     color: $nav-active-text;
+
   }
 
   // Subheaders are the submenus that slide open
@@ -188,9 +189,11 @@ html, body {
     display: none; // tocify will override this when needed
     background-color: $nav-subitem-bg;
     font-weight: 500;
+    
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
       font-size: 12px;
+      
     }
 
     // for embossed look:
@@ -337,7 +340,7 @@ html, body {
     display: block;
     clear: both;
   }
-
+  
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
     margin-right: $examples-width;
     padding: 0 $main-padding;
@@ -367,6 +370,7 @@ html, body {
     margin-top: 2em;
     border-top: 1px solid #ddd;
     background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+
   }
 
   h1:first-child, div:first-child + h1 {

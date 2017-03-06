@@ -26,18 +26,21 @@ There are several areas where pin headers can be soldered into through-holes for
 
 * **PWM0/1 Through-Hole Breakout** - Add pin headers to connect servos and LEDs with pulse width modulation.
 * **Battery Switch** - Add a switch so you can easily disable or enable power from a battery. You will need to [cut a trace](#back-traces) to make this switch work. 
-* **C.H.I.P Pro** - The through-holes surrounding the C.H.I.P Pro can be filled with pin headers to give access to the pin you need.
+* **C.H.I.P. Pro** - The through-holes surrounding the C.H.I.P. Pro can be filled with pin headers to give access to the pin you need.
 
 ## Cuttable Traces
-The C.H.I.P. Pro Dev Kit is designed to be flexible for your design and provide valuable built-in hardware. There are several cuttable jumpers that will disconnect onboard components and reroute power and data to where you need. You can find all of the jumpers outlined in the images below.
 
-Most of these traces are on the back of the board with one very important exception. The USB0 jumpers on the front are connected to the micro-USB0 port on the Dev Kit. This renders the micro USB port on the C.H.I.P. Pro itself unusable. If you would like to use the micro-USB port on C.H.I.P. Pro these must be cut. 
+The C.H.I.P. Pro Dev Kit is designed to be flexible for your design and provide valuable built-in hardware. There are several cuttable circuit paths that will disconnect onboard components and reroute power and data to where you need. You can find all of the cuttable paths jumpers outlined in the images below.
+
+Default circuit paths are indicated with a silkscreened bar under the connected pads. 
+
+Most of these traces are on the back of the board with one very important exception. The USB0 jumpers on the front are connected to the micro USB0 port on the Dev Kit. This renders the micro USB port on the C.H.I.P. Pro itself unusable. If you would like to use the micro USB port on C.H.I.P. Pro these must be cut. 
 
 ![Front Callouts](images/cutJumpers.jpg)
 
 ### Front Traces
 
-* **USB0 Disconnect**  There are two (2) traces that are important for USB communication and one (1) trace that will disconnect USB power from the main micro USB connnector to C.H.I.P Pro. To disconnect the dev kit's main micro USB connector, cut between the pads for the traces marked "+" and "-". These are for the "D+" and "D-" USB data lines. This will allow you to use the micro USB connector on the C.H.I.P. Pro.
+* **USB0 Disconnect** - There are two traces that are important for USB communication and one (1) trace that will disconnect USB power from the main micro USB connnector to C.H.I.P. Pro. To disconnect the dev kit's main micro USB connector, cut between the pads for the traces marked "+" and "-". These are for the "D+" and "D-" USB data lines. This will allow you to use the micro USB connector on the C.H.I.P. Pro.
 
 ### Back Traces
 
@@ -55,15 +58,15 @@ Most of these traces are on the back of the board with one very important except
 
 ## How to Cut
 
-Here's what you need to know about modifying and repairing the traces on the dev kit to experiment and test different configurations.
+Here's what you need to know about modifying and repairing the traces on the Dev Kit to experiment and test different configurations.
 
 ### Cut 
-To get the job done, you need to grab an X-acto knife or another small, sharp blade. The goal is to cut the trace connecting the two solder pads while NOT cutting anything else. The area to cut is very small so if you happen to own a pair of magnifying eye glasses now is the time to use them! To help stay in one place and not accidentally run the blade over another trace think of the cutting action as more of a digging action. 
+To get the job done you need to grab an X-acto knife or another small, sharp blade. The goal is to cut the trace connecting the two solder pads while NOT cutting anything else. The area to cut is very small so if you happen to own a pair of magnifying eye glasses now is the time to use them! To help stay in one place and not accidentally run the blade over another trace think of the cutting action as more of a digging one. 
 
 ![Cut Jumper](images/traces_cut.jpg)
 
 When you feel like you may have successfully cut through test the connection with your multimeter to confirm the disconnect.
-
+ 	
 ![Test Jumper](images/traces_test.jpg)
 
 ### Cut-and-Solder
@@ -74,4 +77,13 @@ Some of these require both a trace cut and a solder bridge. For example, the MIC
 ### Revert and Repair
 Once you cut a trace it can be reverted to the original behavior. To replace the jumper solder a small piece of wire across all the contacts you wish to reconnect, or, if you are nimble, bridge the contacts with a solder blob.
 
+If you need some reminding, circuit paths that came as default are indicated with a silkscreened bar under the originally connected pads.
+
 ![Solder Bridge](images/traces_solderBridge.jpg)
+
+# Open Source
+The C.H.I.P. Pro is open source hardware. 
+
+Get all the details in our [github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware).
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

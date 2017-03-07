@@ -170,7 +170,7 @@ This will return you to the previous screen session. Then use Ctrl+A Ctrl+\ to c
 
 Download the [PuTTY terminal emulator](http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
-In Windows open the **Device Manager**. Find and expand **Ports (COM & LPT)**. Find the port labeled **USB-to-Serial Port (COMx)** and take note of the COMx port number. This is the port that the C.H.I.P. Pro Dev Kit is connected to.
+In Windows open the **Device Manager**. Find and expand **Ports (COM & LPT)**. Find the port labeled **USB-to-Serial Port (COMx)** and take note of the COMx port number. This is the port that the C.H.I.P. Pro is connected to.
 
 In PuTTY choose **Serial** as the **Connection type**. Then, plug these items in and click **Open**. 
 
@@ -221,9 +221,7 @@ Set the antenna path in Buildroot two ways:
 
 ```
 0=onboard-antenna 
-```
 
-```
 1=external-antenna
 ```
 

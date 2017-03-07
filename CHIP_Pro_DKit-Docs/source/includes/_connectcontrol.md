@@ -141,7 +141,7 @@ Other helpful commands:
 * :q! then Enter - exit without saving
 
 ## WiFi Antenna
-If you find you need a boost on your WiFi signal connect the included antenna onto the C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
+C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
 
 ### Connect Antenna
 Coming straight from the top push the antenna onto the connector. Keep in mind the connector will wear out over time. We suggest keeping the disconnect/connect cycle down to 10 or less. 

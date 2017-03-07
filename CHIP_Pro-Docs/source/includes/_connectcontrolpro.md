@@ -56,7 +56,7 @@ We provide a standard Debian distribution, complete with all the package manager
 
 ## Make a Serial Connection
 
-C.H.I.P. Pro is a headless computer, so you will need a separate computer in order to interact with it. This section will go over how to connect through USB-serial, connect to a WiFi network and where to find example scripts.
+C.H.I.P. Pro is a headless computer, so you will need a separate computer in order to interact with it. This section will go over how to connect via USB-serial to UART, connect to a WiFi network and where to find example scripts.
 
 ### USB-serial to UART Pins
 
@@ -187,78 +187,450 @@ Once a terminal window pops up, press Enter.
 * For the Debian example, log in with the default username and password ```chip```.
 
 
-### USB Gadget Serial
+## WiFi Antenna
+If you find you need a boost on your WiFi signal connect the included antenna onto the C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
 
-#### Things you will need
+### Connect Antenna
+Coming straight from the top push the antenna onto the connector. Keep in mind the connector will wear out over time. We suggest keeping the disconnect/connect cycle down to 10 or less. 
 
-* USB A to micro-USB cable ([for example](http://www.cablewholesale.com/products/usb-firewire/usb-2.0-cables/product-10u2-03101bk.php))
-* Computer with monitor (for example, a [C.H.I.P.](http://www.getchip.com/)!)
-* Terminal program for Windows such as [PuTTY](http://www.chipkin.com/using-putty-for-serial-com-connections-hyperterminal-replacement/) (OS X and Linux have terminals built-in)
+[![wifi antenna connector](images/wifiConnectB.jpg)] (images/wifiConnectB.jpg) | [![push antenna on](images/wifiPush.jpg)] (images/wifiPush.jpg) | 
+|:---:|:---:|
+| WiFi antenna connector | Push antenna onto connector |
 
-If your OS is configured for Gadget serial, this is usually the easiest way to get inside C.H.I.P. Pro's software. While you won't be able to get boot messages, since the serial emulation won't be ready, all you need is a USB A to micro-USB cable to connect C.H.I.P. Pro to your computer. 
+![wifi antenna connected](images/wifiOn.jpg)
 
-PHOTO USB PORT CONNECTION
+### Enable Wifi Antenna
+Set the path of the external antenna.
 
-### OS X & Linux
+**Debian**
 
-```
-screen /dev/tty.usbmodem1440 115200 #OS X
-screen /dev/ttyACM0 115200          #Linux
-```
-
-Note that for OS X you either need to list out all the tty devices with `ls /dev/tty.usbm*` to find the actual ID or use the tab key to autocomplete, like `screen /dev/tty.usbm <tab>`.
-
-### Windows
-
-For Windows read [our guide](http://docs.getchip.com/chip.html#using-putty) on connecting with PuTTY or Cygwin.
-
-## Connect to WiFi Network
-
-Once you have connected to C.H.I.P. Pro with a serial connection, you can set it up for network access. How this happens depends on the OS you have loaded onto C.H.I.P. Pro. Most likely you'll be able to make basic connections to a WiFi network using either `connman` or `nmcli` in the command line.
-
-### Connman
-
-The basic commands to connect are done in a connman terminal. You can learn more about connman [here](https://wiki.archlinux.org/index.php/Connman)
+With the Debian C.H.I.P. Pro images comes a [set_antenna script](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) which accepts two arguments of either `pcb` or `ufl` depending on which you want enable. 
 
 ```
-sudo connmanctl # enter the connman terminal
+set_antenna pcb|ufl
+``` 
 
->enable wifi # turn on wifi
->scan wifi # find networks
->agent on # let connman prompt for a password when needed
->services # list all the visible networks so you can get the wifi_ id string
->connect wifi_7cc70905cd77_4e5443_managed_psk #connect to wifi_ id, connman will then prompt for password
->quit # get back to linux terminal
-```
+**Buildroot**
 
-If your network does not have a password (ends with `managed_none`), you can connect using the `wifi_` id that does not have the word "hidden" in it.
+Set the antenna path in Buildroot two ways:
 
-Confirm your connection with `ping -c 4 8.8.8.8` and get your IP address from the wlan0 line from `ip a`.
+* The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
 
-#### ssh on buildroot
-
-Once you have your C.H.I.P. Pro on the network, chances are that you'll want to use `ssh` to connect to it. You can `ssh chip@<ip address>`. However, you'll probably want to switch to `root` once you are in. You can do that with the command `su` and use `root` as the password.
-
-### nmcli
-
-You may find `nmcli` is the gateway to your network if you are using a Debian linux image on C.H.I.P. Pro. There's a lot of information about nmcli on the [archlinux site](https://wiki.archlinux.org/index.php/NetworkManager). If nmcli is what you need, here are the commands you can use to connect to a network using your serial connection in the terminal:
+0 = PCB Antenna
+1 = u.FL antenna. 
 
 ```
-sudo nmcli d wifi # list visible wifi networks
-sudo nmcli d wifi connect "YOUR_NETWORK" password "NETWORK_PASSWORD" ifname wlan0 # if network is hidden add this to end: hidden yes
+0=onboard-antenna 
 ```
 
-#### ssh on debian
-
-If you want to connect to C.H.I.P. Pro with `ssh` you will probably find it convenient to setup a unique name for your C.H.I.P. Pro. [This gist](https://gist.github.com/nyboer/1fc232e0d006b656d2b724698c7ff90f) has a simple script to make this easy.
-
-### ping!
-
-It's always reassuring to check that you have a connection with ping:
-
 ```
-ping 8.8.8.8 #google dns server
+1=external-antenna
 ```
+
+* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) 
+
+## WiFi Setup: Buildroot
+
+The Buildroot operating system uses the `connman` command-line network manager to connect and manage your network connections. 
+
+**Requirements**
+
+  * C.H.I.P. Pro running buildroot OS
+  * [Serial connection](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) to C.H.I.P. Pro
+    
+### Step 1: Enable WiFi and Find a Network
+
+These three commands will, in turn, enable wifi, scan for access points, and list what networks are available:
+
+```shell
+connmanctl enable wifi
+connmanctl scan wifi
+connmanctl services
+```
+
+The `services` command has output similar to:
+
+```shell
+WaffleHouse          wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+                	 wifi_xxxxxxxxxxxx_hidden_managed_psk
+YOUR_NETWORK         wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+    				 wifi_xxxxxxxxxxxx_xxxxxx_managed_none
+Donut_Hut            wifi_xxxxxxxxxxxx_xxxxxxxxx_managed_psk
+```
+
+### Step 2: Connect 
+
+Copy the string that starts with "wifi_' to the right of the network name you want to connect to. If it has `psk` at the end, that means it is password protected (short for Wi-Fi Protected Access 2 - Pre-Shared Key) and you will need to go into connman interactive mode.
+
+#### No Password
+
+For example, to connect to NTC Guest, which has no password, `services` shows two choices. We want the one without `psk` in the string. Use the `connect` command:
+
+```shell
+connmanctl connect wifi_xxxxxxxxxxxx_xxxxxx_managed_none
+```
+
+If your network is not password protected, you'll get some output that will indicate a successful connection, such as:
+
+```shell
+[  961.780000] RTL871X: rtw_set_802_11_connect(wlan0)  fw_state=0x00000008
+[  962.070000] RTL871X: start auth
+[  962.080000] RTL871X: auth success, start assoc
+[  962.090000] RTL871X: rtw_cfg80211_indicate_connect(wlan0) BSS not found !!
+[  962.100000] RTL871X: assoc success
+[  962.110000] RTL871X: send eapol packet
+[  962.290000] RTL871X: send eapol packet
+[  962.300000] RTL871X: set pairwise key camid:4, addr:xx:xx:xx:xx:xx:xx, kid:0, type:AES
+[  962.320000] RTL871X: set group key camid:5, addr:xx:xx:xx:xx:xx:xx, kid:1, type:AES
+```
+
+If your network is password protected you'll get an error.
+
+#### Password-Protected
+To deal with passwords you'll need to put `connman` into interactive mode:
+
+```shell
+connmanctl
+```
+
+which gives a `connmanctl` prompt:
+
+```shell
+connmanctl>
+```
+
+In the shell, turn the 'agent' on so it can process password requests:
+
+```shell
+  agent on
+```
+
+Now use the `connect` command with your pasted wifi network string:
+
+```shell
+  connect wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+```
+
+Enter your password when prompted:
+
+```shell
+  Agent RequestInput wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+  Passphrase = [ Type=psk, Requirement=mandatory ]
+  Passphrase?
+```
+
+You will be notified that you are connected:
+
+```shell
+  Connected wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+```
+
+Exit connmanctl interactive mode:
+
+```shell
+  quit
+```
+
+### Step 3: Test Connection
+
+To test the WiFi connection you can ping Google four times:
+
+```shell
+ping -c 4 8.8.8.8
+```
+
+Expect ping to output some timing messages:
+
+```shell
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: seq=0 ttl=55 time=209.147 ms
+64 bytes from 8.8.8.8: seq=1 ttl=55 time=111.125 ms
+64 bytes from 8.8.8.8: seq=2 ttl=55 time=183.627 ms
+64 bytes from 8.8.8.8: seq=3 ttl=55 time=147.398 ms
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 111.125/162.824/209.147 ms
+```
+&#10024; You are Connected! &#10024;
+
+If your connection is not successful, then ping will tell you your network is down:
+
+```shell
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+ping: sendto: Network is unreachable
+```
+
+#### Troubleshooting Connection Problems
+
+* Review any messages that the connect commnand gave you. Did they look like the examples of a successful connection?
+
+* Double check you used the right network when you used the connect commnand.
+
+* If everything checked out until you got to `ping`, there's a good chance the problem is with your router or connection to the internet. 
+
+* Connman not Installed Error
+
+If you try to use `connman` and you get an error that it is not found or is not a command, chances are that you are using the Debian image. The `connman` commands only apply to C.H.I.P. Pros running the simple Buildroot OS.
+
+### Disconnect from Network with Connman
+To disconnect from your network, you might first want a reminder of what unfriendly string is used to describe your access point:
+
+```shell
+connmanctl services
+```
+
+Which will output information about your current connection:
+
+```shell
+YOUR_NETWORK         wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+```
+
+Use the string ID to disconnect:
+
+```shell
+connmanctl disconnect wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+```
+
+You will be notified when it has disconnected: 
+
+```shell
+Disconnected wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+```
+
+### Forget Network with Connman
+Generally, `conman` will remember and cache setup information. This means that if you reboot in the vicinity of a known network, it will attempt to connect. However, if you need to forget a network setup, these setups can be found by navigating:
+
+```shell
+cd /var/lib/connman/
+```
+
+You can delete a single connection by seeing what connections are stored and copying the one you want to delete:
+
+```shell
+/var/lib/connman # ls
+settings
+wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+wifi_xxxxxxxxxxxx_xxxxxx_managed_none
+```
+
+Then delete that connection:
+
+```shell
+rm -r wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
+```
+
+You can delete all the “wifi” connections with:
+
+```shell
+rm -r wifi*
+```
+The `-r` is needed because these are directories you are deleting and the star at the end of `wifi*` assumes your configurations all start with the string “wifi”.
+
+## WiFi Setup: Debian
+
+If you are using Debian OS you will find that `connman` is not installed, you will need to use `nmcli` instead. There are several tools in Linux for connecting and configuring networks. We will be using the command `nmcli` (Network Manager Client). 
+
+**Requirements**
+
+  * C.H.I.P. Pro loaded with Debian
+  * [Serial connection](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection) to C.H.I.P. Pro
+
+### Step 1: List available Wi-Fi networks
+In the terminal type:
+
+```shell
+nmcli device wifi list
+```
+
+The output will list available access points:
+
+```shell
+*  SSID      MODE   CHAN  RATE       SIGNAL  BARS  SECURITY
+*  YOUR_NETWORK    Infra  11    54 Mbit/s  100     ▂▄▆█  --
+   CatCafe         Infra  6     54 Mbit/s  30      ▂___  WPA1 WPA2
+   2WIRE533        Infra  10    54 Mbit/s  44      ▂▄__  WPA1 WPA2
+```
+### Step 2: Connect 
+
+You can connect to password-protected or open access points.
+
+#### No Password
+To connect to an open network with no password:
+
+```shell
+sudo nmcli device wifi connect "YOUR_NETWORK_SSID" ifname wlan0
+```
+These commands will respond with information about the connection. A successful connection looks like:
+
+```shell
+Connection with UUID 'xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy' created and activated on device 'wlan0'
+```
+
+#### Password-Protected
+
+To connect to a password-protected network, use this command inserting your own network name and password:
+
+```shell
+sudo nmcli device wifi connect "YOUR_NETWORK_SSID" password "UR_NETWORK_PASSWORD" ifname wlan0
+```
+
+These commands will respond with information about the connection. A successful connection looks like:
+
+```shell
+Connection with UUID 'xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy' created and activated on device 'wlan0'
+```
+#### Hidden SSID and Password-Protected
+
+To connect to a hidden and password-protected network:
+ 
+ ```shell
+sudo nmcli device wifi connect "YOUR_NETWORK_SSID" password "UR_NETWORK_PASSWORD" ifname wlan0 hidden yes
+```
+
+### Step 3: Test your Connection
+
+You can verify and test your wireless network connection.
+
+#### Verify
+
+```shell
+nmcli device status
+```
+
+This outputs a list of the various network devices and their connections. For example, a successful connection would look like this:
+
+```shell
+DEVICE   TYPE      STATE         CONNECTION
+wlan0    wifi      connected     YOUR_NETWORK
+wlan1    wifi      disconnected  --
+ip6tnl0  ip6tnl    unmanaged     --
+lo       loopback  unmanaged     --
+sit0     sit       unmanaged     --
+```
+
+Because it is worth knowing that Linux offers many ways of doing things, another command that shows your current active connection is:
+
+```shell
+nmcli connection show --active
+```
+
+Which outputs:
+
+```shell
+NAME  		   UUID                                  TYPE             DEVICE
+YOUR_NETWORK   xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy  802-11-wireless  wlan0
+```
+
+After you have connected once, your C.H.I.P. will automatically connect to this network next time you reboot (or start NetworkManager services).
+
+#### Test
+Finally, you can test your connection to the internet with `ping`. Google's DNS server at the IP address 8.8.8.8 is probably the most reliable computer on the internet, so:
+
+```shell
+ping -c 4 8.8.8.8
+```
+
+results in output like:
+
+```shell
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=55 time=297 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=55 time=26.3 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=55 time=24.8 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=55 time=55.7 ms
+```
+
+You can stop this command by pressing CTRL-C on your keyboard. The `-c 4` option means it will happen only 4 times.
+
+&#10024; **Congratulations! You are now Connected to a Network** &#10024;
+
+### Disconnect Network with Nmcli
+
+Disconnect from the wireless device:
+
+```shell
+sudo nmcli dev disconnect wlan0
+```
+
+### Forget Network with Nmcli
+You may want to prevent auto-connection to a network. If so, you want the device to forget the a specific network. First, list the connections:
+
+```shell
+nmcli c
+```
+
+Which outputs something like:
+
+```shell
+NAME           UUID                                  TYPE             DEVICE 
+YOUR_NETWORK   xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy  802-11-wireless  wlan0
+```
+
+Then, delete the network specified between quotes to forget it:
+
+```shell
+sudo nmcli connection delete id "YOUR_NETWORK"
+```
+
+### Troubleshooting Connection Problems
+
+* No Network Found
+
+No network within range. If there's no network, you can't connect. Go find a network!
+
+* Incorrect Password
+
+If you type in the wrong password, you'll get some errors like this:
+
+```shell
+[32258.690000] RTL871X: rtw_set_802_11_connect(wlan0) fw_state=0x00000008
+[32258.800000] RTL871X: start auth
+[32263.720000] RTL871X: rtw_set_802_11_connect(wlan0) fw_state=0x00000008
+[32263.820000] RTL871X: start auth
+[32264.430000] RTL871X: auth success, start assoc
+[32269.850000] RTL871X: rtw_set_802_11_connect(wlan0) fw_state=0x00000008
+[32269.970000] RTL871X: start auth
+Error: Timeout 90 sec expired.
+```
+
+Try connecting again with the correct password.
+
+* Failed Ping
+
+If you don't have access to the internet, your ping to an outside IP will fail.
+It is possible that you can connect to a wireless network, but have no access to the internet, so you'd see a connection when you request device status, but have a failed ping. This indicates a problem or restriction with the router or the access point, not a problem with the CHIP.
+
+A failed ping looks something like:
+
+```shell
+From 192.133.2.10 icmp_seq=14 Destination Host Unreachable
+From 192.133.2.10 icmp_seq=15 Destination Host Unreachable
+From 192.133.2.10 icmp_seq=16 Destination Host Unreachable
+18 packets transmitted, 0 received, +9 errors, 100% packet loss, time 17013ms
+pipe 4
+```
+Change the router or access point permissions to allow a foreign board to connect to it. Alternatively, a personal mobile hotspot can obtained and used if you are in a work environment that can not change its network security settings.
+
+* Loss of Wireless Network
+
+A sudden, unplanned disconnection will post an error in the terminal window:
+
+```shell
+[30863.880000] RTL871X: linked_status_chk(wlan0) disconnect or roaming
+```
+
+The Network Manager will periodically try to reconnect. If the access point is restored, you'll get something like this in your terminal window:
+
+```shell
+[31798.970000] RTL871X: rtw_set_802_11_connect(wlan0)
+[31799.030000] RTL871X: start auth
+[31799.040000] RTL871X: auth success, start assoc
+[31799.050000] RTL871X: rtw_cfg80211_indicate_connect(wlan0) BSS not found !!
+[31799.060000] RTL871X: assoc success
+```
+
+* Nmcli not Installed Error
+
+If you try to use `nmcli` and you get an error that it is not found or is not a command, chances are that you are using a C.H.I.P. Pro buildroot image. The `nmcli` commands only apply to C.H.I.P. Pro using Debian linux.
 
 ## Access I/O via sysfs	
 

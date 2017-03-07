@@ -38,8 +38,6 @@ The on-board Realtek 8723DS combination module provides compliant Wi-Fi B/G/N an
 
 Charge or power from an AC/DC adapter or power it from USB or a rechargable battery. On-board Power management with the AXP209 provides plenty of power options to better match your applications: mobile, industrial, and low-power are all possible with C.H.I.P. Pro. 
 
-![C.H.I.P. Pro](images/CHIP-Pro-Side-Crop.jpg)
-
 
 ## GR8 SiP
 
@@ -58,4 +56,4 @@ More information about the GR8 SiP can be found in the [GR8 data sheet](https://
 
 ## Block Diagram
 
-![C.H.I.P. Pro Block Diagram](images/CHIP-Pro-Block-Diagram.png)
+![C.H.I.P. Pro Block Diagram](images/block_diagram.jpg)

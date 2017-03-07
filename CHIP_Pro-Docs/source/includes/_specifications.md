@@ -50,14 +50,9 @@ Stereo audio in and out is handled by a 24-bit DAC built-in to the GR8 processor
 
 ## Mechanical Drawing
 
-You can download a high resolution version of this image [here](images/CHIP-Pro-PCB.png)
-![Mechanical Drawing](images/CHIP-Pro-PCB_sm.png)
+![Mechanical Drawing](images/Mech_Draw_sm.jpg)
 
-### Dimensions
-
-Refer to the following diagram for the complete dimensions of C.H.I.P. Pro:
-
-![C.H.I.P. Pro Dimensions](images/CHIPPro-dims.jpg)
+You can download a high resolution version of this image [here](images/Mech_Draw.PDF)
 
 ## PCB Footprint
 

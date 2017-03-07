@@ -1,5 +1,4 @@
 # C.H.I.P. Pro FAQ
-![C.H.I.P. Pro](images/CHIP-Pro-Straight-Crop.jpg)
 
 ## What are the C.H.I.P. Pro specifications?
 * 1GHz Next Thing Co. GR8 processor - ARM Cortex-A8 with ARMv7 instruction set and NEON instruction set 

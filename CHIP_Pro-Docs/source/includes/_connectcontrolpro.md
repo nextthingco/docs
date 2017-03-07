@@ -78,6 +78,11 @@ Not only will you need a USB-UART cable but you will need the appropriate driver
 
 For example, [this](https://www.amazon.com/JBtek-WINDOWS-Supported-Raspberry-Programming/dp/B00QT7LQ88/ref=sr_1_6?srs=9123049011&ie=UTF8&qid=1488833574&sr=8-6) cable uses the Prolific hardware. The drivers are [available on their site](http://www.prolific.com.tw/US/ShowProduct.aspx?pcid=41&showlevel=0041-0041). If you are on Windows the driver can be installed after connecting C.H.I.P. Pro to your computer and navigating to Device Manager, finding **Ports (COM & LPT)** and double-clicking on the unrecognized USB-serial port. From the window that pops up you will be able to tell the computer to go find the device's driver online and install it.
 
+#### Power C.H.I.P. Pro 
+
+C.H.I.P. Pro may be able to be powered through a computer's USB port for a short amount of time but it will need more current as you go forward. Power C.H.I.P. Pro through the **micro USB port using an AC adapter** (we recommend getting one that supplies 12V and 3 amps).
+
+
 #### Solder Headers to C.H.I.P. Pro
 
 To connect the USB-UART cable to C.H.I.P. Pro you will need to solder headers onto the board for a reliable connection. 
@@ -89,7 +94,7 @@ Usually, the below connections are made between the cable wires and the C.H.I.P.
 * black -  GND
 * green - RX
 * white - TX
-* red - CHG-IN 
+
 
 PHOTO OF CONNECTION
 
@@ -630,17 +635,52 @@ The Network Manager will periodically try to reconnect. If the access point is r
 
 If you try to use `nmcli` and you get an error that it is not found or is not a command, chances are that you are using a C.H.I.P. Pro buildroot image. The `nmcli` commands only apply to C.H.I.P. Pro using Debian linux.
 
+## SSH 
+
+Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. 
+
+### Find IP
+
+```
+ip addr
+``` 
+
+**buildroot**
+
+### Connect
+
+```
+ssh root@<CHIPproIP>
+```
+
+**Debian**
+
+```
+ssh chip@<CHIPproIP>
+```
+
 ## Access I/O via sysfs	
+
+GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). Below are some basic exercises to check if digital in/out pins are are working correctly. 
+
+**Debian** - use `sudo` to gain permission while logged in as default `chip` user.
+**Buildroot** - since you are already logged in as the root user `sudo` is not necessary. 
 
 ### GPIO Input
 
-These lines of code will let us read values on pin CSIDO, which corresponds to pin 132 in the linux sysfs (CSID0-CSID7 have numbers 132-139) First, we tell the system we want to listen to this pin:
+These lines of code will let us read values on pin **CSIDO**, which corresponds to **pin 132** in the linux sysfs (CSID0-CSID7 have numbers 132-139).
+
+First, you will need to add a pull-down or pull-up resistor to prevent a floating pin while the switch is open. 
+
+PHOTO of pull-down
+
+Next, tell the system you want to listen to this pin:
 
 ```shell
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-View the mode of the pin. This should return “in”:
+View the mode of the pin. By default the pin modes are set to input so, this will return “in” unless you changed the pin mode to "out":
 
 ```shell
   cat /sys/class/gpio/gpio132/direction

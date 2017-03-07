@@ -637,7 +637,7 @@ If you try to use `nmcli` and you get an error that it is not found or is not a 
 
 ## SSH 
 
-Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. 
+Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. Our Debian example comes with ssh servers, our Buildroot examples do not. If you want to ssh while using Buildroot you will need to do a manual build. 
 
 ### Find IP
 
@@ -645,7 +645,7 @@ Once you connect to an network you can ssh into the C.H.I.P. Pro in order to pro
 ip addr
 ``` 
 
-**buildroot**
+**Debian**
 
 ### Connect
 
@@ -653,11 +653,7 @@ ip addr
 ssh root@<CHIPproIP>
 ```
 
-**Debian**
-
-```
-ssh chip@<CHIPproIP>
-```
+The IP will be under `wlan0`.
 
 ## Access I/O via sysfs	
 

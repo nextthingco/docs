@@ -1,6 +1,6 @@
 # Get Started With C.H.I.P. Pro
 
-![C.H.I.P. Pro](images/CHIP-Pro-Side-ISO.png)
+![C.H.I.P. Pro](images/CHIP_ProMain.jpg)
 
 The C.H.I.P. Pro System-on-Module (SOM) is designed to get you making great products instead of re-inventing computers. It's a low-cost, high-capability module that lets you focus on fast iterations of brilliant ideas that will be ready to manufacture.
 

@@ -200,7 +200,7 @@ Coming straight from the top push the antenna onto the connector. Keep in mind t
 ![wifi antenna connected](images/wifiOn.jpg)
 
 ### Enable Wifi Antenna
-Set the path of the external antenna.
+In order to use it, you need to set the path of the external antenna.
 
 **Debian**
 
@@ -234,7 +234,7 @@ The Buildroot operating system uses the `connman` command-line network manager t
 **Requirements**
 
   * C.H.I.P. Pro running buildroot OS
-  * [Serial connection](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) to C.H.I.P. Pro
+  * [Serial connection](https://docs.getchip.com/chip_pro.html#make-a-serial-connection) to C.H.I.P. Pro
     
 ### Step 1: Enable WiFi and Find a Network
 

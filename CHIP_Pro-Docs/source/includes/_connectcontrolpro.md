@@ -54,14 +54,13 @@ Size: ~180MB
 
 We provide a standard Debian distribution, complete with all the package managers and conveniences you know and love. This package is ideal for development, since it is more flexible than the buildroot-based Gadget OS. However, you will want to keep track of your dependencies to more easily transition to the more nimble Gadget OS.
 
-#### Log In
-Once you have connected via serial you'll be prompted for a username and password. The defaults are `chip` and `chip`. Change your password with `passwd`.
-
 ## Make a Serial Connection
 
-C.H.I.P. Pro is a headless computer, so you will need a separate computer in order to interact with it. This section will go over how to connect to C.H.I.P. Pro Dev Kit through USB-serial, connect to a WiFi network and where to find example scripts.
+C.H.I.P. Pro is a headless computer, so you will need a separate computer in order to interact with it. This section will go over how to connect through USB-serial, connect to a WiFi network and where to find example scripts.
 
 ### USB-serial to UART Pins
+
+A UART to USB-serial connection between C.H.I.P. Pro and your computer offers the most comprehensive look at what's happening in C.H.I.P. Pro as it boots, since you can get all message output from the moment it starts booting. 
 
 #### Things you will need
 
@@ -73,19 +72,19 @@ C.H.I.P. Pro is a headless computer, so you will need a separate computer in ord
 * Computer with monitor (for example, a [C.H.I.P.](http://www.getchip.com/)!)
 * terminal emulation software for Windows such as [PuTTY](http://www.chipkin.com/using-putty-for-serial-com-connections-hyperterminal-replacement/) (OS X and Linux have one built-in)
 
-**Download USB-UART Cable Drivers** 
+#### Install USB-UART Cable Drivers
 
-A UART to USB-serial connection between C.H.I.P. Pro and your computer offers the most comprehensive look at what's happening in C.H.I.P. Pro as it boots, since you can get all message output from the moment it starts booting. You'll need a USB-UART cable and the appropriate drivers for your computer's OS. 
+Not only will you need a USB-UART cable but you will need the appropriate drivers that go with the cable installed. Download and install the appropriate driver based on your computer's operating system.
 
-For example, [this](https://www.amazon.com/JBtek-WINDOWS-Supported-Raspberry-Programming/dp/B00QT7LQ88/ref=sr_1_6?srs=9123049011&ie=UTF8&qid=1488833574&sr=8-6) cable uses the Prolific hardware, with drivers [available on their site](http://www.prolific.com.tw/US/ShowProduct.aspx?pcid=41&showlevel=0041-0041). Another popular chipset for these cables is FTDI.
+For example, [this](https://www.amazon.com/JBtek-WINDOWS-Supported-Raspberry-Programming/dp/B00QT7LQ88/ref=sr_1_6?srs=9123049011&ie=UTF8&qid=1488833574&sr=8-6) cable uses the Prolific hardware. The drivers are [available on their site](http://www.prolific.com.tw/US/ShowProduct.aspx?pcid=41&showlevel=0041-0041). If you are on Windows the driver can be installed after connecting C.H.I.P. Pro to your computer and navigating to Device Manager, finding **Ports (COM & LPT)** and double-clicking on the unrecognized USB-serial port. From the window that pops up you will be able to tell the computer to go find the device's driver online and install it.
 
-**Solder Headers to C.H.I.P. Pro**
+#### Solder Headers to C.H.I.P. Pro
 
-To connect the cable to C.H.I.P. Pro you will need to solder headers onto the board for a reliable connection. 
+To connect the USB-UART cable to C.H.I.P. Pro you will need to solder headers onto the board for a reliable connection. 
 
 PHOTOS OF SOLDERED
 
-Usually, these are the connections made between the cable wires and the C.H.I.P. Pro, but make sure to check the  manufacturer's product description for the correct pinouts.
+Usually, the below connections are made between the cable wires and the C.H.I.P. Pro, but make sure to check the manufacturer's product description for the correct mapping.
  
 * black -  GND
 * green - RX
@@ -122,7 +121,7 @@ The port name will be `ttyUSB0`.
 
 #### Connect 
 
-Use Screen to create a serial a terminal connection at 115200 bps:
+Use Screen to create a serial terminal connection at 115200 bps:
 
 **Mac**
 
@@ -137,9 +136,8 @@ screen /dev/ttyUSB0 115200
 
 Once a terminal window pops up, hit the Enter key. 
 
-For a Buildroot example you will automatically be logged in as ```root```. 
-
-For the Debian example, log in with the default username and password ```chip```.
+* For a Buildroot example you will automatically be logged in as ```root```. 
+* For the Debian example, log in with the default username and password ```chip```.
 
 #### Exit Screen
 

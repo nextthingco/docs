@@ -37,7 +37,7 @@ The port name is usually `ttyUSB0`.
 
 #### Connect 
 
-Use Screen to create a serial a terminal connection at 115200 bps:
+Use Screen to create a serial terminal connection at 115200 bps:
 
 **Mac**
 
@@ -52,9 +52,8 @@ screen /dev/ttyUSB0 115200
 
 Once a terminal window pops up, hit the Enter key twice. 
 
-For a Buildroot example you will automatically be logged in as ```root```. 
-
-For the Debian example, log in with the default username and password ```chip```.
+* For a Buildroot example you will automatically be logged in as ```root```. 
+* For the Debian example, log in with the default username and password ```chip```.
 
 #### Exit Screen
 

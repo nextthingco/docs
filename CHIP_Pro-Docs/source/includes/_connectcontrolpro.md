@@ -35,9 +35,9 @@ Keep holding the FEL button down until the magnifying glass goes away and the pa
 
 
 ## Examples
-Select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing the C.H.I.P. Pro to know and get in the habit of. This process is explained below and is also illustrated on the flasher page.
+You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing the C.H.I.P. Pro to know and get in the habit of. This process is explained below and is also illustrated on the flasher page.
 
-We have built examples based on Buildroot specific to the hardware on the [Developer's Kit](https://docs.getchip.com/chip_pro_devkit.html). If you are building a circuit that incorporates mics and LEDs you can start with these examples and a bare C.H.I.P. Pro. 
+We have built examples based on Buildroot specific to the hardware on the [Developer's Kit](https://docs.getchip.com/chip_pro_devkit.html). If you are building a circuit that incorporates mics and LEDs with a bare C.H.I.P. Pro you can start with these examples. 
 
 #### Blinkenlights (Buildroot)
 Size: ~60MB
@@ -188,7 +188,7 @@ Once a terminal window pops up, press Enter.
 
 
 ## WiFi Antenna
-If you find you need a boost on your WiFi signal connect the included antenna onto the C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
+C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
 
 ### Connect Antenna
 Coming straight from the top push the antenna onto the connector. Keep in mind the connector will wear out over time. We suggest keeping the disconnect/connect cycle down to 10 or less. 

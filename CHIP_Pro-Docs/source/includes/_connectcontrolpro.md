@@ -676,7 +676,7 @@ Next, tell the system you want to listen to this pin:
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-View the mode of the pin. By default the pin modes are set to input so, this will return “in” unless you changed the pin mode to "out":
+View the mode of the pin. By default the pin modes are set to input so, this will return “in” unless the pin mode was changed to "out" previously:
 
 ```shell
   cat /sys/class/gpio/gpio132/direction
@@ -688,9 +688,15 @@ Connect a jumper wire or switch between Pin CSID0 and GND. Now use this line of 
   cat /sys/class/gpio/gpio132/value
 ```
 
+Continuously poll switch pin PE4(132) for state change:
+
+```shell
+  while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
+```
+
 ### GPIO Output
 
-You could also change the mode of a pin from “in” to “out”
+Change the mode of a pin from “in” to “out”:
 
 ```shell
   sudo sh -c 'echo out > /sys/class/gpio/gpio132/direction'
@@ -704,6 +710,12 @@ Now that it's in output mode, you can write a value to the pin:
 
 If you attach an LED to the pin and ground, the LED will illuminate according to your control messages.
 
+#### Blink an LED on Pin PE4(132)
+
+```
+while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; echo 0 >  /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; done;
+```
+
 
 ### GPIO Done
 
@@ -716,7 +728,7 @@ When you are done experimenting tell the system to stop listening to the gpio pi
 ### Finding GPIO Pin Names
 You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/Allwinner%20R8%20Datasheet%20V1.2.pdf), starting on page 18. 
 
-The letter index is a multiple of 32 (where A=0), and the number is an offset. For example PE4 is `CSID_D0` so
+The letter index is a multiple of 32 (where A=0), and the number is an offset. For example PE4 is `CSID_D0`, so you would find the GPIO pin name like this:
 
 ```
 E=4

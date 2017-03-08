@@ -35,7 +35,7 @@ There are three ports on the Dev Kit that support three different power supplies
 Power can also be provided to **three pins** to power C.H.I.P. Pro:
 
 * **CHG-IN** - connect 4.8 to 6 V of power to pin 4 (and GND) to provide power to C.H.I.P. Pro. If you have a 3.7V Lithium Polymer (LiPo) battery connected to BAT, then power provided to CHGIN will also charge the battery.
-* **BAT** - connect a 3.7V Lithium Polymer (LiPo) battery to pin 8 (and GND) to provide power to C.H.I.P. Pro. You can charge the battery by providing voltage to the CHG-IN pin.
+* **BAT** - connect a 3.7V Lithium Polymer (LiPo) battery to pin 8 (and GND) to provide power to C.H.I.P. Pro. You can charge the battery by providing voltage to the CHG-IN pin. When a battery is connected, short the PWRON (PWR) pin to ground for 2 seconds to start current flow. 
 * **VBUS** - connect 5V to pin 50 (and GND to pin 53) to provide power to C.H.I.P. Pro.
 
 ## Battery Charging Management

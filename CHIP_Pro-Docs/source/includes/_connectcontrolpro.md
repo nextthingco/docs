@@ -70,7 +70,7 @@ A UART to USB-serial connection between C.H.I.P. Pro and your computer offers th
 * Solder
 * Pin headers
 * Computer with monitor (for example, a [C.H.I.P.](http://www.getchip.com/)!)
-* terminal emulation software for Windows such as [PuTTY](http://www.chipkin.com/using-putty-for-serial-com-connections-hyperterminal-replacement/) (OS X and Linux have one built-in)
+* Terminal emulation software for Windows such as [PuTTY](http://www.chipkin.com/using-putty-for-serial-com-connections-hyperterminal-replacement/) (OS X and Linux have one built-in)
 
 #### Install USB-UART Cable Drivers
 

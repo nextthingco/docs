@@ -32,6 +32,6 @@ There are two ways to power off C.H.I.P. Pro.
 
 **1)** Ideally C.H.I.P. Pro should be powered off through a terminal window using the `poweroff` command. This will end all processes safely	 protecting your data. 
 
-**2)** Connect PWR pin to GND for 3+ seconds to power off. 
+**2)** Connect **PWR** pin to **GND** for 3+ seconds to power off. 
 
 PHOTO

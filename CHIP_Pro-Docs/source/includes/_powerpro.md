@@ -4,11 +4,13 @@ C.H.I.P. Pro can be powered in a few ways, all managed by the AXP209 power manag
 
 PHOTO
 
-When you are ready to embed C.H.I.P. Pro there are options for how to power C.H.I.P. Pro. Below is a list of the ports and pins to provide power to and pins that are necessary to provide power in some instances. 
+When you are ready to embed C.H.I.P. Pro there are options for how to power C.H.I.P. Pro. Below is a list of the ports and pins to provide power to and pins that are necessary to initiate power in some instances. 
 
 PHOTO
 
 * **Micro USB port** - use a 6 - 23V AC adapter (we recommend getting one that supplies 12V and 3 amps).
+
+**Pins**
 
 * **CHG-IN** - connect 4.8 to 6 volts of power to this pin (and GND) to provide power for C.H.I.P. Pro. If you have a Lithium Polymer (LiPo) battery connected to BAT, then power provided to CHG-IN will also charge the battery. 
 * **BAT** - connect a 3.7 volts Lithium Polymer (LiPo) battery to this pin (and GND) to provide power to C.H.I.P. Pro and receive charge from power inputs. When a battery is connected, short the **PWR (PWRON)** pin to ground for 2 seconds to start current flow.
@@ -28,7 +30,7 @@ If you need to provide power to a USB device connected to USB1, connect **IPSOUT
 
 There are two ways to power off C.H.I.P. Pro. 
 
-**1)** Ideally C.H.I.P. Pro should be powered off through a terminal window using the `poweroff` command.
+**1)** Ideally C.H.I.P. Pro should be powered off through a terminal window using the `poweroff` command. This will end all processes safely	 protecting your data. 
 
 **2)** Connect PWR pin to GND for 3+ seconds to power off. 
 

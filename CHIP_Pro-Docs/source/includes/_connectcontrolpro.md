@@ -58,9 +58,9 @@ We provide a standard Debian distribution, complete with all the package manager
 
 C.H.I.P. Pro is a headless computer, so you will need a separate computer in order to interact with it. This section will go over how to connect via USB-serial to UART, connect to a WiFi network and where to find example scripts.
 
-### USB-serial to UART Pins
+### USB-Serial to UART Pins
 
-A UART to USB-serial connection between C.H.I.P. Pro and your computer offers the most comprehensive look at what's happening in C.H.I.P. Pro as it boots, since you can get all message output from the moment it starts booting. 
+A UART to USB-serial connection between C.H.I.P. Pro and your computer offers the most comprehensive look at what's happening in C.H.I.P. Pro since you can get all message output from the moment it starts booting. 
 
 #### Things you will need
 
@@ -80,7 +80,7 @@ For example, [this](https://www.amazon.com/JBtek-WINDOWS-Supported-Raspberry-Pro
 
 #### Power C.H.I.P. Pro 
 
-C.H.I.P. Pro may be able to be powered through a computer's USB port for a short amount of time but it will need more current as you go forward. Power C.H.I.P. Pro through the **micro USB port using an AC adapter** (we recommend getting one that supplies 12V and 3 amps).
+C.H.I.P. Pro may be able to be powered through a computer's USB port for a short amount of time but it will need more current as you go forward. A reliable way to power C.H.I.P. Pro is through the **micro USB port using an AC adapter** (we recommend getting one that supplies 12V and 3 amps).
 
 
 #### Solder Headers to C.H.I.P. Pro
@@ -639,13 +639,14 @@ If you try to use `nmcli` and you get an error that it is not found or is not a 
 
 Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. Our Debian example comes with ssh servers, our Buildroot examples do not. If you want to ssh while using Buildroot you will need to do a manual build. 
 
+**Debian**
+
 ### Find IP
 
 ```
 ip addr
 ``` 
-
-**Debian**
+The IP will be under `wlan0`.
 
 ### Connect
 
@@ -653,18 +654,19 @@ ip addr
 ssh root@<CHIPproIP>
 ```
 
-The IP will be under `wlan0`.
+
 
 ## Access I/O via sysfs	
 
-GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). Below are some basic exercises to check if digital in/out pins are are working correctly. 
+GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). Below are some basic exercises to check if the digital in/out pins are are working correctly. 
 
 **Debian** - use `sudo` to gain permission while logged in as default `chip` user.
+
 **Buildroot** - since you are already logged in as the root user `sudo` is not necessary. 
 
 ### GPIO Input
 
-These lines of code will let us read values on pin **CSIDO**, which corresponds to **pin 132** in the linux sysfs (CSID0-CSID7 have numbers 132-139).
+These lines of code will let you read values on pin **PE4** which corresponds to **132** in Linux sysfs (PE4 - PE11 are numbers 132-139 in sysfs).
 
 First, you will need to add a pull-down or pull-up resistor to prevent a floating pin while the switch is open. 
 
@@ -676,13 +678,13 @@ Next, tell the system you want to listen to this pin:
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-View the mode of the pin. By default the pin modes are set to input so, this will return “in” unless the pin mode was changed to "out" previously:
+View the mode of the pin. By default the pin modes are set to input. So, the following command will return “in” unless the pin mode was changed to "out" previously:
 
 ```shell
   cat /sys/class/gpio/gpio132/direction
 ```
 
-Connect a jumper wire or switch between Pin CSID0 and GND. Now use this line of code to read the value:
+Connect a jumper wire or switch between pin PE4 and GND. Now use this line of code to read the value:
 
 ```shell
   cat /sys/class/gpio/gpio132/value
@@ -696,19 +698,22 @@ Continuously poll switch pin PE4(132) for state change:
 
 ### GPIO Output
 
-Change the mode of a pin from “in” to “out”:
+Attach an LED to the pin and ground. 
+
+Photo of LED
+
+Change the mode of the pin from “in” to “out”:
 
 ```shell
   sudo sh -c 'echo out > /sys/class/gpio/gpio132/direction'
 ```
 
-Now that it's in output mode, you can write a value to the pin:
+Now that it's in output mode you can write a value to the pin and turn the LED on and off:
 
 ```shell
   sudo sh -c 'echo 1 > /sys/class/gpio/gpio132/value'
 ```
 
-If you attach an LED to the pin and ground, the LED will illuminate according to your control messages.
 
 #### Blink an LED on Pin PE4(132)
 
@@ -719,21 +724,24 @@ while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/g
 
 ### GPIO Done
 
-When you are done experimenting tell the system to stop listening to the gpio pin:
+When you are done experimenting always tell the system to stop listening to the gpio pin:
 
 ```shell
   sudo sh -c 'echo 132 > /sys/class/gpio/unexport'
 ```
 
+If pins are not unexported, the pins will be "busy" the next time you go to export them. 
+
 ### Finding GPIO Pin Names
 You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/Allwinner%20R8%20Datasheet%20V1.2.pdf), starting on page 18. 
 
-The letter index is a multiple of 32 (where A=0), and the number is an offset. For example PE4 is `CSID_D0`, so you would find the GPIO pin name like this:
+As an example let's look at CSID_D0 which is pin **PE4** on the datasheet. 
 
-```
-E=4
-(32*4)+4 = 132
-```
+The letter index starting with A = 0.
+```E=4```
+
+Multiply the letter index by 32, then add the number that follows '''PEx''' to the result:
+``` (32*4)+4 = 132```
 
 Therefore, listening to CSID0 in sysfs would begin with
 

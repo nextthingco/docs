@@ -87,7 +87,7 @@ C.H.I.P. Pro may be able to be powered through a computer's USB port for a short
 
 To connect the USB-UART cable to C.H.I.P. Pro you will need to solder headers onto the board for a reliable connection. 
 
-PHOTOS OF SOLDERED
+![UART connection](images/solderHeaders_800.jpg)
 
 Usually, the below connections are made between the cable wires and the C.H.I.P. Pro, but make sure to check the manufacturer's product description for the correct mapping.
  
@@ -96,7 +96,7 @@ Usually, the below connections are made between the cable wires and the C.H.I.P.
 * white - TX
 
 
-PHOTO OF CONNECTION
+![UART connection](images/UARTconnect_800.jpg)
 
 ### OS X & Linux
 
@@ -662,17 +662,17 @@ GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Document
 
 **Debian** - use `sudo` to gain permission while logged in as default `chip` user.
 
-**Buildroot** - since you are already logged in as the root user `sudo` is not necessary. 
+**Buildroot** - with our examples you are already logged in as the root user so `sudo` is not necessary. 
 
 ### GPIO Input
 
 These lines of code will let you read values on pin **PE4** which corresponds to **132** in Linux sysfs (PE4 - PE11 are numbers 132-139 in sysfs).
 
-First, you will need to add a pull-down or pull-up resistor to prevent a floating pin while the switch is open. 
+If reading a CSID0 - CSID7 which are pins PE4 - PE11, you will need to add a pull-down or pull-up resistor to prevent a floating pin while the switch is open. 
 
-PHOTO of pull-down
+![pull-down resistor](images/buttonUART_800.jpg)
 
-Next, tell the system you want to listen to this pin:
+In terminal, tell the system you want to listen to this pin:
 
 ```shell
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
@@ -700,7 +700,7 @@ Continuously poll switch pin PE4(132) for state change:
 
 Attach an LED to the pin and ground. 
 
-Photo of LED
+![UART connection](images/ledBlink_800.gif)
 
 Change the mode of the pin from “in” to “out”:
 

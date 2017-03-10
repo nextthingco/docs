@@ -89,7 +89,7 @@ To connect the USB-UART cable to C.H.I.P. Pro you will need to solder headers on
 
 ![UART connection](images/solderHeaders_800.jpg)
 
-Usually, the below connections are made between the cable wires and the C.H.I.P. Pro, but make sure to check the manufacturer's product description for the correct mapping.
+The below connections work for the cable linked to in the above material list. Make sure to check the manufacturer's product description for the correct pinout for whatever cable you are using.
  
 * black -  GND
 * green - RX
@@ -655,7 +655,6 @@ ssh root@<CHIPproIP>
 ```
 
 
-
 ## Access I/O via sysfs	
 
 GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). Below are some basic exercises to check if the digital in/out pins are are working correctly. 
@@ -672,7 +671,7 @@ If reading a CSID0 - CSID7 which are pins PE4 - PE11, you will need to add a pul
 
 ![pull-down resistor](images/buttonUART_800.jpg)
 
-In terminal, tell the system you want to listen to this pin:
+In terminal, tell the system you want to listen to a pin:
 
 ```shell
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
@@ -698,7 +697,7 @@ Continuously poll switch pin PE4(132) for state change:
 
 ### GPIO Output
 
-Attach an LED to the pin and ground. 
+Attach an LED to pin PE4 and ground. 
 
 ![UART connection](images/ledBlink_800.gif)
 
@@ -737,10 +736,10 @@ You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https:
 
 As an example let's look at CSID_D0 which is pin **PE4** on the datasheet. 
 
-The letter index starting with A = 0.
-```E=4```
+Look at the letter that follows the "P". This represents the number it is in the english alphabet. The index starts at A = 0. So,```E=4```
 
-Multiply the letter index by 32, then add the number that follows '''PEx''' to the result:
+Multiply the letter index by 32, then add the number that follows "PE":
+
 ``` (32*4)+4 = 132```
 
 Therefore, listening to CSID0 in sysfs would begin with

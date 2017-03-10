@@ -2,13 +2,13 @@
 
 **Key**
 
-_underlined_ = default pin function
+_italics_ = default pin function
 
 In the "On C.H.I.P. Pro" column:
 
-C.H.I.P. Pro pin number = exposed external pins on C.H.I.P. Pro 
-NAND = available internal pins on C.H.I.P. Pro 
-"n/e" = not exposed for use on C.H.I.P. Pro
+* C.H.I.P. Pro pin number = exposed external pins on C.H.I.P. Pro 
+* NAND = available internal pins on C.H.I.P. Pro 
+* "n/e" = not exposed for use on C.H.I.P. Pro
 
 | Function | Pin Name | On C.H.I.P. Pro | Future Use | Multi2    | Multi3    | Multi4    | Multi5    | Multi6 | Multi7 |            | 
 |----------|----------|-----------|------------|-----------|-----------|-----------|-----------|--------|--------|------------| 

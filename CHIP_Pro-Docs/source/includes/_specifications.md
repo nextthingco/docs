@@ -19,7 +19,7 @@
 
 ## Audio
 
-Stereo audio in and out is handled by a 24-bit DAC built-in to the GR8 processor. There are also digital options that you can use, but require configuration of the Linux kernel and additional hardware to access.
+Stereo audio in and out is handled by a 24-bit DAC built-in to the GR8 processor. 
 
 * 24-bit ADC/DAC for stereo audio in and out
 * one-wire audio digital out

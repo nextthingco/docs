@@ -8,7 +8,7 @@ Like its older sibling C.H.I.P., C.H.I.P. Pro's GR8 SiP can run mainline Linux. 
 
 **Buildroot** is simple and stripped down making it efficient and good for single application use cases. 
 
-Unlike its sibling, C.H.I.P. Pro has 512MB of storage which is about half of what C.H.I.P. offers. This means that it's a good idea to know how much storage software will take before flashing and installing.  
+C.H.I.P. Pro's SLC NAND storage is optimized for commercial applications. While the storage is faster and more reliable it has less capacity - it's a good idea to know how much storage software will take before flashing and installing.  
 
 Grab these items to flash an example:
 
@@ -42,12 +42,12 @@ We have built examples based on Buildroot specific to the hardware on the [Devel
 #### Blinkenlights (Buildroot)
 Size: ~60MB
 
-This simple example provides easy-to-understand code with exciting results! Flash C.H.I.P. Pro with this image and LEDs connected to **GPIO D0-D7** turn on and off in a cascading pattern. LEDs connected to the **PWM0 and PWM1 pins** will pulse from dim to bright. 
+This Python based example provides easy-to-understand code with exciting results! Flash C.H.I.P. Pro with this image and LEDs connected to **GPIO D0-D7** turn on and off in a cascading pattern. LEDs connected to the **PWM0 and PWM1 pins** will pulse from dim to bright. 
 
 #### VU Meter (Buildroot)
 Size: ~60MB
 
-Want to make sure your mics are working? Use this handy VU Meter example. LEDs connected to GPIO D0 - D7 will light proportional to the volume of the noise captured by two mics connected to the **MICIN1 and MICIN2 pins**.
+Want to make sure your mics are working? Use this handy VU Meter Python based example. LEDs connected to GPIO D0 - D7 will light proportional to the volume of the noise captured by two mics connected to the **MICIN1 and MICIN2 pins**.
 
 ### Debian
 Size: ~180MB
@@ -70,7 +70,7 @@ A UART to USB-serial connection between C.H.I.P. Pro and your computer offers th
 * Solder
 * Pin headers
 * Computer with monitor (for example, a [C.H.I.P.](http://www.getchip.com/)!)
-* Terminal emulation software for Windows such as [PuTTY](http://www.chipkin.com/using-putty-for-serial-com-connections-hyperterminal-replacement/) (OS X and Linux have one built-in)
+* Terminal emulation software for Windows such as [PuTTY](http://www.chipkin.com/using-putty-for-serial-com-connections-hyperterminal-replacement/) (OS X and Linux have `screen` built-in)
 
 #### Install USB-UART Cable Drivers
 
@@ -80,7 +80,7 @@ For example, [this](https://www.amazon.com/JBtek-WINDOWS-Supported-Raspberry-Pro
 
 #### Power C.H.I.P. Pro 
 
-C.H.I.P. Pro may be able to be powered through a computer's USB port for a short amount of time but it will need more current as you go forward. A reliable way to power C.H.I.P. Pro is through the **micro USB port using an AC adapter** (we recommend getting one that supplies 12V and 3 amps).
+C.H.I.P. Pro can be powered through a computer's USB port. However, some power intensive applications might require more current than the average computers provide via their USB port. A reliable way to power C.H.I.P. Pro is through the **micro USB port using an AC adapter** (we recommend getting one that supplies 12V and 3 amps).
 
 
 #### Solder Headers to C.H.I.P. Pro
@@ -100,7 +100,7 @@ The below connections work for the cable linked to in the above material list. M
 
 ### OS X & Linux
 
-Mac systems and most flavors of Linux come with the terminal emulator software Screen. If your Linux distro does not come with Screen and uses Apt install using apt-get:
+Mac systems and most flavors of Linux come with the terminal emulator software Screen. In case `screen` is missing, it can be installed using apt-get on Debian-based systems: 
 
 ```
 sudo apt-get install screen
@@ -114,7 +114,7 @@ With C.H.I.P. Pro connected to your computer check to see if the usbserial port 
 ls /dev/tty.*
 ```
 
-The port name will be `/dev/tty.usbserial`.
+The port name will be `/dev/tty.usbserial` or something similar.
 
 **Linux** 
 
@@ -122,7 +122,7 @@ The port name will be `/dev/tty.usbserial`.
 ls /dev/ttyUSB*
 ```
 
-The port name will be `ttyUSB0`.
+The port name will be `ttyUSB0` or something similar.
 
 #### Connect 
 

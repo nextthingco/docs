@@ -8,7 +8,7 @@ To get the most out of developing and designing for C.H.I.P. Pro we recommend pr
 
 C.H.I.P. Pro is a breadboard-friendly and surface-mount-ready computer designed from the ground up to power the next generation of smart devices. 
 
-This document provides technical details that will make integrating the C.H.I.P. Pro module into your designs a breeze. Along with technical specifications and basic guides to get you connected and working with software on the C.H.I.P. Pro. 
+This document provides technical details that will make integrating the C.H.I.P. Pro module into your designs a breeze, along with technical specifications and basic guides to get you connected and working with software on the C.H.I.P. Pro. 
 
 C.H.I.P. Pro's Features:
 
@@ -36,14 +36,14 @@ The on-board Realtek 8723DS combination module provides compliant Wi-Fi B/G/N an
 
 **Power Management**
 
-Charge or power from an AC/DC adapter or power it from USB or a rechargable battery. On-board Power management with the AXP209 provides plenty of power options to better match your applications: mobile, industrial, and low-power are all possible with C.H.I.P. Pro. 
+C.H.I.P. Pro can be powered by battery, USB or AC/DC adapter. On-board Power management with the AXP209 provides plenty of power options to better match your applications: mobile, industrial, and low-power are all possible with C.H.I.P. Pro. 
 
 
 ## GR8 SiP
 
 ![GR8](images/CHIP-Pro-Exploded-View.png)
 
-C.H.I.P. Pro is powered by GR8, a system-in-package (SiP) that was designed by us at Next Thing Co. 
+The GR8 is a system-in-package (SiP) that was designed by us at Next Thing Co. You can find it in our C.H.I.P. Pro board and it's available for purchase on its own.
 
 GR8 SiP Features:
 
@@ -52,7 +52,7 @@ GR8 SiP Features:
 * 256MB of Nanya DDR3 DRAM
 * 14mm x 14mm FBGA package 
 
-More information about the GR8 SiP can be found in the [GR8 data sheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/GR8_Datasheet_v1.0.pdf)
+More information about the GR8 SiP can be found in the [GR8 data sheet.](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/GR8_Datasheet_v1.0.pdf)
 
 ## Block Diagram
 

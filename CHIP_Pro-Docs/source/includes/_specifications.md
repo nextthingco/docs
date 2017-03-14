@@ -46,7 +46,6 @@ Stereo audio in and out is handled by a 24-bit DAC built-in to the GR8 processor
 
 * GadgetOS, a Linux optimized for GR8 and C.H.I.P. Pro
 * Debian for C.H.I.P. Pro, for a familiar Linux experience
-* Next Thing Co. rootfs on GitHub so developers can create their own Linux distro for C.H.I.P. Pro
 
 ## Mechanical Drawing
 

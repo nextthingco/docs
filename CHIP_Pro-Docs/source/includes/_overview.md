@@ -12,7 +12,7 @@ This document provides technical details that will make integrating the C.H.I.P.
 
 C.H.I.P. Pro's Features:
 
-* 512MB of high-speed NAND storage
+* 512MB of NAND storage
 * WiFi and Bluetooth connectivity
 * power and battery management
 * pins for popular I/O busses

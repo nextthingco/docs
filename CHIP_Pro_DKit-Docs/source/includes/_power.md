@@ -28,9 +28,9 @@ In this instance the software puts all processes away properly making it is safe
 
 There are three ports on the Dev Kit that support three different power supplies:
 
-* **Micro USB port** - AC adapter or powered USB hub 
-* **JST-PH 2.0mm** - Rechargable 3.7V Lithium Polymer battery 
-* **DC-IN barrel jack** - 6 - 23V AC adapter (we recommend getting one that supplies 12V and 3 amps)
+* **Micro USB port** - Use either an AC adapter or powered USB hub with a micro USB plug.
+* **JST-PH 2.0mm** - Connect a rechargeable 3.7V lithium polymer battery to the JST port. Press the On/Off button to power C.H.I.P. Pro. Charge a LiPo battery connected to this port by connecting an AC adapter to the barrel jack.
+* **DC-IN barrel jack** - Plug in a 6 - 23V AC adapter (we recommend getting one that supplies 12V and 3 amps). 
 
 Power can also be provided to **three pins** to power C.H.I.P. Pro:
 

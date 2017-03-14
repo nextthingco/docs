@@ -2,11 +2,11 @@
 
 ## Powering Off
 
-If you are running any processes we recommend powering C.H.I.P. Pro off by holding the C.H.I.P. Pro power button on the dev board down (for about 5 seconds). Wait for the power and status LEDs to turn off. 
+After C.H.I.P. Pro has been flashed with a new image you can power off the board by holding the power button on the dev board down (for about 5 seconds). Wait for the power and status LEDs to turn off. 
 
 ![power off button](images/poweroffB.gif)
 
-Alternatively, you can switch off C.H.I.P. Pro via command line:
+If running processes while connected to C.H.I.P. Pro we recommend powering off C.H.I.P. Pro via command line:
 
 **Buildroot**
 
@@ -20,7 +20,7 @@ poweroff
 sudo poweroff
 ```
 
-In either instances, once C.H.I.P. Pro has been powered down it is safe to remove the power supply from the Dev Kit without the risk of losing data. 
+In this instance the software puts all processes away properly making it is safe to remove the power supply from the Dev Kit without the risk of losing data. 
 
 ## Input
 

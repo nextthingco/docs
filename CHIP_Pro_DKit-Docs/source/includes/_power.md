@@ -22,7 +22,7 @@ sudo poweroff
 
 In this instance the software puts all processes away properly making it is safe to remove the power supply from the Dev Kit without the risk of losing data. 
 
-## Input
+## Power C.H.I.P. Pro Dev Kit
 
 ![image page](images/powerIn.jpg)
 
@@ -38,7 +38,7 @@ Power can also be provided to **three pins** to power C.H.I.P. Pro:
 * **BAT** - connect a 3.7V Lithium Polymer (LiPo) battery to pin 8 (and GND) to provide power to C.H.I.P. Pro. You can charge the battery by providing voltage to the CHG-IN pin. When a battery is connected, short the PWRON (PWR) pin to ground for 2 seconds to start current flow. 
 * **VBUS** - connect 5V to pin 50 (and GND to pin 53) to provide power to C.H.I.P. Pro.
 
-## Battery Charging Management
+### Battery Charging Management
 
 The Dev Kit uses the **AXP209 IC** to manage charging. Pin 7 marked BAT TEMP or BTS supports a thermistor to monitor the battery temperature when the battery is charging or discharging.  If you do not incorporate a thermistor into your setup the pin may float from ground interferring with how much charge current is throttled to the BAT pin and the JST connector. To ensure maximum charge current without a thermistor disable the battery temperature monitoring system.
 
@@ -53,7 +53,8 @@ sudo i2cset -y -f 0 0x34 0x82 0x82
 
 You can find more information on this setup in the [AXP209 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). Search "ts pin" to quickly find information.
 
-## Output
+## Power Out
+
 The C.H.I.P. Pro Dev kit can provide power to sensors and peripherals.
 
 * **VCC-3V3** - pin 2 provides 3.3V for sensors and anything else. This pin can provide a maximum of 800mA. The 800mA supply takes into account system load and can vary depending on what the Wifi module and GR8 SOC are requiring from the AXP209 power management IC.
@@ -62,7 +63,9 @@ The C.H.I.P. Pro Dev kit can provide power to sensors and peripherals.
 * **USB1 Host** - provide power to USB peripherals.
 * **PWRON** - connect to ground to turn C.H.I.P. Pro on and boot the operating system.
 
-## Management 
+
+## Management
+ 
 There are several ways to power the C.H.I.P. Pro Dev Kit and your creative endeavors. The Dev Kit boasts a AXP209 Power System Management IC designed to switch to any available power source. The following table details what happens with some different power scenarios.
 
 Power Source | Result

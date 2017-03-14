@@ -365,9 +365,9 @@ ping: sendto: Network is unreachable
 
 #### Troubleshooting Connection Problems
 
-* Review any messages that the connect commnand gave you. Did they look like the examples of a successful connection?
+* Review any messages that the connect command gave you. Did they look like the examples of a successful connection?
 
-* Double check you used the right network when you used the connect commnand.
+* Double check you used the right network when you used the connect command.
 
 * If everything checked out until you got to `ping`, there's a good chance the problem is with your router or connection to the internet. 
 

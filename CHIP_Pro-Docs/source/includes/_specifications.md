@@ -61,4 +61,4 @@ C.H.I.P. Pro is designed for scale so it's ready to drop into any SMT manufactur
 
 ## Data Sheet
 
-While this documentation contains much of the needed technical info for C.H.I.P. Pro, the complete data sheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
+While this documentation contains much of the needed technical info for C.H.I.P. Pro, the complete data sheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)

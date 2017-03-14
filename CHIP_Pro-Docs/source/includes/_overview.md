@@ -17,7 +17,7 @@ C.H.I.P. Pro's Features:
 * power and battery management
 * pins for popular I/O busses
 * USB gadget
-* the verstatility of mainline Linux 
+* the versatility of mainline Linux 
 * dimensions: 45mm x 30mm
 
 Comprehensive audio handling includes:

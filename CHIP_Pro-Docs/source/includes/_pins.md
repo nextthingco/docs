@@ -72,7 +72,7 @@ Pin Number | Port | GR8 Pin Name | Signal Description | Type
 ## SPI – Serial Peripheral Interface 
 Pin Number | Port | GR8 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
-41 | PE0 | SPI2-CS0 | SPI2 Chip Slect Signal (active low) | I/O
+41 | PE0 | SPI2-CS0 | SPI2 Chip Select Signal (active low) | I/O
 40 | PE1 | SPI2-CLK | SPI2 Clock Signal | I/O
 39 | PE2 | SPI2-MISO | SPI2 Master Data In, Slave Data Out | I/O
 38 | PE3 | SPI2-MOSI | SPI2 Master Data Out, Slave Data In | I/O
@@ -101,11 +101,11 @@ Pin Number | Port Name | GR8 Pin Name | Signal Description | Type
 ## External Interrupt
 Pin Number | Port Name | GR8 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
-44 | PG3 | EINT3 | External Interupt Input | I
-42 | PG4 | EINT4 | External Interupt Input | I
-10 | PG13 |EINT13 | External Interupt Input | I
-21 | PB5 | EINT19 | External Interupt Input | I
-25 | PB9 | EINT24 | External Interupt Input | I
+44 | PG3 | EINT3 | External Interrupt Input | I
+42 | PG4 | EINT4 | External Interrupt Input | I
+10 | PG13|EINT13 | External Interrupt Input | I
+21 | PB5 | EINT19 | External Interrupt Input | I
+25 | PB9 | EINT24 | External Interrupt Input | I
 
 ## USB1 and USB0
 Pin Number | Port Name | GR8 Pin Name | Signal Description | Type 

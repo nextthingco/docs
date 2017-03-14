@@ -159,36 +159,55 @@ Prepare CHIP with a jumper wire connecting Pin 7 and Pin 39 on header U14 (FEL p
 
 Now connect CHIP to your computer with a [micro-USB](https://commons.wikimedia.org/wiki/File:Micro_USB.jpg)->USB-A cable. The power LED will illuminate.
 
-#### Option 1: Flash With NTC Buildroot OS
+Choose an OS to flash CHIP by adding the appropriate flag. To see what flags are available:
+ 
+```shell
+	./chip-update-firmware.sh -h
+```
+
+The output will be similar to this:
+
+```shell
+  -s  --  Server             [Debian + Headless]        
+  -g  --  GUI                [Debian + XFCE]            
+  -p  --  PocketCHIP         [CHIP on the go!]          
+  -b  --  Buildroot          [Tiny, but powerful]       
+  -f  --  Force clean        [re-download if applicable]
+  -n  --  No limit           [enable greater power draw]
+  -r  --  Reset              [reset device after flash] 
+  -B  --  Branch             [eg. -B testing]           
+  -N  --  Build#             [eg. -N 150]               
+  -F  --  Format             [eg. -F Toshiba_4G_MLC]    
+  -L  --  Local              [eg. -L ../img/buildroot/] 
+```
+
+#### Flash With NTC Buildroot OS
 Buildroot is a lean operating system, and does not have a package manager to install software. You can add additional software before you flash CHIP by [customizing buildroot](#customize-buildroot). 
 
 ```shell
   cd ~/CHIP-tools
-  ./chip-update-firmware.sh -f
+  ./chip-update-firmware.sh -b
 ```
-The `-f` option means "fastboot." If you have problems flashing, particularly on Windows or OS X, you can run `./chip-update-firmware.sh` to disable fastboot flashing.
 
 During flashing, the terminal will fill with messages.  If successful, you'll see C.H.I.P. run through a hardware test, with the answers being 'OK'.  If C.H.I.P. is 'OK', you can remove the jumper wire. Here is a [sample successful output](#buildroot-output).
 
-#### Option 2: Flash With Debian
-If you want to flash CHIP with the debian OS with no window manager or GUI
+#### Flash With Headless Debian
+If you want to flash CHIP with the headless Debian OS with no window manager or GUI
 
 ```shell
   cd ~/CHIP-tools
-  ./chip-update-firmware.sh -d -f
+  ./chip-update-firmware.sh -s
 ```
 
-The `-f` option means "fastboot." If you have problems flashing, particularly on Windows or OS X, you can disable fastboot by leaving off the -f option: `./chip-update-firmware.sh -d`. Here is a [sample successful output](#debian-output).
-
-#### Option 3: Flash With CHIP Operating System
-If you want to flash CHIP with the complete CHIP Operating System with a desktop manager and GUI:
+#### Flash With Debian with GUI
+If you want to flash CHIP with a desktop manager and GUI:
 
 ```shell
   cd ~/CHIP-tools
-  ./chip-update-firmware.sh -d -b stable-gui -f
+  ./chip-update-firmware.sh -g
 ```
 
-During flashing, the terminal will fill with messages. If successful, you'll see C.H.I.P. run through a hardware test, with the answers being 'OK'.  If C.H.I.P. is 'OK', you can remove the jumper wire. Here is a [sample successful output](#debian-output). Because of filesize, the "gui" option must also include the `-f` fastboot option. Windows and OS X are not yet supported as flashing hosts.
+During flashing, the terminal will fill with messages. If successful, you'll see C.H.I.P. run through a hardware test, with the answers being 'OK'.  If C.H.I.P. is 'OK', you can remove the jumper wire. Here is a [sample successful output](#debian-output). 
 
 #### Connect to CHIP and Do Something
 If everything went OK, you can now power up your CHIP again and connect via serial as a USB gadget:
@@ -203,10 +222,6 @@ and even test the hardware:
 ```shell
   sudo hwtest
 ```
-
-
-
-
 
 
 
@@ -251,10 +266,16 @@ from the buildroot repository root. This will cross-compile linux/buildroot for 
 
 This will take a while, maybe an hour. When finished, flash CHIP with the script:
 
+
 ```shell
-  cd ~/CHIP-tools
-  BUILDROOT_OUTPUT_DIR=../CHIP-buildroot/output ./chip-fel-flash.sh
+cd CHIP-tools
+sudo ./chip-create-nand-images.sh ../CHIP-Buildroot/output/build/uboot* ../CHIP-Buildroot/output/images/rootfs.tar outputdir
+
+sudo chown -R $USER:$USER outputdir/
+
+./chip-update-firmware.sh -L outputdir/
 ```
+In the first command, the script translates Buildroot's intermediate image files into images matching CHIP's various NAND types. The required parameters are a compiled uboot directory, a tarball of the root filesystem, and finally the name of a new directory to create, which will have the completed artifacts in it. Next we change the ownership of the files from `root` to your user. Finally, `./chip-update-firmware.sh -L output/dir` will flash local images to a connected device in FEL mode.
 
 Unless you changed the users or passwords, you can login to CHIP as `chip` or `root` using the password `chip`.
 

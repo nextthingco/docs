@@ -661,6 +661,12 @@ There are several pins that can be configured as digital input and output on the
 
 GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSI_D0 - CSI_D7). 
 
+Below are some basic exercises to check if the digital in/out pins are working correctly. 
+
+**Debian** - use `sudo` to gain permission while logged in as default `chip` user.
+
+**Buildroot** - with our examples you are already logged in as the root user so `sudo` is not necessary. 
+
 ### Figure out the GPIO sysfs Pin Number
 
 You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/Allwinner%20R8%20Datasheet%20V1.2.pdf), starting on page 18. 
@@ -678,14 +684,6 @@ Therefore, listening to CSID0 in sysfs would begin with
 ```
 sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
-
-### Use the GPIO Pins
-
-Below are some basic exercises to check if the digital in/out pins are working correctly. 
-
-**Debian** - use `sudo` to gain permission while logged in as default `chip` user.
-
-**Buildroot** - with our examples you are already logged in as the root user so `sudo` is not necessary. 
 
 ### GPIO Input
 

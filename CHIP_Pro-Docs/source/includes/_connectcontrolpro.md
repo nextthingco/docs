@@ -8,7 +8,7 @@ Like its older sibling C.H.I.P., C.H.I.P. Pro's GR8 SiP can run mainline Linux. 
 
 **Buildroot** is simple and stripped down making it efficient and good for single application use cases. 
 
-C.H.I.P. Pro's SLC NAND storage is optimized for commercial applications. While the storage is faster and more reliable it has less capacity - it's a good idea to know how much storage software will take before flashing and installing.  
+C.H.I.P. Pro's SLC NAND storage is optimized for commercial applications. While the storage is faster and more reliable it has less capacity. Because of this, it's a good idea to know how much storage software will take before flashing and installing.  
 
 Grab these items to flash an example:
 

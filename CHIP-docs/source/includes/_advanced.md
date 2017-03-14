@@ -150,7 +150,7 @@ Here's all the commands in one place:
 ## Flash CHIP Firmware
 Now that the [virtual machine and SDK](#installing-c-h-i-p-sdk) are running and configured, you can connect CHIP to your computer and give it an operating system. If you want to flash using a native Ubuntu installation, read how to [prepare Ubuntu to flash](#setup-ubuntu-for-flashing)
 
-#### Prepare CHIP for Flashing
+### Prepare CHIP for Flashing
 Prepare CHIP with a jumper wire connecting Pin 7 and Pin 39 on header U14 (FEL pin and GND). Here's a reference image that labels the headers and pins:
 
 ![CHIP with jumper wire attached](images/uboot_fel_jumper.jpg)
@@ -158,6 +158,8 @@ Prepare CHIP with a jumper wire connecting Pin 7 and Pin 39 on header U14 (FEL p
 *Note: this jumper needs to be present only when you connect CHIP to power*. If for some reason the wire becomes disconnected after you have powered CHIP, there is no problem or need to panic.
 
 Now connect CHIP to your computer with a [micro-USB](https://commons.wikimedia.org/wiki/File:Micro_USB.jpg)->USB-A cable. The power LED will illuminate.
+
+### Choose an OS
 
 Choose an OS to flash CHIP by adding the appropriate flag. To see what flags are available:
  

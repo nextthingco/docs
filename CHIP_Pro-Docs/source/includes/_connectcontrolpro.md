@@ -21,7 +21,7 @@ If it's your first time flashing, when you arrive at [flash.getchip.com/pro](htt
 
 Once the extension is installed, plug the micro USB cable into the micro USB port on C.H.I.P. Pro.   
 
-Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. The C.H.I.P. Pro will power up which will be indicated by the pink power and white status LEDs illuminating. 
+Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. The pink power and white status LEDs will light up showing that the C.H.I.P. Pro is powered.
 
 ![pushing FELL button](images/hold_plugPro800.gif)
 
@@ -667,7 +667,7 @@ You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https:
 
 As an example let's look at CSID_D0 which is pin **PE4** on the datasheet. 
 
-Look at the letter that follows the "P". This represents the number it is in the english alphabet. The index starts at A = 0. So,```E=4```
+Look at the letter that follows the "P". Starting with A = 0, count up in the alphabet until you arrive at that letter. For example, ```E=4```.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 
@@ -681,7 +681,7 @@ sudo sh -c 'echo 132 > /sys/class/gpio/export'
 
 ### Use the GPIO Pins
 
-Below are some basic exercises to check if the digital in/out pins are are working correctly. 
+Below are some basic exercises to check if the digital in/out pins are working correctly. 
 
 **Debian** - use `sudo` to gain permission while logged in as default `chip` user.
 

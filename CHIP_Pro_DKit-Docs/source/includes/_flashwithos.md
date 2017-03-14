@@ -17,7 +17,7 @@ You can select an OS by flashing one of our examples using the web flasher [flas
 ### Flashing Process
 Once you arrive at [flash.getchip.com](http://flash.getchip.com/pro) you will be prompted to install a Chrome extension. 
 
-Once the extension is installed, plug the micro USB cable into the USB0 port on the Dev Kit (**not on the C.H.I.P. Pro!**). Hold down the FEL button and with the other hand plug the USB cable into the computer. The C.H.I.P. Pro will power up which will be indicated by the pink power and white status LEDs illuminating. 
+Once the extension is installed, plug the micro USB cable into the USB0 port on the Dev Kit (**not on the C.H.I.P. Pro!**). Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. The pink power and white status LEDs will light up showing that the C.H.I.P. Pro is powered.
 
 ![pushing FELL button](images/pressPlug.jpg)
 

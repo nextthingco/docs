@@ -657,7 +657,9 @@ ssh root@<CHIPproIP>
 
 ## Access I/O via sysfs	
 
-GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). Below are some basic exercises to check if the digital in/out pins are are working correctly. 
+There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available on C.H.I.P. Pro. 
+
+GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSI_D0 - CSI_D7). Each pin can be addressed by its number that is dependent on what Linux kernel you are developing with. To find out the pins numbers of  on Below are some basic exercises to check if the digital in/out pins are are working correctly. 
 
 **Debian** - use `sudo` to gain permission while logged in as default `chip` user.
 

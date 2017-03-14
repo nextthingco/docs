@@ -659,7 +659,29 @@ ssh root@<CHIPproIP>
 
 There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available on C.H.I.P. Pro. 
 
-GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSI_D0 - CSI_D7). Each pin can be addressed by its number that is dependent on what Linux kernel you are developing with. To find out the pins numbers of  on Below are some basic exercises to check if the digital in/out pins are are working correctly. 
+GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSI_D0 - CSI_D7). 
+
+### Figure out the GPIO sysfs Pin Number
+
+You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/Allwinner%20R8%20Datasheet%20V1.2.pdf), starting on page 18. 
+
+As an example let's look at CSID_D0 which is pin **PE4** on the datasheet. 
+
+Look at the letter that follows the "P". This represents the number it is in the english alphabet. The index starts at A = 0. So,```E=4```
+
+Multiply the letter index by 32, then add the number that follows "PE":
+
+``` (32*4)+4 = 132```
+
+Therefore, listening to CSID0 in sysfs would begin with
+
+```
+sudo sh -c 'echo 132 > /sys/class/gpio/export'
+```
+
+### Use the GPIO Pins
+
+Below are some basic exercises to check if the digital in/out pins are are working correctly. 
 
 **Debian** - use `sudo` to gain permission while logged in as default `chip` user.
 
@@ -733,19 +755,3 @@ When you are done experimenting always tell the system to stop listening to the 
 
 If pins are not unexported, the pins will be "busy" the next time you go to export them. 
 
-### Finding GPIO Pin Names
-You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/Allwinner%20R8%20Datasheet%20V1.2.pdf), starting on page 18. 
-
-As an example let's look at CSID_D0 which is pin **PE4** on the datasheet. 
-
-Look at the letter that follows the "P". This represents the number it is in the english alphabet. The index starts at A = 0. So,```E=4```
-
-Multiply the letter index by 32, then add the number that follows "PE":
-
-``` (32*4)+4 = 132```
-
-Therefore, listening to CSID0 in sysfs would begin with
-
-```
-sudo sh -c 'echo 132 > /sys/class/gpio/export'
-```

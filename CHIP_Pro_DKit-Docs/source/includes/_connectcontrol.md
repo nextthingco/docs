@@ -579,9 +579,28 @@ The Network Manager will periodically try to reconnect. If the access point is r
 [31799.060000] RTL871X: assoc success
 ```
 
-* Nmcli not Installed Error
+* Nmcli not Installed Error 
 
-If you try to use `nmcli` and you get an error that it is not found or is not a command, chances are that you are using a C.H.I.P. Pro buildroot image. The `nmcli` commands only apply to C.H.I.P. Pro using Debian linux.
+If you try to use `nmcli` and you get an error that it is not found or is not a command, chances are that you are using a C.H.I.P. Pro buildroot image. The `nmcli` commands only apply to C.H.I.P. Pro using Debian linux. 
+
+## SSH 
+
+Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. Our Debian example comes with ssh servers, our Buildroot examples do not. If you want to ssh while using Buildroot you will need to do a manual build. 
+
+**Debian**
+
+### Find IP
+
+```
+ip addr
+``` 
+The IP will be under `wlan0`.
+
+### Connect
+
+```
+ssh root@<CHIPproIP>
+```
 
 ## Audio
 

@@ -654,7 +654,6 @@ The IP will be under `wlan0`.
 ssh root@<CHIPproIP>
 ```
 
-
 ## Access I/O via sysfs	
 
 There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available on C.H.I.P. Pro. 

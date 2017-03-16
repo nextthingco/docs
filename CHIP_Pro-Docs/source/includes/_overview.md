@@ -15,7 +15,7 @@ C.H.I.P. Pro's Features:
 * 512MB of NAND storage
 * 2.4GHz WiFi and Bluetooth connectivity
 * Onboard battery charging power and battery management
-* pins for popular I/O busses
+* Pins for popular I/O busses
 * 2x USB Port (1x USB 2.0 Host, 1x OTG)
 * Security and flexibility of mainline Linux 
 * Breadboard and SMT compatible

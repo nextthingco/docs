@@ -35,7 +35,6 @@ Stereo audio in and out is handled by an on-die 24-bit audio codec in GR8.
 * **AXP209 power management IC** connected to a dedicated I2C bus
 * **Operating Voltage** - 3.8V - 6.3V
 * **Operating Temp** - 40C - 130C 
-
 * 1.8A max battery charging current, with programmable limits
 * 2.5A max power distribution to system
 

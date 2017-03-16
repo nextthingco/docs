@@ -15,32 +15,43 @@
 	* USB 2.0 OTG
 * Parallel Camera Interface 
 * 3.3V DC supply
+* IPS dynamic power pass-through
 * 27 GPIO
 
 ## Audio
 
-Stereo audio in and out is handled by a 24-bit DAC built-in to the GR8 processor. 
+Stereo audio in and out is handled by an on-die 24-bit audio codec in GR8. 
 
 * 24-bit ADC/DAC for stereo audio in and out
-* one-wire audio digital out
-* Stereo analog input 41K sampling rate
-* Stereo analog output 41K sampling rate
-* Programmable phantom power for mic in
-* Bi-directional I2S digital audio for interfacing with professional audio DACs
+* One-wire Audio (S/PDIF Compatible) digital out
+* Supports 44.1 kHz, 48 kHz, 96 kHz, and 192 kHz sample rates
+* Bi-directional I2S digital audio for interfacing with industry standard audio codecs
+* Full-Duplex synchronous serial digital audio interfaces
+* I2S Audio data sample rate from 8-192kHz
+* Transmit and Receive FIFO buffers with programmable thresholds
 
 ## Power and Battery Management
 
 * **AXP209 power management IC** connected to a dedicated I2C bus
-* **Operating Voltage** - 2.9V to 6V
-* **Operating Temp** - 0 to 70 degrees Celsius 
+* **Operating Voltage** - 3.8V - 6.3V
+* **Operating Temp** - 40C - 130C 
+
+* 1.8A max battery charging current, with programmable limits
+* 2.5A max power distribution to system
+
+For more details, the AXP209 datasheet can be found [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/AXP209_Datasheet_v1.0en.pdf). 
 
 ## Wireless Connectivity
 
 * Realtek 8723DS Combination Module
 * Bluetooth 4.2 LE
-* WiFi 802.11 b/g/n
-* uFL antenna connector
+* 2.4GHz Wifi 802.11 b/g/n
+* IPEX (U.FL) antenna connector
 * FCC/CE/IC certified
+
+FCC Modular certification (47 CFR 15.212) limits the need for final device 	                      “intentional radiator” certification under 47 CFR 15.247, so long as pre-certified      antennas are used with CHIP Pro. 
+
+To learn more about, find the FN-Link Module datasheet [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/Fn-Link%206223A-SRD_datasheet_V1%200_09262016.pdf). 
 
 ## Operating System
 
@@ -51,7 +62,7 @@ Stereo audio in and out is handled by a 24-bit DAC built-in to the GR8 processor
 
 ![Mechanical Drawing](images/Mech_Draw_sm.jpg)
 
-You can download a high resolution version of this image [here](images/Mech_Draw.PDF)
+You can download a high resolution version of this image [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
 
 ## PCB Footprint
 
@@ -59,6 +70,6 @@ C.H.I.P. Pro is designed for scale so it's ready to drop into any SMT manufactur
 
 ![C.H.I.P. Pro PCB Footprint](images/CHIP-Pro-Footprint.png)
 
-## Data Sheet
+## Datasheet
 
-While this documentation contains much of the needed technical info for C.H.I.P. Pro, the complete data sheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
+While this documentation contains much of the needed technical info for C.H.I.P. Pro, the complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)

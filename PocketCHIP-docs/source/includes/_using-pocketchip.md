@@ -10,6 +10,6 @@
 
 ## Flashing
 
-To flash  PocketC.H.I.P., take C.H.I.P. out and flash it independently. To flash it with the latest factory image follow the Flash C.H.I.P. With an OS instructions on the [C.H.I.P. doc page](https://docs.getchip.com/chip.html#flash-chip-with-an-os). 
+To flash  PocketC.H.I.P., take C.H.I.P. out and flash it independently. To flash it with the latest factory image follow the **Flash C.H.I.P. With an OS** instructions on the [C.H.I.P. doc page](https://docs.getchip.com/chip.html#flash-chip-with-an-os). 
 
 **WARNING:**  This will permanently **delete all the data** on PocketC.H.I.P., so backup anything you want to keep!

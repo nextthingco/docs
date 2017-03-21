@@ -17,19 +17,23 @@ Grab these items to flash an example:
  * Separate computer with [Chrome](https://www.google.com/chrome/browser/desktop/index.html) or [Chromium](https://www.chromium.org/getting-involved/download-chromium) browser and an internet connection.
 
 ### Flashing Process
-If it's your first time flashing, when you arrive at [flash.getchip.com/pro](http://flash.getchip.com/pro) you will be asked to install the NTC’s Flasher Chrome Extension.
+If it's your first time flashing, when you arrive at [flash.getchip.com/pro](http://flash.getchip.com/pro) you will be asked to install the NTC Flasher Chrome Extension.
 
-Once the extension is installed, plug the micro USB cable into the micro USB port on C.H.I.P. Pro.   
+Once the extension is installed, you can choose between following the wizard to flash C.H.I.P. Pro and downloading an image. Click on FLASH to flash C.H.I.P. Pro.
 
-Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. The pink power and white status LEDs will light up showing that the C.H.I.P. Pro is powered.
+You will be sent to the "Flasher First Time Setup" page which will have instructions dependent on the operating system of your computer. Follow the link and instructions on the page. When done, press **START**.
+
+![first time setup](images/firstsetup.png)
+  
+Plug the micro USB cable into the micro USB port on C.H.I.P. Pro. Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. When the pink power and white status LEDs on C.H.I.P. Pro light up, you can release the FEL button.
 
 ![pushing FELL button](images/hold_plugPro800.gif)
 
-The web flasher will then search for and eventually recognize the C.H.I.P. Pro. 
+The web flasher will search for and recognize the C.H.I.P. Pro. 
 
 ![searching for board](images/searchPageCrop.png)
 
-Keep holding the FEL button down until the magnifying glass goes away and the page with example images appear. Let go of the FEL button and choose an example image to flash.
+A page with example images will appear. Click each image to see more details such as file size. When you have chosen your adventure, **Flash to C.H.I.P. Pro**.
 
 ![image page](images/imagePage.png)
 

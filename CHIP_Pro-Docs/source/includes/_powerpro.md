@@ -9,17 +9,17 @@ C.H.I.P. Pro can be powered in a few ways, all managed by the AXP209 power manag
 When you are ready to embed C.H.I.P. Pro there are options for how to power C.H.I.P. Pro. Below is a list of the ports and pins to provide power to and pins that are necessary to initiate power in some instances. 
 
 
-* **Micro USB port** - use a 6 - 23V AC adapter (we recommend getting one that supplies 12V and 3 amps).
+* **Micro USB port** - use a 5V AC/DC adapter (we recommend getting one that supplies 5V and 1 amp).
 
 **Pins**
 
-* **CHG-IN** - connect 4.8 to 6 volts of power to this pin (and GND) to provide power for C.H.I.P. Pro. If you have a Lithium Polymer (LiPo) battery connected to BAT, then power provided to CHG-IN will also charge the battery. 
-* **BAT** - connect a 3.7 volts Lithium Polymer (LiPo) battery to this pin (and GND) to provide power to C.H.I.P. Pro and receive charge from power inputs. When a battery is connected, short the **PWR (PWRON)** pin to ground for 2 seconds to start current flow.
+* **CHG-IN** - connect 5 - 5.5 volts of power to this pin (and GND) to provide power for C.H.I.P. Pro. If you have a Lithium Polymer (LiPo) battery connected to BAT, then power provided to CHG-IN will also charge the battery. 
+* **BAT** - connect a  single-cell 3.7V LiPo battery to this pin (and GND) to provide power to C.H.I.P. Pro and receive charge from power inputs. 
 * **PWR (PWRON)** - Connect to ground for 1 second to turn C.H.I.P. Pro on when a battery is attached to the **BAT** pin. 
 
 ![PWR on](images/PWRon_800.jpg)
 
-* **VBUS** - connect 5 volts to this pin (and GND to pin 53) to provide power to C.H.I.P.. Power connected to VBUS will also charge a battery, just at a slower rate than from CHG-IN
+* **VBUS** - connect 5 volts to this pin (and GND to pin 53) to provide power to C.H.I.P.. Power connected to VBUS will also charge a battery, just at a slower rate than from CHG-IN. These pins are the same ones in the microUSB connector.
 
 ## Power Out 
 

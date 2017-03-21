@@ -2,22 +2,22 @@
 
 ## Flash an Operating System
 
-Like its older sibling C.H.I.P., C.H.I.P. Pro's GR8 SiP can run mainline Linux. This provides security, flexibility, robust tools, and open-source options for getting your product working. In the interest of power consumption and storage space, we have two OS options to best fit your needs. 
+Like its older sibling C.H.I.P., C.H.I.P. Pro's GR8 SiP runs mainline Linux by default. This provides security, flexibility, robust tools, and open-source options for getting your product working. In the interest of power consumption and storage space, we have two OS options to best fit your needs: 
 
-**Debian** is a classic amongst embedded Linux board users for rapid prototyping. It offers a full package manager and loads of precompiled software for many different architectures. 
+**Debian** is a classic amongst embedded Linux board users for rapid prototyping. It offers a full package manager and loads of precompiled software and familiar command-line tools. 
 
-**Buildroot** is simple and stripped down making it efficient and good for single application use cases. 
+**Buildroot** is simple and stripped down making it efficient and ideal for permanent deployment and high-reliability embedded systems. 
 
-C.H.I.P. Pro's SLC NAND storage is optimized for commercial applications. While the storage is faster and more reliable it has less capacity. Because of this, it's a good idea to know how much storage software will take before flashing and installing.  
+C.H.I.P. Pro's SLC NAND storage is optimized for commercial applications. CHIP Pro has 512MB of high-reliability SLC NAND storage onboard, meant for holding the core operating system, and a limited amount of user and program data.  While the storage is faster and more reliable it has less capacity. Because of this, it's a good idea to know how much storage software will take before flashing and installing. Where needed, additional high-speed storage can be added through Pro’s SDIO bus.
 
 Grab these items to flash an example:
 
  * C.H.I.P. Pro 
  * USB A to Micro-USB B cable
- * Separate computer with [Chrome](https://www.google.com/chrome/browser/desktop/index.html) or [Chromium](https://www.chromium.org/getting-involved/download-chromium) browser 
+ * Separate computer with [Chrome](https://www.google.com/chrome/browser/desktop/index.html) or [Chromium](https://www.chromium.org/getting-involved/download-chromium) browser and an internet connection.
 
 ### Flashing Process
-If it's your first time flashing, when you arrive at [flash.getchip.com/pro](http://flash.getchip.com/pro) you will be asked to install an Chrome extension.
+If it's your first time flashing, when you arrive at [flash.getchip.com/pro](http://flash.getchip.com/pro) you will be asked to install the NTC’s Flasher Chrome Extension.
 
 Once the extension is installed, plug the micro USB cable into the micro USB port on C.H.I.P. Pro.   
 
@@ -35,9 +35,9 @@ Keep holding the FEL button down until the magnifying glass goes away and the pa
 
 
 ## Examples
-You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing the C.H.I.P. Pro to know and get in the habit of. This process is explained below and is also illustrated on the flasher page.
+You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing C.H.I.P. Pro to know and get in the habit of. This process is explained [above](http://ntc-docs-unstable.surge.sh/chip_pro.html#flashing-process) and is also illustrated on the flasher page.
 
-We have built examples based on Buildroot specific to the hardware on the [Developer's Kit](https://docs.getchip.com/chip_pro_devkit.html). If you are building a circuit that incorporates mics and LEDs with a bare C.H.I.P. Pro you can start with these examples. 
+We have built examples based on Buildroot that implement features exposed on the CHIP Pro [Dev Board](https://docs.getchip.com/chip_pro_devkit.html) such as its two MICs, and array of GPIOs. If you are building a circuit that incorporates mics and LEDs with a bare C.H.I.P. Pro you can start with these examples. 
 
 #### Blinkenlights (Buildroot)
 Size: ~60MB
@@ -65,9 +65,8 @@ A UART to USB-serial connection between C.H.I.P. Pro and your computer offers th
 #### Things you will need
 
 * USB-UART cable ([for example](https://www.amazon.com/JBtek-WINDOWS-Supported-Raspberry-Programming/dp/B00QT7LQ88/ref=sr_1_6?srs=9123049011&ie=UTF8&qid=1488833574&sr=8-6))
-* Drivers
-* Soldering Iron
-* Solder
+* Drivers (if required)
+* Soldering Iron + solder
 * Pin headers
 * Computer with monitor (for example, a [C.H.I.P.](http://www.getchip.com/)!)
 * Terminal emulation software for Windows such as [PuTTY](http://www.chipkin.com/using-putty-for-serial-com-connections-hyperterminal-replacement/) (OS X and Linux have `screen` built-in)
@@ -146,9 +145,9 @@ Once a terminal window pops up, hit the Enter key.
 
 #### Exit Screen
 
-When done with Screen, press Ctrl+A then Ctrl+\ to kill all windows and terminate Screen. 
+When done with Screen, press Ctrl+A then Ctrl+k to kill all windows and terminate Screen. 
 
-If you get the error **"Cannot open line... Resource busy"** when trying to connect via Screen it's because the last session was not properly exited. Here is how to back and exit properly.
+If you get the error **"Cannot open line... Resource busy"** when trying to connect via Screen it's because the last session was not properly exited. Here is how kill an open session that was not disconnected:
 
 Search for the open file and active process using usbserial:
 
@@ -196,7 +195,9 @@ Once a terminal window pops up, press Enter.
 C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
 
 ### Connect Antenna
-Coming straight from the top push the antenna onto the connector. Keep in mind the connector will wear out over time. We suggest keeping the disconnect/connect cycle down to 10 or less. 
+C.H.I.P. Pro uses a standard 50Ω IPEX (Hirose U.FL compatible) connector for the external antenna path.
+
+To connect an antenna, come straight from the top and push the antenna onto the connector. Keep in mind the connector will wear out over time. We suggest keeping the disconnect/connect cycle down to 10 or less. 
 
 [![wifi antenna connector](images/wifiConnectB.jpg)] (images/wifiConnectB.jpg) | [![push antenna on](images/wifiPush.jpg)] (images/wifiPush.jpg) | 
 |:---:|:---:|
@@ -221,14 +222,10 @@ Set the antenna path in Debian two ways:
 
 * The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
 
-0 = PCB Antenna
-1 = u.FL antenna. 
+0 = onboard-antenna 
 
-```
-0=onboard-antenna 
+1 = external-antenna
 
-1=external-antenna
-```
 
 * `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) 
 
@@ -246,7 +243,7 @@ The Buildroot operating system uses the `connman` command-line network manager t
 These three commands will, in turn, enable wifi, scan for access points, and list what networks are available:
 
 ```shell
-connmanctl enable wifi
+connmanctl enable wifi 
 connmanctl scan wifi
 connmanctl services
 ```
@@ -267,7 +264,7 @@ Copy the string that starts with "wifi_' to the right of the network name you wa
 
 #### No Password
 
-For example, to connect to NTC Guest, which has no password, `services` shows two choices. We want the one without `psk` in the string. Use the `connect` command:
+For example, to connect to YOUR_NETWORK, which has no password, `services` shows two choices. We want the one without `psk` in the string. Use the `connect` command:
 
 ```shell
 connmanctl connect wifi_xxxxxxxxxxxx_xxxxxx_managed_none
@@ -346,13 +343,14 @@ Expect ping to output some timing messages:
 
 ```shell
 PING 8.8.8.8 (8.8.8.8): 56 data bytes
-64 bytes from 8.8.8.8: seq=0 ttl=55 time=209.147 ms
-64 bytes from 8.8.8.8: seq=1 ttl=55 time=111.125 ms
-64 bytes from 8.8.8.8: seq=2 ttl=55 time=183.627 ms
-64 bytes from 8.8.8.8: seq=3 ttl=55 time=147.398 ms
+64 bytes from 8.8.8.8: seq=0 ttl=60 time=7.631 ms
+64 bytes from 8.8.8.8: seq=1 ttl=60 time=7.474 ms
+64 bytes from 8.8.8.8: seq=2 ttl=60 time=7.697 ms
+64 bytes from 8.8.8.8: seq=3 ttl=60 time=9.004 ms
+
 --- 8.8.8.8 ping statistics ---
 4 packets transmitted, 4 packets received, 0% packet loss
-round-trip min/avg/max = 111.125/162.824/209.147 ms
+round-trip min/avg/max = 7.474/7.951/9.004 ms
 ```
 &#10024; You are Connected! &#10024;
 
@@ -637,16 +635,14 @@ If you try to use `nmcli` and you get an error that it is not found or is not a 
 
 ## SSH 
 
-Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. Our Debian example comes with ssh servers, our Buildroot examples do not. If you want to ssh while using Buildroot you will need to do a manual build. 
-
-**Debian**
+Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. Our **Debian example comes with ssh servers**, our **Buildroot examples do not**. If you want to ssh while using Buildroot you will need to do a manual build. 
 
 ### Find IP
 
 ```
 ip addr
 ``` 
-The IP will be under `wlan0`.
+The IP is on `wlan0` or sometimes on `wlan1`
 
 ### Connect
 
@@ -668,7 +664,7 @@ Below are some basic exercises to check if the digital in/out pins are working c
 
 ### Figure out the GPIO sysfs Pin Number
 
-You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/Allwinner%20R8%20Datasheet%20V1.2.pdf), starting on page 18. 
+You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf), starting on page 15. 
 
 As an example let's look at CSID_D0 which is pin **PE4** on the datasheet. 
 
@@ -688,7 +684,7 @@ sudo sh -c 'echo 132 > /sys/class/gpio/export'
 
 These lines of code will let you read values on pin **PE4** which corresponds to **132** in Linux sysfs (PE4 - PE11 are numbers 132-139 in sysfs).
 
-If reading a CSID0 - CSID7 which are pins PE4 - PE11, you will need to add a pull-down or pull-up resistor to prevent a floating pin while the switch is open. 
+If testing a switch we recommend adding a external pull-up or pull-down resistor to prevent floating pin logic state.
 
 ![pull-down resistor](images/buttonUART_800.jpg)
 

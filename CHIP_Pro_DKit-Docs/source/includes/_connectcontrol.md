@@ -144,7 +144,9 @@ Other helpful commands:
 C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
 
 ### Connect Antenna
-Coming straight from the top push the antenna onto the connector. Keep in mind the connector will wear out over time. We suggest keeping the disconnect/connect cycle down to 10 or less. 
+C.H.I.P. Pro uses a standard 50Ω IPEX (Hirose U.FL compatible) connector for the external antenna path.
+
+To connect an antenna, come straight from the top and push the antenna onto the connector. Keep in mind the connector will wear out over time. We suggest keeping the disconnect/connect cycle down to 10 or less. 
 
 [![wifi antenna connector](images/wifiConnectB.jpg)] (images/wifiConnectB.jpg) | [![push antenna on](images/wifiPush.jpg)] (images/wifiPush.jpg) | 
 |:---:|:---:|
@@ -169,14 +171,9 @@ Set the antenna path in Debian two ways:
 
 * The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
 
-0 = PCB Antenna
-1 = u.FL antenna. 
+0 = onboard-antenna 
 
-```
-0=onboard-antenna 
-
-1=external-antenna
-```
+1 = external-antenna
 
 * `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna)  
 
@@ -294,13 +291,14 @@ Expect ping to output some timing messages:
 
 ```shell
 PING 8.8.8.8 (8.8.8.8): 56 data bytes
-64 bytes from 8.8.8.8: seq=0 ttl=55 time=209.147 ms
-64 bytes from 8.8.8.8: seq=1 ttl=55 time=111.125 ms
-64 bytes from 8.8.8.8: seq=2 ttl=55 time=183.627 ms
-64 bytes from 8.8.8.8: seq=3 ttl=55 time=147.398 ms
+64 bytes from 8.8.8.8: seq=0 ttl=60 time=7.631 ms
+64 bytes from 8.8.8.8: seq=1 ttl=60 time=7.474 ms
+64 bytes from 8.8.8.8: seq=2 ttl=60 time=7.697 ms
+64 bytes from 8.8.8.8: seq=3 ttl=60 time=9.004 ms
+
 --- 8.8.8.8 ping statistics ---
 4 packets transmitted, 4 packets received, 0% packet loss
-round-trip min/avg/max = 111.125/162.824/209.147 ms
+round-trip min/avg/max = 7.474/7.951/9.004 ms
 ```
 &#10024; You are Connected! &#10024;
 
@@ -585,16 +583,15 @@ If you try to use `nmcli` and you get an error that it is not found or is not a 
 
 ## SSH 
 
-Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. Our Debian example comes with ssh servers, our Buildroot examples do not. If you want to ssh while using Buildroot you will need to do a manual build. 
+Once you connect to an network you can ssh into the C.H.I.P. Pro in order to program and control it. Our **Debian example comes with ssh servers**, our **Buildroot examples do not**. If you want to ssh while using Buildroot you will need to do a manual build. 
 
-**Debian**
 
 ### Find IP
 
 ```
 ip addr
 ``` 
-The IP will be under `wlan0`.
+The IP is on `wlan0` or sometimes on `wlan1`
 
 ### Connect
 

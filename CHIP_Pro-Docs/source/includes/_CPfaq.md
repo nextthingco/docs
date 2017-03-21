@@ -1,20 +1,7 @@
 # C.H.I.P. Pro FAQ
 
-## What are the C.H.I.P. Pro specifications?
-* 1GHz Next Thing Co. GR8 processor - ARM Cortex-A8 with ARMv7 instruction set and NEON instruction set 
-* Mali-400 supporting OpenGL ES1.1 /2.0 and OpenVG 1.1
-* 512MB NAND flash storage
-* 256MB DDR3 RAM
-* WiFi B/G/N
-* Bluetooth 4.2 LE
-* I2S
-* 1x Two Wire Interface 
-* 2x UART (1x 2-wire and 1x 4-wire)
-* 2x SPI controllers
-* 27 GPIO
-
 ## How much does C.H.I.P. Pro cost?
-C.H.I.P. Pro costs $16.
+C.H.I.P. Pro costs $16. Contact [sales@nextthing.co](mailto:sales@nextthing.co) to coordinate logistics, and even pre-flashing for large orders in a way that makes sense for them
 
 ## Are there quantity discounts?
 C.H.I.P. Pro is $16 no matter how many you order. But, if you have to ask you should contact [sales@nextthing.co](mailto:sales@nextthing.co). 
@@ -26,7 +13,7 @@ Yes, you can see our design files in our [git repository](https://github.com/Nex
 C.H.I.P. is still a huge part of what we do. We made C.H.I.P. Pro and Gadget so the enterprising members of the CHIPster community would have a great option for scalable hardware, software and infrastructure for their products.
 
 ## Where can I buy the C.H.I.P. Pro?
-Currently, we’re offering the C.H.I.P. Pro Dev kit for $49 in our web store with an estimated shipping by the end of this year. C.H.I.P. Pro will be available in Q1 of 2017.
+Currently, we’re offering the C.H.I.P. Pro Dev kit for $49 in our [web store](https://nextthing.co/pages/store).
 
 ##  How many may I order?
 As many or as few as you’d like. 1 to 1 million (or more). For larger orders, hit us up at [sales@nextthing.co](mailto:sales@nextthing.co)

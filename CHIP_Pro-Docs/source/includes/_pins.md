@@ -10,10 +10,10 @@ The C.H.I.P. Pro has a number of specialized pins for input and output, plus 27 
 * Signal Description
 * Type
 
-For more detailed information about pins on C.H.I.P. Pro and the GR8, please see the data sheets available [here](https://github.com/NextThingCo).
+For more detailed information about pins on C.H.I.P. Pro and the GR8, please see the data sheets available [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/).
 
 ## BATTEMP
-Pin Number | Port | GR8 Pin Name | Signal Description | Type 
+Pin Number | Port | AXP209 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
 7 | NA | BATTEMP | Thermistor connection for battery heat detection | I
 
@@ -26,8 +26,8 @@ Pin Number | Port | GR8 Pin Name | Signal Description | Type
 ## TWI1
 Pin Number | Port | GR8 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
-11 | PB16 | TWI1-SCK | TWI0 Clock | I/O
-12 | PB15 | TWI1-SDA | TWI0 Data/Address | I/O
+11 | PB15 | TWI1-SCK | TWI0 Clock | I/O
+12 | PB16 | TWI1-SDA | TWI0 Data/Address | I/O
 
 ## UART – Universal Asynchronous Receiver/Transmitter
 Pin Number | Port | GR8 Pin Name | Signal Description | Type 
@@ -114,6 +114,9 @@ Pin Number | Port Name | GR8 Pin Name | Signal Description | Type
 51 | UDP0 | USB0-DP | USB0 D+ Signal | A I/O
 48 | UDM1 | USB1-DM | USB1 D- Signal | A I/O
 47 | UDP1 | USB1-DP | USB1 D+ Signal | A I/O
-50 | VUSB | VCC-USB | VBUS Power Supply | P
 
-Note: The on-board micro-USB connector is wired in series with the castellated edge points at VBUS, UDP0, UDM0, and GND. If you connect a USB host to both the castellated edges AND the connector, at best your USB will no longer work, at worst you may damage your equipment. 
+Pin Number | Port Name | AXP209 Pin Name | Signal Description | Type 
+-------------- | -------------- | -------------- | -------------- | --------------
+50 | VUSB | VBUS-USB |  VBUS Power Supply | P
+
+Note: The on-board micro-USB connector is wired in parallel with the castellated edge points at VBUS, UDP0, UDM0, and GND. If you connect a USB host to both the castellated edges AND the connector, at best your USB will no longer work, at worst you may damage your equipment. 

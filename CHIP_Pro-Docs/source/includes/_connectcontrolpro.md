@@ -23,11 +23,11 @@ After installing the extension the main page will give you the option to either 
 
 ![flasher home page](images/main.png)
 
-You will be sent to the "Flasher First Time Setup" page which will have instructions dependent on the operating system of your computer. When done setting up, press **START!**.
+You will be sent to the "Flasher First Time Setup" page which will have instructions dependent on the operating system of your computer. When done with setup, press **START!**.
 
 ![first time setup](images/firstsetup.png)
   
-As pictured, plug the micro USB cable into the micro USB port on C.H.I.P. Pro. Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. When the pink power and white status LEDs on C.H.I.P. Pro light up, you can release the FEL button.
+Plug the micro USB cable into the micro USB port on C.H.I.P. Pro. Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. When the pink power and white status LEDs on C.H.I.P. Pro light up, you can release the FEL button.
 
 ![pushing FELL button](images/hold_plugPro800.gif)
 
@@ -35,9 +35,11 @@ The web flasher will search for and recognize the C.H.I.P. Pro.
 
 ![searching page](images/searchFlash.png) 
 
-The page with example images will appear. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **Flash to C.H.I.P. Pro**.
+You will then be directed to the page with the example images. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **Flash to C.H.I.P. Pro**.
 
-![image page](images/imagesPage.png)
+[![image page](images/imagesPage.png)] (images/imagesPage.jpg) | [![flash to board](images/imageDetail.png)] (images/imageDetail.png) | 
+|:---:|:---:|
+| Choose image | Click Flash to CHIP Pro |
 
 Watch the flashing process progress and leave the browser tab open in order for it to complete. You will be notified when C.H.I.P. Pro has been flashed successfully. You are then free to unplug the C.H.I.P. Pro or connect to it via [serial](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection). 
 

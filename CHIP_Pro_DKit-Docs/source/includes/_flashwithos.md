@@ -15,19 +15,38 @@ Ready to try out some examples? Grab these items, then read on!
 You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com/pro) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing the C.H.I.P. Pro to know and get in the habit of. This process is explained below and is also illustrated on the flasher page.
 
 ### Flashing Process
-Once you arrive at [flash.getchip.com](http://flash.getchip.com/pro) you will be prompted to install a Chrome extension. 
+If it's your first time flashing, when you arrive at [flash.getchip.com/pro](http://flash.getchip.com/pro) you will be asked to install the NTC Flasher Chrome Extension.
 
-Once the extension is installed, plug the micro USB cable into the USB0 port on the Dev Kit (**not on the C.H.I.P. Pro!**). Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. The pink power and white status LEDs will light up showing that the C.H.I.P. Pro is powered.
+After installing the extension the main page will give you the option to either download an image or follow the wizard to flash C.H.I.P. Pro. For a smooth automated process, click **FLASH** to flash C.H.I.P. Pro.
+
+![flasher home page](images/main.png)
+
+You will be sent to the "Flasher First Time Setup" page which will have instructions dependent on the operating system of your computer. When done with setup, press **START!**.
+
+![first time setup](images/firstsetup.png)
+
+Once the extension is installed, plug the micro USB cable into the USB0 port on the Dev Kit (**not on the C.H.I.P. Pro!**). 
+
+Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. When the pink power and white status LEDs on C.H.I.P. Pro light up, you can release the FEL button.
 
 ![pushing FELL button](images/pressPlug.jpg)
 
-The web flasher will then search for and eventually recognize the C.H.I.P. Pro Dev Kit. 
+The web flasher will search for and recognize the C.H.I.P. Pro.
 
-![searching for board](images/searchPageCrop.png)
+![searching page](images/searchFlash.png) 
 
-Keep holding the FEL button down until the magnifying glass goes away and the page with example images appear. Let go of the FEL button and choose an example image to flash.
+You will then be directed to the page with the example images. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **FLASH TO C.H.I.P. PRO**.
 
-![image page](images/imagePage.png)
+[![image page](images/imagesPage.png)] (images/imagesPage.jpg) | [![flash to board](images/imageDetail.png)] (images/imageDetail.png) | 
+|:---:|:---:|
+| Choose image | Click FLASH TO CHIP PRO |
+
+Watch the flashing process progress and leave the browser tab open in order for it to complete. You will be notified when C.H.I.P. Pro has been flashed successfully. You are then free to unplug the C.H.I.P. Pro or connect to it via [serial](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection). 
+
+![succeeded page](images/flashFinish.png)
+
+If you are having problems with the flashing process follow the troubleshooting instructions given by the web flasher or check out the [Web Flasher OS-Specific Issues](https://docs.getchip.com/chip.html#web-flasher-os-specific-issues) troubleshooting section. 
+
 
 #### Blinkenlights
 

@@ -35,17 +35,17 @@ The web flasher will search for and recognize the C.H.I.P. Pro.
 
 ![searching page](images/searchFlash.png) 
 
-You will then be directed to the page with the example images. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **Flash to C.H.I.P. Pro**.
+You will then be directed to the page with the example images. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **FLASH TO C.H.I.P. PRO**.
 
 [![image page](images/imagesPage.png)] (images/imagesPage.jpg) | [![flash to board](images/imageDetail.png)] (images/imageDetail.png) | 
 |:---:|:---:|
-| Choose image | Click Flash to CHIP Pro |
+| Choose image | Click FLASH TO CHIP PRO |
 
 Watch the flashing process progress and leave the browser tab open in order for it to complete. You will be notified when C.H.I.P. Pro has been flashed successfully. You are then free to unplug the C.H.I.P. Pro or connect to it via [serial](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection). 
 
 ![succeeded page](images/flashFinish.png)
 
-If you are having problems with the flashing process follow troubleshooting instructions in the browser or check out the [Web Flasher OS-Specific Issues](https://docs.getchip.com/chip.html#web-flasher-os-specific-issues) troubleshooting section. 
+If you are having problems with the flashing process follow the troubleshooting instructions given by the web flasher or check out the [Web Flasher OS-Specific Issues](https://docs.getchip.com/chip.html#web-flasher-os-specific-issues) troubleshooting section. 
 
 ## Examples
 You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing C.H.I.P. Pro to know and get in the habit of. This process is explained [above](http://docs.getchip.com/chip_pro.html#flashing-process) and is also illustrated on the flasher page.

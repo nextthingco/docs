@@ -10,11 +10,6 @@
 
 ## Flashing
 
-
-![Flash PocketC.H.I.P](images/power-menu.jpg)
-
-To flash your PocketC.H.I.P. to the latest factory image, tap the power button and then press the flash software button. Then use a USB cable to connect PocketC.H.I.P. to a computer and follow the directions on [flashing](http://pcflash.getchip.com). 
-
-![PocketC.H.I.P. connected to a computer via USB](images/laptop-and-pocketchip.jpg)
+To flash  PocketC.H.I.P., take C.H.I.P. out and flash it independently. To flash it with the latest factory image follow the **Flash C.H.I.P. With an OS** instructions on the [C.H.I.P. doc page](https://docs.getchip.com/chip.html#flash-chip-with-an-os). 
 
 **WARNING:**  This will permanently **delete all the data** on PocketC.H.I.P., so backup anything you want to keep!

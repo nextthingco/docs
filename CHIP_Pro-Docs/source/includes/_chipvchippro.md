@@ -12,7 +12,7 @@ Video Interface | Composite | No
 Certification | Section 15 | Section 15 Modular
 Easy to Mass Produce with | No | Yes
 Easy to Play With | Yes | No
-Size | Big (40.64 mm x 60.50 mm) | Small (30 mm x 45 mm)
+Size | Small (40.64 mm x 60.50 mm x 11.2 mm) | Tiny (30 mm x 45 mm x 5.2 mm)
 Pin Headers | Yes | No
 Operating System | Debian | Gadget
 SOC | Allwinner R8 ARM7 | Next Thing GR8 ARM7

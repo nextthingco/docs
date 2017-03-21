@@ -1,6 +1,6 @@
 # Pin Descriptions
 
-![C.H.I.P. Pro Pins](images/CHIP-Pro-Pinout.png)
+![C.H.I.P. Pro Pins](images/Pinout_Diagram_sm.png)
 
 The C.H.I.P. Pro has a number of specialized pins for input and output, plus 27 general purpose input and output (GPIO) pins. The image above shows the pin location and muxing on C.H.I.P. Pro, and tables below organize pins according to their specialized functions.
 
@@ -10,10 +10,10 @@ The C.H.I.P. Pro has a number of specialized pins for input and output, plus 27 
 * Signal Description
 * Type
 
-For more detailed information about pins on C.H.I.P. Pro and the GR8, please see the data sheets available [here](https://github.com/NextThingCo).
+For more detailed information about pins on C.H.I.P. Pro and the GR8, please see the data sheets available [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/).
 
 ## BATTEMP
-Pin Number | Port | GR8 Pin Name | Signal Description | Type 
+Pin Number | Port | AXP209 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
 7 | NA | BATTEMP | Thermistor connection for battery heat detection | I
 
@@ -26,8 +26,8 @@ Pin Number | Port | GR8 Pin Name | Signal Description | Type
 ## TWI1
 Pin Number | Port | GR8 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
-11 | PB16 | TWI1-SCK | TWI0 Clock | I/O
-12 | PB15 | TWI1-SDA | TWI0 Data/Address | I/O
+11 | PB15 | TWI1-SCK | TWI0 Clock | I/O
+12 | PB16 | TWI1-SDA | TWI0 Data/Address | I/O
 
 ## UART – Universal Asynchronous Receiver/Transmitter
 Pin Number | Port | GR8 Pin Name | Signal Description | Type 
@@ -72,7 +72,7 @@ Pin Number | Port | GR8 Pin Name | Signal Description | Type
 ## SPI – Serial Peripheral Interface 
 Pin Number | Port | GR8 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
-41 | PE0 | SPI2-CS0 | SPI2 Chip Slect Signal (active low) | I/O
+41 | PE0 | SPI2-CS0 | SPI2 Chip Select Signal (active low) | I/O
 40 | PE1 | SPI2-CLK | SPI2 Clock Signal | I/O
 39 | PE2 | SPI2-MISO | SPI2 Master Data In, Slave Data Out | I/O
 38 | PE3 | SPI2-MOSI | SPI2 Master Data Out, Slave Data In | I/O
@@ -101,11 +101,11 @@ Pin Number | Port Name | GR8 Pin Name | Signal Description | Type
 ## External Interrupt
 Pin Number | Port Name | GR8 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
-44 | PG3 | EINT3 | External Interupt Input | I
-42 | PG4 | EINT4 | External Interupt Input | I
-10 | PG13 |EINT13 | External Interupt Input | I
-21 | PB5 | EINT19 | External Interupt Input | I
-25 | PB9 | EINT24 | External Interupt Input | I
+44 | PG3 | EINT3 | External Interrupt Input | I
+42 | PG4 | EINT4 | External Interrupt Input | I
+10 | PG13|EINT13 | External Interrupt Input | I
+21 | PB5 | EINT19 | External Interrupt Input | I
+25 | PB9 | EINT24 | External Interrupt Input | I
 
 ## USB1 and USB0
 Pin Number | Port Name | GR8 Pin Name | Signal Description | Type 
@@ -114,6 +114,9 @@ Pin Number | Port Name | GR8 Pin Name | Signal Description | Type
 51 | UDP0 | USB0-DP | USB0 D+ Signal | A I/O
 48 | UDM1 | USB1-DM | USB1 D- Signal | A I/O
 47 | UDP1 | USB1-DP | USB1 D+ Signal | A I/O
-50 | VUSB | VCC-USB | VBUS Power Supply | P
 
-Note: The on-board micro-USB connector is wired in series with the castellated edge points at VBUS, UDP0, UDM0, and GND. If you connect a USB host to both the castellated edges AND the connector, at best your USB will no longer work, at worst you may damage your equipment. 
+Pin Number | Port Name | AXP209 Pin Name | Signal Description | Type 
+-------------- | -------------- | -------------- | -------------- | --------------
+50 | VUSB | VBUS-USB |  VBUS Power Supply | P
+
+Note: The on-board micro-USB connector is wired in parallel with the castellated edge points at VBUS, UDP0, UDM0, and GND. If you connect a USB host to both the castellated edges AND the connector, at best your USB will no longer work, at worst you may damage your equipment. 

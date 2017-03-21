@@ -19,15 +19,15 @@ Grab these items to flash an example:
 ### Flashing Process
 If it's your first time flashing, when you arrive at [flash.getchip.com/pro](http://flash.getchip.com/pro) you will be asked to install the NTC Flasher Chrome Extension.
 
-You can either download and image or follow the wizard to flash C.H.I.P. Pro. For a smooth automated process, click on **FLASH** to flash C.H.I.P. Pro.
+After installing the extension the main page will give you the option to either download an image or follow the wizard to flash C.H.I.P. Pro. For a smooth automated process, click **FLASH** to flash C.H.I.P. Pro.
 
 ![flasher home page](images/main.png)
 
-You will be sent to the "Flasher First Time Setup" page which will have instructions dependent on the operating system of your computer. Follow the link and instructions on the page. When done, press **START!**.
+You will be sent to the "Flasher First Time Setup" page which will have instructions dependent on the operating system of your computer. When done setting up, press **START!**.
 
 ![first time setup](images/firstsetup.png)
   
-Plug the micro USB cable into the micro USB port on C.H.I.P. Pro. Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. When the pink power and white status LEDs on C.H.I.P. Pro light up, you can release the FEL button.
+As pictured, plug the micro USB cable into the micro USB port on C.H.I.P. Pro. Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. When the pink power and white status LEDs on C.H.I.P. Pro light up, you can release the FEL button.
 
 ![pushing FELL button](images/hold_plugPro800.gif)
 
@@ -35,14 +35,15 @@ The web flasher will search for and recognize the C.H.I.P. Pro.
 
 ![searching page](images/searchFlash.png) 
 
-Then, the page with example images will appear. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **Flash to C.H.I.P. Pro**.
+The page with example images will appear. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **Flash to C.H.I.P. Pro**.
 
-![image page](images/imagePage.png)
+![image page](images/imagesPage.png)
 
-As the flashing progresses leave the browser tab open. You will be notified as soon as it finishes. You are then free to unplug the C.H.I.P. Pro or connect to it via [serial](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection).
+Watch the flashing process progress and leave the browser tab open in order for it to complete. You will be notified when C.H.I.P. Pro has been flashed successfully. You are then free to unplug the C.H.I.P. Pro or connect to it via [serial](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection). 
 
 ![succeeded page](images/flashFinish.png)
 
+If you are having problems with the flashing process follow troubleshooting instructions in the browser or check out the [Web Flasher OS-Specific Issues](https://docs.getchip.com/chip.html#web-flasher-os-specific-issues) troubleshooting section. 
 
 ## Examples
 You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing C.H.I.P. Pro to know and get in the habit of. This process is explained [above](http://docs.getchip.com/chip_pro.html#flashing-process) and is also illustrated on the flasher page.

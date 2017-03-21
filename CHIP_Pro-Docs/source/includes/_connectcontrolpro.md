@@ -29,17 +29,21 @@ Plug the micro USB cable into the micro USB port on C.H.I.P. Pro. Hold down the 
 
 ![pushing FELL button](images/hold_plugPro800.gif)
 
-The web flasher will search for and recognize the C.H.I.P. Pro. 
+The web flasher will search for and recognize the C.H.I.P. Pro.
 
-![searching for board](images/searchPageCrop.png)
+![image page](images/searchFlash.png) 
 
-A page with example images will appear. Click each image to see more details such as file size. When you have chosen your adventure, **Flash to C.H.I.P. Pro**.
+Then, the page with example images will appear. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **Flash to C.H.I.P. Pro**.
 
 ![image page](images/imagePage.png)
 
+As the flashing progresses leave the browser tab open. You will be notified as soon as it finishes. You are then free to unplug the C.H.I.P. Pro or connect to it via [serial](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection).
+
+![image page](images/flashFinish.png)
+
 
 ## Examples
-You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing C.H.I.P. Pro to know and get in the habit of. This process is explained [above](http://ntc-docs-unstable.surge.sh/chip_pro.html#flashing-process) and is also illustrated on the flasher page.
+You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing C.H.I.P. Pro to know and get in the habit of. This process is explained [above](http://docs.getchip.com/chip_pro.html#flashing-process) and is also illustrated on the flasher page.
 
 We have built examples based on Buildroot that implement features exposed on the CHIP Pro [Dev Board](https://docs.getchip.com/chip_pro_devkit.html) such as its two MICs, and array of GPIOs. If you are building a circuit that incorporates mics and LEDs with a bare C.H.I.P. Pro you can start with these examples. 
 

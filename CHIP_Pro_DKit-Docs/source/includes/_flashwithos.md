@@ -60,7 +60,7 @@ Size: ~60MB
 
 Want to make sure your mics are working? Use this handy VU Meter example. Scream loudly, speak softly, tap the mics, and MAKE SOME NOISE, SPORTSFANS! You'll see the LEDs light proportional to the volume of the noise captured by the two built-in mics. Based on Buildroot.
 
-#### Debian
+#### Pro
 
 Size: ~180MB
 

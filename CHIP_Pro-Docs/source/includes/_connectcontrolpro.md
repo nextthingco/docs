@@ -62,7 +62,7 @@ Size: ~60MB
 
 Want to make sure your mics are working? Use this handy VU Meter Python based example. LEDs connected to GPIO D0 - D7 will light proportional to the volume of the noise captured by two mics connected to the **MICIN1 and MICIN2 pins**.
 
-### Debian
+### Pro
 Size: ~180MB
 
 We provide a standard Debian distribution, complete with all the package managers and conveniences you know and love. This package is ideal for development, since it is more flexible than the buildroot-based Gadget OS. However, you will want to keep track of your dependencies to more easily transition to the more nimble Gadget OS.

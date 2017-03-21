@@ -729,7 +729,7 @@ Continuously poll switch pin PE4(132) for state change:
 
 Attach an LED to pin PE4 and ground. 
 
-![UART connection](images/ledBlink_800.gif)
+![UART connection](images/blink.gif)
 
 Change the mode of the pin from “in” to “out”:
 

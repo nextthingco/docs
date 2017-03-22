@@ -31,6 +31,7 @@ test:
 
 deployS3:
     stage: deployS3
-    only: stable
+    only:
+        - stable
     script:
         - ./deploy-s3.sh

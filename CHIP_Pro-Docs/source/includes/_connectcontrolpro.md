@@ -727,7 +727,7 @@ Continuously poll switch pin PE4(132) for state change:
 
 ### GPIO Output
 
-Attach an LED to pin PE4 and ground. We recommend placing a 1K - 2K resistor is series to protect the GR8 module from overcurrent or a short.
+Attach an LED to pin PE4 and ground. We recommend placing a current-limiting resistor is series to protect the GR8 module and LED from overcurrent or a potential short.
 
 ![UART connection](images/blink.gif)
 

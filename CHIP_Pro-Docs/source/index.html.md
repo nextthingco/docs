@@ -8,9 +8,9 @@ toc_footers:
 
 includes:
   - overview
-  - specifications
   - connectcontrolpro
   - powerpro
+  - specifications
   - pins
   - CPfaq
   - chipvchippro

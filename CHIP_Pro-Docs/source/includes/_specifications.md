@@ -40,7 +40,7 @@ Stereo audio in and out is handled by an on-die 24-bit audio codec in GR8.
 
 For more details, the AXP209 datasheet can be found [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/AXP209_Datasheet_v1.0en.pdf). 
 
-## Wireless Connectivity
+## WiFi
 
 * Realtek 8723DS Combination Module
 * Bluetooth 4.2 LE
@@ -52,23 +52,24 @@ FCC Modular certification (47 CFR 15.212) limits the need for final device 	    
 
 To learn more about, find the FN-Link Module datasheet [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/Fn-Link%206223A-SRD_datasheet_V1%200_09262016.pdf). 
 
-## Operating System
+## Open Source Hardware
 
-* GadgetOS, a Linux optimized for GR8 and C.H.I.P. Pro
-* Debian for C.H.I.P. Pro, for a familiar Linux experience
+C.H.I.P. Pro is open source. Find all you need to build a C.H.I.P. Pro in our [Github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware).
 
-## Mechanical Drawing
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+### Mechanical Drawing
 
 ![Mechanical Drawing](images/Mech_Draw_sm.jpg)
 
-You can download a high resolution version of this image [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
+You can download a high resolution version of this image [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents).
 
-## PCB Footprint
+### PCB Footprint
 
 C.H.I.P. Pro is designed for scale so it's ready to drop into any SMT manufacturing line. The exterior dimensions for the PCB pads for C.H.I.P. Pro are 32 mm x 47.60 mm (1.26 in x 1.87 in). More detailed dimensions for your board layout are in the following diagram:
 
 ![C.H.I.P. Pro PCB Footprint](images/CHIP-Pro-Footprint.png)
 
-## Datasheet
+### Datasheet
 
-While this documentation contains much of the needed technical info for C.H.I.P. Pro, the complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
+The complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)

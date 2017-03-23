@@ -81,9 +81,7 @@ If you need some reminding, circuit paths that came as default are indicated wit
 
 ![Solder Bridge](images/traces_solderBridge.jpg)
 
-# Open Source
-The C.H.I.P. Pro is open source hardware. 
-
-Get all the details in our [github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware).
+## Schematic + More
+The C.H.I.P. Pro Dev Kit is open source hardware. Find the datasheets, mechanical drawing and schematic are in our [Github repo](https://github.com/NextThingCo/Dev_Kit-Hardware). 
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

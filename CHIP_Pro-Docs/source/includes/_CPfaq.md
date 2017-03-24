@@ -1,7 +1,8 @@
 # C.H.I.P. Pro FAQ
 
 ## How much does C.H.I.P. Pro cost?
-C.H.I.P. Pro costs $16. Contact [sales@nextthing.co](mailto:sales@nextthing.co) to coordinate logistics, and even pre-flashing for large orders in a way that makes sense for them
+C.H.I.P. Pro costs $16. Contact [sales@nextthing.co](mailto:sales@nextthing.co)
+(pre-flashing available for large orders).
 
 ## Are there quantity discounts?
 C.H.I.P. Pro is $16 no matter how many you order. But, if you have to ask you should contact [sales@nextthing.co](mailto:sales@nextthing.co). 

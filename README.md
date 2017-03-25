@@ -2,6 +2,10 @@
 
 This repository contains the sources of the documentation for CHIP, the DIPS, PocketCHIP, CHIP PRO, and the CHIP PRO DevKit.
 
+## Submit an Request for Edit 
+
+To submit an edit to the online documentation create a ticket under **Issues**. For instructions on how to create a ticket visit the [Wiki page](https://ntc.githost.io/nextthingco/docs/wikis/request) called "Request: How to Submit a Request for Online Documentation".
+
 ## Organisation
 
 In order to simplify things, all of the documention has been moved into subdirectories of this repository:

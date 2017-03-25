@@ -1,9 +1,12 @@
 # Flash With An OS
-Before you start building with the C.H.I.P. Pro Dev Kit the C.H.I.P. Pro needs to be flashed with an operating system. We at NTC have built examples that use two operating systems: Buildroot and Debian that are both based on Linux. It's worth mentioning here that a difference between C.H.I.P. and C.H.I.P. Pro is the former has 1GB of NAND and the latter has 512MB. This means that it's a good idea to know how much storage software will take before flashing and installing. 
+
+Before you start building with the C.H.I.P. Pro Dev Kit the C.H.I.P. Pro needs to be flashed with an operating system. We at NTC have built examples that use two operating systems: Buildroot and Debian that are both based on Linux. 
 
 **Debian** is a classic amongst embedded Linux board users for rapid prototyping. It offers a full package manager and loads of precompiled software for many different architectures. 
 
 **Buildroot** is simple and stripped down making it efficient and good for single application use cases. 
+
+C.H.I.P. Pro has 512MB of high-reliability SLC NAND storage onboard for holding the core operating system and a limited amount of user and program data. While the storage is faster and more reliable it has less capacity. Because of this, it's a good idea to know how much storage software will take before flashing and installing. Where needed, additional high-speed storage can be added through C.H.I.P. Pro’s SDIO bus.
 
 Ready to try out some examples? Grab these items, then read on!
 
@@ -11,11 +14,9 @@ Ready to try out some examples? Grab these items, then read on!
  * USB A to Micro-USB B cable
  * Separate computer with [Chrome](https://www.google.com/chrome/browser/desktop/index.html) or [Chromium](https://www.chromium.org/getting-involved/download-chromium) browser 
 
-## Examples
-You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com/pro) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing the C.H.I.P. Pro to know and get in the habit of. This process is explained below and is also illustrated on the flasher page.
 
-### Flashing Process
-If it's your first time flashing, when you arrive at [flash.getchip.com/pro](http://flash.getchip.com/pro) you will be asked to install the NTC Flasher Chrome Extension.
+## Flashing Process
+Head over to the web flasher at [flash.getchip.com/pro](http://flash.getchip.com/pro). If it's your first time flashing, when you arrive you will be asked to install the NTC Flasher Chrome Extension.
 
 After installing the extension the main page will give you the option to either download an image or follow the wizard to flash C.H.I.P. Pro. For a smooth automated process, click **FLASH** to flash C.H.I.P. Pro.
 
@@ -31,11 +32,11 @@ Hold down the FEL button (a pencil eraser works nicely) and with the other hand 
 
 ![pushing FELL button](images/pressPlug.jpg)
 
-The web flasher will search for and recognize the C.H.I.P. Pro.
+The web flasher will search for and recognize C.H.I.P. Pro.
 
 ![searching page](images/searchFlash.png) 
 
-You will then be directed to the page with the example images. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **FLASH TO C.H.I.P. PRO**.
+You will then be directed to the page with the example images. Hover over each image to see a description and click to see more details such as file size and kernel version. When you have chosen your adventure, click **FLASH TO C.H.I.P. PRO**.
 
 [![image page](images/imagesPage.png)] (images/imagesPage.jpg) | [![flash to board](images/imageDetail.png)] (images/imageDetail.png) | 
 |:---:|:---:|
@@ -47,6 +48,10 @@ Watch the flashing process progress and leave the browser tab open in order for 
 
 If you are having problems with the flashing process follow the troubleshooting instructions given by the web flasher or check out the [Web Flasher OS-Specific Issues](https://docs.getchip.com/chip.html#web-flasher-os-specific-issues) troubleshooting section. 
 
+
+## Examples
+
+You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com/pro) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing the C.H.I.P. Pro to know and get in the habit of. This process is explained below and is also illustrated on the flasher page.
 
 #### Blinkenlights
 
@@ -64,7 +69,7 @@ Want to make sure your mics are working? Use this handy VU Meter example. Scream
 
 Size: ~180MB
 
-We provide a standard Debian distribution. Once flashed connect to the C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection) and log in with the default username `chip` and password `chip`.
+We provide a standard Debian distribution. Once flashed connect to the C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and log in with the default username `chip` and password `chip`.
 
 If you want to configure and build the rootfs for the Debian image, take a look at our [github repo](https://github.com/NextThingCo/chip-os-pro)
 

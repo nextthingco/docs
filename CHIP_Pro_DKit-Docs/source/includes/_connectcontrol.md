@@ -57,7 +57,7 @@ Once a terminal window pops up, hit the Enter key twice.
 
 #### Exit Screen
 
-When done with Screen, press Ctrl+A then Ctrl+\ to kill all windows and terminate Screen. 
+When done with Screen, press Ctrl+A then Ctrl+k to kill all windows and terminate Screen. 
 
 If you get the error **"Cannot open line... Resource busy"** when trying to connect via Screen it's because the last session was not properly exited. Here is how to back and exit properly.
 
@@ -79,16 +79,16 @@ Note the process ID. In this case, it's 27127. Then run:
 screen -x 27127 
 ```
 
-This will return you to the previous screen session. Then use Ctrl+A Ctrl+\ to close it (will ask you to confirm).
+This will return you to the previous screen session. Then use Ctrl+A Ctrl+K to close it (will ask you to confirm).
 
 
 ### Windows
 
 Download the [PuTTY terminal emulator](http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
-In Windows open the **Device Manager**. Find and expand **Ports (COM & LPT)**. Find the port labeled **USB Serial Port (COMx)** and take note of the COMx port number. This is the port that the C.H.I.P. Pro Dev Kit is connected to.
+In Windows, open the **Device Manager**. Find and expand **Ports (COM & LPT)**. Find the port labeled **USB Serial Port (COMx)** and take note of the COMx port number. This is the port that the C.H.I.P. Pro Dev Kit is connected to.
 
-In PuTTY choose **Serial** as the **Connection type**. Then, plug these items in and click **Open**. 
+In PuTTY choose **Serial** as the **Connection type**. Plug the following items in and click **Open**. 
 
 * COMx number as the **Serial Line**  
 * 115200 as the **Speed** (baud rate)
@@ -167,7 +167,7 @@ set_antenna pcb|ufl
 
 **Debian**
 
-Set the antenna path in Debian two ways:
+In Debian, there are two ways to set the antenna path:
 
 * The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
 
@@ -175,11 +175,12 @@ Set the antenna path in Debian two ways:
 
 1 = external-antenna
 
-* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna)  
+
+* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) and pass either the `pcb` or `ufl` argument as stating above.  
 
 ## WiFi Setup: Buildroot
 
-The Buildroot operating system uses the `connman` command-line network manager to connect and manage your network connections. 
+The Buildroot operating system uses the ConnMan command-line network manager to connect and manage your network connections. 
 
 **Requirements**
 
@@ -188,7 +189,7 @@ The Buildroot operating system uses the `connman` command-line network manager t
     
 ### Step 1: Enable WiFi and Find a Network
 
-These three commands will, in turn, enable wifi, scan for access points, and list what networks are available:
+These three commands will in turn, enable wifi, scan for access points, and list what networks are available:
 
 ```shell
 connmanctl enable wifi
@@ -208,7 +209,7 @@ Donut_Hut            wifi_xxxxxxxxxxxx_xxxxxxxxx_managed_psk
 
 ### Step 2: Connect 
 
-Copy the string that starts with "wifi_' to the right of the network name you want to connect to. If it has `psk` at the end, that means it is password protected (short for Wi-Fi Protected Access 2 - Pre-Shared Key) and you will need to go into connman interactive mode.
+Copy the string that starts with "wifi_' to the right of the network name you want to connect to. If it has `psk` at the end, that means it is password protected (short for Wi-Fi Protected Access 2 - Pre-Shared Key) and you need to scroll further down to the " Password Protected" section.
 
 #### No Password
 
@@ -235,19 +236,19 @@ If your network is not password protected, you'll get some output that will indi
 If your network is password protected you'll get an error.
 
 #### Password-Protected
-To deal with passwords you'll need to put `connman` into interactive mode:
+To deal with passwords you'll need to put ConnMan into interactive mode:
 
 ```shell
 connmanctl
 ```
 
-which gives a `connmanctl` prompt:
+This command gives a `connmanctl` prompt:
 
 ```shell
 connmanctl>
 ```
 
-In the shell, turn the 'agent' on so it can process password requests:
+In the shell, turn the agent on so it can process password requests:
 
 ```shell
   agent on
@@ -281,7 +282,7 @@ Exit connmanctl interactive mode:
 
 ### Step 3: Test Connection
 
-To test the WiFi connection you can ping Google four times:
+Finally, you can test your connection to the internet with `ping`. Google's DNS server at the IP address 8.8.8.8 is probably the most reliable computer on the internet, so:
 
 ```shell
 ping -c 4 8.8.8.8
@@ -300,7 +301,9 @@ PING 8.8.8.8 (8.8.8.8): 56 data bytes
 4 packets transmitted, 4 packets received, 0% packet loss
 round-trip min/avg/max = 7.474/7.951/9.004 ms
 ```
-&#10024; You are Connected! &#10024;
+The `-c 4` option means it will happen only 4 times.
+
+&#10024; **Congratulations! You are now Connected to a Network** &#10024;
 
 If your connection is not successful, then ping will tell you your network is down:
 
@@ -311,30 +314,30 @@ ping: sendto: Network is unreachable
 
 #### Troubleshooting Connection Problems
 
-* Review any messages that the connect commnand gave you. Did they look like the examples of a successful connection?
+* Review any messages that the connect command gave you. Did they look like the examples of a successful connection?
 
-* Double check you used the right network when you used the connect commnand.
+* Double check that you used the right network with the `connect` command.
 
-* If everything checked out until you got to `ping`, there's a good chance the problem is with your router or connection to the internet. 
+* If everything checked out until you got to `ping`, there's a good chance the problem is with your router or connection to the internet. Some networks have firewalls on them that will allow you to connect but prevent foreign devices from transferring information. 
 
 * Connman not Installed Error
 
-If you try to use `connman` and you get an error that it is not found or is not a command, chances are that you are using the Debian image. The `connman` commands only apply to C.H.I.P. Pros running the simple Buildroot OS.
+	If you try to use ConnMan and you get an error that it is not found or is not a 	command, chances are that you are using the Debian image. The ConnMan commands only apply to C.H.I.P. Pros running the Buildroot OS.
 
 ### Disconnect from Network with Connman
-To disconnect from your network, you might first want a reminder of what unfriendly string is used to describe your access point:
+To disconnect from your network, you might first want a reminder of the unfriendly string used to describe your access point:
 
 ```shell
 connmanctl services
 ```
 
-Which will output information about your current connection:
+This command will output information about your current connection:
 
 ```shell
 YOUR_NETWORK         wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
 ```
 
-Use the string ID to disconnect:
+Copy and paste the string ID along with the `disconnect` command:
 
 ```shell
 connmanctl disconnect wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
@@ -347,13 +350,13 @@ Disconnected wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
 ```
 
 ### Forget Network with Connman
-Generally, `conman` will remember and cache setup information. This means that if you reboot in the vicinity of a known network, it will attempt to connect. However, if you need to forget a network setup, these setups can be found by navigating:
+Generally, ConnMan will remember and cache setup information. This means that if you reboot in the vicinity of a known network, it will attempt to connect. However, if you need to forget a network setup, navigate to:
 
 ```shell
 cd /var/lib/connman/
 ```
 
-You can delete a single connection by seeing what connections are stored and copying the one you want to delete:
+You can delete a single connection by seeing which are stored and copying the one you want to delete:
 
 ```shell
 /var/lib/connman # ls
@@ -373,11 +376,11 @@ You can delete all the “wifi” connections with:
 ```shell
 rm -r wifi*
 ```
-The `-r` is needed because these are directories you are deleting and the star at the end of `wifi*` assumes your configurations all start with the string “wifi”.
+The `-r` is needed because these are directories you are deleting and the star at the end of `wifi*` assumes your connection IDs all start with the string “wifi”.
 
 ## WiFi Setup: Debian
 
-If you are using Debian OS you will find that `connman` is not installed, you will need to use `nmcli` instead. There are several tools in Linux for connecting and configuring networks. We will be using the command `nmcli` (Network Manager Client). 
+If you are using the Debian OS you will find that ConnMan is not installed, you will need to use Networking/CLI or the command `nmcli` instead. 
 
 **Requirements**
 
@@ -385,7 +388,7 @@ If you are using Debian OS you will find that `connman` is not installed, you wi
   * [Serial connection](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection) to C.H.I.P. Pro
 
 ### Step 1: List available Wi-Fi networks
-In the terminal type:
+In terminal type:
 
 ```shell
 nmcli device wifi list
@@ -401,7 +404,7 @@ The output will list available access points:
 ```
 ### Step 2: Connect 
 
-You can connect to password-protected or open access points.
+You can connect to password protected or open access points.
 
 #### No Password
 To connect to an open network with no password:
@@ -415,9 +418,9 @@ These commands will respond with information about the connection. A successful 
 Connection with UUID 'xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy' created and activated on device 'wlan0'
 ```
 
-#### Password-Protected
+#### Password Protected
 
-To connect to a password-protected network, use this command inserting your own network name and password:
+To connect to a password protected network, use this command inserting your own network name and password:
 
 ```shell
 sudo nmcli device wifi connect "YOUR_NETWORK_SSID" password "UR_NETWORK_PASSWORD" ifname wlan0
@@ -428,7 +431,7 @@ These commands will respond with information about the connection. A successful 
 ```shell
 Connection with UUID 'xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy' created and activated on device 'wlan0'
 ```
-#### Hidden SSID and Password-Protected
+#### Hidden SSID and Password Protected
 
 To connect to a hidden and password-protected network:
  
@@ -470,7 +473,7 @@ NAME  		   UUID                                  TYPE             DEVICE
 YOUR_NETWORK   xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy  802-11-wireless  wlan0
 ```
 
-After you have connected once, your C.H.I.P. will automatically connect to this network next time you reboot (or start NetworkManager services).
+After you have connected once, C.H.I.P. Pro will automatically connect to this network next time you reboot (or start NetworkManager services).
 
 #### Test
 Finally, you can test your connection to the internet with `ping`. Google's DNS server at the IP address 8.8.8.8 is probably the most reliable computer on the internet, so:
@@ -479,18 +482,29 @@ Finally, you can test your connection to the internet with `ping`. Google's DNS 
 ping -c 4 8.8.8.8
 ```
 
-results in output like:
+Expect ping to output some timing messages:
 
 ```shell
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=55 time=297 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=55 time=26.3 ms
-64 bytes from 8.8.8.8: icmp_seq=3 ttl=55 time=24.8 ms
-64 bytes from 8.8.8.8: icmp_seq=4 ttl=55 time=55.7 ms
-```
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: seq=0 ttl=60 time=7.631 ms
+64 bytes from 8.8.8.8: seq=1 ttl=60 time=7.474 ms
+64 bytes from 8.8.8.8: seq=2 ttl=60 time=7.697 ms
+64 bytes from 8.8.8.8: seq=3 ttl=60 time=9.004 ms
 
-You can stop this command by pressing CTRL-C on your keyboard. The `-c 4` option means it will happen only 4 times.
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 7.474/7.951/9.004 ms
+```
+The `-c 4` option means it will happen only 4 times.
 
 &#10024; **Congratulations! You are now Connected to a Network** &#10024;
+
+If your connection is not successful, then ping will tell you your network is down:
+
+```shell
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+ping: sendto: Network is unreachable
+```
 
 ### Disconnect Network with Nmcli
 
@@ -546,7 +560,7 @@ Try connecting again with the correct password.
 * Failed Ping
 
 If you don't have access to the internet, your ping to an outside IP will fail.
-It is possible that you can connect to a wireless network, but have no access to the internet, so you'd see a connection when you request device status, but have a failed ping. This indicates a problem or restriction with the router or the access point, not a problem with the CHIP.
+It is possible that you can connect to a wireless network, but have no access to the internet, so you'd see a connection when you request device status, but have a failed ping. This indicates a problem or restriction with the router or the access point.
 
 A failed ping looks something like:
 
@@ -579,7 +593,7 @@ The Network Manager will periodically try to reconnect. If the access point is r
 
 * Nmcli not Installed Error 
 
-If you try to use `nmcli` and you get an error that it is not found or is not a command, chances are that you are using a C.H.I.P. Pro buildroot image. The `nmcli` commands only apply to C.H.I.P. Pro using Debian linux. 
+If you try to use `nmcli` and you get an error that it is not found or is not a command, chances are that you are using a C.H.I.P. Pro Buildroot image. The `nmcli` commands only apply to C.H.I.P. Pro using Debian linux. 
 
 ## SSH 
 
@@ -591,7 +605,7 @@ Once you connect to an network you can ssh into the C.H.I.P. Pro in order to pro
 ```
 ip addr
 ``` 
-The IP is on `wlan0` or sometimes on `wlan1`
+The IP is on `wlan0` or sometimes on `wlan1`.
 
 ### Connect
 

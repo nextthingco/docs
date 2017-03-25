@@ -35,8 +35,11 @@ Stereo audio in and out is handled by an on-die 24-bit audio codec in GR8.
 * **AXP209 power management IC** connected to a dedicated I2C bus
 * **Operating Voltage** - 3.8V - 6.3V
 * **Operating Temp** - 40C - 130C 
-* 1.8A max battery charging current, with programmable limits
-* 2.5A max power distribution to system
+
+* **1.8A max** battery charging current with programmable limits
+* **2.5A max** power distribution to system
+
+C.H.I.P. Pro can be powered by battery, USB or AC/DC adapter. On-board Power management with the AXP209 provides plenty of power options to better match your applications: mobile, commercial, and low-power are all possible with C.H.I.P. Pro. 
 
 For more details, the AXP209 datasheet can be found [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/AXP209_Datasheet_v1.0en.pdf). 
 
@@ -48,9 +51,11 @@ For more details, the AXP209 datasheet can be found [here](https://github.com/Ne
 * IPEX (U.FL) antenna connector
 * FCC/CE/IC certified
 
+A software controlled antenna path selects between the onboard chip antenna or a IPEX (U.FL) antenna connector where several pre-certified antennas can be added. 
+
 FCC Modular certification (47 CFR 15.212) limits the need for final device 	                      “intentional radiator” certification under 47 CFR 15.247, so long as pre-certified      antennas are used with CHIP Pro. 
 
-To learn more about, find the FN-Link Module datasheet [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/Fn-Link%206223A-SRD_datasheet_V1%200_09262016.pdf). 
+To learn more, find the FN-Link Module datasheet [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/Fn-Link%206223A-SRD_datasheet_V1%200_09262016.pdf). 
 
 ## Open Source Hardware
 
@@ -66,10 +71,10 @@ You can download a high resolution version of this image [here](https://github.c
 
 ### PCB Footprint
 
-C.H.I.P. Pro is designed for scale so it's ready to drop into any SMT manufacturing line. The exterior dimensions for the PCB pads for C.H.I.P. Pro are 32 mm x 47.60 mm (1.26 in x 1.87 in). More detailed dimensions for your board layout are in the following diagram:
+C.H.I.P. Pro is designed for scale, so it's ready to drop into any SMT manufacturing line. The exterior dimensions for the PCB pads for C.H.I.P. Pro are 32 mm x 47.60 mm (1.26 in x 1.87 in). More detailed dimensions for your board layout are in the following diagram that can also be found in the C.H.I.P. Datasheet:
 
 ![C.H.I.P. Pro PCB Footprint](images/CHIP-Pro-Footprint.png)
 
 ### Datasheet
 
-The complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
+The complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf).

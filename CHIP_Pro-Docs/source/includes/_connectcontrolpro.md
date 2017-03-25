@@ -2,28 +2,28 @@
 
 ## Flash an Operating System
 
-Like its older sibling C.H.I.P., C.H.I.P. Pro's GR8 SiP runs mainline Linux by default. This provides security, flexibility, robust tools, and open-source options for getting your product working. In the interest of power consumption and storage space, we have two OS options to best fit your needs: 
+Like its older sibling C.H.I.P., C.H.I.P. Pro's GR8 SiP runs mainline Linux by default. This provides security, flexibility, robust tools, and open-source options. In the interest of power consumption and storage space, we have two OS options to best fit your needs: 
 
 **Debian** is a classic amongst embedded Linux board users for rapid prototyping. It offers a full package manager and loads of precompiled software and familiar command-line tools. 
 
 **Buildroot** is simple and stripped down making it efficient and ideal for permanent deployment and high-reliability embedded systems. 
 
-C.H.I.P. Pro's SLC NAND storage is optimized for commercial applications. CHIP Pro has 512MB of high-reliability SLC NAND storage onboard, meant for holding the core operating system, and a limited amount of user and program data.  While the storage is faster and more reliable it has less capacity. Because of this, it's a good idea to know how much storage software will take before flashing and installing. Where needed, additional high-speed storage can be added through Pro’s SDIO bus.
+C.H.I.P. Pro has 512MB of high-reliability SLC NAND storage onboard for holding the core operating system and a limited amount of user and program data. While the storage is faster and more reliable it has less capacity. Because of this, it's a good idea to know how much storage software will take before flashing and installing. Where needed, additional high-speed storage can be added through C.H.I.P. Pro’s SDIO bus.
 
-Grab these items to flash an example:
+Grab these items to flash C.H.I.P. Pro:
 
  * C.H.I.P. Pro 
  * USB A to Micro-USB B cable
  * Separate computer with [Chrome](https://www.google.com/chrome/browser/desktop/index.html) or [Chromium](https://www.chromium.org/getting-involved/download-chromium) browser and an internet connection.
 
 ### Flashing Process
-If it's your first time flashing, when you arrive at [flash.getchip.com/pro](http://flash.getchip.com/pro) you will be asked to install the NTC Flasher Chrome Extension.
+Head over to the web flasher at [flash.getchip.com/pro](http://flash.getchip.com/pro). If it's your first time flashing, when you arrive you will be asked to install the NTC Flasher Chrome Extension.
 
-After installing the extension the main page will give you the option to either download an image or follow the wizard to flash C.H.I.P. Pro. For a smooth automated process, click **FLASH** to flash C.H.I.P. Pro.
+After installing the extension, the main page will give you the option to either download an image or follow the wizard to flash C.H.I.P. Pro. For a smooth automated process, click **FLASH** to flash C.H.I.P. Pro.
 
 ![flasher home page](images/main.png)
 
-You will be sent to the "Flasher First Time Setup" page which will have instructions dependent on the operating system of your computer. When done with setup, press **START!**.
+You will then arrive at the "Flasher First Time Setup" page which will have setup instructions dependent on the operating system of your computer. After you have setup your computer, press **START!**.
 
 ![first time setup](images/firstsetup.png)
   
@@ -31,11 +31,11 @@ Plug the micro USB cable into the micro USB port on C.H.I.P. Pro. Hold down the 
 
 ![pushing FELL button](images/hold_plugPro800.gif)
 
-The web flasher will search for and recognize the C.H.I.P. Pro.
+The web flasher will search for and recognize C.H.I.P. Pro.
 
 ![searching page](images/searchFlash.png) 
 
-You will then be directed to the page with the example images. Hover over each image to see a description and click to see more details such as file size. When you have chosen your adventure, **FLASH TO C.H.I.P. PRO**.
+You will then be directed to the page with the example images. Hover over each image to see a description and click to see more details such as file size and kernel version. When you have chosen your adventure, click **FLASH TO C.H.I.P. PRO**.
 
 [![image page](images/imagesPage.png)] (images/imagesPage.jpg) | [![flash to board](images/imageDetail.png)] (images/imageDetail.png) | 
 |:---:|:---:|
@@ -48,24 +48,26 @@ Watch the flashing process progress and leave the browser tab open in order for 
 If you are having problems with the flashing process follow the troubleshooting instructions given by the web flasher or check out the [Web Flasher OS-Specific Issues](https://docs.getchip.com/chip.html#web-flasher-os-specific-issues) troubleshooting section. 
 
 ## Examples
-You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. Before you go to the web flasher however, there is a method to flashing C.H.I.P. Pro to know and get in the habit of. This process is explained [above](http://docs.getchip.com/chip_pro.html#flashing-process) and is also illustrated on the flasher page.
+You can select an OS by flashing one of our examples using the web flasher [flash.getchip.com/pro](http://flash.getchip.com) in Chrome or Chromium browser. 
 
 We have built examples based on Buildroot that implement features exposed on the CHIP Pro [Dev Board](https://docs.getchip.com/chip_pro_devkit.html) such as its two MICs, and array of GPIOs. If you are building a circuit that incorporates mics and LEDs with a bare C.H.I.P. Pro you can start with these examples. 
 
 #### Blinkenlights (Buildroot)
 Size: ~60MB
 
-This Python based example provides easy-to-understand code with exciting results! Flash C.H.I.P. Pro with this image and LEDs connected to **GPIO D0-D7** turn on and off in a cascading pattern. LEDs connected to the **PWM0 and PWM1 pins** will pulse from dim to bright. 
+This Python based example provides easy-to-understand code with exciting results. Flash C.H.I.P. Pro with this image and LEDs connected to **GPIO D0-D7** turn on and off in a cascading pattern. LEDs connected to the **PWM0 and PWM1 pins** will pulse from dim to bright. 
 
 #### VU Meter (Buildroot)
 Size: ~60MB
 
-Want to make sure your mics are working? Use this handy VU Meter Python based example. LEDs connected to GPIO D0 - D7 will light proportional to the volume of the noise captured by two mics connected to the **MICIN1 and MICIN2 pins**.
+Want to make sure your mics are working? Use this handy VU Meter example. LEDs connected to GPIO D0 - D7 will light proportional to the volume of the noise captured by two mics connected to the **MICIN1 and MICIN2 pins**.
 
 ### Pro
 Size: ~180MB
 
-We provide a standard Debian distribution, complete with all the package managers and conveniences you know and love. This package is ideal for development, since it is more flexible than the buildroot-based Gadget OS. However, you will want to keep track of your dependencies to more easily transition to the more nimble Gadget OS.
+We provide a standard Debian distribution. Once flashed connect to the C.H.I.P. Pro via [serial](https://docs.getchip.com/chip_pro.html#make-a-serial-connection) and log in with the default username `chip` and password `chip`.
+
+If you want to configure and build the rootfs for the Debian image, take a look at our [github repo](https://github.com/NextThingCo/chip-os-pro) 
 
 ## Make a Serial Connection
 
@@ -86,13 +88,9 @@ A UART to USB-serial connection between C.H.I.P. Pro and your computer offers th
 
 #### Install USB-UART Cable Drivers
 
-Not only will you need a USB-UART cable but you will need the appropriate drivers that go with the cable installed. Download and install the appropriate driver based on your computer's operating system.
+Not only will you need a USB-UART cable but you will need to install the appropriate drivers that go with the cable. 
 
-For example, [this](https://www.amazon.com/JBtek-WINDOWS-Supported-Raspberry-Programming/dp/B00QT7LQ88/ref=sr_1_6?srs=9123049011&ie=UTF8&qid=1488833574&sr=8-6) cable uses the Prolific hardware. The drivers are [available on their site](http://www.prolific.com.tw/US/ShowProduct.aspx?pcid=41&showlevel=0041-0041). If you are on Windows the driver can be installed after connecting C.H.I.P. Pro to your computer and navigating to Device Manager, finding **Ports (COM & LPT)** and double-clicking on the unrecognized USB-serial port. From the window that pops up you will be able to tell the computer to go find the device's driver online and install it.
-
-#### Power C.H.I.P. Pro 
-
-C.H.I.P. Pro can be powered through a computer's USB port. However, some power intensive applications might require more current than the average computers provide via their USB port. A reliable way to power C.H.I.P. Pro is through the **micro USB port using an AC adapter** (we recommend getting one that supplies 12V and 3 amps).
+For example, [this](https://www.amazon.com/JBtek-WINDOWS-Supported-Raspberry-Programming/dp/B00QT7LQ88/ref=sr_1_6?srs=9123049011&ie=UTF8&qid=1488833574&sr=8-6) cable uses the Prolific hardware. The drivers are [available on their site](http://www.prolific.com.tw/US/ShowProduct.aspx?pcid=41&showlevel=0041-0041). If you are on Windows the driver can be installed after connecting C.H.I.P. Pro to your computer and navigating to Device Manager, finding **Ports (COM & LPT)** and double-clicking on the unrecognized USB-serial port. From the window that pops up, you will be able to tell the computer to go find the device's driver online and install it.
 
 
 #### Solder Headers to C.H.I.P. Pro
@@ -101,7 +99,7 @@ To connect the USB-UART cable to C.H.I.P. Pro you will need to solder headers on
 
 ![UART connection](images/solderHeaders_800.jpg)
 
-The below connections work for the cable linked to in the above material list. Make sure to check the manufacturer's product description for the correct pinout for whatever cable you are using.
+The below connections work for the cable linked to in the above material list. Make sure to check the manufacturer's product description for the correct pinout for whichever cable you are using.
  
 * black -  GND
 * green - RX
@@ -110,9 +108,13 @@ The below connections work for the cable linked to in the above material list. M
 
 ![UART connection](images/UARTconnect_800.jpg)
 
+#### Power C.H.I.P. Pro 
+
+C.H.I.P. Pro can be powered through a computer's USB port. However, some power intensive applications might require more current than the average computers provide via their USB port. A reliable way to power C.H.I.P. Pro is through the **micro USB port using an AC/DC adapter** (we recommend getting one that supplies 5V and 1 amp).
+
 ### OS X & Linux
 
-Mac systems and most flavors of Linux come with the terminal emulator software Screen. In case `screen` is missing, it can be installed using apt-get on Debian-based systems: 
+Mac systems and most flavors of Linux come with the terminal emulator software Screen. In case Screen is missing, it can be installed using apt-get on Debian-based systems: 
 
 ```
 sudo apt-get install screen
@@ -180,16 +182,16 @@ Note the process ID. In this case, it's 27127. Then run:
 screen -x 27127 
 ```
 
-This will return you to the previous screen session. Then use Ctrl+A Ctrl+\ to close it (will ask you to confirm).
+This will return you to the previous screen session. Then use Ctrl+A Ctrl+K to close it (will ask you to confirm).
 
 
 ### Windows
 
 Download the [PuTTY terminal emulator](http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
-In Windows open the **Device Manager**. Find and expand **Ports (COM & LPT)**. Find the port labeled **USB-to-Serial Port (COMx)** and take note of the COMx port number. This is the port that the C.H.I.P. Pro is connected to.
+In Windows, open the **Device Manager**. Find and expand **Ports (COM & LPT)**. Find the port labeled **USB-to-Serial Port (COMx)** and take note of the COMx port number. This is the port that the C.H.I.P. Pro is connected to.
 
-In PuTTY choose **Serial** as the **Connection type**. Then, plug these items in and click **Open**. 
+In PuTTY choose **Serial** as the **Connection type**. Plug the following items in and click **Open**. 
 
 * COMx number as the **Serial Line**  
 * 115200 as the **Speed** (baud rate)
@@ -218,12 +220,50 @@ To connect an antenna, come straight from the top and push the antenna onto the 
 
 ![wifi antenna connected](images/wifiOn.jpg)
 
+## Edit Buildroot Examples
+
+After connecting to the Dev Kit via [USB-serial](https://docs.getchip.com/chip_pro_devkit#usb-serial-uart1-connection) you can check out and edit the scripts for each Buildroot example. Use the Vi command-line editor to read and edit example scripts found in /usr/bin. 
+
+**Blinkenlights**
+
+```
+vi /usr/bin/blink-leds
+vi /usr/bin/fade-pwms
+```
+
+**VU-Meter**
+
+```
+vi /usr/bin/vu-meter
+```
+
+
+### Basic Vi Editor Commands
+
+To **edit text** take Vi from command mode (default) to insert mode. Press the following keys to edit text.
+
+* i - go into insert mode (to edit text)
+* Esc - exit insert mode
+
+Vi was built for Qwerty keyboards without arrow keys. They may work but if not, use these keys to **move cursor**:
+
+* J - move down one line
+* K - move up one line
+* H - move left one character
+* L - move right one character
+
+Other helpful commands:
+
+* u - undo last action
+* :x then Enter - save and exit
+* :q! then Enter - exit without saving
+
 ### Enable Wifi Antenna
 In order to use it, you need to set the path of the external antenna.
 
 **Buildroot**
 
-With the Buildroot C.H.I.P. Pro images comes a [set_antenna script](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) which accepts two arguments of either `pcb` or `ufl` depending on which you want enable. 
+The Buildroot C.H.I.P. Pro images come with a [set_antenna script](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) which accepts two arguments of either `pcb` or `ufl` depending on which you want enable. 
 
 ```
 set_antenna pcb|ufl
@@ -231,7 +271,7 @@ set_antenna pcb|ufl
 
 **Debian**
 
-Set the antenna path in Debian two ways:
+In Debian, there are two ways to set the antenna path:
 
 * The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
 
@@ -240,20 +280,20 @@ Set the antenna path in Debian two ways:
 1 = external-antenna
 
 
-* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) 
+* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) and pass either the `pcb` or `ufl` argument as stating above. 
 
 ## WiFi Setup: Buildroot
 
-The Buildroot operating system uses the `connman` command-line network manager to connect and manage your network connections. 
+The Buildroot operating system uses the ConnMan command-line network manager to connect and manage your network connections. 
 
 **Requirements**
 
-  * C.H.I.P. Pro running buildroot OS
+  * C.H.I.P. Pro running Buildroot OS
   * [Serial connection](https://docs.getchip.com/chip_pro.html#make-a-serial-connection) to C.H.I.P. Pro
     
 ### Step 1: Enable WiFi and Find a Network
 
-These three commands will, in turn, enable wifi, scan for access points, and list what networks are available:
+These three commands will in turn, enable wifi, scan for access points, and list what networks are available:
 
 ```shell
 connmanctl enable wifi 
@@ -273,11 +313,11 @@ Donut_Hut            wifi_xxxxxxxxxxxx_xxxxxxxxx_managed_psk
 
 ### Step 2: Connect 
 
-Copy the string that starts with "wifi_' to the right of the network name you want to connect to. If it has `psk` at the end, that means it is password protected (short for Wi-Fi Protected Access 2 - Pre-Shared Key) and you will need to go into connman interactive mode.
+Copy the string that starts with "wifi_' to the right of the network name you want to connect to. If it has `psk` at the end, that means it is password protected (short for Wi-Fi Protected Access 2 - Pre-Shared Key) and you need to scroll further down to the " Password Protected" section.
 
 #### No Password
 
-For example, to connect to YOUR_NETWORK, which has no password, `services` shows two choices. We want the one without `psk` in the string. Use the `connect` command:
+To connect to YOUR_NETWORK, which has no password, `services` shows two choices. We want the one without `psk` in the string. Use the `connect` command:
 
 ```shell
 connmanctl connect wifi_xxxxxxxxxxxx_xxxxxx_managed_none
@@ -299,20 +339,20 @@ If your network is not password protected, you'll get some output that will indi
 
 If your network is password protected you'll get an error.
 
-#### Password-Protected
-To deal with passwords you'll need to put `connman` into interactive mode:
+#### Password Protected
+To deal with passwords you'll need to put ConnMan into interactive mode:
 
 ```shell
 connmanctl
 ```
 
-which gives a `connmanctl` prompt:
+This command gives a `connmanctl` prompt:
 
 ```shell
 connmanctl>
 ```
 
-In the shell, turn the 'agent' on so it can process password requests:
+In the shell, turn the agent on so it can process password requests:
 
 ```shell
   agent on
@@ -346,7 +386,7 @@ Exit connmanctl interactive mode:
 
 ### Step 3: Test Connection
 
-To test the WiFi connection you can ping Google four times:
+Finally, you can test your connection to the internet with `ping`. Google's DNS server at the IP address 8.8.8.8 is probably the most reliable computer on the internet, so:
 
 ```shell
 ping -c 4 8.8.8.8
@@ -365,7 +405,9 @@ PING 8.8.8.8 (8.8.8.8): 56 data bytes
 4 packets transmitted, 4 packets received, 0% packet loss
 round-trip min/avg/max = 7.474/7.951/9.004 ms
 ```
-&#10024; You are Connected! &#10024;
+The `-c 4` option means it will happen only 4 times.
+
+&#10024; **Congratulations! You are now Connected to a Network** &#10024;
 
 If your connection is not successful, then ping will tell you your network is down:
 
@@ -378,28 +420,28 @@ ping: sendto: Network is unreachable
 
 * Review any messages that the connect command gave you. Did they look like the examples of a successful connection?
 
-* Double check you used the right network when you used the connect command.
+* Double check that you used the right network with the `connect` command.
 
-* If everything checked out until you got to `ping`, there's a good chance the problem is with your router or connection to the internet. 
+* If everything checked out until you got to `ping`, there's a good chance the problem is with your router or connection to the internet. Some networks have firewalls on them that will allow you to connect but prevent foreign devices from transferring information. 
 
 * Connman not Installed Error
 
-If you try to use `connman` and you get an error that it is not found or is not a command, chances are that you are using the Debian image. The `connman` commands only apply to C.H.I.P. Pros running the simple Buildroot OS.
+	If you try to use ConnMan and you get an error that it is not found or is not a 	command, chances are that you are using the Debian image. The ConnMan commands only apply to C.H.I.P. Pros running the Buildroot OS.
 
 ### Disconnect from Network with Connman
-To disconnect from your network, you might first want a reminder of what unfriendly string is used to describe your access point:
+To disconnect from your network, you might first want a reminder of the unfriendly string used to describe your access point:
 
 ```shell
 connmanctl services
 ```
 
-Which will output information about your current connection:
+This command will output information about your current connection:
 
 ```shell
 YOUR_NETWORK         wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
 ```
 
-Use the string ID to disconnect:
+Copy and paste the string ID along with the `disconnect` command:
 
 ```shell
 connmanctl disconnect wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
@@ -412,13 +454,13 @@ Disconnected wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
 ```
 
 ### Forget Network with Connman
-Generally, `conman` will remember and cache setup information. This means that if you reboot in the vicinity of a known network, it will attempt to connect. However, if you need to forget a network setup, these setups can be found by navigating:
+Generally, ConnMan will remember and cache setup information. This means that if you reboot in the vicinity of a known network, it will attempt to connect. However, if you need to forget a network setup, navigate to:
 
 ```shell
 cd /var/lib/connman/
 ```
 
-You can delete a single connection by seeing what connections are stored and copying the one you want to delete:
+You can delete a single connection by seeing which are stored and copying the one you want to delete:
 
 ```shell
 /var/lib/connman # ls
@@ -438,11 +480,11 @@ You can delete all the “wifi” connections with:
 ```shell
 rm -r wifi*
 ```
-The `-r` is needed because these are directories you are deleting and the star at the end of `wifi*` assumes your configurations all start with the string “wifi”.
+The `-r` is needed because these are directories you are deleting and the star at the end of `wifi*` assumes your connection IDs all start with the string “wifi”.
 
 ## WiFi Setup: Debian
 
-If you are using Debian OS you will find that `connman` is not installed, you will need to use `nmcli` instead. There are several tools in Linux for connecting and configuring networks. We will be using the command `nmcli` (Network Manager Client). 
+If you are using the Debian OS you will find that ConnMan is not installed, you will need to use Networking/CLI or the command `nmcli` instead. 
 
 **Requirements**
 
@@ -450,7 +492,7 @@ If you are using Debian OS you will find that `connman` is not installed, you wi
   * [Serial connection](https://docs.getchip.com/chip_pro.html#usb-serial-uart1-connection) to C.H.I.P. Pro
 
 ### Step 1: List available Wi-Fi networks
-In the terminal type:
+In terminal type:
 
 ```shell
 nmcli device wifi list
@@ -466,7 +508,7 @@ The output will list available access points:
 ```
 ### Step 2: Connect 
 
-You can connect to password-protected or open access points.
+You can connect to password protected or open access points.
 
 #### No Password
 To connect to an open network with no password:
@@ -480,9 +522,9 @@ These commands will respond with information about the connection. A successful 
 Connection with UUID 'xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy' created and activated on device 'wlan0'
 ```
 
-#### Password-Protected
+#### Password Protected
 
-To connect to a password-protected network, use this command inserting your own network name and password:
+To connect to a password protected network, use this command inserting your own network name and password:
 
 ```shell
 sudo nmcli device wifi connect "YOUR_NETWORK_SSID" password "UR_NETWORK_PASSWORD" ifname wlan0
@@ -493,7 +535,7 @@ These commands will respond with information about the connection. A successful 
 ```shell
 Connection with UUID 'xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy' created and activated on device 'wlan0'
 ```
-#### Hidden SSID and Password-Protected
+#### Hidden SSID and Password Protected
 
 To connect to a hidden and password-protected network:
  
@@ -535,27 +577,32 @@ NAME  		   UUID                                  TYPE             DEVICE
 YOUR_NETWORK   xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy  802-11-wireless  wlan0
 ```
 
-After you have connected once, your C.H.I.P. will automatically connect to this network next time you reboot (or start NetworkManager services).
+After you have connected once, C.H.I.P. Pro will automatically connect to this network next time you reboot (or start NetworkManager services).
 
 #### Test
-Finally, you can test your connection to the internet with `ping`. Google's DNS server at the IP address 8.8.8.8 is probably the most reliable computer on the internet, so:
+Expect ping to output some timing messages:
 
 ```shell
-ping -c 4 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: seq=0 ttl=60 time=7.631 ms
+64 bytes from 8.8.8.8: seq=1 ttl=60 time=7.474 ms
+64 bytes from 8.8.8.8: seq=2 ttl=60 time=7.697 ms
+64 bytes from 8.8.8.8: seq=3 ttl=60 time=9.004 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 7.474/7.951/9.004 ms
 ```
-
-results in output like:
-
-```shell
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=55 time=297 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=55 time=26.3 ms
-64 bytes from 8.8.8.8: icmp_seq=3 ttl=55 time=24.8 ms
-64 bytes from 8.8.8.8: icmp_seq=4 ttl=55 time=55.7 ms
-```
-
-You can stop this command by pressing CTRL-C on your keyboard. The `-c 4` option means it will happen only 4 times.
+The `-c 4` option means it will happen only 4 times.
 
 &#10024; **Congratulations! You are now Connected to a Network** &#10024;
+
+If your connection is not successful, then ping will tell you your network is down:
+
+```shell
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+ping: sendto: Network is unreachable
+```
 
 ### Disconnect Network with Nmcli
 
@@ -611,7 +658,7 @@ Try connecting again with the correct password.
 * Failed Ping
 
 If you don't have access to the internet, your ping to an outside IP will fail.
-It is possible that you can connect to a wireless network, but have no access to the internet, so you'd see a connection when you request device status, but have a failed ping. This indicates a problem or restriction with the router or the access point, not a problem with the CHIP.
+It is possible that you can connect to a wireless network, but have no access to the internet, so you'd see a connection when you request device status, but have a failed ping. This indicates a problem or restriction with the router or the access point.
 
 A failed ping looks something like:
 
@@ -644,7 +691,7 @@ The Network Manager will periodically try to reconnect. If the access point is r
 
 * Nmcli not Installed Error
 
-If you try to use `nmcli` and you get an error that it is not found or is not a command, chances are that you are using a C.H.I.P. Pro buildroot image. The `nmcli` commands only apply to C.H.I.P. Pro using Debian linux.
+If you try to use `nmcli` and you get an error that it is not found or is not a command, chances are that you are using a C.H.I.P. Pro Buildroot image. The `nmcli` commands only apply to C.H.I.P. Pro using Debian linux.
 
 ## SSH 
 
@@ -655,7 +702,7 @@ Once you connect to an network you can ssh into the C.H.I.P. Pro in order to pro
 ```
 ip addr
 ``` 
-The IP is on `wlan0` or sometimes on `wlan1`
+The IP is on `wlan0` or sometimes on `wlan1`.
 
 ### Connect
 
@@ -665,9 +712,9 @@ ssh root@<CHIPproIP>
 
 ## Access I/O via sysfs	
 
-There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available on C.H.I.P. Pro. 
+There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available.
 
-GPIO is accessed through a [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSI_D0 - CSI_D7). 
+GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). 
 
 Below are some basic exercises to check if the digital in/out pins are working correctly. 
 
@@ -679,7 +726,7 @@ Below are some basic exercises to check if the digital in/out pins are working c
 
 You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf), starting on page 15. 
 
-As an example let's look at CSID_D0 which is pin **PE4** on the datasheet. 
+As an example let's look at CSID0 which is pin **PE4** on the datasheet. 
 
 Look at the letter that follows the "P". Starting with A = 0, count up in the alphabet until you arrive at that letter. For example, ```E=4```.
 
@@ -687,39 +734,41 @@ Multiply the letter index by 32, then add the number that follows "PE":
 
 ``` (32*4)+4 = 132```
 
-Therefore, listening to CSID0 in sysfs would begin with
+Therefore, to export pin PE4 (CSID0) in sysfs you would use 132 to reference that pin:
 
 ```
 sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
+PE4 - PE11 are numbers 132-139 in sysfs.
+
 ### GPIO Input
 
-These lines of code will let you read values on pin **PE4** which corresponds to **132** in Linux sysfs (PE4 - PE11 are numbers 132-139 in sysfs).
+To access the GPIO pins through sysfs there is a process that must be adhered. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
 
-If testing a switch we recommend adding a external pull-up or pull-down resistor to prevent floating pin logic state.
+When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
 
 ![pull-down resistor](images/buttonUART_800.jpg)
 
-In terminal, tell the system you want to listen to a pin:
+In terminal, tell the system you want to listen to a pin by exporting it:
 
 ```shell
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-View the mode of the pin. By default the pin modes are set to input. So, the following command will return “in” unless the pin mode was changed to "out" previously:
+Next, the pin mode needs to be set. By default, the pin modes are set to input. So, the following command that views the mode will return “in” unless the pin mode was changed to "out" previously:
 
 ```shell
   cat /sys/class/gpio/gpio132/direction
 ```
 
-Connect a jumper wire or switch between pin PE4 and GND. Now use this line of code to read the value:
+Connect a switch between pin PE4 and GND. Use this line of code to read the value:
 
 ```shell
   cat /sys/class/gpio/gpio132/value
 ```
 
-Continuously poll switch pin PE4(132) for state change:
+Continuously poll a switch on pin PE4(132) for its state change:
 
 ```shell
   while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
@@ -727,20 +776,21 @@ Continuously poll switch pin PE4(132) for state change:
 
 ### GPIO Output
 
-Attach an LED to pin PE4 and ground. We recommend placing a current-limiting resistor is series to protect the GR8 module and LED from overcurrent or a potential short.
+Attach an LED to pin PE4 and ground. We recommend placing a current-limiting resistor in series to protect the GR8 module and LED from overcurrent or a potential short.
 
 ![UART connection](images/blink.gif)
 
-Change the mode of the pin from “in” to “out”:
+Change the mode of the pin from "in” to “out”:
 
 ```shell
   sudo sh -c 'echo out > /sys/class/gpio/gpio132/direction'
 ```
 
-Now that it's in output mode you can write a value to the pin and turn the LED on and off:
+Now that it's in output mode, you can write a value to the pin and turn the LED on and off:
 
 ```shell
   sudo sh -c 'echo 1 > /sys/class/gpio/gpio132/value'
+  sudo sh -c 'echo 0 > /sys/class/gpio/gpio132/value'
 ```
 
 
@@ -753,7 +803,7 @@ while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/g
 
 ### GPIO Done
 
-When you are done experimenting always tell the system to stop listening to the gpio pin:
+When you are done experimenting, always tell the system to stop listening to the gpio pin by unexporting it:
 
 ```shell
   sudo sh -c 'echo 132 > /sys/class/gpio/unexport'

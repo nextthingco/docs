@@ -2,24 +2,22 @@
 
 ![C.H.I.P. Pro](images/CHIP_ProMain.jpg)
 
-The C.H.I.P. Pro System-on-Module (SOM) is designed to get you making great products instead of re-inventing computers. It's a low-cost, high-capability module that lets you focus on fast iterations of brilliant ideas that will be ready to manufacture.
+The C.H.I.P. Pro System-on-Module (SOM) is designed to get you making great products instead of re-inventing computers. It's a low-cost, high-capability module that lets you focus on fast iterations of brilliant ideas that will be ready to manufacture. 
 
 To get the most out of developing and designing for C.H.I.P. Pro we recommend prototyping with the [C.H.I.P. Pro Development Kit](http://docs.getchip.com/chip_pro_devkit.html). 
 
-C.H.I.P. Pro is a breadboard-friendly and surface-mount-ready computer designed from the ground up to power the next generation of smart devices. 
+This document provides technical details that will make integrating C.H.I.P. Pro module into your designs a breeze, along with technical specifications and basic guides to get you connected and working with software on C.H.I.P. Pro. 
 
-This document provides technical details that will make integrating the C.H.I.P. Pro module into your designs a breeze, along with technical specifications and basic guides to get you connected and working with software on the C.H.I.P. Pro. 
-
-C.H.I.P. Pro's Features:
+**At a Glance C.H.I.P. Pro's Features:**
 
 * 512MB of NAND storage
 * 2.4GHz WiFi and Bluetooth connectivity
-* Onboard battery charging power and battery management
+* Onboard power and battery charging management
 * Pins for popular I/O busses
 * 2x USB Port (1x USB 2.0 Host, 1x OTG)
 * Security and flexibility of mainline Linux 
 * Breadboard and SMT compatible
-* dimensions: 45mm x 30mm
+* Dimensions: 45mm x 30mm
 
 Comprehensive audio handling includes:
 
@@ -27,17 +25,11 @@ Comprehensive audio handling includes:
 * one-wire audio digital out
 * I2S digital audio for interfacing with industry standard audio codecs.
 
+To learn more, go to our [Specification](https://docs.getchip.com/chip_pro.html#specifications) section.
+
 **Certifications**
 
 C.H.I.P. Pro is CE, IC, and FCC part 15 modularly certified with multiple commercially available external antennas as well as the onboard ceramic SMT antenna. 
-
-**WiFi and Bluetooth**
-
-The on-board Realtek 8723DS combination module provides compliant 2.4GHz Wi-Fi B/G/N and Bluetooth 4.2 Low-Energy connectivity. A software controlled antenna path selects between the on-board chip antenna or a IPEX (U.FL) antenna connector where several pre-certified antennas can be added allowing for optimum antenna placement in your product. 
-
-**Power Management**
-
-C.H.I.P. Pro can be powered by battery, USB or AC/DC adapter. On-board Power management with the AXP209 provides plenty of power options to better match your applications: mobile, commercial, and low-power are all possible with C.H.I.P. Pro. 
 
 
 ## GR8 SiP
@@ -47,8 +39,6 @@ C.H.I.P. Pro can be powered by battery, USB or AC/DC adapter. On-board Power man
 C.H.I.P. Pro is powered by Next Thing Co’s GR8 SiP (System in Package). GR8 features a 1GHz Allwinner R8 ARMv7 Cortex-A8 processor with NEON SIMD extensions and a Mali-400 GPU. 256MB of Nanya DDR3 SDRAM is combined with the R8 processor into a 14mm x 14mm, 0.8mm pitch 252 ball FBGA package. 
 
 In addition to the Mali-400 graphic engine that supports OpenGL ES 1.0 and 2.0. GR8 includes a video engine for encoding and decoding codecs such as VP6/8, AVS, H.264, H.263, MPEG-1/2/4 and a display engine for a hardware cursor, alpha blending, and anti-flicker.
-
-GR8 also features many popular peripheral interfaces: Two-Wire Interface, two UARTs (one 2-wire and one 4-wire), SD Card-ready SPI, two PWM outputs, a 6-bit ADC, I2S digital audio, S/PDIF IEC-60958 digital audio output, two HS/FS/LS USB PHYs (one USB 2.0 Host and one USB 2.0 OTG), a CMOS Sensor Interface. 
 
 More information about the GR8 SiP can be found in the [GR8 data sheet.](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/GR8_Datasheet_v1.0.pdf)
 

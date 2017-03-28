@@ -162,7 +162,7 @@ In order to use it, you need to set the path of the external antenna.
 With the Buildroot C.H.I.P. Pro images comes a [set_antenna script](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) which accepts two arguments of either `pcb` or `ufl` depending on which you want enable. 
 
 ```
-set_antenna pcb|ufl
+sh set_antenna pcb|ufl
 ``` 
 
 **Debian**
@@ -176,7 +176,7 @@ In Debian, there are two ways to set the antenna path:
 1 = external-antenna
 
 
-* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) and pass either the `pcb` or `ufl` argument as stating above.  
+* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna). Run and pass either the `pcb` or `ufl` argument, as stating above.  
 
 ## WiFi Setup: Buildroot
 

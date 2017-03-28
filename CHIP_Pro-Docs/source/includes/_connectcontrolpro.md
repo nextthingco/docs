@@ -220,6 +220,30 @@ To connect an antenna, come straight from the top and push the antenna onto the 
 
 ![wifi antenna connected](images/wifiOn.jpg)
 
+### Enable Wifi Antenna
+In order to use it, you need to set the path of the external antenna.
+
+**Buildroot**
+
+With the Buildroot C.H.I.P. Pro images comes a [set_antenna script](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) which accepts two arguments of either `pcb` or `ufl` depending on which you want enable. 
+
+```
+sh set_antenna pcb|ufl
+``` 
+
+**Debian**
+
+In Debian, there are two ways to set the antenna path:
+
+* The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
+
+0 = onboard-antenna 
+
+1 = external-antenna
+
+
+* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna). Run and pass either the `pcb` or `ufl` argument, as stating above.  
+
 ## Edit Buildroot Examples
 
 After connecting to the Dev Kit via [USB-serial](https://docs.getchip.com/chip_pro_devkit#usb-serial-uart1-connection) you can check out and edit the scripts for each Buildroot example. Use the Vi command-line editor to read and edit example scripts found in /usr/bin. 

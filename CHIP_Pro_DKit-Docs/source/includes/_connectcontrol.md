@@ -668,39 +668,52 @@ We know you really want to do one thing when you get new hardware/software in ha
 
 Servos need more volts than the C.H.I.P. Pro can supply on it’s own. Because of this, you will find the power pins for PWM0 and PWM1 are connected to a 5 volt power supply from the the barrel jack. Keep in mind that the max current the power pins can provide are **900mA**.
 
-Our Linux kernels provide a simple **sysfs** interface to access the PWM from. 
-
-* The PWMs are exposed at /sys/class/pwm/
-* The PWM controller is exported as pwmchip0. 
+Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller is exported as pwmchip0. 
 
 To explore the file structure, connect to C.H.I.P. Pro via USB-serial and in the terminal window type: 
 
 ``` shell
-cd /sys/class/pwm/pwmchip0
-ls
+ls /sys/class/pwm/pwmchip0
 ```
 In the pwmchip0 directory you will find:
 
-**export** - Exports a PWM channel for use. 
+**export** - exports a PWM channel for use. 
 
 **unexport** - unexports PWM channel from sysfs (always do this after you are done using a channel).
 
-Export the PWM0 channel and check out the attributes that become available:
+**npwm** - says how many PWM channels are available 
+
+There are two PWM channels available from this PWM controller/chip:
+
+```
+cat npwm
+```
+
+Export a PWM channel to use it. Channel 0 is PWM0, channel 1 is PWM1:
 
 ```shell
-echo 0 > /sys/class/pwm/pwmchip0/pwm0/export
+echo 0 > export #PWM0
+echo 1 > export #PWM1
 ls
 ```
 
-**period** - Total period of inactive and active time of the PWM signal in nano seconds.
+After exporting you will find that a new directory pwmX, where X is the channel number, has been created. Go into a pwmX directory to check out the properties that are available to use:
 
-**duty_cycle** - The active time of the PWM signal in nano seconds. Must be less than the period.
+```shell
+cd pwm0 
+ls
+```
 
-**polarity** - Changes the polarity of the PWM signal. Value is "normal" or "inversed".
+**duty_cycle** - The active time of the PWM signal in nanoseconds. Must be less than the period.
 
 **enable** - Enable/disable the PWM signal:
 	0 - disabled
 	1 - enabled
+
+**period** - Total period of inactive and active time of the PWM signal in nanoseconds.
+
+**polarity** - Changes the polarity of the PWM signal. Value is "normal" or "inversed".
+
 	
 To test the PWM channels follow along with the examples. There is one for an LED and servo ([Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product) nano analog servo).
 
@@ -711,13 +724,13 @@ If you haven't already, export the pin you want to use:
 ```shell
 echo 0 > /sys/class/pwm/pwmchip0/pwm0/export
 ```
-Setup the pin, period of waveform and duty cycle:
+Set the polarity, period of the waveform and duty cycle. Units are in **nanoseconds**. Most servos operate at 50Hz which translates into 20000000 nanoseconds. Start the duty cycle at 0:
 
 ```shell
 echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity 
-echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period
-echo 1000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 0000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 ```
 
 Change the duty cycle to move the servo.
@@ -732,7 +745,7 @@ When done, disable and unexport pin:
 
 ```shell
 echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable
-echo 0 > /sys/class/pwm/pwmchip0/pwm0/unexport
+echo 0 > /sys/class/pwm/pwmchip0/unexport
 ```
 
  

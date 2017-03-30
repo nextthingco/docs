@@ -666,23 +666,32 @@ To see an example of how to control the On-board LEDs [flash the board with our 
 ##PWM Breakout Pins
 We know you really want to do one thing when you get new hardware/software in hand- build robots. Well, a robot needs to be able to move to perhaps one day dominate the world. To help with this world domination you need servos and motors. The C.H.I.P. Pro Dev board conveniently has two PWM pins broken out specifically for servos.  
 
-Servos need more volts than the C.H.I.P. Pro can supply on it’s own. Because of this, you will find the power pins for PWM0 and PWM1 are connected to a 5 volt power supply from the the barrel jack. Keep in mind that the max current the power pins can provide is 900mA.
+Servos need more volts than the C.H.I.P. Pro can supply on it’s own. Because of this, you will find the power pins for PWM0 and PWM1 are connected to a 5 volt power supply from the the barrel jack. Keep in mind that the max current the power pins can provide are **900mA**.
 
-Our Linux kernels provide a simple sysfs interface to use the PWM from. The PWMs are exposed at /sys/class/pwm/. The PWM controller is exported as pwmchip0. Go check out the file structure: 
+Our Linux kernels provide a simple **sysfs** interface to access the PWM from. 
+
+* The PWMs are exposed at /sys/class/pwm/
+* The PWM controller is exported as pwmchip0. 
+
+To explore the file structure, connect to C.H.I.P. Pro via USB-serial and in the terminal window type: 
 
 ``` shell
 cd /sys/class/pwm/pwmchip0
 ls
 ```
-In this directory you will find:
-**export** - Exports a PWM channel for use 
-**unexport** - unexports PWM channel from sysfs (always do this after you are done using a channel)
+In the pwmchip0 directory you will find:
+
+**export** - Exports a PWM channel for use. 
+
+**unexport** - unexports PWM channel from sysfs (always do this after you are done using a channel).
 
 Export the PWM0 channel and check out the attributes that become available:
+
 ```shell
 echo 0 > /sys/class/pwm/pwmchip0/pwm0/export
 ls
 ```
+
 **period** - Total period of inactive and active time of the PWM signal in nano seconds.
 
 **duty_cycle** - The active time of the PWM signal in nano seconds. Must be less than the period.

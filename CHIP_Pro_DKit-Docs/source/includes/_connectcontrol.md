@@ -666,7 +666,7 @@ To see an example of how to control the On-board LEDs [flash the board with our 
 
 ## PWM Breakout Pins
 
-We know that you really want to do one thing when you get new hardware/software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos and controlled with a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board offers a place to connect your servos to.  
+We know that you really want to do one thing when you get new hardware/software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos which are controlled using a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board offers a place to connect your servos to.  
 
 ### PWM via sysfs
 

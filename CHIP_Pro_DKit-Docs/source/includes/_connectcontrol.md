@@ -666,8 +666,6 @@ To see an example of how to control the On-board LEDs [flash the board with our 
 ##PWM Breakout Pins
 We know you really want to do one thing when you get new hardware/software in hand- build robots. Well, a robot needs to be able to move to perhaps one day dominate the world. To help with this world domination you need servos and motors. The C.H.I.P. Pro Dev board conveniently has two PWM pins broken out specifically for servos.  
 
-Servos need more volts than the C.H.I.P. Pro can supply on it’s own. Because of this, you will find the power pins for PWM0 and PWM1 are connected to a 5 volt power supply from the the barrel jack. Keep in mind that the max current the power pins can provide are **900mA**.
-
 Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller is exported as pwmchip0. 
 
 To explore the file structure, connect to C.H.I.P. Pro via USB-serial and in the terminal window type: 
@@ -718,6 +716,10 @@ ls
 To test the PWM channels follow along with the examples. There is one for an LED and servo ([Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product) nano analog servo).
 
 ### Servo 
+
+Most servos, like the HS-40 used in this example, have three pins: power, ground, and a control signal. The control signal is a pulse-width-modulated input signal whose high pulse width (within a determined period) determines the servo's angular position. The control signal pin draw a maximum of 20mA which means that it can be directly controlled by the C.H.I.P. Pro PWM pins. 
+
+The servo motor draws more power than a pin on the C.H.I.P. Pro can directly provide. The Dev Kit board helps this by providing a 5 volt bus for the servo to draw from. The 5 volt power supply comes from the the barrel jack and can output a maximum of **900mA**.
 
 If you haven't already, export the pin you want to use:
 

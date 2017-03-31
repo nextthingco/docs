@@ -672,9 +672,9 @@ We know that you really want to do one thing when you get new hardware/software 
 
 Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller/chip is exported as **pwmchip0**. To test the PWM channels and explore the file structure, connect to C.H.I.P. Pro via USB-serial and in a terminal window type: 
 
-
-    ls /sys/class/pwm/pwmchip0
-
+```
+ls /sys/class/pwm/pwmchip0
+```
 
 In the **pwmchip0** directory you will find:
 
@@ -684,7 +684,7 @@ In the **pwmchip0** directory you will find:
 
 **npwm** - says how many PWM channels are available. 
 
-You can see there are two PWM channels available from this PWM controller/chip by using `cat`:
+You can see there are two PWM channels available from C.H.I.P. Pro's PWM controller/chip by using `cat`:
 
 ```
 cd /sys/class/pwm/pwmchip0
@@ -716,7 +716,7 @@ cd pwm0
 ls
 ```
 
-In the directory you will find: 
+In the pwmX directory you will find: 
 
 **duty_cycle** - the active time of the PWM signal in nanoseconds. Must be less than the period.
 
@@ -742,32 +742,32 @@ While the signal pin draws a relatively low amount of current, the servo motor d
 If you haven't already, export the pin you want to use:
 
 ```shell
-echo 0 > /sys/class/pwm/pwmchip0/pwm0/export
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/export'
 ```
 Set the polarity, period of the waveform and duty cycle. Units are in **nanoseconds**. Most servos operate at 50Hz which translates into 20000000 ns/20 ms. Start the duty cycle at 0:
 
 ```shell
-echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity 
-echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
-echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period
-echo 0000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+sudo sh -c 'echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity' 
+sudo sh -c 'echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable'
+sudo sh -c 'echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period'
+sudo sh -c 'echo 0000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
 
-To rotate a servo 180º, most servos require a duty cycle where 1 ms corresponds to the minimum angle and 2 ms corresponds to the maximum angle. Now all servos are the same, however and will require calibration. For example, the HS-40 used in this example had a minimum of .6 ms and maximum of 2.4 ms. Start somewhere in the middle like 1.5 ms and go up and down from there. 
+To rotate a servo 180º most servos require a duty cycle where 1 ms corresponds to the minimum angle and 2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example had a minimum of .6 ms and maximum of 2.4 ms. Start somewhere in the middle like 1.5 ms and go up and down from there. 
 
-Change the duty cycle to move the servo:
+Change the duty cycle to 1500000 ns/1.5 ms to move the servo:
 
 ```shell
-echo 1500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
-echo 1600000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
-echo 1700000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+sudo sh -c 'echo 1500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+sudo sh -c 'echo 1600000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+sudo sh -c 'echo 1700000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
 
 When done, disable and unexport pin:
 
 ```shell
-echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable
-echo 0 > /sys/class/pwm/pwmchip0/unexport
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable'
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/unexport'
 ```
 
  

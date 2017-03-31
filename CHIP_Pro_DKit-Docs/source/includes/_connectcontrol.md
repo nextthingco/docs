@@ -726,7 +726,7 @@ If you haven't already, export the pin you want to use:
 ```shell
 echo 0 > /sys/class/pwm/pwmchip0/pwm0/export
 ```
-Set the polarity, period of the waveform and duty cycle. Units are in **nanoseconds**. Most servos operate at 50Hz which translates into 20000000 nanoseconds. Start the duty cycle at 0:
+Set the polarity, period of the waveform and duty cycle. Units are in **nanoseconds**. Most servos operate at 50Hz which translates into 20000000 ns/20 ms. Start the duty cycle at 0:
 
 ```shell
 echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity 
@@ -735,12 +735,14 @@ echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period
 echo 0000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 ```
 
-Change the duty cycle to move the servo.
+To rotate a servo 180º, most servos require a duty cycle where 1 ms corresponds to the minimum angle and 2 ms corresponds to the maximum angle. Now all servos are the same, however and will require calibration. For example, the HS-40 used in this example had a minimum of .6 ms and maximum of 2.4 ms. Start somewhere in the middle like 1.5 ms and go up and down from there. 
+
+Change the duty cycle to move the servo:
 
 ```shell
-echo 1100000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
-echo 1200000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
-echo 1200000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1600000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1700000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 ```
 
 When done, disable and unexport pin:

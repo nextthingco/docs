@@ -666,16 +666,17 @@ To see an example of how to control the On-board LEDs [flash the board with our 
 
 ## PWM Breakout Pins
 
-We know that you really want to do one thing when you get new hardware/software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos which are controlled using a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board offers a place to connect your servos to.  
+We know that you really want to do one thing when you get new hardware/software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos which are controlled using a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board provides a place to conveniently power and control servos from.  
 
 ### PWM via sysfs
 
-Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller/chip is exported as pwmchip0. To explore the file structure, connect to C.H.I.P. Pro via USB-serial and in the terminal window type: 
+Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller/chip is exported as **pwmchip0**. To test the PWM channels and explore the file structure, connect to C.H.I.P. Pro via USB-serial and in a terminal window type: 
 
-``` shell
-ls /sys/class/pwm/pwmchip0
-```
-In the pwmchip0 directory you will find:
+
+    ls /sys/class/pwm/pwmchip0
+
+
+In the **pwmchip0** directory you will find:
 
 **export** - exports a PWM channel for use. 
 

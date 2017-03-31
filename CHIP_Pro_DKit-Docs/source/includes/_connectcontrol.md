@@ -636,6 +636,7 @@ The "Sleeve" (bottom-most ring) on the TRRS jack can be used as a mono audio inp
 The 3.5mm TRRS jack provides stereo output suitable for headphones or amplification to stereo speakers.
 
 ## USB Accessories
+
 The USB1 port can be used to connect and use popular accessories like storage, MIDI controllers, keyboards, pointing devices, audio hardware, and more. C.H.I.P. Pro does not provide power to the USB A port on its own, so the Development Kit is a good example of how this works. 
 
 **USB1 Power**
@@ -663,12 +664,13 @@ There are also two LEDs that are connected to the PWM pins for testing and learn
 
 To see an example of how to control the On-board LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and view the example scripts using the command-line editor Vi.
 
-##PWM Breakout Pins
-We know you really want to do one thing when you get new hardware/software in hand- build robots. Well, a robot needs to be able to move to perhaps one day dominate the world. To help with this world domination you need servos and motors. The C.H.I.P. Pro Dev board conveniently has two PWM pins broken out specifically for servos.  
+## PWM Breakout Pins
 
-Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller is exported as pwmchip0. 
+We know that you really want to do one thing when you get new hardware/software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos and controlled with a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board offers a place to connect your servos to.  
 
-To explore the file structure, connect to C.H.I.P. Pro via USB-serial and in the terminal window type: 
+### PWM via sysfs
+
+Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller/chip is exported as pwmchip0. To explore the file structure, connect to C.H.I.P. Pro via USB-serial and in the terminal window type: 
 
 ``` shell
 ls /sys/class/pwm/pwmchip0
@@ -702,6 +704,8 @@ cd pwm0
 ls
 ```
 
+In the directory you will find: 
+
 **duty_cycle** - The active time of the PWM signal in nanoseconds. Must be less than the period.
 
 **enable** - Enable/disable the PWM signal:
@@ -715,7 +719,7 @@ ls
 	
 To test the PWM channels follow along with the examples. There is one for an LED and servo ([Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product) nano analog servo).
 
-### Servo 
+### Connect and Control a Servo 
 
 Most servos, like the HS-40 used in this example, have three pins: power, ground, and a control signal. The control signal is a pulse-width-modulated input signal whose high pulse width (within a determined period) determines the servo's angular position. The control signal pin draw a maximum of 20mA which means that it can be directly controlled by the C.H.I.P. Pro PWM pins. 
 

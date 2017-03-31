@@ -682,15 +682,26 @@ In the **pwmchip0** directory you will find:
 
 **unexport** - unexports PWM channel from sysfs (always do this after you are done using a channel).
 
-**npwm** - says how many PWM channels are available 
+**npwm** - says how many PWM channels are available. 
 
-There are two PWM channels available from this PWM controller/chip:
+You can see there are two PWM channels available from this PWM controller/chip by using `cat`:
 
 ```
+cd /sys/class/pwm/pwmchip0
 cat npwm
 ```
 
-Export a PWM channel to use it. Channel 0 is PWM0, channel 1 is PWM1:
+Export a PWM channel to use it. Channel 0 is PWM0, channel 1 is PWM1. If a Buildroot image is flashed onto C.H.I.P. Pro you do not need to act as root and use `sudo sh -c` with quotes around the command string. 
+
+For example this is for the **Pro (Debian)** image:
+
+```shell
+sudo sh -c 'echo 0 > export' #PWM0
+sudo sh -c 'echo 1 > export' #PWM1
+ls
+```
+
+This is for when you are in **Buildroot**:
 
 ```shell
 echo 0 > export #PWM0
@@ -698,7 +709,7 @@ echo 1 > export #PWM1
 ls
 ```
 
-After exporting you will find that a new directory pwmX, where X is the channel number, has been created. Go into a pwmX directory to check out the properties that are available to use:
+After exporting you will find that a new directory **pwmX**, where X is the channel number, has been created. Go into the pwmX directory to check out the properties that are available to use:
 
 ```shell
 cd pwm0 
@@ -707,24 +718,26 @@ ls
 
 In the directory you will find: 
 
-**duty_cycle** - The active time of the PWM signal in nanoseconds. Must be less than the period.
+**duty_cycle** - the active time of the PWM signal in nanoseconds. Must be less than the period.
 
-**enable** - Enable/disable the PWM signal:
+**enable** - enable/disable the PWM signal:
+
 	0 - disabled
+	
 	1 - enabled
 
-**period** - Total period of inactive and active time of the PWM signal in nanoseconds.
+**period** - total period of inactive and active time of the PWM signal in nanoseconds.
 
-**polarity** - Changes the polarity of the PWM signal. Value is "normal" or "inversed".
+**polarity** - changes the polarity of the PWM signal. Value is "normal" or "inversed".
 
 	
-To test the PWM channels follow along with the examples. There is one for an LED and servo ([Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product) nano analog servo).
+To test the PWM channels follow along with the examples below. 
 
 ### Connect and Control a Servo 
 
-Most servos, like the HS-40 used in this example, have three pins: power, ground, and a control signal. The control signal is a pulse-width-modulated input signal whose high pulse width (within a determined period) determines the servo's angular position. The control signal pin draw a maximum of 20mA which means that it can be directly controlled by the C.H.I.P. Pro PWM pins. 
+Most servos, like the [Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product) used in this example, have three pins: power, ground, and a control signal. The control signal is a pulse-width-modulated input signal whose high pulse width (within a determined period) determines the servo's angular position. The control signal pin draws a maximum of 20mA which means that it can be directly controlled by the PWM pins on C.H.I.P. Pro. 
 
-The servo motor draws more power than a pin on the C.H.I.P. Pro can directly provide. The Dev Kit board helps this by providing a 5 volt bus for the servo to draw from. The 5 volt power supply comes from the the barrel jack and can output a maximum of **900mA**.
+While the signal pin draws a relatively low amount of current, the servo motor draws more power than the C.H.I.P. Pro can provide on it's own. This is where the Dev Kit board helps by providing a 5 volt bus for the servo to draw from. The PWM Servo power pins are connected to the barrel jack providing 5 volts with an maximum output of **900mA**.
 
 If you haven't already, export the pin you want to use:
 

@@ -674,8 +674,7 @@ Our Linux kernels provide a simple **sysfs** interface to access PWM from. The P
 
 ```
 ls /sys/class/pwm/pwmchip0
-```    
-<br />  
+``` <br />  
 In the **pwmchip0** directory you will find:
 
 **export** - exports a PWM channel for use. 

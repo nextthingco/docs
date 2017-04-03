@@ -674,7 +674,7 @@ Our Linux kernels provide a simple **sysfs** interface to access PWM from. The P
 
 ```
 ls /sys/class/pwm/pwmchip0
-``` <br />  
+```  
 In the **pwmchip0** directory you will find:
 
 **export** - exports a PWM channel for use. 
@@ -689,7 +689,6 @@ You can see there are two PWM channels available from C.H.I.P. Pro's PWM control
 cd /sys/class/pwm/pwmchip0
 cat npwm
 ```    
-
 Export a PWM channel to use it. Channel 0 is PWM0, channel 1 is PWM1. If a Buildroot image is flashed onto C.H.I.P. Pro you do not need to act as root and use `sudo sh -c` with quotes around the command string. 
 
 For example this is for the **Pro (Debian)** image:
@@ -738,12 +737,13 @@ Most servos, like the [Hitec HS-40](http://hitecrcd.com/products/servos/micro-an
 
 While the signal pin draws a relatively low amount of current, the servo motor draws more power than the C.H.I.P. Pro can provide on it's own. This is where the Dev Kit board helps by providing a 5 volt bus for the servo to draw from. The PWM Servo power pins are connected to the barrel jack providing 5 volts with an maximum output of **900mA**.
 
-If you haven't already, export the pin you want to use:
+If you haven't already, export the PWM pin you want to use:
 
 ```shell
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/export'
 ```
-Set the polarity, period of the waveform and duty cycle. Units are in **nanoseconds**. Most servos operate at 50Hz which translates into 20000000 ns/20 ms. Start the duty cycle at 0:
+Set the **polarity**, **period** of the waveform and **duty cycle**. Units are in **nanoseconds**. 
+Most servos operate at 50Hz which translates into 20000000/20 ms ns. Start the duty cycle at 0:
 
 ```shell
 sudo sh -c 'echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity' 
@@ -752,7 +752,7 @@ sudo sh -c 'echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period'
 sudo sh -c 'echo 0000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
 
-To rotate a servo 180º most servos require a duty cycle where 1 ms corresponds to the minimum angle and 2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example had a minimum of .6 ms and maximum of 2.4 ms. Start somewhere in the middle like 1.5 ms and go up and down from there. 
+To rotate a servo 180º most require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1.5 ms. Then you can go up and down from there. 
 
 Change the duty cycle to 1500000 ns/1.5 ms to move the servo:
 

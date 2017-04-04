@@ -752,7 +752,7 @@ sudo sh -c 'echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period'
 sudo sh -c 'echo 0000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
 
-To rotate a servo 180º most require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1.5 ms. Then you can go up and down from there. 
+To rotate a servo 180º most require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1.5 ms. Then you can go up and down from there to find the max and min. 
 
 Change the duty cycle to 1500000 ns/1.5 ms to move the servo:
 
@@ -769,6 +769,26 @@ sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable'
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/unexport'
 ```
 
- 
+### Servo Sweep Scripts
+
+This is for the use with the Pro image build. 
+Connect C.H.I.P. Pro to a network. Download a command-line editor like Vim or Nano.
+
+```shell
+sudo apt-get update
+sudo apt-get install vim
+```
+
+### 180º Servo Sweep
+
+This script sweeps back and forth from 0º - 180º and back again.  
+
+### 360º Continuos Servo ([FEETEC FS90R Micro Servo](https://dl.dropboxusercontent.com/content_link/JEXel2PQGDQFYFGyv4mtlW4ixE5htbXMH2xsjIIOOiv7PjhB3fka7ILAnWs5k2e1/file))
+
+A PWM input signal controls the speed of a 360º continuous rotation servo and each servo has a neutral or stop position. At times you can find the pulse in microseconds for the stop position and rotating directions. The further the pulse is from the stop point, the slower the rotation speed.  
+
+```shell
+
+```
 
 

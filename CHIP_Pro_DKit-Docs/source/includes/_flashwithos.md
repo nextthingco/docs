@@ -55,19 +55,15 @@ You can select an OS by flashing one of our examples using the web flasher [flas
 
 #### Blinkenlights
 
-Size: ~60MB
-
 Controlling LEDs are fundamental to almost any hardware. This simple example provides easy-to-understand code with exciting results! Flash C.H.I.P. Pro with this image and watch the GPIO D0-D7 lights turn on and off in a cascading pattern and the two PWM LEDs pulse from dim to bright. Based on Buildroot.
 
 #### VU Meter
 
-Size: ~60MB
+This example comes with the [CHIP_IO](https://github.com/xtacocorex/CHIP_IO) library and Python, all in a very small package! 
 
 Want to make sure your mics are working? Use this handy VU Meter example. Scream loudly, speak softly, tap the mics, and MAKE SOME NOISE, SPORTSFANS! You'll see the LEDs light proportional to the volume of the noise captured by the two built-in mics. Based on Buildroot.
 
 #### Pro
-
-Size: ~180MB
 
 We provide a standard Debian distribution. Once flashed connect to the C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and log in with the default username `chip` and password `chip`.
 

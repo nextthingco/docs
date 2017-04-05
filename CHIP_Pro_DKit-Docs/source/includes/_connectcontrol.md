@@ -653,22 +653,19 @@ USB1 is provided with 5V by one of two ways:
 * Execute the command `sudo axp209 --no-limit` in the terminal before you attach your USB peripherals.
 * Provide power from a supply connecting ground and 4.8V to 6V to the CHG-IN , pin 4.
 
-## On-board LEDs
+## Onboard Digital I/O LEDs
+
 The Dev board provides ten LEDs to make it easy to test your GPIO skills without having to wire anything up. 
 
-### GPIO LEDs
 Eight of these LEDs can be turned on and off with standard Linux sysfs commands to the GPIO pins DO to D7. 
 
-### PWM LEDs
-There are also two LEDs that are connected to the PWM pins for testing and learning about pulse width modulation. 
+To see an example of how to control the eight Digital and two PWM LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and view the example scripts using the command-line editor Vi.
 
-To see an example of how to control the On-board LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and view the example scripts using the command-line editor Vi.
+## PWM 
 
-## PWM Breakout Pins
+C.H.I.P. Pro can outpit a PWM signal up to 24 MHz. Two PWM pins are available for your LED fading and motor control needs. The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
 
-We know that you really want to do one thing when you get new hardware and software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos which are controlled using a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board provides breakout pins to conveniently power and control servos from.  
-
-### PWM via sysfs
+### Controlling PWM via sysfs
 
 Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller/chip can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via USB-serial and in a terminal window type: 
 
@@ -728,10 +725,15 @@ In the pwmX directory you will find:
 
 **polarity** - changes the polarity of the PWM signal. Value is "normal" or "inversed".
 
-	
 To test the PWM channels follow along with the examples below. 
 
+### PWM LEDs
+
+There are also two LEDs that are connected to the PWM pins for testing and learning about pulse width modulation. 
+
 ### Connect and Control a Servo 
+
+We know that you really want to do one thing when you get new hardware and software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos which are controlled using a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board provides breakout pins to conveniently power and control servos from.  
 
 Most servos, like the [Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product) used in this example, have three pins: power, ground, and a control signal. The control signal is a pulse-width-modulated input signal whose high pulse width (within a determined period) determines the servo's angular position. The control signal pin draws a maximum of 20mA which means that it can be directly controlled by the PWM pins on C.H.I.P. Pro. 
 
@@ -783,9 +785,15 @@ sudo apt-get install vim
 
 This script sweeps back and forth from 0º - 180º and back again.  
 
-### 360º Continuos Servo ([FEETEC FS90R Micro Servo](https://dl.dropboxusercontent.com/content_link/JEXel2PQGDQFYFGyv4mtlW4ixE5htbXMH2xsjIIOOiv7PjhB3fka7ILAnWs5k2e1/file))
+### 360º Continuos Servo ([FEETEC FS90R Micro Servo](https://cdn-shop.adafruit.com/product-files/2442/FS90R-V2.0_specs.pdf))
 
-A PWM input signal controls the speed of a 360º continuous rotation servo and each servo has a neutral or stop position. At times you can find the pulse in microseconds for the stop position and rotating directions. The further the pulse is from the stop point, the slower the rotation speed.  
+A PWM input signal controls the speed of a 360º continuous rotation servo and each servo has a neutral or stop position. At times you can find the pulse in microseconds for the stop position and rotating directions. The further the pulse is from the stop point, the slower the rotation speed. 
+
+Here are the pulse widths for the FS90R servo: 
+
+1500 ms: stop
+1000 ms - 1400 ms: slow - fast right
+1600 ms - 2000 ms: slow - fast left  
 
 ```shell
 

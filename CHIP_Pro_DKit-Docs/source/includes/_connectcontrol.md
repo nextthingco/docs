@@ -528,7 +528,7 @@ NAME           UUID                                  TYPE             DEVICE
 YOUR_NETWORK   xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy  802-11-wireless  wlan0
 ```
 
-Then, delete the network specified between quotes to forget it:
+Then delete the network specified between quotes to forget it:
 
 ```shell
 sudo nmcli connection delete id "YOUR_NETWORK"

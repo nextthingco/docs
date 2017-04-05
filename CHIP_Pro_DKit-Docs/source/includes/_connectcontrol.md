@@ -657,9 +657,9 @@ USB1 is provided with 5V by one of two ways:
 
 There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available.
 
-GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). The following are some basic examples to get the digital in/out pins are working. 
+GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). The following are some basic examples to get you started with the digital in/out pins.
 
-If a Buildroot image is flashed onto C.H.I.P. Pro you do not need to act as root and use `sudo sh -c` with quotes around the command string. 
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro Debian based** image, you need to act as root and use `sudo sh -c` with quotes around the command string. 
 
 **Pro (Debian)** 
 
@@ -675,9 +675,9 @@ echo 132 > /sys/class/gpio/export
 
 ### Figure out the GPIO sysfs Pin Number
 
-To address the pins you first need to figure out how the sysfs interface sees them. To calculate this, start with the pin's port number which are printed on the board for your convenience and can be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+To address the pins, you first need to figure out how the sysfs interface sees them. To calculate this, start with the pin's port number which are printed on the board for your convenience and can be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
-As an example, let's look at CSID0 which is port **PE4** on the datasheet. Look at the letter that follows the "P". Starting with A = 0, count up in the alphabet until you arrive at that letter. For example, ```E=4```.
+As an example, let's look at CSID0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, ```E=4```.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 
@@ -689,7 +689,7 @@ Therefore, to export pin PE4 (CSID0) in sysfs you would use **132** to reference
 sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-**PE4 - PE11 are 132-139.**
+The numbers go up from 132 - **PE5 - PE11 correspond to 133-139.**
 
 ### GPIO Input
 
@@ -755,14 +755,14 @@ Now that it's in output mode, you can write a value to the pin and turn the LED 
 #### Blink 
 Blink an LED on pin PE4(132).
 
-```
+``` shell
 while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; echo 0 >  /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; done;
 ```
 
 
 ### GPIO Done
 
-When you are done using any GPIO pin always tell the system to stop listening to it pin by unexporting it:
+When you are done using any GPIO pin always tell the system to stop listening by unexporting it:
 
 ```shell
   sudo sh -c 'echo 132 > /sys/class/gpio/unexport'
@@ -772,7 +772,7 @@ If pins have not been unexported the pins will be "busy" the next time you go to
 
 ## PWM 
 
-C.H.I.P. Pro can output a PWM signal up to 24 MHz. Two PWM pins are available for your LED fading and motor control needs. The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
+C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins (PWM0 and PWM1). The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
 
 ### Access PWM via sysfs
 
@@ -798,12 +798,12 @@ cat npwm
 
 #### Export PWM Channels
 
-Before you can use a channel it needs to be exported. 
+Before you can use a channel it needs to be exported. Use these numbers to reference which pin you would like to export:
 
-* channel 0 = PWM0
-* channel 1 = PWM1
+* 0 = PWM0
+* 1 = PWM1
 
-If a Buildroot image is flashed onto C.H.I.P. Pro you do not need to act as root and use `sudo sh -c` with quotes around the command string. 
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro Debian based** image, you need to act as root and use `sudo sh -c` with quotes around the command string. 
 
 **Pro (Debian)**
 

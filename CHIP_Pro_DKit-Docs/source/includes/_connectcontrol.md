@@ -862,7 +862,7 @@ Set the period to 10000000 nano seconds (1 second) and the duty cycle to 0:
 sudo sh -c 'echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/period'
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
-From here, set the duty_cycle in nano seconds. Start dim and step up to the brightest (the value of **period**):
+From here, set the duty_cycle in nano seconds. Start dim at 1% and step up to the 100%:
 
 ```
 sudo sh -c 'echo 100000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'

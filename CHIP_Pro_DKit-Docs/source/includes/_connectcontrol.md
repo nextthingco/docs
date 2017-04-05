@@ -663,9 +663,9 @@ To see an example of how to control the eight Digital and two PWM LEDs [flash th
 
 ## PWM 
 
-C.H.I.P. Pro can outpit a PWM signal up to 24 MHz. Two PWM pins are available for your LED fading and motor control needs. The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
+C.H.I.P. Pro can output a PWM signal up to 24 MHz. Two PWM pins are available for your LED fading and motor control needs. The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
 
-### Controlling PWM via sysfs
+### Control PWM via sysfs
 
 Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller/chip can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via USB-serial and in a terminal window type: 
 
@@ -729,9 +729,11 @@ To test the PWM channels follow along with the examples below.
 
 ### PWM LEDs
 
-There are also two LEDs that are connected to the PWM pins for testing and learning about pulse width modulation. 
+There are also two LEDs that are connected to the PWM pins for testing and learning about pulse width modulation. If you need to the PWM LEDs can be disconnected at any time by [cutting traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces) on the back. 
 
-### Connect and Control a Servo 
+### Connect and Control Servo 
+
+![servo connected to dev kit](images/mainServo.jpg)
 
 We know that you really want to do one thing when you get new hardware and software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos which are controlled using a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board provides breakout pins to conveniently power and control servos from.  
 
@@ -739,22 +741,28 @@ Most servos, like the [Hitec HS-40](http://hitecrcd.com/products/servos/micro-an
 
 While the signal pin draws a relatively low amount of current, the servo motor draws more power than the C.H.I.P. Pro can provide on it's own. This is where the Dev Kit board helps by providing a 5 volt bus for the servo to draw from. The PWM Servo power pins are connected to the barrel jack providing 5 volts with an maximum output of **900mA**.
 
+![servo connected to dev kit](images/pwmPins.jpg)
+
 If you haven't already, export the PWM pin you want to use:
 
 ```shell
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/export'
 ```
-Set the **polarity**, **period** of the waveform and **duty cycle**. Units are in **nanoseconds**. 
-Most servos operate at 50Hz which translates into 20000000/20 ms ns. Start the duty cycle at 0:
+Set the **polarity**, **period** of the waveform and **duty cycle**. Units are in **nanoseconds**. The **polarity** can only be set before the pin is enabled. If you set it once enabled, the script should still work but you will see an error. 
+Most servos operate at 50Hz which translates into 20000000/20 ms ns for the **period**. Start the **duty cycle** at 0:
 
 ```shell
 sudo sh -c 'echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity' 
 sudo sh -c 'echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable'
 sudo sh -c 'echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period'
-sudo sh -c 'echo 0000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
 
-To rotate a servo 180º most require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1.5 ms. Then you can go up and down from there to find the max and min. 
+#### 180º Servo
+
+![180º servo sweeping](images/180servo.gif)
+
+To rotate 180º most servo require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1.5 ms. Then you can go up and down from there to find the max and min. 
 
 Change the duty cycle to 1500000 ns/1.5 ms to move the servo:
 
@@ -771,32 +779,36 @@ sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable'
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/unexport'
 ```
 
-### Servo Sweep Scripts
+##### Sweep Script
 
-This is for the use with the Pro image build. 
-Connect C.H.I.P. Pro to a network. Download a command-line editor like Vim or Nano.
+To copy and paste the script download a command-line editor (For example, Vim and Nano).
 
 ```shell
 sudo apt-get update
 sudo apt-get install vim
 ```
 
-### 180º Servo Sweep
+The [Sweep](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweep.sh) script moves back and forth from 0º - 180º while printing the duty cycle. You may need to calibrate the minimum and maximum to fit your servo.
 
-This script sweeps back and forth from 0º - 180º and back again.  
+#### 360º Continuos Servo 
 
-### 360º Continuos Servo ([FEETEC FS90R Micro Servo](https://cdn-shop.adafruit.com/product-files/2442/FS90R-V2.0_specs.pdf))
+![360º sweeping](images/360servoC.gif)
 
-A PWM input signal controls the speed of a 360º continuous rotation servo and each servo has a neutral or stop position. At times you can find the pulse in microseconds for the stop position and rotating directions. The further the pulse is from the stop point, the slower the rotation speed. 
+For this example I am using a [FEETEC FS90R Micro Servo](https://cdn-shop.adafruit.com/product-files/2442/FS90R-V2.0_specs.pdf)
 
-Here are the pulse widths for the FS90R servo: 
+With a continuous servo a PWM input signal allows you to control the speed, direction of rotation and when to stop. Check the datasheet for a servo you use, there you can sometimes find the widths needed to control the servo. 
+
+A typical stop width is 1500000 ns/1500 ms. The further the time travels above and below the stop point, the slower the rotation speed. 
+
+Below are the pulse widths for the FS90R servo. Yours may be slightly different. 
 
 1500 ms: stop
 1000 ms - 1400 ms: slow - fast right
 1600 ms - 2000 ms: slow - fast left  
 
-```shell
+##### Sweep Script
 
-```
+This script called [SweepCont](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweepCont.sh) steps through different speeds while rotating in one direction. Each speed lasts for two seconds. It stops for one second and rotates at different speeds in the opposite direction and continues doing this in a loop. 
+
 
 

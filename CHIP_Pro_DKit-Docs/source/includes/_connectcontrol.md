@@ -653,13 +653,108 @@ USB1 is provided with 5V by one of two ways:
 * Execute the command `sudo axp209 --no-limit` in the terminal before you attach your USB peripherals.
 * Provide power from a supply connecting ground and 4.8V to 6V to the CHG-IN , pin 4.
 
-## Onboard Digital I/O LEDs
+## Access I/O via sysfs	
 
-The Dev board provides ten LEDs to make it easy to test your GPIO skills without having to wire anything up. 
+There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available.
 
-Eight of these LEDs can be turned on and off with standard Linux sysfs commands to the GPIO pins DO to D7. 
+GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). 
 
-To see an example of how to control the eight Digital and two PWM LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and view the example scripts using the command-line editor Vi.
+Below are some basic exercises to check if the digital in/out pins are working correctly. 
+
+**Debian** - use `sudo` to gain permission while logged in as default `chip` user.
+
+**Buildroot** - with our examples you are already logged in as the root user so `sudo` is not necessary. 
+
+### Figure out the GPIO sysfs Pin Number
+
+You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf), starting on page 15. 
+
+As an example let's look at CSID0 which is pin **PE4** on the datasheet. 
+
+Look at the letter that follows the "P". Starting with A = 0, count up in the alphabet until you arrive at that letter. For example, ```E=4```.
+
+Multiply the letter index by 32, then add the number that follows "PE":
+
+``` (32*4)+4 = 132```
+
+Therefore, to export pin PE4 (CSID0) in sysfs you would use 132 to reference that pin:
+
+```
+sudo sh -c 'echo 132 > /sys/class/gpio/export'
+```
+
+PE4 - PE11 are numbers 132-139 in sysfs.
+
+### GPIO Input
+
+To access the GPIO pins through sysfs there is a process that must be adhered to. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
+
+When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
+
+![pull-down resistor](images/buttonUART_800.jpg)
+
+In terminal, tell the system you want to listen to a pin by exporting it:
+
+```shell
+  sudo sh -c 'echo 132 > /sys/class/gpio/export'
+```
+
+Next, the pin mode needs to be set. By default, the pin modes are set to input. So, the following command that views the mode will return “in” unless the pin mode was changed to "out" previously:
+
+```shell
+  cat /sys/class/gpio/gpio132/direction
+```
+
+Connect a switch between pin PE4 and GND. Use this line of code to read the value:
+
+```shell
+  cat /sys/class/gpio/gpio132/value
+```
+
+Continuously poll a switch on pin PE4(132) for its state change:
+
+```shell
+  while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
+```
+
+### GPIO Output
+
+The Dev board provides ten onboard LEDs to make it easy to test your GPIO skills without having to wire anything up. Eight of these LEDs can be turned on and off with standard Linux sysfs commands to the GPIO pins CSIDO to CSID7 which are seen as 132 - 139 in sysfs.
+
+To see an example of how to control the eight Digital and two PWM LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and view the example scripts using the command-line editor Vi. Attach an LED to pin PE4 and ground. We recommend placing a current-limiting resistor in series to protect the GR8 module and LED from overcurrent or a potential short.
+
+![UART connection](images/blink.gif)
+
+Change the mode of the pin from "in” to “out”:
+
+```shell
+  sudo sh -c 'echo out > /sys/class/gpio/gpio132/direction'
+```
+
+Now that it's in output mode, you can write a value to the pin and turn the LED on and off:
+
+```shell
+  sudo sh -c 'echo 1 > /sys/class/gpio/gpio132/value'
+  sudo sh -c 'echo 0 > /sys/class/gpio/gpio132/value'
+```
+
+
+#### Blink an LED on Pin PE4(132)
+
+```
+while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; echo 0 >  /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; done;
+```
+
+
+### GPIO Done
+
+When you are done experimenting, always tell the system to stop listening to the gpio pin by unexporting it:
+
+```shell
+  sudo sh -c 'echo 132 > /sys/class/gpio/unexport'
+```
+
+If pins are not unexported, the pins will be "busy" the next time you go to export them. 
 
 ## PWM 
 

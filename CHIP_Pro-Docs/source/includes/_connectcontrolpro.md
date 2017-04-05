@@ -768,7 +768,7 @@ PE4 - PE11 are numbers 132-139 in sysfs.
 
 ### GPIO Input
 
-To access the GPIO pins through sysfs there is a process that must be adhered. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
+To access the GPIO pins through sysfs there is a process that must be adhered to. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
 
 When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
 

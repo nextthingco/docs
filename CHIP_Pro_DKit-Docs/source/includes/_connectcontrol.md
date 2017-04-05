@@ -104,7 +104,7 @@ Once a terminal window pops up, press Enter.
 
 ## Edit Buildroot Examples
 
-After connecting to the Dev Kit via [USB-serial](https://docs.getchip.com/chip_pro_devkit#usb-serial-uart1-connection) you can check out and edit the scripts for each Buildroot example. Use the Vi command-line editor to read and edit example scripts found in /usr/bin. 
+After connecting to the Dev Kit via [USB-serial](https://docs.getchip.com/chip_pro_devkit#usb-serial-uart1-connection) you can check out and edit the scripts for each Buildroot example. Use the Vi command-line editor to read and edit example scripts found in ```/usr/bin```. 
 
 **Blinkenlights**
 
@@ -657,37 +657,43 @@ USB1 is provided with 5V by one of two ways:
 
 There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available.
 
-GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). 
+GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). The following are some basic examples to get the digital in/out pins are working. 
 
-Below are some basic exercises to check if the digital in/out pins are working correctly. 
+If a Buildroot image is flashed onto C.H.I.P. Pro you do not need to act as root and use `sudo sh -c` with quotes around the command string. 
 
-**Debian** - use `sudo` to gain permission while logged in as default `chip` user.
+**Pro (Debian)** 
 
-**Buildroot** - with our examples you are already logged in as the root user so `sudo` is not necessary. 
+```shell
+sudo sh -c 'echo 132 > /sys/class/gpio/export' 
+```
+
+**Buildroot**:
+
+```shell
+echo 132 > /sys/class/gpio/export 
+```
 
 ### Figure out the GPIO sysfs Pin Number
 
-You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf), starting on page 15. 
+To address the pins you first need to figure out how the sysfs interface sees them. To calculate this, start with the pin's port number which are printed on the board for your convenience and can be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
-As an example let's look at CSID0 which is pin **PE4** on the datasheet. 
-
-Look at the letter that follows the "P". Starting with A = 0, count up in the alphabet until you arrive at that letter. For example, ```E=4```.
+As an example, let's look at CSID0 which is port **PE4** on the datasheet. Look at the letter that follows the "P". Starting with A = 0, count up in the alphabet until you arrive at that letter. For example, ```E=4```.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 
-``` (32*4)+4 = 132```
+``` (4*32)+4 = 132```
 
-Therefore, to export pin PE4 (CSID0) in sysfs you would use 132 to reference that pin:
+Therefore, to export pin PE4 (CSID0) in sysfs you would use **132** to reference that pin:
 
 ```
 sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-PE4 - PE11 are numbers 132-139 in sysfs.
+**PE4 - PE11 are 132-139.**
 
 ### GPIO Input
 
-To access the GPIO pins through sysfs there is a process that must be adhered to. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
+The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
 
 When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
 
@@ -711,7 +717,7 @@ Connect a switch between pin PE4 and GND. Use this line of code to read the valu
   cat /sys/class/gpio/gpio132/value
 ```
 
-Continuously poll a switch on pin PE4(132) for its state change:
+Continuously poll a switch on pin PE4 for its state change:
 
 ```shell
   while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
@@ -721,13 +727,20 @@ Continuously poll a switch on pin PE4(132) for its state change:
 
 The Dev board provides ten onboard LEDs to make it easy to test your GPIO skills without having to wire anything up. Eight of these LEDs can be turned on and off with standard Linux sysfs commands to the GPIO pins CSIDO to CSID7 which are seen as 132 - 139 in sysfs.
 
-To see an example of how to control the eight Digital and two PWM LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and view the example scripts using the command-line editor Vi. Attach an LED to pin PE4 and ground. We recommend placing a current-limiting resistor in series to protect the GR8 module and LED from overcurrent or a potential short.
+**Blinkenlights Example**
+
+To start with an example that demos the eight I/Os and two PWM onboard LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and [view the example scripts](https://docs.getchip.com/chip_pro_devkit.html#edit-buildroot-examples) using the command-line editor Vi. 
+
+**Command-line**
+
+Follow along to turn on and off the LED attached to PE4.
 
 ![UART connection](images/blink.gif)
 
-Change the mode of the pin from "in” to “out”:
+If you haven't already, export the pin and change the mode of the pin from "in” to “out”:
 
 ```shell
+  sudo sh -c 'echo 132 > /sys/class/gpio/export'
   sudo sh -c 'echo out > /sys/class/gpio/gpio132/direction'
 ```
 
@@ -739,7 +752,8 @@ Now that it's in output mode, you can write a value to the pin and turn the LED 
 ```
 
 
-#### Blink an LED on Pin PE4(132)
+#### Blink 
+Blink an LED on pin PE4(132).
 
 ```
 while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; echo 0 >  /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; done;
@@ -748,21 +762,21 @@ while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/g
 
 ### GPIO Done
 
-When you are done experimenting, always tell the system to stop listening to the gpio pin by unexporting it:
+When you are done using any GPIO pin always tell the system to stop listening to it pin by unexporting it:
 
 ```shell
   sudo sh -c 'echo 132 > /sys/class/gpio/unexport'
 ```
 
-If pins are not unexported, the pins will be "busy" the next time you go to export them. 
+If pins have not been unexported the pins will be "busy" the next time you go to export them. 
 
 ## PWM 
 
 C.H.I.P. Pro can output a PWM signal up to 24 MHz. Two PWM pins are available for your LED fading and motor control needs. The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
 
-### Control PWM via sysfs
+### Access PWM via sysfs
 
-Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller/chip can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via USB-serial and in a terminal window type: 
+Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller/chip can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
 ```
 ls /sys/class/pwm/pwmchip0
@@ -781,9 +795,17 @@ You can see there are two PWM channels available from C.H.I.P. Pro's PWM control
 cd /sys/class/pwm/pwmchip0
 cat npwm
 ```    
-Export a PWM channel to use it. Channel 0 is PWM0, channel 1 is PWM1. If a Buildroot image is flashed onto C.H.I.P. Pro you do not need to act as root and use `sudo sh -c` with quotes around the command string. 
 
-For example this is for the **Pro (Debian)** image:
+#### Export PWM Channels
+
+Before you can use a channel it needs to be exported. 
+
+* channel 0 = PWM0
+* channel 1 = PWM1
+
+If a Buildroot image is flashed onto C.H.I.P. Pro you do not need to act as root and use `sudo sh -c` with quotes around the command string. 
+
+**Pro (Debian)**
 
 ```shell
 sudo sh -c 'echo 0 > export' #PWM0
@@ -791,7 +813,7 @@ sudo sh -c 'echo 1 > export' #PWM1
 ls
 ```
 
-This is for when you are in **Buildroot**:
+**Buildroot**:
 
 ```shell
 echo 0 > export #PWM0
@@ -799,7 +821,7 @@ echo 1 > export #PWM1
 ls
 ```
 
-After exporting you will find that a new directory **pwmX**, where X is the channel number, has been created. Go into the pwmX directory to check out the properties that are available to use:
+After exporting, you will find that a new directory **pwmX**, where X is the channel number, has been created. Go into the pwmX directory to check out the properties that are available to use:
 
 ```shell
 cd pwm0 
@@ -820,11 +842,42 @@ In the pwmX directory you will find:
 
 **polarity** - changes the polarity of the PWM signal. Value is "normal" or "inversed".
 
-To test the PWM channels follow along with the examples below. 
+To test the PWM channels follow the examples below.
 
 ### PWM LEDs
 
-There are also two LEDs that are connected to the PWM pins for testing and learning about pulse width modulation. If you need to the PWM LEDs can be disconnected at any time by [cutting traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces) on the back. 
+There are two LEDs connected to the PWM pins for testing and learning about pulse width modulation. If you need to disconnect the PWM LEDs that can be done at any time by [cutting traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces) on the back. 
+
+Export a channel, set the polarity and enable it:
+
+```
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0'
+sudo sh -c 'echo "normal" > /sys/class/pwm/pwmchip0/pwm0/polarity'
+sudo sh -c 'echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable'
+```
+
+Set the period to 10000000 nano seconds (1 second) and the duty cycle to 0:
+
+```
+sudo sh -c 'echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/period'
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+```
+From here, set the duty_cycle in nano seconds. Start dim and step up to the brightest (the value of **period**):
+
+```
+sudo sh -c 'echo 100000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+sudo sh -c 'echo 500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+sudo sh -c 'echo 1000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+sudo sh -c 'echo 5000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+sudo sh -c 'echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+```
+
+Disable and unexport:
+
+```
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/enable'
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/unexport'
+```
 
 ### Connect and Control Servo 
 

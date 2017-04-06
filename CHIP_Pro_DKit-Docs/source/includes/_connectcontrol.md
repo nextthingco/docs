@@ -656,6 +656,7 @@ USB1 is provided with 5V by one of two ways:
 ## GPIO	
 
 C.H.I.P. Pro has a total 22 GPIO pins ready for use:
+
 	* 2 PWM
 	* 3 input
 	* 17 input/output
@@ -678,21 +679,21 @@ sudo sh -c 'echo 132 > /sys/class/gpio/export'
 echo 132 > /sys/class/gpio/export 
 ```
 
-### Access Digital I/O via sysfs
+### Digital I/O via sysfs
 
 Our Linux kernels provide a simple **sysfs** interface to access GPIO from. The GPIO control interface can be found at `/sys/class/gpio`. To explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
 ```
 ls /sys/class/gpio
 ```  
-In the **gio** directory you will find:
+In the **gpio** directory you will find:
 
 * **export** - exports a GPIO signal to read and write to. 
 * **unexport** - reverses the effect of exporting. 
 
 Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. 
 
-### Calculate the GPIO sysfs Pin Number
+### Get GPIO sysfs Pin Number
 
 To address the pins, you first need to figure out how the sysfs interface sees them. To calculate this, start with the pin's port number which are printed on the board for your convenience and can be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
@@ -722,7 +723,7 @@ Attributes used in the examples below:
 
 Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).
 
-### GPIO Input
+### Digital Input
 
 The following lines of code are an example that reads the changing state of **PE4**, **GPIO 132**.
 
@@ -754,7 +755,7 @@ Continuously check the value of the switch pin for its state change:
   while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
 ```
 
-### GPIO Output
+### Digital Output
 
 **Onboard LEDs**
 
@@ -807,7 +808,7 @@ If pins have not been unexported the pins will be "busy" the next time you go to
 
 C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins (PWM0 and PWM1). The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
 
-### Access PWM via sysfs
+### PWM via sysfs
 
 Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
@@ -863,6 +864,7 @@ In the pwmX directory you will find:
 
 * **duty_cycle** - the active time of the PWM signal in nanoseconds. Must be less than the period.
 * **enable** - enable/disable the PWM signal:
+
 	0 - disabled
 	
 	1 - enabled
@@ -906,7 +908,7 @@ sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/enable'
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/unexport'
 ```
 
-### Connect and Control Servo 
+### PWM Servo 
 
 ![servo connected to dev kit](images/mainServo.jpg)
 

@@ -727,9 +727,7 @@ Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documenta
 
 ### Digital Input
 
-The following lines of code are an example that reads the changing state of **PE4**, **GPIO 132**.
-
-When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
+The following example reads the changing state of **PE4**, **GPIO 132**. When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
 
 ![pull-down resistor](images/buttonUART_800.jpg)
 
@@ -978,17 +976,18 @@ The [Sweep](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sw
 ![360º sweeping](images/360servoC.gif)
 
 **Servo Used in Example**
+
 * 360º Continuous 4.7V - 6V [FEETEC FS90R Micro Servo](https://cdn-shop.adafruit.com/product-files/2442/FS90R-V2.0_specs.pdf)
 
 For a continuous servo the PWM input signal allows control of the speed, direction of rotation and stopping period. Always check the datasheet, there you can sometimes find the pulse widths needed to control the servo. 
 
-A typical stop width is 1500000 ns/1500 ms. Typically, the further the time travels above and below the stop point, the slower the rotation speed gets.
+A typical stop width is **1500000 ns/1500 ms**. Typically, the further the time travels above and below the stop point, the slower the rotation speed gets.
 
 Below are the pulse widths for the FS90R servo. Yours may be slightly different. 
 
-1500 ms: stop
-1000 ms - 1400 ms: slow - fast right
-1600 ms - 2000 ms: slow - fast left  
+* 1500 ms: stop
+* 1000 ms - 1400 ms: slow - fast right
+* 1600 ms - 2000 ms: slow - fast left  
 
 ##### Sweep Script
 

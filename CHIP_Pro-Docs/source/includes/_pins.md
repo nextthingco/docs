@@ -102,7 +102,7 @@ Pin Number | Port Name | GR8 Pin Name | Signal Description | Type
 Pin Number | Port Name | GR8 Pin Name | Signal Description | Type 
 -------------- | -------------- | -------------- | -------------- | --------------
 44 | PG3 | EINT3 | External Interrupt Input | I
-42 | PG4 | EINT4 | External Interrupt Input | I
+43 | PG4 | EINT4 | External Interrupt Input | I
 10 | PG13|EINT13 | External Interrupt Input | I
 21 | PB5 | EINT19 | External Interrupt Input | I
 25 | PB9 | EINT24 | External Interrupt Input | I

@@ -657,7 +657,7 @@ USB1 is provided with 5V by one of two ways:
 
 There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available.
 
-GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). The following are some basic examples to get you started with the digital in/out pins.
+GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). The following are some basic examples to get you started with the digital I/O pins.
 
 Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro Debian based** image, you need to act as root and use `sudo sh -c` with quotes around the command string. 
 
@@ -677,11 +677,11 @@ echo 132 > /sys/class/gpio/export
 
 To address the pins, you first need to figure out how the sysfs interface sees them. To calculate this, start with the pin's port number which are printed on the board for your convenience and can be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
-As an example, let's look at CSID0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, ```E=4```.
+As an example, let's look at CSID0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 
-``` (4*32)+4 = 132```
+(4*32)+4 = 132
 
 Therefore, to export pin PE4 (CSID0) in sysfs you would use **132** to reference that pin:
 
@@ -689,11 +689,13 @@ Therefore, to export pin PE4 (CSID0) in sysfs you would use **132** to reference
 sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-The numbers go up from 132 - **PE5 - PE11 correspond to 133-139.**
+The numbers go up from 132:
+
+**PE5-PE11 correspond to 133-139.**
 
 ### GPIO Input
 
-The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
+The following lines of code are an example that reads the changing state of pin **PE4**.
 
 When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
 
@@ -705,7 +707,7 @@ In terminal, tell the system you want to listen to a pin by exporting it:
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-Next, the pin mode needs to be set. By default, the pin modes are set to input. So, the following command that views the mode will return “in” unless the pin mode was changed to "out" previously:
+Next, the pin mode needs to be set. By default the pin modes are set to input. So, the following command that views the mode will return “in” unless the pin mode was changed to "out" previously:
 
 ```shell
   cat /sys/class/gpio/gpio132/direction
@@ -717,13 +719,17 @@ Connect a switch between pin PE4 and GND. Use this line of code to read the valu
   cat /sys/class/gpio/gpio132/value
 ```
 
-Continuously poll a switch on pin PE4 for its state change:
+Continuously check the value of the switch pin for its state change:
 
 ```shell
   while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
 ```
 
 ### GPIO Output
+
+
+
+**Onboard LEDs**
 
 The Dev board provides ten onboard LEDs to make it easy to test your GPIO skills without having to wire anything up. Eight of these LEDs can be turned on and off with standard Linux sysfs commands to the GPIO pins CSIDO to CSID7 which are seen as 132 - 139 in sysfs.
 

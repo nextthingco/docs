@@ -661,9 +661,11 @@ C.H.I.P. Pro has a total 22 GPIO pins ready for use:
 	* 3 input
 	* 17 input/output
 
-GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). The following are some basic examples to get you started with the digital I/O pins.
+Our Linux kernels provide a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. Pins 39 - 41 are accessible as inputs. To see all the other functions C.H.I.P. Pro pins can offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
 
-To see what other functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
+![pin out](images/Pro_Pinout.jpg)
+
+**Buildroot or Debian?**
 
 Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro Debian based** image, you need to act as root and use `sudo sh -c` with quotes around the command string. 
 
@@ -681,7 +683,7 @@ echo 132 > /sys/class/gpio/export
 
 ### Digital I/O via sysfs
 
-Our Linux kernels provide a simple **sysfs** interface to access GPIO from. The GPIO control interface can be found at `/sys/class/gpio`. To explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
+The GPIO control interface can be found at `/sys/class/gpio`. To explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
 ```
 ls /sys/class/gpio

@@ -94,5 +94,13 @@ When deployment is done, the LEDs will turn on and off at the speed your specifi
 
 ## Exit GadgetCLI
 
-GadgetCLI simply opens a window using your host computer's terminal application. To exit type `exit` and close window.
+GadgetCLI simply opens a window using your host computer's terminal application. To exit first stop the running application:
+`stop`
+
+Then, exit Gadget:
+ 
+`exit` and close window.
+
+
+
 	

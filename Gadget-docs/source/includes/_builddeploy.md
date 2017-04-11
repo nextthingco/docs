@@ -44,7 +44,7 @@ From here, simply type the commands listed to deploy your first application.
 
 `sudo gadget deploy`
 
-Gadget will tell when it's done deploying. The hello world template comes with a Bash script called "blink-leds" which will turn the LEDs connected to PE4 - PE11 on and off in sequential order. 
+Gadget will tell you when it's done deploying. The hello world template comes with a Bash script called "blink-leds" which will turn the LEDs connected to PE4 - PE11 on and off in sequential order. 
 
 ## Gadget Commands
 
@@ -74,34 +74,48 @@ get help for specific command:
   gadget <command> --help
 ```
 
+While in the project's directory these commands can be used to start and stop the application plus more.
+
 ## Gadget Project Template
 When initialized, Gadget creates the project directory at:
 
 **Mac OSX**
 
-Macintosh HD/Users/"username"/
+/Macintosh HD/Users/"username"/
 
 **Linux**
 
+/home/"username"/
+
+Here you will find the project's directory with two files in it:
+
+* **GadgetFile** - This file contains build instructions for your application. 
+* **blink-leds** - A sample bash script to make the LEDs on the C.H.I.P. Pro Dev Kit blink. Our ‘hello world’.
+
 ### Edit Example Script
 
-Edit the example script using the Vi command-line editor. 
+Edit the example script using the Nano command-line editor. 
 
-`vi blink-leds`
+`nano blink-leds`
 
 image
 
-Press "i" on your keyboard to enter Insert mode in Vi to edit file. Change the `SPEED` variable, for example, to `1`. Press "esc" and ":x" to exit Insert mode and save changes to the file. 
-
-Go back to your root directory:
-
-`cd ..`
+Change the `SPEED` variable, for example, to `1`. Press Ctrl+O to save and Ctrl+X to exit Nano.
 
 Build and deploy:
 
+**Mac**
+
 ```shell
-gadget build hello_world
-gadget deploy hello_world
+gadget build 
+gadget deploy
+```
+
+**Linux**
+
+```shell
+sudo gadget build 
+sudo gadget deploy
 ```
 
 When deployment is done, the LEDs will turn on and off at the speed your specified. 
@@ -111,9 +125,9 @@ When deployment is done, the LEDs will turn on and off at the speed your specifi
 GadgetCLI simply opens a window using your host computer's terminal application. To exit first stop the running application:
 `stop`
 
-Then, exit Gadget:
+Then, type `exit` and close window.
  
-`exit` and close window.
+
 
 
 

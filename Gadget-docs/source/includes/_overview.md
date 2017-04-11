@@ -8,19 +8,19 @@ We made Gadget to make it much quicker to create and collaborate on new kickass 
 
 ## The Parts of Gadget 
 
-Gadget is comprised of two main pieces of software:
+Gadget is comprised of two main pieces of software: GadgetCLI and GadgetOS. 
 
 ### GadgetCLI
 
 GadgetCLI is a simplified command-line tool for developing a custom Linux distribution. It's what you used to build and deploy applications. GadgetCLI comes with a Gadget Template containing a Gadgetfile and an example Bash script that turn on a off LEDs connected to PE4 - PE11.
 
-**GadgetFile**
+&nbsp;&nbsp;&nbsp;**GadgetFile**
 
-	The GadgetFile builds an image that runs as a container. This file has all the container build instructions for your application. Whatever instructions live here will be built and deployed. 
+&nbsp;&nbsp;&nbsp;The GadgetFile builds an image that runs as a container. This file has all the container build instructions for your application. Whatever instructions live here will be built and deployed. 
      
-**Containers**
+&nbsp;&nbsp;&nbsp;**Containers**
      
-	All Gadget containers use Alpine Linux. You can run as many containers as the processor can handle to get all the features needed for your project. 
+&nbsp;&nbsp;&nbsp;All Gadget containers use Alpine Linux. You can run as many containers as the processor can handle to get all the features needed for your project. 
 
 ### GadgetOS
 

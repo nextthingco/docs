@@ -6,6 +6,8 @@ language_tabs:
 
 includes:
   - overview
+  - setup
+  - builddeploy
 
 search: true
 ---

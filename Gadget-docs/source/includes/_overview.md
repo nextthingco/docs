@@ -1,7 +1,5 @@
 # Welcome!
 
-![Gadget App Icon](images/gadgetLogo.png)
-
 Gadget is a suite of software tools for developing, deploying, and distributing custom Linux operating systems for projects and products.
 
 Gadget combines a ready to use fast-booting Buildroot image, container support and a cross-platform command-line tool with reliable drivers for Gadget compatible hardware. Gadget removes the need for repetitive setup and low level optimization so you can focus on your high level code. 

@@ -9,6 +9,7 @@ This is a source repo for Gadget documentation.
 
 
 **Legacy Way of How to Render it as HTML**
+
 If you want to see it as a website, you'll need to render it to HTML. Read on!
 
 ## Quick Start

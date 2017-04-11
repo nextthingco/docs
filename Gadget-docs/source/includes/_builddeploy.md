@@ -1,6 +1,6 @@
 # Build and Deploy Your First Application
 
-We've made building and deploying Linux applications fast and simple. Follow along to learn how to build and deploy Gadget's 'Hello World' Bash script. Before you get going go through the setup steps of installing Docker, GadgetCLI and Flashing C.H.I.P. Pro.
+We've made building and deploying Linux applications fast and simple. Follow along to learn how to build and deploy Gadget's 'Hello World' Bash script. First, make sure you have gone through the setup steps of installing Docker, GadgetCLI and Flashing C.H.I.P. Pro.
 
 ## Connect 
 
@@ -26,11 +26,23 @@ From here, simply type the commands listed to deploy your first application.
 
 3) Build 
 
+**Mac**
+
 `gadget build`
+
+**Linux**
+
+`sudo gadget build`
 
 4) Deploy
 
+**Mac**
+
 `gadget deploy`
+
+**Linux**
+
+`sudo gadget deploy`
 
 Gadget will tell when it's done deploying. The hello world template comes with a Bash script called "blink-leds" which will turn the LEDs connected to PE4 - PE11 on and off in sequential order. 
 
@@ -68,6 +80,8 @@ When initialized, Gadget creates the project directory at:
 **Mac OSX**
 
 Macintosh HD/Users/"username"/
+
+**Linux**
 
 ### Edit Example Script
 

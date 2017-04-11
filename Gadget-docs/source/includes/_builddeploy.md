@@ -62,7 +62,6 @@ get help for specific command:
   gadget <command> --help
 ```
 
-
 ## Gadget Project Template
 When initialized, Gadget creates the project directory at:
 
@@ -92,4 +91,8 @@ gadget deploy hello_world
 ```
 
 When deployment is done, the LEDs will turn on and off at the speed your specified. 
+
+## Exit GadgetCLI
+
+GadgetCLI simply opens a window using your host computer's terminal application. To exit type `exit` and close window.
 	

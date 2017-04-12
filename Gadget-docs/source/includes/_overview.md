@@ -1,14 +1,14 @@
 # Welcome!
 
-<span style="font-size: 24px">&#128226;</span> We at Next Thing Co. would like to introduce the developer preview of Gadget, our open source suite of software tools. Gadget is built for developing, deploying, and distributing custom Linux operating systems for projects and products. Since it's open source we want to hear from all you Docker enthusiasts and CHIP Pro Dev Kit owners about how you are using it. To leave feedback, Gadget can be found on NTC's [github account]. 
+<span style="font-size: 36px">&#128226;</span> We at Next Thing Co. would like to introduce the developer preview of Gadget, our open source suite of software tools. Gadget is built for developing, deploying, and distributing custom Linux operating systems for projects and products. Since it's open source we want to hear from all you Docker enthusiasts and CHIP Pro Dev Kit owners about how you are using it. To leave feedback, Gadget can be found on NTC's [github account]. 
 
 # What is Gadget?
 
 We created Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
 
-**Develop** - Create your code in a container with the command-line interface.
+<span style="color: #F6248D">Develop</span> - Create your code in a container with the command-line interface.
 
-**Cross Compile** - Build your work on your computer rather than the device.
+<span style="color: #F6248D">**Cross Compile**</span> - Build your work on your computer rather than the device.
 
 **Deploy** - Push the build to your hardware device.
 

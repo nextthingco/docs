@@ -10,9 +10,7 @@ Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug in
 
 Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen with `GADGET: ~$` as the prompt. If you haven't installed Docker, Gadget will detect the OS of the host computer and direct you to the proper url for installing. After you have installed Docker, Gadget's welcome screen will look someting like this (screenshot on a Mac): 
 
-<figure>
 ![Welcome screen Mac](images/welcomeFlash.png)
-<figcaption>Caption goes here</figcaption>
 
 From here, simply type the commands listed to deploy your first application. 
 
@@ -22,9 +20,13 @@ cd hello_world	# enter the hello_world directory
 gadget build	# build hello_world project 
 gadget deploy	# deploy hello_world project
 ```
-**{PHOTO}**
+**{PHOTO of deployment}**
 
-The project will be pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 - PE11 will turn on and off in sequential order. Congrats you have built and deployed your first Gadget project!
+The project is pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 - PE11 will turn on and off in sequential order. 
+
+**{PHOTO of LEDs}**
+
+Congrats you have built and deployed your first Gadget project!
 
 ## Edit Example Script
 When initialized, Gadget creates the project directory at:

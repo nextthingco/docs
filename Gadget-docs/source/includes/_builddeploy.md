@@ -41,7 +41,9 @@ In that directory are two files:
 
 To edit the example script use the Nano command-line editor: 
 
-`nano blink-leds`
+```shell
+nano blink-leds
+```
 
 Change the `SPEED` variable, for example, to `1`. Press Ctrl+O to save and Ctrl+X to exit Nano.
 

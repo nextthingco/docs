@@ -1,6 +1,6 @@
 # Welcome!
 
-&#128226; We at Next Thing Co. would like to introduce the developer preview of Gadget, our open source suite of software tools. Gadget is built for developing, deploying, and distributing custom Linux operating systems for projects and products. Since it's open source we want to hear from all you Docker enthusiasts and CHIP Pro Dev Kit owners about how you are using it. To leave feedback, Gadget can be found on NTC's [github account]. 
+<span style="font-size: 24px">&#128226;</span> We at Next Thing Co. would like to introduce the developer preview of Gadget, our open source suite of software tools. Gadget is built for developing, deploying, and distributing custom Linux operating systems for projects and products. Since it's open source we want to hear from all you Docker enthusiasts and CHIP Pro Dev Kit owners about how you are using it. To leave feedback, Gadget can be found on NTC's [github account]. 
 
 # What is Gadget?
 
@@ -28,7 +28,7 @@ GadgetCLI is a simplified command-line tool for developing a custom Linux distri
 
 GadgetOS is Next Thing Co.’s custom version of Buildroot, optimized for boot speed. For more information on Buildroot, read [here](https://buildroot.org/). 
 
-* Gadget OS comes with GadgetOSd, a daemon that allows automatic communication with GadgetCLI over a USB connection.
+	+ Gadget OS comes with GadgetOSd, a daemon that allows automatic communication with GadgetCLI over a USB connection.
 
 ## GadgetDev
 

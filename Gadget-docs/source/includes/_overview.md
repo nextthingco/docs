@@ -1,5 +1,8 @@
 # Welcome!
 
+Gadget is rolling out as a Developer Technology Preview for all you Docker enthusiasts
+CHIP Pro Dev Kit owners. Gadget is open source and we are opening it up for development by putting it in your hands! To leave feedback and edits Gadget can be found on NTC's [github account].
+
 Gadget is a suite of software tools for developing, deploying, and distributing custom Linux operating systems for projects and products.
 
 Gadget combines a ready to use fast-booting Buildroot image, container support and a cross-platform command-line tool with reliable drivers for Gadget compatible hardware. Gadget removes the need for repetitive setup and low level optimization so you can focus on your high level code. 

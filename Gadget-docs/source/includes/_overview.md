@@ -6,27 +6,27 @@ Gadget combines a ready to use fast-booting Buildroot image, container support a
 
 We made Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier, iterate immediately, replicate quickly, and collaborate seamlessly. It’s also open source so you can customize it to better suit your project’s needs.
 
-## The Parts of Gadget 
+# What Makes up Gadget?
 
 Gadget is comprised of two main pieces of software: GadgetCLI and GadgetOS. 
 
-### GadgetCLI
+## GadgetCLI
 
 GadgetCLI is a simplified command-line tool for developing a custom Linux distribution. It's what you used to build and deploy applications. GadgetCLI comes with a Gadget Template containing a Gadgetfile and an example Bash script that turn on a off LEDs connected to PE4 - PE11.
 
-&nbsp;&nbsp;&nbsp;**GadgetFile**
+* **GadgetFile** 
 
-&nbsp;&nbsp;&nbsp;The GadgetFile builds an image that runs as a container. This file has all the container build instructions for your application. Whatever instructions live here will be built and deployed. 
+...The GadgetFile builds an image that runs as a container. This file has all the ...container build instructions for your application. Whatever instructions live here will ...be built and deployed. 
      
-&nbsp;&nbsp;&nbsp;**Containers**
-     
-&nbsp;&nbsp;&nbsp;All Gadget containers use Alpine Linux. You can run as many containers as the processor can handle to get all the features needed for your project. 
+* **Containers** 
 
-### GadgetOS
+...All Gadget containers use Alpine Linux. You can run as many containers as the processor ...can handle to get all the features needed for your project. 
+
+## GadgetOS
 
 GadgetOS is Next Thing Co.’s custom version of Buildroot, optimized for boot speed. For more information on Buildroot, read [here](https://buildroot.org/). 
 
-**GadgetOSd**
+* **GadgetOSd**
 
-	Once uploaded to C.H.I.P. Pro, a GadgetOS daemon bundled with GadgetOS allows automatic communication with GadgetCLI when connected over USB. 
+...Once uploaded to C.H.I.P. Pro, a GadgetOS daemon bundled with GadgetOS allows automatic ...communication with GadgetCLI when connected over USB. 
 

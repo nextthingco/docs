@@ -880,7 +880,7 @@ There are two LEDs connected to the PWM pins for testing and learning about puls
 Export a channel, set the polarity and enable it:
 
 ```
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0'
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/export'
 sudo sh -c 'echo "normal" > /sys/class/pwm/pwmchip0/pwm0/polarity'
 sudo sh -c 'echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable'
 ```
@@ -940,7 +940,7 @@ sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ![180º servo sweeping](images/180servo.gif)
 
 **Servo Used in Example**
-* 180º degree 4.7V - 6V [Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product)
+* 180º degree 4.8V - 6V [Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product)
 
 
 To rotate 180º most servo require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1.5 ms. Then you can go up and down from there to find the max and min. 
@@ -977,7 +977,7 @@ The [Sweep](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sw
 
 **Servo Used in Example**
 
-* 360º Continuous 4.7V - 6V [FEETEC FS90R Micro Servo](https://cdn-shop.adafruit.com/product-files/2442/FS90R-V2.0_specs.pdf)
+* 360º Continuous 4.8V - 6V [FEETEC FS90R Micro Servo](https://cdn-shop.adafruit.com/product-files/2442/FS90R-V2.0_specs.pdf)
 
 For a continuous servo the PWM input signal allows control of the speed, direction of rotation and stopping period. Always check the datasheet, there you can sometimes find the pulse widths needed to control the servo. 
 

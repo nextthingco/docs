@@ -1,10 +1,10 @@
 # Setup Gadget
 
-When working with Gadget, development is done on a host computer then pushed to your hardware device via USB using GadgetOS' daemon GadgetOSd. There are one-time installs that need to happen on your host computer. 
+To get the most from Gadget's lighting fast deployment process, development is done on a host computer then pushed to your hardware device via USB using GadgetOS' daemon GadgetOSd. To use Gadget install the following on your host computer and Gadget compatible hardware. 
 
 ## Install GadgetCLI
 
-Download the command-line tool GadgetCLI [here]. 
+Download NTC's command-line tool, GadgetCLI [here]. 
 
 ## Flash GadgetOS 
 

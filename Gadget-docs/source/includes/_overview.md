@@ -14,9 +14,12 @@ Gadget is comprised of two main pieces of software: GadgetCLI and GadgetOS.
 
 GadgetCLI is a simplified command-line tool for developing a custom Linux distribution. It's what you used to build and deploy applications. GadgetCLI comes with a Gadget Template containing a Gadgetfile and an example Bash script that turn on a off LEDs connected to PE4 - PE11.
 
+* level one
+  + level two tabbed
+
 * **GadgetFile** 
 
-...The GadgetFile builds an image that runs as a container. This file has all the ...container build instructions for your application. Whatever instructions live here will ...be built and deployed. 
+	+ The GadgetFile builds an image that runs as a container. This file has all the container build instructions for your application. Whatever instructions live here will be built and deployed. 
      
 * **Containers** 
 

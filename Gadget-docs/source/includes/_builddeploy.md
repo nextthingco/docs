@@ -123,7 +123,7 @@ gadget #or
 gadget --help
 ```
 
-These will display the help menu:
+This menu will display:
 
 ```shell
 usage: gadget <command> [<args>]
@@ -145,7 +145,7 @@ get help for specific command:
   gadget <command> --help
 ```
 
-While in the project's directory these commands can be used to start and stop the application plus more.
+When in a project's directory these commands can be used to start and stop the application plus more.
  
 
 

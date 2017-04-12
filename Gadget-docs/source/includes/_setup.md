@@ -1,19 +1,23 @@
-# Setup
+# Setup Gadget
 
-To get going with Gadget there are some one-time installs that need to happen on your host computer. 
+When working with Gadget, development is done on a host computer then pushed to your hardware device via USB using GadgetOS' daemon GadgetOSd. There are one-time installs that need to happen on your host computer. 
 
-* Install GadgetCLI
+## Install GadgetCLI
 
-...Download our command-line tool GadgetCLI [here].
+Download the command-line tool GadgetCLI [here]. 
 
-* Flash C.H.I.P. Pro 
+## Flash GadgetOS 
 
-...For GadgetCLI to be able to talk to your C.H.I.P. Pro it needs to be flashed with the ...latest GadgetOS image. To do that, head over to our [web flasher](flash.getchip.com/pro). 
+For GadgetCLI to be able to talk to your hardware device, flash it with the latest GadgetOS image. Find the latest image by heading over to our [web flasher](flash.getchip.com/pro). 
 
-* Install Docker
+## Install Docker
 
-..* [Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac?tab=description)
-..* [Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)
-..* [Ubuntu](https://store.docker.com/editions/community/docker-ce-server-ubuntu?tab=description)
+Gadget makes use of Docker's container system. Dependent on your host computer's OS install the appropriate versions of Docker using the below links. For more information on Docker, read [here](https://www.docker.com/).
+
+* MacOS - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-mac?tab=description)
+* Windows 10 - [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
+* Ubuntu - [Docker CE](https://store.docker.com/editions/community/docker-ce-server-ubuntu?tab=description)
+
+
 	
 	

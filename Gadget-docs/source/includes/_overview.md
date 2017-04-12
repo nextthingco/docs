@@ -1,35 +1,37 @@
 # Welcome!
 
-Gadget is rolling out as a Developer Technology Preview for all you Docker enthusiasts
-CHIP Pro Dev Kit owners. Gadget is open source and we are opening it up for development by putting it in your hands! To leave feedback and edits Gadget can be found on NTC's [github account].
+We at Next Thing Co. would like to introduce the developer preview of Gadget, our open source suite of software tools. Gadget is built for developing, deploying, and distributing custom Linux operating systems for projects and products. Since it's open source we want to hear from all you Docker enthusiasts and CHIP Pro Dev Kit owners about how you are using it. To leave feedback, Gadget can be found on NTC's [github account]. 
 
-Gadget is a suite of software tools for developing, deploying, and distributing custom Linux operating systems for projects and products.
+# What is Gadget?
 
-Gadget combines a ready to use fast-booting Buildroot image, container support and a cross-platform command-line tool with reliable drivers for Gadget compatible hardware. Gadget removes the need for repetitive setup and low level optimization so you can focus on your high level code. 
+We made Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
 
-We made Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier, iterate immediately, replicate quickly, and collaborate seamlessly. It’s also open source so you can customize it to better suit your project’s needs.
+**Develop** - Create your code in a container with the command-line interface.
+**Cross Compile** - Build your work on your computer rather than the device.
+**Deploy** - Push the build to your hardware device.
+**Iterate** - Make changes using the command-line interface. When you deploy changes, it only pushes the lines of code that have changed which makes it super speedy.
+**Replicate** - Because your container is developed and built on a host computer deploying to a new device is a piece of cake.
+**Collaborate** - Share your containers and collaborate remotely. Containers have all the code needed to ensure whoever you share with can build and use your project.
 
-# What Makes up Gadget?
-
-Gadget is comprised of two main pieces of software: GadgetCLI and GadgetOS. 
+Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **Gadgetdev**. 
 
 ## GadgetCLI
 
-GadgetCLI is a simplified command-line tool for developing a custom Linux distribution. It's what you used to build and deploy applications. GadgetCLI comes with a Gadget Template containing a Gadgetfile and an example Bash script that turn on a off LEDs connected to PE4 - PE11.
-
-* **GadgetFile** 
-
-	+ The GadgetFile builds an image that runs as a container. This file has all the container build instructions for your application. Whatever instructions live here will be built and deployed. 
+GadgetCLI is a simplified command-line tool for developing a custom Linux distribution. It's what you use to build and deploy applications using the power of Docker and containers. For more information on Docker, read here.
      
-* **Containers** 
-
-	+ All Gadget containers use Alpine Linux. You can run as many containers as the processor can handle to get all the features needed for your project. 
-
 ## GadgetOS
 
 GadgetOS is Next Thing Co.’s custom version of Buildroot, optimized for boot speed. For more information on Buildroot, read [here](https://buildroot.org/). 
 
-* **GadgetOSd**
+* Gadget OS comes with GadgetOSd, a daemon that allows automatic communication with GadgetCLI over a USB connection.
 
-	+ Once uploaded to C.H.I.P. Pro, a GadgetOS daemon bundled with GadgetOS allows automatic communication with GadgetCLI when connected over USB. 
+## GadgetDev
+
+Use GadgetDev to debug and quickly test code directly on Gadget certified hardware.
+
+
+	
+
+
+
 

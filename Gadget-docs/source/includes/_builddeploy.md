@@ -2,107 +2,56 @@
 
 Follow along to learn how to build and deploy Gadget's 'Hello World' Bash script. First, make sure you have gone through the setup steps of installing Docker, GadgetCLI and Flashing your hardware device.
 
-### Connect 
+## Connect 
 
 Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug into USB0 on the Dev board, not C.H.I.P. Pro itself. 
 
-### Hello World
+## Hello World
 
-Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen with `GADGET: ~$` as the prompt. If you haven't installed Docker, Gadget will detect the OS of the host computer and direct you to the proper url for installing. After you have installed Docker, Gadget's welcome screen will look someting like this: 
+Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen with `GADGET: ~$` as the prompt. If you haven't installed Docker, Gadget will detect the OS of the host computer and direct you to the proper url for installing. After you have installed Docker, Gadget's welcome screen will look someting like this (screenshot on a Mac): 
 
 ![Welcome screen Mac](images/welcomeFlash.png)
-|:---:|
-| GadgetCLI on Mac |
+
 
 From here, simply type the commands listed to deploy your first application. 
 
-**1)** Initialize the Gadget Template and create a directory called hello_world:
-
 ```shell
-gadget init hello_world
+gadget init hello_world	# initialize the Gadget Template and create a directory called hello_world
+cd hello_world	# enter the hello_world directory
+gadget build	# build hello_world project 
+gadget deploy	# deploy hello_world project
 ```
+**{PHOTO}**
 
-**2)** Enter the hello_world directory:
+The project will be pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 - PE11 will turn on and off in sequential order. Congrats you have built and deployed your first Gadget project!
 
-```shell
-cd hello_world
-```
-
-**3)** Build 
-
-**Mac and Windows**
-
-```shell
-gadget build
-```
-
-**Linux**
-
-`sudo gadget build` - sudo will not be necessary in future builds either by being able to launch Docker as a regular user or by configuration.
-
-**4)** Deploy
-
-**Mac and Windows**
-
-```shell
-gadget deploy
-```
-
-**Linux**
-
-`sudo gadget deploy` - sudo will not be necessary in future builds either by being able to launch Docker as a regular user or by configuration.
-
-When Gadget is done deploying, the LEDs connected to PE4 - PE11 will turn on and off in sequential order. Congrats you have built and deployed your first Gadget application!
-
-## Edit Example Template
+## Edit Example Script
 When initialized, Gadget creates the project directory at:
 
-**Mac OSX**
+* **Mac OSX** - /Macintosh HD/Users/username/hello_world
 
-/Macintosh HD/Users/username/hello_world
+* **Linux** - /home/username/hello_world
 
-**Linux**
+* **Windows** - C:/Users/username/hello_world
 
-/home/username/hello_world
+In that directory are two files:
 
-**Windows**
+* Gadget config - 
+* blink-leds.sh - example 'Hello World' script.
 
-C:/Users/username/hello_world
-
-Here you will find the applications's directory with two files in it:
-
-**GadgetFile**
-
-...This file contains build instructions for your application.
- 
-**blink-leds**
-
-...A sample bash script to make the LEDs connected to PE4 - PE11 on the C.H.I.P. Pro Dev Kit blink. 
-
-### Edit Script
-
-Edit the example script using the Nano command-line editor. 
+To edit the example script use the Nano command-line editor: 
 
 `nano blink-leds`
 
-image
-
 Change the `SPEED` variable, for example, to `1`. Press Ctrl+O to save and Ctrl+X to exit Nano.
 
-Build and deploy:
+{clip of me changing speed variable}
 
-**Mac**
+Save the file, build and deploy:
 
 ```shell
 gadget build 
 gadget deploy
-```
-
-**Linux**
-
-```shell
-sudo gadget build 
-sudo gadget deploy
 ```
 
 When deployment is done, the LEDs will turn on and off at the speed your specified. 

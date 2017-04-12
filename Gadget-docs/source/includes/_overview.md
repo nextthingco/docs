@@ -4,7 +4,7 @@
 
 # What is Gadget?
 
-We made Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
+We created Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
 
 **Develop** - Create your code in a container with the command-line interface.
 

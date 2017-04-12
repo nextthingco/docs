@@ -1,16 +1,18 @@
 # Use Gadget
 
-We've made building and deploying Linux applications fast and simple. Follow along to learn how to build and deploy Gadget's 'Hello World' Bash script. First, make sure you have gone through the setup steps of installing Docker, GadgetCLI and Flashing C.H.I.P. Pro.
+Follow along to learn how to build and deploy Gadget's 'Hello World' Bash script. First, make sure you have gone through the setup steps of installing Docker, GadgetCLI and Flashing your hardware device.
 
 ### Connect 
 
-Connect C.H.I.P. Pro or C.H.I.P. Pro Dev Kit to your host computer via USB. If using C.H.I.P. Pro Dev Kit make sure to plug into USB0 on the Dev board, not C.H.I.P. Pro. 
+Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug into USB0 on the Dev board, not C.H.I.P. Pro itself. 
 
 ### Hello World
 
-Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen with `GADGET: ~$` as the prompt. If you haven't installed Docker Gadget will detect the OS of the host computer and direct you to the url where you can download and install Docker. After you have installed Docker Gadget's welcome screen will look like this: 
+Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen with `GADGET: ~$` as the prompt. If you haven't installed Docker, Gadget will detect the OS of the host computer and direct you to the proper url for installing. After you have installed Docker, Gadget's welcome screen will look someting like this: 
 
 ![Welcome screen Mac](images/welcomeFlash.png)
+|:---:|
+| GadgetCLI on Mac |
 
 From here, simply type the commands listed to deploy your first application. 
 

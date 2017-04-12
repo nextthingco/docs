@@ -7,10 +7,15 @@
 We made Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
 
 **Develop** - Create your code in a container with the command-line interface.
+
 **Cross Compile** - Build your work on your computer rather than the device.
+
 **Deploy** - Push the build to your hardware device.
+
 **Iterate** - Make changes using the command-line interface. When you deploy changes, it only pushes the lines of code that have changed which makes it super speedy.
+
 **Replicate** - Because your container is developed and built on a host computer deploying to a new device is a piece of cake.
+
 **Collaborate** - Share your containers and collaborate remotely. Containers have all the code needed to ensure whoever you share with can build and use your project.
 
 Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **Gadgetdev**. 

@@ -17,16 +17,13 @@ Gadget is comprised of two main pieces of software: GadgetCLI and GadgetOS.
 
 GadgetCLI is a simplified command-line tool for developing a custom Linux distribution. It's what you used to build and deploy applications. GadgetCLI comes with a Gadget Template containing a Gadgetfile and an example Bash script that turn on a off LEDs connected to PE4 - PE11.
 
-* level one
-  + level two tabbed
-
 * **GadgetFile** 
 
 	+ The GadgetFile builds an image that runs as a container. This file has all the container build instructions for your application. Whatever instructions live here will be built and deployed. 
      
 * **Containers** 
 
-...All Gadget containers use Alpine Linux. You can run as many containers as the processor ...can handle to get all the features needed for your project. 
+	+ All Gadget containers use Alpine Linux. You can run as many containers as the processor can handle to get all the features needed for your project. 
 
 ## GadgetOS
 
@@ -34,5 +31,5 @@ GadgetOS is Next Thing Co.’s custom version of Buildroot, optimized for boot s
 
 * **GadgetOSd**
 
-...Once uploaded to C.H.I.P. Pro, a GadgetOS daemon bundled with GadgetOS allows automatic ...communication with GadgetCLI when connected over USB. 
+	+ Once uploaded to C.H.I.P. Pro, a GadgetOS daemon bundled with GadgetOS allows automatic communication with GadgetCLI when connected over USB. 
 

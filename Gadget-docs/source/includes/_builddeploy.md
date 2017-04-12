@@ -10,8 +10,9 @@ Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug in
 
 Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen with `GADGET: ~$` as the prompt. If you haven't installed Docker, Gadget will detect the OS of the host computer and direct you to the proper url for installing. After you have installed Docker, Gadget's welcome screen will look someting like this (screenshot on a Mac): 
 
+<figure>
 ![Welcome screen Mac](images/welcomeFlash.png)
-
+<figcaption>Caption goes here</figcaption>
 
 From here, simply type the commands listed to deploy your first application. 
 

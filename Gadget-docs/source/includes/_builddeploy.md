@@ -38,10 +38,11 @@ When a project, like **hello_world**, is initialized, Gadget creates a directory
 
 * **Windows** - C:/Users/username/hello_world
 
-In the **hello_world** project directory there are two files:
+In the **hello_world** project directory there are three files:
 
-* Gadget config - 
-* blink-leds.sh - example 'hello world' script.
+* gadget.cfg - 
+* blink-leds.sh - Example 'hello world' script.
+* Dockerfile - This is container build instructions for your code. Whatever instructions live here, will be built and deployed.
 
 
 ![ls files in project dir](images/twofiles.gif)
@@ -97,6 +98,8 @@ common gadget commands:
   delete      Deletes the application instance from a device
   purge       Purges the application from a device
   status      Shows status information
+  shell       Start debugging shell to investigate container
+  log         Show container log
 
 optional arguments:
   -h, --help  show this help message and exit

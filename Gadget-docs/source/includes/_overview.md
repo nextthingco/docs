@@ -22,8 +22,7 @@ We created Gadget to make it much quicker to create and collaborate on new kicka
 
 <span style="color: #F6248D">**Collaborate**</span> - Share your containers and collaborate remotely. Containers have all the code needed to ensure whoever you share with can build and use your project.
 
-Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **GadgetDev**. 
-
+Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **GadgetDev**. *fe
 
 ## GadgetCLI
 

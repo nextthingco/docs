@@ -6,6 +6,8 @@
 
 We created Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately. Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **GadgetDev**. 
 
+![init hello world](images/initHelloworld.gif)
+
 <span style="color: #F6248D">**Develop**</span> - Create your code in a container with the command-line interface.
 
 <span style="color: #F6248D">**Cross Compile**</span> - Build your work on your computer rather than the device.

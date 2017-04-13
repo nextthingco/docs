@@ -42,7 +42,10 @@ In the hello_world project directory there are two files:
 * Gadget config - 
 * blink-leds.sh - example 'Hello World' script.
 
-To edit the example script use the Nano command-line editor: 
+
+![ls files in project dir](images/twofiles.gif)
+
+To edit the example, "blink-leds", use the Nano command-line editor: 
 
 ```shell
 nano blink-leds
@@ -51,14 +54,14 @@ Change the `SPEED` variable, for example, to `1`. Press Ctrl+O to save and Ctrl+
 
 {clip of me changing speed variable}
 
-Save the file, build and deploy:
+While still in the project directory, build and deploy:
 
 ```shell
 gadget build 
 gadget deploy
 ```
 
-When deployment is done, the LEDs will turn on and off at the speed you specified. 
+The LEDs will turn on and off at the speed you specified. 
 
 ## Exit GadgetCLI
 

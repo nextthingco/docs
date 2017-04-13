@@ -6,7 +6,7 @@ Currently, Gadget supports the C.H.I.P. Pro and our example script is written to
 
 # What is Gadget?
 
-We created Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately. Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **GadgetDev**. 
+We created Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
 
 ![init hello world](images/initHelloworld.gif)
 
@@ -21,6 +21,8 @@ We created Gadget to make it much quicker to create and collaborate on new kicka
 <span style="color: #F6248D">**Replicate**</span> - Because your container is developed and built on a host computer deploying to a new device is a piece of cake.
 
 <span style="color: #F6248D">**Collaborate**</span> - Share your containers and collaborate remotely. Containers have all the code needed to ensure whoever you share with can build and use your project.
+
+Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **GadgetDev**. 
 
 
 ## GadgetCLI

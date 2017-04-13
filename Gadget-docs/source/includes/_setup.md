@@ -1,6 +1,6 @@
 # Setup Gadget
 
-To get the most from Gadget's lighting fast deployment process, development is done on a host computer. Then, pushed to your hardware device through USB using GadgetOS' daemon GadgetOSd. To use Gadget, install the following on your host computer and Gadget compatible hardware. 
+To get the most from Gadget's lighting fast deployment process, development is done on a host computer. Once your code is ready for testing it's compiled and pushed to the hardware device connected via USB using GadgetOS' daemon GadgetOSd. To get started, install the following on your host computer and Gadget compatible hardware. 
 
 ## GadgetCLI
 
@@ -16,7 +16,7 @@ Gadget makes use of Docker's container system. Dependent on your host computer's
 
 ## Flash GadgetOS 
 
-For GadgetCLI to be able to talk to your hardware device, flash it with the latest GadgetOS image. Find the latest image by heading over to our [web flasher](flash.getchip.com/pro). 
+For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Find the latest image on our [web flasher](flash.getchip.com/pro). 
 
 
 

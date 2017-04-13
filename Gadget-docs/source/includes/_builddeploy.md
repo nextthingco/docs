@@ -20,16 +20,15 @@ cd hello_world	# enter the hello_world directory
 gadget build	# build hello_world project 
 gadget deploy	# deploy hello_world project
 ```
+
+The project is pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 - PE11 will turn on and off in sequential order. A successful deployment looks like this:
+
 ![build and deploy](images/build.png)
 
-The project is pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 - PE11 will turn on and off in sequential order. 
-
-**{PHOTO of LEDs}**
-
-Congrats you have built and deployed your first Gadget project!
+Congrats, you have built and deployed your first Gadget project!
 
 ## Edit Example Script
-When a project, like hello_world, is initialized, Gadget creates a directory on the host computer for it. You can find that directory in these locations:
+When a project, like **hello_world**, is initialized, Gadget creates a directory on the host computer for it. You can find that directory in these locations:
 
 * **Mac OSX** - /Macintosh HD/Users/username/hello_world
 
@@ -37,7 +36,7 @@ When a project, like hello_world, is initialized, Gadget creates a directory on 
 
 * **Windows** - C:/Users/username/hello_world
 
-In the hello_world project directory there are two files:
+In the **hello_world** project directory there are two files:
 
 * Gadget config - 
 * blink-leds.sh - example 'Hello World' script.
@@ -74,7 +73,8 @@ exit
 
 ## Gadget Help
 
-To see what commands and options are available while using Gadget type:
+
+When in a project's directory, commands like `stop` and `start` can be used to start and stop the application plus more. To see what commands and options are available for use in GadgetCLI:
 
 ```shell
 gadget #or 
@@ -103,7 +103,6 @@ get help for specific command:
   gadget <command> --help
 ```
 
-When in a project's directory these commands can be used to start and stop the application plus more.
  
 
 

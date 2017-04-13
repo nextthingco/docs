@@ -6,7 +6,7 @@ Currently, Gadget supports the C.H.I.P. Pro and our example script is written to
 
 # What is Gadget?
 
-We created Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
+Simply put, Gadget is a suite of open source software tools. We created Gadget to make it much quicker to create and collaborate on new hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
 
 ![init hello world](images/initHelloworld.gif)
 

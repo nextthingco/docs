@@ -10,7 +10,7 @@ Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug in
 
 Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen. If you haven't installed Docker, Gadget will detect the OS of your host computer and direct you to the proper url for installing. After Docker has been installed, Gadget's welcome screen will look something like this (screenshot on a Mac): 
 
-![Welcome screen Mac](images/welcomeFlash.png)
+![Welcome screen Mac](images/welcome.png)
 
 From here, simply type the commands listed to deploy your first application. 
 
@@ -20,7 +20,7 @@ cd hello_world	# enter the hello_world directory
 gadget build	# build hello_world project 
 gadget deploy	# deploy hello_world project
 ```
-**{PHOTO of deployment}**
+![build and deploy](images/build.png)
 
 The project is pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 - PE11 will turn on and off in sequential order. 
 
@@ -52,7 +52,7 @@ nano blink-leds
 ```
 Change the `SPEED` variable, for example, to `1`. Press Ctrl+O to save and Ctrl+X to exit Nano.
 
-{clip of me changing speed variable}
+![changing SPEED var](images/speedCrop.gif)
 
 While still in the project directory, build and deploy:
 

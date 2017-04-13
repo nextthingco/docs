@@ -4,21 +4,20 @@
 
 # What is Gadget?
 
-We created Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
+We created Gadget to make it much quicker to create and collaborate on new kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately. Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **GadgetDev**. 
 
-<span style="color: #F6248D">Develop</span> - Create your code in a container with the command-line interface.
+<span style="color: #F6248D">**Develop**</span> - Create your code in a container with the command-line interface.
 
 <span style="color: #F6248D">**Cross Compile**</span> - Build your work on your computer rather than the device.
 
-**Deploy** - Push the build to your hardware device.
+<span style="color: #F6248D">**Deploy**</span> - Push the build to your hardware device.
 
-**Iterate** - Make changes using the command-line interface. When you deploy changes, it only pushes the lines of code that have changed which makes it super speedy.
+<span style="color: #F6248D">**Iterate**</span> - Make changes using the command-line interface. When you deploy changes, it only pushes the lines of code that have changed which makes it super speedy.
 
-**Replicate** - Because your container is developed and built on a host computer deploying to a new device is a piece of cake.
+<span style="color: #F6248D">**Replicate**</span> - Because your container is developed and built on a host computer deploying to a new device is a piece of cake.
 
-**Collaborate** - Share your containers and collaborate remotely. Containers have all the code needed to ensure whoever you share with can build and use your project.
+<span style="color: #F6248D">**Collaborate**</span> - Share your containers and collaborate remotely. Containers have all the code needed to ensure whoever you share with can build and use your project.
 
-Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **Gadgetdev**. 
 
 ## GadgetCLI
 
@@ -26,9 +25,7 @@ GadgetCLI is a simplified command-line tool for developing a custom Linux distri
      
 ## GadgetOS
 
-GadgetOS is Next Thing Co.’s custom version of Buildroot, optimized for boot speed. For more information on Buildroot, read [here](https://buildroot.org/). 
-
-	+ Gadget OS comes with GadgetOSd, a daemon that allows automatic communication with GadgetCLI over a USB connection.
+GadgetOS is Next Thing Co.’s custom version of Buildroot, optimized for boot speed. For more information on Buildroot, read [here](https://buildroot.org/). Gadget OS comes with **GadgetOSd**, a daemon that allows automatic communication with GadgetCLI over a USB connection.
 
 ## GadgetDev
 

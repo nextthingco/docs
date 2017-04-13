@@ -1,6 +1,6 @@
 # Use Gadget
 
-Follow along to learn how to build and deploy Gadget's 'Hello World' Bash script. First, make sure you have gone through the setup steps of installing Docker, GadgetCLI and Flashing your hardware device.
+Follow along to learn how to build and deploy Gadget's 'Hello World' Bash script. Make sure you have gone through the setup steps of installing Docker, GadgetCLI and flashing your hardware device.
 
 ## Connect 
 
@@ -8,7 +8,7 @@ Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug in
 
 ## Hello World
 
-Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen with `GADGET: ~$` as the prompt. If you haven't installed Docker, Gadget will detect the OS of the host computer and direct you to the proper url for installing. After you have installed Docker, Gadget's welcome screen will look someting like this (screenshot on a Mac): 
+Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen. If you haven't installed Docker, Gadget will detect the OS of your host computer and direct you to the proper url for installing. After Docker has been installed, Gadget's welcome screen will look something like this (screenshot on a Mac): 
 
 ![Welcome screen Mac](images/welcomeFlash.png)
 
@@ -29,7 +29,7 @@ The project is pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 
 Congrats you have built and deployed your first Gadget project!
 
 ## Edit Example Script
-When initialized, Gadget creates the project directory at:
+When a project, like hello_world, is initialized, Gadget creates a directory on the host computer for it. You can find that directory in these locations:
 
 * **Mac OSX** - /Macintosh HD/Users/username/hello_world
 
@@ -37,7 +37,7 @@ When initialized, Gadget creates the project directory at:
 
 * **Windows** - C:/Users/username/hello_world
 
-In that directory are two files:
+In the hello_world project directory there are two files:
 
 * Gadget config - 
 * blink-leds.sh - example 'Hello World' script.
@@ -47,7 +47,6 @@ To edit the example script use the Nano command-line editor:
 ```shell
 nano blink-leds
 ```
-
 Change the `SPEED` variable, for example, to `1`. Press Ctrl+O to save and Ctrl+X to exit Nano.
 
 {clip of me changing speed variable}
@@ -59,7 +58,7 @@ gadget build
 gadget deploy
 ```
 
-When deployment is done, the LEDs will turn on and off at the speed your specified. 
+When deployment is done, the LEDs will turn on and off at the speed you specified. 
 
 ## Exit GadgetCLI
 

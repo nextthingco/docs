@@ -15,7 +15,7 @@ chip users
 pocketchip users
 folks who stumble onto our website
 
-# Parts of Gadget
+# What is Gadget?
  
 	GadgetCLI
 GadgetOS
@@ -69,6 +69,14 @@ Where Gadget looks for the container and Dockerfile on Macs, Windows, Linux
 	Mac 
 	/Users/userName/containerName
 	/Users/userName/containerName/Gadgetfile
+	
+
+# Gadget Certified Hardware
+
+Gadget has been designed in conjunction with C.H.I.P. Pro to take advantage of C.H.I.P. Pro’s feature set. Learn more about C.H.I.P. Pro here [link to chip pro page].
+Hardware pics
+
+# Going Further 
 	
 
 # OTHER CONTAINERS?

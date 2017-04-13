@@ -1,8 +1,10 @@
 # Use Gadget
 
-Follow along to learn how to build and deploy Gadget's 'Hello World' Bash script. Make sure you have gone through the setup steps of installing Docker, GadgetCLI and flashing your hardware device.
+Follow along to learn how to build and deploy Gadget's 'hello world' Bash script. Make sure you have gone through the setup steps of installing Docker, GadgetCLI and flashing your hardware device.
 
 ## Connect 
+
+![Connect to USB0](images/usb0.jpg)
 
 Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug into USB0 on the Dev board, not C.H.I.P. Pro itself. 
 
@@ -39,12 +41,12 @@ When a project, like **hello_world**, is initialized, Gadget creates a directory
 In the **hello_world** project directory there are two files:
 
 * Gadget config - 
-* blink-leds.sh - example 'Hello World' script.
+* blink-leds.sh - example 'hello world' script.
 
 
 ![ls files in project dir](images/twofiles.gif)
 
-To edit the example, "blink-leds", use the Nano command-line editor: 
+To edit the 'hello world' script , use the Nano command-line editor: 
 
 ```shell
 nano blink-leds
@@ -74,7 +76,7 @@ exit
 ## Gadget Help
 
 
-When in a project's directory, commands like `stop` and `start` can be used to start and stop the application plus more. To see what commands and options are available for use in GadgetCLI:
+On top of creating and building and deploying, Gadget offers options that apply to a specific project while in the project's directory. For example, commands like `stop` and `start` can be applied to stop a running project and to start it back it up again. To see all the commands and options available for use in GadgetCLI type:
 
 ```shell
 gadget #or 

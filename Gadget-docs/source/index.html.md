@@ -8,6 +8,8 @@ includes:
   - overview
   - setup
   - builddeploy
+  - features
+  - advanced
 
 search: true
 ---

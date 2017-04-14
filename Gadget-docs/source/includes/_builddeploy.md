@@ -30,13 +30,7 @@ The project is pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 
 Congrats, you have built and deployed your first Gadget project!
 
 ## Edit Example Script
-When a project, like **hello_world**, is initialized, Gadget creates a directory on the host computer for it. You can find that directory in these locations:
-
-* **Mac OSX** - /Macintosh HD/Users/username/hello_world
-
-* **Linux** - /home/username/hello_world
-
-* **Windows** - C:/Users/username/hello_world
+When a project, like **hello_world**, is initialized, Gadget creates a directory on the host computer for it. 
 
 In the **hello_world** project directory there are three files:
 

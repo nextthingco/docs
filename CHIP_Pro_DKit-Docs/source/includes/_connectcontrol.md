@@ -731,7 +731,7 @@ Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documenta
 
 The following example goes through the general command sequence to read a changing state of a pin. This example reads **PE4**, **GPIO 132**. When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
 
-![pull-down resistor](images/pullDown.jpg)
+![pull-down resistor](images/pullDown.JPG)
 
 In terminal, tell the system you want to listen to a pin by exporting it:
 

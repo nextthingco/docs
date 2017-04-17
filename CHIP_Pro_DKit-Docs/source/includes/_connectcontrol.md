@@ -655,11 +655,11 @@ USB1 is provided with 5V by one of two ways:
 
 ## GPIO	
 
-C.H.I.P. Pro has a total 22 GPIO pins ready for use:
+C.H.I.P. Pro has a total of 22 GPIO pins ready for use:
 
-	* 2 PWM
-	* 3 input
-	* 17 input/output
+* 2 PWM
+* 3 input
+* 17 input/output
 
 Our Linux kernels provide a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. Pins 39 - 41 are accessible as inputs. To see all the other functions C.H.I.P. Pro pins can offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
 
@@ -880,7 +880,7 @@ There are two LEDs connected to the PWM pins for testing and learning about puls
 Export a channel, set the polarity and enable it:
 
 ```
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/export'
+sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/exportÏ'
 sudo sh -c 'echo "normal" > /sys/class/pwm/pwmchip0/pwm0/polarity'
 sudo sh -c 'echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable'
 ```

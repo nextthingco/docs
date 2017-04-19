@@ -661,15 +661,15 @@ C.H.I.P. Pro has a total of 22 GPIO pins ready for use:
 * 3 input
 * 17 input/output
 
-Our Linux kernels provide a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. Pins 39 - 41 are accessible as inputs. To see all the other functions C.H.I.P. Pro pins can offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
+Our Linux kernels provide a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. Pins 39 - 41 are accessible as inputs. To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
 
 ![pin out](images/Pro_Pinout.jpg)
 
 **Buildroot or Debian?**
 
-Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro Debian based** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro (Debian based)** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
-**Pro (Debian)** 
+**Pro** 
 
 ```shell
 sudo sh -c 'echo 132 > /sys/class/gpio/export' 
@@ -681,7 +681,7 @@ sudo sh -c 'echo 132 > /sys/class/gpio/export'
 echo 132 > /sys/class/gpio/export 
 ```
 
-** All examples in this documentation are done with the **Pro (Debian) image**. 
+** All examples in the GPIO documentation are done using the **Pro (Debian) image**. 
 
 ### Digital I/O via sysfs
 
@@ -692,14 +692,14 @@ ls /sys/class/gpio
 ```  
 In the **gpio** directory you will find:
 
-* **export** - exports a GPIO signal to read and write to. 
-* **unexport** - reverses the effect of exporting. 
+* **export** - Exports a GPIO signal to read and write to. 
+* **unexport** - Reverses the effect of exporting. 
 
 Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. 
 
 ### Get GPIO sysfs Pin Number
 
-To address the pins, you first need to figure out how the sysfs interface sees them. To calculate this, start with the pin's port number which are printed on the board for your convenience and can be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+To address a pin, you first need to figure out how the sysfs interface sees it. To calculate this, start with the pin's port number which is printed on the board for your convenience and can be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
 As an example, let's look at CSID0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
@@ -718,7 +718,7 @@ Once a pin is exported, look in the **gpioN** directory to see what attributes a
 ```shell
 ls /sys/class/gpio/export/gpio132 
 ```
-Attributes used in the examples below: 
+The main attributes you will work with: 
 
 * **direction** - Set direction of pin using "in" or out". All GPIOs are I/Os except for PE0, PE1 and PE2 which are input only.
 * **value** - Value of pin written or read as either 0 (low) or 1 (high).
@@ -729,7 +729,7 @@ Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documenta
 
 ### Digital Input
 
-The following example goes through the general command sequence to read a changing state of a pin. This example reads **PE4**, **GPIO 132**. When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
+The following example goes through the general command sequence to read a changing state of a pin. This example reads **PE4**, **GPIO 132**. When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
 
 ![pull-down resistor](images/pullDown.jpg)
 
@@ -739,10 +739,16 @@ In terminal, tell the system you want to listen to a pin by exporting it:
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-Next, the pin direction needs to be set. By default the pin directions are set to **input**. So, the following command will return “in” unless the pin mode was changed to "out" previously:
+Next, the pin direction needs to be set. To read what direction the pin is currently set to use `cat`:
 
 ```shell
   cat /sys/class/gpio/gpio132/direction
+```
+
+Switch the pin's direction to "in":
+
+```shell
+  sudo sh -c 'echo in > /sys/class/gpio/gpio132/direction'
 ```
 
 Connect a switch between pin PE4 and GND. Use this line of code to read the value:
@@ -765,9 +771,9 @@ The Dev board provides ten onboard LEDs to make it easy to test your GPIO skills
 
 **Blinkenlights Image**
 
-To start with an example that demos the eight I/Os and two PWM onboard LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and [view the example scripts](https://docs.getchip.com/chip_pro_devkit.html#edit-buildroot-examples) using the command-line editor Vi. 
+To start with an example that demos the eight I/Os and two PWM onboard LEDs [flash C.H.I.P. Pro Dev Kit with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and [view the example scripts](https://docs.getchip.com/chip_pro_devkit.html#edit-buildroot-examples) using the command-line editor Vi. 
 
-**Terminal**
+**LED on, LED off Example**
 
 Follow along to turn on and off the LED attached to PE4.
 
@@ -808,7 +814,7 @@ If pins have not been unexported the pins will be "busy" the next time you go to
 
 ## PWM 
 
-C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins (PWM0 and PWM1). The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
+C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins: PWM0 and PWM1. The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
 
 ### PWM via sysfs
 
@@ -819,9 +825,9 @@ ls /sys/class/pwm/pwmchip0
 ```  
 In the **pwmchip0** directory you will find:
 
-* **export** - exports a PWM channel for use. 
-* **unexport** - unexports PWM channel from sysfs (always do this after you are done using a channel).
-* **npwm** - says how many PWM channels are available. 
+* **export** - Exports a PWM channel for use. 
+* **unexport** - Unexports PWM channel from sysfs (always do this after you are done using a channel).
+* **npwm** - Says how many PWM channels are available. 
 
 You can see there are two PWM channels available from C.H.I.P. Pro's PWM controller/chip by using `cat`:
 
@@ -837,9 +843,9 @@ Before you can use a channel it needs to be exported. Use these numbers to refer
 * 0 = PWM0
 * 1 = PWM1
 
-Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro Debian based** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro (Debian based)** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
-**Pro (Debian)**
+**Pro**
 
 ```shell
 sudo sh -c 'echo 0 > export' #PWM0
@@ -855,9 +861,9 @@ echo 1 > export #PWM1
 ls
 ```
 
-** All examples in this document are written for the **Pro (Debian) image**.
+** All PWM examples are written for the **Pro image**.
 
-After exporting, you will find that a new directory **pwmX**, where X is the channel number, has been created. Go into the pwmX directory to check out the properties that are available to use:
+After exporting, you will find that a new directory **pwmX**, where X is the channel number, has been created. Go into the pwmX directory to check out the attributes available for use:
 
 ```shell
 cd pwm0 
@@ -866,7 +872,7 @@ ls
 
 In the pwmX directory you will find: 
 
-* **duty_cycle** - The active time of the PWM signal in nanoseconds. Must be less than the period.
+* **duty_cycle** - The active time of the PWM signal in nanoseconds. Must be less than the **period**.
 * **enable** - Enable/disable the PWM signal using either 0 or 1.
 
 	0 - disabled
@@ -881,6 +887,8 @@ To test the PWM channels follow the examples below.
 
 There are two onboard LEDs connected to the PWM pins for testing and learning about pulse width modulation. If you need to disconnect these PWM LEDs that can be done at any time by [cutting traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces) on the back. 
 
+![PWM0 LED fade](images/fade.gif)
+
 Export a channel, set the polarity and enable PWM0:
 
 ```shell
@@ -889,13 +897,13 @@ sudo sh -c 'echo "normal" > /sys/class/pwm/pwmchip0/pwm0/polarity'
 sudo sh -c 'echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable'
 ```
 
-Set the period to 10000000 nano seconds (1 second) and the duty cycle to 0:
+Set the period to 10000000 nanoseconds (1 second) and the duty cycle to 0:
 
 ```shell
 sudo sh -c 'echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/period'
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
-From here, set the duty_cycle in nano seconds. Start dim at 1% and step up to the 100%:
+From here, set the duty_cycle in nanoseconds. Start dim at 1% and step up to the 100%:
 
 ```shell
 sudo sh -c 'echo 100000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
@@ -920,7 +928,7 @@ We know that you really want to do one thing when you get new hardware and softw
 
 Most servos have three pins: **power**, **ground**, and a **control signal**. The control signal is a pulse-width-modulated input signal whose high pulse width (within a determined period) determines the servo's angular position. The control signal pin draws a small enough amount of current that it can be directly controlled by the PWM pins on C.H.I.P. Pro. 
 
-While the signal pin draws a low amount, the servo motor connected to the power pin draws more power than the C.H.I.P. Pro can provide on its own. The Dev Kit board helps with this by providing a **5 volt bus** for the servo to draw from. The PWM Servo power pins are connected to the **DC-In barrel jack providing 5 volts**. 
+While the signal pin draws a low amount, the servo motor connected to the power pin draws more power than the C.H.I.P. Pro can provide on its own. The Dev Kit board helps with this by providing a **5 volt bus** for the servo to draw from next to the signal and ground pin. This is because the PWM Servo power pins are connected to the **DC-In barrel jack providing 5 volts**. 
 
 ![servo connected to dev kit](images/pwmPins.jpg)
 
@@ -931,8 +939,8 @@ Export the PWM pin you want to use:
 ```shell
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/export'
 ```
-Set the **polarity**, **period** of the waveform and **duty cycle**. Units are in **nanoseconds**. The **polarity** can only be set before the pin is enabled. If you set it once enabled, the script should still work but you will see an error. 
-Most servos operate at **50Hz which translates into 20000000 ns/20 ms** for the **period**. Start the **duty cycle** at **0**:
+
+**Enable** the channel and set the **polarity**, **period** of the waveform and **duty cycle**. Units are in **nanoseconds**. The **polarity** can only be set before the pin is enabled. If you set it after enabling a pin the script should still work but you will see a "I/O error". Most servos operate at **50Hz which translates into a 20000000 ns period**. Start the **duty cycle** at **0**:
 
 ```shell
 sudo sh -c 'echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity' 
@@ -941,6 +949,8 @@ sudo sh -c 'echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period'
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
 
+Once you do this initial setup, the **duty_cycle** is what changes to rotate the servo. Whatever value is written to the duty_cycle changes the pulse width. To get you started there are two examples below, one rotates a 180º servo, the other rotates and stops a 360º continuous servo.
+  
 #### 180º Servo
 
 ![180º servo sweeping](images/180servo.gif)
@@ -952,9 +962,9 @@ sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 
 Before you start to work with your servo, check the datasheet. There you can sometimes find the pulse widths needed to control it. 
 
-To rotate 180º most servos require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1.5 ms. You can then go up and down from there to find the max and min. 
+To rotate 180º most servos require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1500000 ns/1.5 ms. You can then go up and down from there to find the max. and min. 
 
-Change the duty cycle to 1500000 ns/1.5 ms and step up every 100000 ns to move the servo:
+Change the duty cycle to 1500000 ns and step up every 100000 ns to move the servo:
 
 ```shell
 sudo sh -c 'echo 1500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
@@ -983,13 +993,13 @@ Find a Sweep script example [here](https://github.com/laraCat/CHIP_Pro_DKit_Exam
 
 For a continuous servo the PWM input signal allows control of the speed, direction of rotation and stopping period.  Before you start to work with your servo, check the datasheet. There you can sometimes find the pulse widths needed to control it. 
 
-A typical stop width is **1500000 ns/1500 ms**. The further the time travels above and below the stop width, the slower the rotation speed gets.
+A typical stop width is **1500000 ns/1.5 ms**. The further the time travels above and below the stop width, the slower the rotation speed gets.
 
 Below are the pulse widths for the FS90R servo. Yours may be slightly different. 
 
-* 1500 ms: stop
-* 1000 ms - 1400 ms: slow - fast right
-* 1600 ms - 2000 ms: slow - fast left  
+* 1500000 ns: stop
+* 1000000 ns - 1400000 ns: slow - fast right
+* 1600000 ns - 2000000 ns: slow - fast left  
 
 ##### Sweep Script
 

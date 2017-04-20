@@ -637,7 +637,7 @@ The 3.5mm TRRS jack provides stereo output suitable for headphones or amplificat
 
 ## USB Accessories
 
-The USB1 port can be used to connect and use popular accessories like storage, MIDI controllers, keyboards, pointing devices, audio hardware, and more. C.H.I.P. Pro does not provide power to the USB A port on its own, so the Development Kit is a good example of how this works. 
+The USB1 port can be used to connect and use popular accessories like storage, MIDI controllers, keyboards, pointing devices, audio hardware, and more. C.H.I.P. Pro does not provide power to the USB1 port on its own, so the Development Kit is a good example of how this works. 
 
 **USB1 Power**
 

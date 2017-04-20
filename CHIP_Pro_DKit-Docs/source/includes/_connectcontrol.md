@@ -641,10 +641,7 @@ The USB1 port can be used to connect and use popular accessories like storage, M
 
 **USB1 Power**
 
-USB1 is provided with 5V by one of two ways:
-
-* from the CHG-IN barrel jack circuit’s regulated 5V output
-* from pass-through of the 5V suppied into the USB0+UART micro USB port on the devkit pcb 
+USB1 is provided with 5V from pass-through of the 5V supplied to the USB0+UART micro USB port on the devkit pcb 
 
 **For high-load devices** attached to USB1, make sure an adequate power supply is provided. For example, when you plug in a keyboard and an optical mouse, they will draw too much current from the C.H.I.P. Pro Dev Kit, not leaving enough for the processor. As a result, C.H.I.P. Pro will immediately shut down. There are a few ways to avoid this.
 
@@ -665,9 +662,9 @@ Our Linux kernel provide a simple [sysfs interface](https://www.kernel.org/doc/D
 
 ![pin out](images/Pro_Pinout.jpg)
 
-**Buildroot or Debian?**
+**Interacting with Sysfs**
 
-Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro (Debian based)** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
 **Pro** 
 
@@ -681,7 +678,7 @@ sudo sh -c 'echo 132 > /sys/class/gpio/export'
 echo 132 > /sys/class/gpio/export 
 ```
 
-** All examples in the GPIO documentation are done using the **Pro (Debian) image**. 
+** All examples in the GPIO documentation are done using the **Pro image**. 
 
 ### Digital I/O via sysfs
 
@@ -843,7 +840,7 @@ Before you can use a channel it needs to be exported. Use these numbers to refer
 * 0 = PWM0
 * 1 = PWM1
 
-Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro (Debian based)** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
 **Pro**
 

@@ -864,7 +864,7 @@ echo 1 > export #PWM1
 ls
 ```
 
-** All PWM examples are written for the **Pro image**.
+** All PWM examples are written for the **Buildroot image**.
 
 After exporting, you will find that a new directory **pwmX**, where X is the channel number, has been created. Go into the pwmX directory to check out the attributes available for use:
 
@@ -927,15 +927,15 @@ sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/unexport'
 
 ![servo connected to dev kit](images/mainServo.jpg)
 
-We know that you really want to do one thing when you get new hardware and software in your hands - build robots! In order for a robot to one day take over the world it needs to be able to move and grab things. This movement can be achieved with servos which are controlled using a PWM signal. To help you along with your plan for world domination the C.H.I.P. Pro Dev board provides breakout pins to conveniently power and control servos from.  
+The C.H.I.P. Pro Dev board provides breakout pins to conveniently power and control servos from. 
 
 Most servos have three pins: **power**, **ground**, and a **control signal**. The control signal is a pulse-width-modulated input signal whose high pulse width (within a determined period) determines the servo's angular position. The control signal pin draws a small enough amount of current that it can be directly controlled by the PWM pins on C.H.I.P. Pro. 
 
-While the signal pin draws a low amount, the servo motor connected to the power pin draws more power than the C.H.I.P. Pro can provide on its own. The Dev Kit board helps with this by providing a **5 volt bus** for the servo to draw from next to the signal and ground pin. This is because the PWM Servo power pins are connected to the **DC-In barrel jack providing 5 volts**. 
-
 ![servo connected to dev kit](images/pwmPins.jpg)
 
-So you don't have to solder headers to the board, the through-holes are staggered just enough to friction hold them. 
+While the signal pin draws a low amount, the servo motor connected to the power pin draws more power than the C.H.I.P. Pro can provide on its own. The Dev Kit board helps with this by providing a **5 volt power pin** next to the signal and ground pin. This pin is connected to the **DC-In barrel jack providing 5 volts**. 
+
+The PWM0 and PWM1 through-holes are staggered just enough to friction hold male header pins. So, no soldering is needed. 
 
 Export the PWM pin you want to use:
 
@@ -952,7 +952,7 @@ sudo sh -c 'echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period'
 sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
 ```
 
-Once you do this initial setup, the **duty_cycle** is what changes to rotate the servo. Whatever value is written to the duty_cycle changes the pulse width. To get you started there are two examples below, one rotates a 180º servo, the other rotates and stops a 360º continuous servo.
+Once you do this initial setup, the **duty_cycle** is what needs to change to rotate the servo. Whatever value is written to the duty_cycle changes the pulse width. To get you started, there are two examples below, one rotates a 180º servo, the other rotates and stops a 360º continuous servo.
   
 #### 180º Servo
 
@@ -961,7 +961,6 @@ Once you do this initial setup, the **duty_cycle** is what changes to rotate the
 **Servo Used in Example**
 
 * 180º degree 4.8V - 6V [Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product)
-
 
 Before you start to work with your servo, check the datasheet. There you can sometimes find the pulse widths needed to control it. 
 
@@ -1006,7 +1005,7 @@ Below are the pulse widths for the FS90R servo. Yours may be slightly different.
 
 ##### Sweep Script
 
-This script called [SweepCont](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweepCont.sh) steps through different speeds while rotating in each direction. Each speed lasts for two seconds. It stops for one second at 1500000 ns before rotating in the opposite direction.
+This [script](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweepCont.sh) steps through different speeds while rotating in each direction. Each speed lasts for two seconds. It stops for one second at 1500000 ns before rotating in the opposite direction.
 
 
 

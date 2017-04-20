@@ -658,13 +658,17 @@ C.H.I.P. Pro has a total of 22 GPIO pins ready for use:
 * 3 input
 * 17 input/output
 
-Our Linux kernel provide a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. Pins 39 - 41 are accessible as inputs. To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
+The Linux kernel provides a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. 
+
+* Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. 
+* Pins 39 - 41 are accessible as inputs. 
+* To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
 
 ![pin out](images/Pro_Pinout.jpg)
 
 **Interacting with Sysfs**
 
-Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using the **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
 **Pro** 
 
@@ -678,7 +682,7 @@ sudo sh -c 'echo 132 > /sys/class/gpio/export'
 echo 132 > /sys/class/gpio/export 
 ```
 
-** All examples in the GPIO documentation are done using the **Pro image**. 
+** All examples in the GPIO documentation are done using the **Buildroot Image**. 
 
 ### Digital I/O via sysfs
 
@@ -696,7 +700,7 @@ Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where
 
 ### Get GPIO sysfs Pin Number
 
-To address a pin, you first need to figure out how the sysfs interface sees it. To calculate this, start with the pin's port number which is printed on the board for your convenience and can be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+To address a pin, you first need to figure out how the sysfs interface sees it. To calculate this, start with the pin's port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
 As an example, let's look at CSID0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
@@ -726,7 +730,7 @@ Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documenta
 
 ### Digital Input
 
-The following example goes through the general command sequence to read a changing state of a pin. This example reads **PE4**, **GPIO 132**. When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
+The following example goes through the general command sequence to read a changing state of a pin. This example reads **PE4**, **GPIO 132**. When connecting a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
 
 ![pull-down resistor](images/pullDown.jpg)
 
@@ -748,7 +752,7 @@ Switch the pin's direction to "in":
   sudo sh -c 'echo in > /sys/class/gpio/gpio132/direction'
 ```
 
-Connect a switch between pin PE4 and GND. Use this line of code to read the value:
+Connect a switch between pin PE4 and GND and read the value:
 
 ```shell
   cat /sys/class/gpio/gpio132/value
@@ -764,7 +768,7 @@ Continuously check the value of the switch pin for its state change:
 
 **Onboard LEDs**
 
-The Dev board provides ten onboard LEDs to make it easy to test your GPIO skills without having to wire anything up. Eight of these LEDs can be turned on and off with standard Linux sysfs commands to the GPIO pins CSIDO to CSID7 which are seen as 132 - 139 in sysfs.
+The Dev board provides ten onboard LEDs to make testing the GPIOs easy without having to wire anything up. Eight of these LEDs are connected to digital I/O pins that can be turned on and off with standard Linux sysfs commands. These are pins CSIDO to CSID7 which are seen as 132 - 139 in sysfs.
 
 **Blinkenlights Image**
 
@@ -950,7 +954,7 @@ Once you do this initial setup, the **duty_cycle** is what changes to rotate the
   
 #### 180º Servo
 
-![180º servo sweeping](images/180servo.gif)
+![180º servo sweeping](images/.gif)
 
 **Servo Used in Example**
 
@@ -982,7 +986,7 @@ Find a Sweep script example [here](https://github.com/laraCat/CHIP_Pro_DKit_Exam
 
 #### 360º Continuos Servo 
 
-![360º sweeping](images/360servoC.gif)
+![360º sweeping](images/.gif)
 
 **Servo Used in Example**
 

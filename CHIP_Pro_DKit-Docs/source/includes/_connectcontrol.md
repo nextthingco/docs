@@ -702,7 +702,7 @@ Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where
 
 To address a pin, you first need to figure out how the sysfs interface sees it. To calculate this, start with the pin's port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
-As an example, let's look at CSID0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
+As an example, take a look at CSID0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 
@@ -714,7 +714,7 @@ Therefore, to export pin PE4 (CSID0) in sysfs you would use **132** to reference
 sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-Once a pin is exported, look in the **gpioN** directory to see what attributes are available to read and write to:
+Once a pin is exported, look in the **gpioN** directory to see what attributes are available to read and write:
 
 ```shell
 ls /sys/class/gpio/export/gpio132 
@@ -730,7 +730,7 @@ Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documenta
 
 ### Digital Input
 
-The following example goes through the general command sequence to read a changing state of a pin. This example reads **PE4**, **GPIO 132**. When connecting a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
+The following example goes through a general command sequence to read a changing state of a pin. This example reads **PE4**, **GPIO 132**. When connecting a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
 
 ![pull-down resistor](images/pullDown.jpg)
 
@@ -740,7 +740,7 @@ In terminal, tell the system you want to listen to a pin by exporting it:
   sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
-Next, the pin direction needs to be set. To read what direction the pin is currently set to use `cat`:
+Next, the pin direction needs to be set. Use `cat` to read what direction the pin is currently set to:
 
 ```shell
   cat /sys/class/gpio/gpio132/direction
@@ -768,13 +768,15 @@ Continuously check the value of the switch pin for its state change:
 
 **Onboard LEDs**
 
-The Dev board provides ten onboard LEDs to make testing the GPIOs easy without having to wire anything up. Eight of these LEDs are connected to digital I/O pins that can be turned on and off with standard Linux sysfs commands. These are pins CSIDO to CSID7 which are seen as 132 - 139 in sysfs.
+The Dev board provides ten onboard LEDs to make testing the GPIOs easy without having to wire anything up. Eight of these LEDs are connected to digital I/O pins that can be turned on and off with standard Linux sysfs commands. 
+
+* Pins CSIDO - CSID7 which are seen as 132 - 139 in sysfs.
 
 **Blinkenlights Image**
 
 To start with an example that demos the eight I/Os and two PWM onboard LEDs [flash C.H.I.P. Pro Dev Kit with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and [view the example scripts](https://docs.getchip.com/chip_pro_devkit.html#edit-buildroot-examples) using the command-line editor Vi. 
 
-**LED on, LED off Example**
+**Turn LED On and Off**
 
 Follow along to turn on and off the LED attached to PE4.
 

@@ -661,7 +661,7 @@ C.H.I.P. Pro has a total of 22 GPIO pins ready for use:
 * 3 input
 * 17 input/output
 
-Our Linux kernels provide a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. Pins 39 - 41 are accessible as inputs. To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
+Our Linux kernel provide a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. Pins 39 - 41 are accessible as inputs. To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
 
 ![pin out](images/Pro_Pinout.jpg)
 
@@ -818,7 +818,7 @@ C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins: PWM0 and PWM1. Th
 
 ### PWM via sysfs
 
-Our Linux kernels provide a simple **sysfs** interface to access PWM from. The PWM controller can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
+Our Linux kernel provides a simple **sysfs** interface to access PWM from. The PWM controller can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
 ```
 ls /sys/class/pwm/pwmchip0

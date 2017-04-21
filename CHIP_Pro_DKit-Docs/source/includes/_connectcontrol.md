@@ -964,7 +964,7 @@ Once you do this initial setup, the **duty_cycle** is what needs to change to ro
   
 #### 180º Servo
 
-![180º servo sweeping](images/.gif)
+![180º servo sweeping](images/sweep_180.gif)
 
 **Servo Used in Example**
 
@@ -995,7 +995,7 @@ Find a Sweep script example [here](https://github.com/laraCat/CHIP_Pro_DKit_Exam
 
 #### 360º Continuos Servo 
 
-![360º sweeping](images/.gif)
+![360º sweeping](images/sweep_360.gif)
 
 **Servo Used in Example**
 

@@ -698,11 +698,19 @@ In the **gpio** directory you will find:
 
 Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. 
 
-### Get GPIO Sysfs Port Number
+### Get GPIO Sysfs File Name
 
-To address a GPIO port, you first need to figure out the number sysfs assigns to it. To calculate this, start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+To address a GPIO port, you first need to know the number sysfs sees it as. 
 
-As an example, take a look at D0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
+Sysfs number mappings to D0 - D7:
+
+| GR8 Port # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 |
+|------------|-----|-----|-----|-----|-----|-----|------|------|
+| sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
+
+To calculate this, start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+
+As an example, take a look at **D0** which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 

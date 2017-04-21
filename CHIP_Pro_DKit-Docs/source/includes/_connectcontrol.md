@@ -668,7 +668,7 @@ The Linux kernel provides a simple [sysfs interface](https://www.kernel.org/doc/
 
 **Interacting with Sysfs**
 
-Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using the **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+Depending on the image flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using the **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
 **Pro** 
 
@@ -698,20 +698,20 @@ In the **gpio** directory you will find:
 
 Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. 
 
-### Get GPIO sysfs Pin Number
+### Get GPIO Sysfs Port Number
 
-To address a pin, you first need to figure out how the sysfs interface sees it. To calculate this, start with the pin's port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+To address a GPIO port, you first need to figure out the number sysfs assigns to it. To calculate this, start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
-As an example, take a look at CSID0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
+As an example, take a look at D0 which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 
 (4*32)+4 = 132
 
-Therefore, to export pin PE4 (CSID0) in sysfs you would use **132** to reference that pin:
+Therefore, to export pin **PE4** in sysfs you use **132** to reference that pin:
 
 ```shell
-sudo sh -c 'echo 132 > /sys/class/gpio/export'
+echo 132 > /sys/class/gpio/export
 ```
 
 Once a pin is exported, look in the **gpioN** directory to see what attributes are available to read and write:
@@ -737,31 +737,31 @@ The following example goes through a general command sequence to read a changing
 In terminal, tell the system you want to listen to a pin by exporting it:
 
 ```shell
-  sudo sh -c 'echo 132 > /sys/class/gpio/export'
+echo 132 > /sys/class/gpio/export
 ```
 
 Next, the pin direction needs to be set. Use `cat` to read what direction the pin is currently set to:
 
 ```shell
-  cat /sys/class/gpio/gpio132/direction
+cat /sys/class/gpio/gpio132/direction
 ```
 
 Switch the pin's direction to "in":
 
 ```shell
-  sudo sh -c 'echo in > /sys/class/gpio/gpio132/direction'
+echo in > /sys/class/gpio/gpio132/direction
 ```
 
 Connect a switch between pin PE4 and GND and read the value:
 
 ```shell
-  cat /sys/class/gpio/gpio132/value
+cat /sys/class/gpio/gpio132/value
 ```
 
 Continuously check the value of the switch pin for its state change:
 
 ```shell
-  while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
+while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
 ```
 
 ### Digital Output
@@ -785,15 +785,15 @@ Follow along to turn on and off the LED attached to PE4.
 Export the pin and change the mode from "in” to “out”:
 
 ```shell
-  sudo sh -c 'echo 132 > /sys/class/gpio/export'
-  sudo sh -c 'echo out > /sys/class/gpio/gpio132/direction'
+echo 132 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio132/direction
 ```
 
 Now that it's in output mode, you can write a value to the pin and turn the LED on and off:
 
 ```shell
-  sudo sh -c 'echo 1 > /sys/class/gpio/gpio132/value'
-  sudo sh -c 'echo 0 > /sys/class/gpio/gpio132/value'
+echo 1 > /sys/class/gpio/gpio132/value
+echo 0 > /sys/class/gpio/gpio132/value
 ```
 
 
@@ -810,7 +810,7 @@ while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/g
 When you are done using any GPIO pin always tell the system to stop listening by unexporting it:
 
 ```shell
-  sudo sh -c 'echo 132 > /sys/class/gpio/unexport'
+echo 132 > /sys/class/gpio/unexport
 ```
 
 If pins have not been unexported the pins will be "busy" the next time you go to export them. 
@@ -895,32 +895,32 @@ There are two onboard LEDs connected to the PWM pins for testing and learning ab
 Export a channel, set the polarity and enable PWM0:
 
 ```shell
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/exportÏ'
-sudo sh -c 'echo "normal" > /sys/class/pwm/pwmchip0/pwm0/polarity'
-sudo sh -c 'echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable'
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo "normal" > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
 ```
 
 Set the period to 10000000 nanoseconds (1 second) and the duty cycle to 0:
 
 ```shell
-sudo sh -c 'echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/period'
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 ```
 From here, set the duty_cycle in nanoseconds. Start dim at 1% and step up to the 100%:
 
 ```shell
-sudo sh -c 'echo 100000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
-sudo sh -c 'echo 500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
-sudo sh -c 'echo 1000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
-sudo sh -c 'echo 5000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
-sudo sh -c 'echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+echo 100000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 5000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 ```
 
 Disable and unexport:
 
 ```shell
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/enable'
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/unexport'
+echo 0 > /sys/class/pwm/pwmchip0/enable
+echo 0 > /sys/class/pwm/pwmchip0/unexport
 ```
 
 ### PWM Servo 
@@ -940,16 +940,16 @@ The PWM0 and PWM1 through-holes are staggered just enough to friction hold male 
 Export the PWM pin you want to use:
 
 ```shell
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/export'
+echo 0 > /sys/class/pwm/pwmchip0/pwm0/export
 ```
 
 **Enable** the channel and set the **polarity**, **period** of the waveform and **duty cycle**. Units are in **nanoseconds**. The **polarity** can only be set before the pin is enabled. If you set it after enabling a pin the script should still work but you will see a "I/O error". Most servos operate at **50Hz which translates into a 20000000 ns period**. Start the **duty cycle** at **0**:
 
 ```shell
-sudo sh -c 'echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity' 
-sudo sh -c 'echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable'
-sudo sh -c 'echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period'
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 ```
 
 Once you do this initial setup, the **duty_cycle** is what needs to change to rotate the servo. Whatever value is written to the duty_cycle changes the pulse width. To get you started, there are two examples below, one rotates a 180º servo, the other rotates and stops a 360º continuous servo.
@@ -969,16 +969,16 @@ To rotate 180º most servos require a duty cycle where 1000000 ns/1 ms correspon
 Change the duty cycle to 1500000 ns and step up every 100000 ns to move the servo:
 
 ```shell
-sudo sh -c 'echo 1500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
-sudo sh -c 'echo 1600000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
-sudo sh -c 'echo 1700000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle'
+echo 1500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1600000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1700000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 ```
 
 When done, disable and unexport pin:
 
 ```shell
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable'
-sudo sh -c 'echo 0 > /sys/class/pwm/pwmchip0/unexport'
+echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable
+echo 0 > /sys/class/pwm/pwmchip0/unexport
 ```
 
 ##### Sweep Script

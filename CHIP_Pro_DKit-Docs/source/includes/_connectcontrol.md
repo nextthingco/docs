@@ -652,15 +652,15 @@ USB1 is provided with 5V from pass-through of the 5V supplied to the USB0+UART m
 
 ## GPIO	
 
-C.H.I.P. Pro has a total of 22 GPIO pins ready for use:
+C.H.I.P. Pro has a total of 27 GPIO pins ready for use:
 
 * 2 PWM
 * 3 input
-* 17 input/output
+* 22 input/output
 
 The Linux kernel provides a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. 
 
-* Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 can be accessed via sysfs as I/Os. 
+* Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 are I/Os. 
 * Pins 39 - 41 are accessible as inputs. 
 * To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
 
@@ -702,7 +702,7 @@ Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where
 
 To address a GPIO port, you first need to know the number sysfs sees it as. 
 
-Sysfs number mappings to D0 - D7:
+Sysfs number mappings for D0 - D7:
 
 | GR8 Port # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 |
 |------------|-----|-----|-----|-----|-----|-----|------|------|

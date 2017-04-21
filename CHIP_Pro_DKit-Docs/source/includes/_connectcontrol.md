@@ -704,11 +704,11 @@ To address a GPIO port, you first need to know the number sysfs sees it as.
 
 Sysfs number mappings for D0 - D7:
 
-| GR8 Port # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 |
+| GR8 Port # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 | 
 |------------|-----|-----|-----|-----|-----|-----|------|------|
 | sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
 
-To calculate this, start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+To calculate the sysfs number of the remaining GPIO pins, start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
 As an example, take a look at **D0** which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
@@ -727,7 +727,7 @@ Once a pin is exported, look in the **gpioN** directory to see what attributes a
 ```shell
 ls /sys/class/gpio/export/gpio132 
 ```
-The main attributes you will work with: 
+The main attributes to work with: 
 
 * **direction** - Set direction of pin using "in" or out". All GPIOs are I/Os except for PE0, PE1 and PE2 which are input only.
 * **value** - Value of pin written or read as either 0 (low) or 1 (high).
@@ -738,7 +738,7 @@ Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documenta
 
 ### Digital Input
 
-The following example goes through a general command sequence to read a changing state of a pin. This example reads **PE4**, **GPIO 132**. When connecting a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
+The following example goes through a general command sequence to read a changing state of a pin. This example reads a switch connected to **PE4**. When wiring up a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
 
 ![pull-down resistor](images/pullDown.jpg)
 

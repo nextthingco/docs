@@ -667,7 +667,7 @@ To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing tab
 
 ![pin out](images/Pro_Pinout.jpg)
 
-### Interacting with Sysfs**
+### Interacting with Sysfs
 
 The Linux kernel provides a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Depending on the image flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using the **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
@@ -683,13 +683,13 @@ sudo sh -c 'echo 132 > /sys/class/gpio/export'
 echo 132 > /sys/class/gpio/export 
 ```
 
-Follow along with the examples to learn more about sysfs including how to directly read and write to sysfs. ** All examples in the GPIO documentation are done using one of NTC's **Buildroot** based images. 
+Follow along with the examples to learn more about sysfs including how to directly read and write to sysfs. All examples in the GPIO documentation are done using one of NTC's **Buildroot** based images. 
 
 #### Get GPIO Sysfs File Name
 
 To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the table below. 
 
-**Sysfs Pin Names**
+**Sysfs Pin Numbers**
 
 D0 - D7:
 
@@ -720,7 +720,8 @@ SPI2:
 | sysfs #    | 0 | 1 | 
 
 UART1:
-** These pins are being used thus not available while connected to the C.H.I.P. Pro Dev board via USB-serial. You can disconnect the micro USB port on the Dev board from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+
+** These pins are used thus are not available while connected to the C.H.I.P. Pro Dev board via USB-serial. You can disconnect the micro USB port on the Dev board from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
 
 | C.H.I.P. Pro Pin # | 44 | 43 | 
 |------------|-----|-----|
@@ -748,18 +749,17 @@ In the **gpio** directory you will find:
 * **export** - Exports a GPIO signal to read and write to. 
 * **unexport** - Reverses the effect of exporting. 
 
-As an example, use the sysfs number **132** to export pin **PE4**:
+To read and write to a pin it must first be exported. As an example, use the sysfs number **132** to export pin **PE4**:
 
 ```shell
 echo 132 > /sys/class/gpio/export
 ```
 
-Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. Once a pin is exported, look in the **gpioN** directory to see what attributes are available to read and write:
+Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. In the **gpioN** directory, you can see what attributes are available to read and write to:
 
 ```shell
 ls /sys/class/gpio/export/gpio132 
 ```
-These are the main attributes you will work with: 
 
 * **direction** - Set direction of pin using "in" or out". All GPIOs are I/Os except for PE0, PE1 and PE2 which are input only.
 * **value** - Value of pin written or read as either 0 (low) or 1 (high).
@@ -847,7 +847,7 @@ while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/g
 
 ### Unexport GPIO 
 
-When you are done using any GPIO pin always tell the system to stop listening by unexporting it:
+When you are done using a GPIO pin always tell the system to stop listening by unexporting it:
 
 ```shell
 echo 132 > /sys/class/gpio/unexport
@@ -857,9 +857,27 @@ If pins have not been unexported an error will occur stating the pins are "busy"
 
 ## PWM 
 
-C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins: PWM0 and PWM1. The Dev Kit also features two places to connect servos that provide the power needed to drive them. 
+C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins: PWM0 and PWM1. The Dev board also features two places to connect servos that provide the power needed to drive them. 
 
 ### PWM via sysfs
+
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+
+**Pro**
+
+```shell
+sudo sh -c 'echo 0 > export' #PWM0
+```
+
+**Buildroot**:
+
+```shell
+echo 0 > export #PWM0
+```
+
+All PWM examples are done using one of NTC's **Buildroot** based images. 
+
+### Export PWM Channel
 
 The Linux kernel provides a simple **sysfs** interface to access PWM from. The PWM controller can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
@@ -878,24 +896,6 @@ You can see there are two PWM channels available from C.H.I.P. Pro's PWM control
 cd /sys/class/pwm/pwmchip0
 cat npwm
 ``` 
-  
-Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
-
-**Pro**
-
-```shell
-sudo sh -c 'echo 0 > export' #PWM0
-```
-
-**Buildroot**:
-
-```shell
-echo 0 > export #PWM0
-```
-
-** All PWM examples are written for the **Buildroot image**. 
-
-#### Export PWM Channels
 
 Before you can use a channel it needs to be exported. Use these numbers to reference which pin you would like to export:
 
@@ -1050,5 +1050,13 @@ Below are the times for the FS90R servo. Yours may be slightly different. A good
 
 This [script](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweepCont.sh) steps through different speeds while rotating in each direction and unexports the pin after hitting Ctrl+C. Each speed lasts for two seconds. It stops for one second at 1500000 ns before rotating in the opposite direction.
 
+### Unexport PWM 
 
+When you are done using a PWM pin always tell the system to stop listening by unexporting it:
+
+```shell
+echo 0 > /sys/class/gpio/unexport #PWM0
+```
+
+If pins have not been unexported an error will occur stating the pins are "busy" the next time you go to export them. 
 

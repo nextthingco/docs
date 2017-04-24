@@ -770,7 +770,7 @@ Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documenta
 
 ### Digital Input
 
-The following example goes through a general command sequence to read a changing state of a pin. This example reads a switch connected to **PE4**. When wiring up a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
+The following example goes through a general command sequence to read the changing state of a pin. This example reads a switch connected to **PE4**. When wiring up a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
 
 ![pull-down resistor](images/pullDown.jpg)
 
@@ -810,15 +810,15 @@ while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
 
 The Dev board provides ten onboard LEDs to make testing the GPIOs easy without having to wire anything up. Eight of these LEDs are connected to digital I/O pins that can be turned on and off with standard Linux sysfs commands. 
 
-* Pins CSIDO - CSID7 which are seen as 132 - 139 in sysfs.
+* Pins 30 - 37 which are seen as 132 - 139 in sysfs.
 
 **Blinkenlights Image**
 
-To start with an example that demos the eight I/Os and two PWM onboard LEDs [flash C.H.I.P. Pro Dev Kit with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and [view the example scripts](https://docs.getchip.com/chip_pro_devkit.html#edit-buildroot-examples) using the command-line editor Vi. 
+To start with an example that demos the eight I/Os and two PWM onboard LEDs [flash C.H.I.P. Pro Dev Kit with the Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and [view the example scripts](https://docs.getchip.com/chip_pro_devkit.html#edit-buildroot-examples) using the command-line editor Vi. 
 
 **Turn LED On and Off**
 
-Follow along to turn on and off the LED attached to PE4.
+Follow along to turn on and off the LED attached to pin 37.
 
 ![UART connection](images/blink.gif)
 
@@ -838,7 +838,7 @@ echo 0 > /sys/class/gpio/gpio132/value
 
 
 #### Blink 
-Blink an LED on pin PE4(132).
+Blink an LED on pin 37.
 
 ``` shell
 while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; echo 0 >  /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; done;
@@ -853,15 +853,15 @@ When you are done using any GPIO pin always tell the system to stop listening by
 echo 132 > /sys/class/gpio/unexport
 ```
 
-If pins have not been unexported the pins will be "busy" the next time you go to export them. 
+If pins have not been unexported an error will occur stating the pins are "busy" the next time you go to export them. 
 
 ## PWM 
 
-C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins: PWM0 and PWM1. The Dev Kit also features two places to connect servos to that provide the power needed to drive them. 
+C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins: PWM0 and PWM1. The Dev Kit also features two places to connect servos that provide the power needed to drive them. 
 
 ### PWM via sysfs
 
-Our Linux kernel provides a simple **sysfs** interface to access PWM from. The PWM controller can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
+The Linux kernel provides a simple **sysfs** interface to access PWM from. The PWM controller can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
 ```
 ls /sys/class/pwm/pwmchip0
@@ -877,7 +877,23 @@ You can see there are two PWM channels available from C.H.I.P. Pro's PWM control
 ```
 cd /sys/class/pwm/pwmchip0
 cat npwm
-```    
+``` 
+  
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+
+**Pro**
+
+```shell
+sudo sh -c 'echo 0 > export' #PWM0
+```
+
+**Buildroot**:
+
+```shell
+echo 0 > export #PWM0
+```
+
+** All PWM examples are written for the **Buildroot image**. 
 
 #### Export PWM Channels
 
@@ -886,25 +902,10 @@ Before you can use a channel it needs to be exported. Use these numbers to refer
 * 0 = PWM0
 * 1 = PWM1
 
-Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
-
-**Pro**
-
-```shell
-sudo sh -c 'echo 0 > export' #PWM0
-sudo sh -c 'echo 1 > export' #PWM1
-ls
-```
-
-**Buildroot**:
-
 ```shell
 echo 0 > export #PWM0
-echo 1 > export #PWM1
 ls
 ```
-
-** All PWM examples are written for the **Buildroot image**.
 
 After exporting, you will find that a new directory **pwmX**, where X is the channel number, has been created. Go into the pwmX directory to check out the attributes available for use:
 
@@ -973,9 +974,11 @@ Most servos have three pins: **power**, **ground**, and a **control signal**. Th
 
 ![servo connected to dev kit](images/pwmPins.jpg)
 
-While the signal pin draws a low amount, the servo motor connected to the power pin draws more power than the C.H.I.P. Pro can provide on its own. The Dev Kit board helps with this by providing a **5 volt power pin** next to the signal and ground pin. This pin is connected to the **DC-In barrel jack providing 5 volts**. 
+While the control signal pin draws a low amount of power, the servo motor draws more power than the C.H.I.P. Pro can provide on its own. The Dev board helps with this by providing a **5 volt power pin** next to the signal and ground pin. This pin is connected to the **DC-In barrel jack**. 
 
-The PWM0 and PWM1 through-holes are staggered just enough to friction hold male header pins. So, no soldering is needed. 
+The PWM0 and PWM1 through-holes are staggered just enough to friction hold male header pins. So, no soldering is needed to connect servos.
+
+**Setup PWM Channel**
 
 Export the PWM pin you want to use:
 
@@ -992,7 +995,7 @@ echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period
 echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
 ```
 
-Once you do this initial setup, the **duty_cycle** is what needs to change to rotate the servo. Whatever value is written to the duty_cycle changes the pulse width. To get you started, there are two examples below, one rotates a 180º servo, the other rotates and stops a 360º continuous servo.
+Once you do this initial setup, to rotate the servo change the **duty_cycle**. Whatever value is written to the duty_cycle changes the active time of the PWM signal. To get you started, there are two examples below, one rotates a 180º servo, the other rotates and stops a 360º continuous servo.
   
 #### 180º Servo
 
@@ -1002,7 +1005,7 @@ Once you do this initial setup, the **duty_cycle** is what needs to change to ro
 
 * 180º degree 4.8V - 6V [Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product)
 
-Before you start to work with your servo, check the datasheet. There you can sometimes find the pulse widths needed to control it. 
+Before you start to work with your servo, check the datasheet. There you can sometimes find the pulse width range needed to control it. 
 
 To rotate 180º most servos require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1500000 ns/1.5 ms. You can then go up and down from there to find the max. and min. 
 
@@ -1023,7 +1026,7 @@ echo 0 > /sys/class/pwm/pwmchip0/unexport
 
 ##### Sweep Script
 
-Find a Sweep script example [here](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweep.sh). This script moves the servo back and forth from 0º - 180º while printing the duty cycle. You may need to calibrate the minimum and maximum to fit your servo.
+Find a Sweep script example [here](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweep.sh). This script moves the servo back and forth from 0º - 180º while printing the duty cycle and unexports after hitting Ctrl+C. You may need to calibrate the minimum and maximum to fit your servo. 
 
 #### 360º Continuos Servo 
 
@@ -1033,11 +1036,11 @@ Find a Sweep script example [here](https://github.com/laraCat/CHIP_Pro_DKit_Exam
 
 * 360º Continuous 4.8V - 6V [FEETEC FS90R Micro Servo](https://cdn-shop.adafruit.com/product-files/2442/FS90R-V2.0_specs.pdf)
 
-For a continuous servo the PWM input signal allows control of the speed, direction of rotation and stopping period.  Before you start to work with your servo, check the datasheet. There you can sometimes find the pulse widths needed to control it. 
+For a continuous servo the PWM input signal controls the speed, direction of rotation and stopping period.  Before you start to work with your servo, check the datasheet. There you can sometimes find the pulse width range needed to control it. 
 
 A typical stop width is **1500000 ns/1.5 ms**. The further the time travels above and below the stop width, the slower the rotation speed gets.
 
-Below are the pulse widths for the FS90R servo. Yours may be slightly different. 
+Below are the times for the FS90R servo. Yours may be slightly different. A good place to start is 1500000 ns and going 100000 ns up and down from there to find the stop, right and left pulse times.
 
 * 1500000 ns: stop
 * 1000000 ns - 1400000 ns: slow - fast right

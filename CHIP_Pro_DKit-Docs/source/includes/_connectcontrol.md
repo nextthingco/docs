@@ -681,9 +681,9 @@ sudo sh -c 'echo 132 > /sys/class/gpio/export'
 echo 132 > /sys/class/gpio/export 
 ```
 
-** All examples in the GPIO documentation are done using the **Buildroot Image**. 
+Follow along with the examples to learn more about sysfs including how to directly read and write to sysfs. ** All examples in the GPIO documentation are done using one of NTC's **Buildroot** based images. 
 
-### Digital I/O via sysfs
+### Digital I/O via Sysfs
 
 The GPIO control interface can be found at `/sys/class/gpio`. To explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
@@ -699,13 +699,24 @@ Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where
 
 ### Get GPIO Sysfs File Name
 
-To address a GPIO port, you first need to know the number sysfs sees it as. 
+To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of names. To find out what number or name to use for each GPIO pin reference the table below. 
 
-Sysfs number mappings for D0 - D7:
+**Sysfs Pin Names**
 
-| GR8 Port # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 | 
+PE4 - PE11:
+
+| C.H.I.P. Pro Pin # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 | 
 |------------|-----|-----|-----|-----|-----|-----|------|------|
 | sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
+
+PE4 - PE11:
+
+| C.H.I.P. Pro Pin # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 | 
+|------------|-----|-----|-----|-----|-----|-----|------|------|
+| sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
+
+
+
 
 To calculate the sysfs number of the remaining GPIO pins, start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 

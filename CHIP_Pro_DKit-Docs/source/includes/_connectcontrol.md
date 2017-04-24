@@ -655,20 +655,19 @@ USB1 is provided with 5V from pass-through of the 5V supplied to the USB0+UART m
 C.H.I.P. Pro has a total of 27 GPIO pins ready for use:
 
 * 2 PWM
+	* pins 9 & 10
 * 3 input
+	* pins 39 - 41
 * 22 input/output
+	* pins 11-16, 21-25, 30-38, 43 & 44
 
-The Linux kernel provides a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. 
-
-* Pins 9 - 16, 21 - 25, 30 - 38 and 43 and 44 are I/Os. 
-* Pins 39 - 41 are accessible as inputs. 
-* To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
+To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
 
 ![pin out](images/Pro_Pinout.jpg)
 
 **Interacting with Sysfs**
 
-Depending on the image flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using the **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+The Linux kernel provides a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Depending on the image flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using the **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
 **Pro** 
 

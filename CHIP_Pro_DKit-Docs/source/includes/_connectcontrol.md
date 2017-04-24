@@ -687,7 +687,7 @@ Follow along with the examples to learn more about sysfs including how to direct
 
 #### Get GPIO Sysfs File Name
 
-To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of names. To find out what number or name to use for each GPIO pin reference the table below. 
+To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the table below. 
 
 **Sysfs Pin Names**
 
@@ -715,6 +715,10 @@ SPI2:
 |------------|-----|-----|-----|-----|
 | sysfs #    | 128 | 129 | 130 | 131 | 
 
+| C.H.I.P. Pro Pin # | 9 | 10 | 
+|------------|-----|-----|
+| sysfs #    | 0 | 1 | 
+
 UART1:
 ** These pins are being used thus not available while connected to the C.H.I.P. Pro Dev board via USB-serial. You can disconnect the micro USB port on the Dev board from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
 
@@ -732,29 +736,7 @@ Multiply the letter index by 32, then add the number that follows "PE":
 
 (4*32)+4 = 132
 
-### Export GPIO
-
-To export pin **PE4** in sysfs use **132** to reference that pin:
-
-```shell
-echo 132 > /sys/class/gpio/export
-```
-
-Once a pin is exported, look in the **gpioN** directory to see what attributes are available to read and write:
-
-```shell
-ls /sys/class/gpio/export/gpio132 
-```
-The main attributes to work with: 
-
-* **direction** - Set direction of pin using "in" or out". All GPIOs are I/Os except for PE0, PE1 and PE2 which are input only.
-* **value** - Value of pin written or read as either 0 (low) or 1 (high).
-* **edge** - Written or read as either "non", "rising", "falling", or "both". This attribute only shows up when the pin can be configurred as an interrupt.
-* **active_low** - Reads as either 0 (false) or 1 (true). Write any nonzero value to invert the value attribute both for reading and writing.
-
-Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).
-
-### Digital I/O via Sysfs
+### Export Digital GPIOs
 
 The GPIO control interface can be found at `/sys/class/gpio`. To explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
 
@@ -766,7 +748,25 @@ In the **gpio** directory you will find:
 * **export** - Exports a GPIO signal to read and write to. 
 * **unexport** - Reverses the effect of exporting. 
 
-Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. 
+As an example, use the sysfs number **132** to export pin **PE4**:
+
+```shell
+echo 132 > /sys/class/gpio/export
+```
+
+Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. Once a pin is exported, look in the **gpioN** directory to see what attributes are available to read and write:
+
+```shell
+ls /sys/class/gpio/export/gpio132 
+```
+These are the main attributes you will work with: 
+
+* **direction** - Set direction of pin using "in" or out". All GPIOs are I/Os except for PE0, PE1 and PE2 which are input only.
+* **value** - Value of pin written or read as either 0 (low) or 1 (high).
+* **edge** - Written or read as either "non", "rising", "falling", or "both". This attribute only shows up when the pin can be configurred as an interrupt.
+* **active_low** - Reads as either 0 (false) or 1 (true). Write any nonzero value to invert the value attribute both for reading and writing.
+
+Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).
 
 ### Digital Input
 

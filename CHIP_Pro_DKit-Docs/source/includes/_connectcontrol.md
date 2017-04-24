@@ -1026,7 +1026,7 @@ echo 0 > /sys/class/pwm/pwmchip0/unexport
 
 ##### Sweep Script
 
-Find a Sweep script example [here](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweep.sh). This script moves the servo back and forth from 0º - 180º while printing the duty cycle and unexports after hitting Ctrl+C. You may need to calibrate the minimum and maximum to fit your servo. 
+Find a Sweep script example [here](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweep.sh). This script moves the servo back and forth from 0º - 180º while printing the duty cycle and unexports the pin after hitting Ctrl+C. You may need to calibrate the minimum and maximum to fit your servo. 
 
 #### 360º Continuos Servo 
 
@@ -1048,7 +1048,7 @@ Below are the times for the FS90R servo. Yours may be slightly different. A good
 
 ##### Sweep Script
 
-This [script](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweepCont.sh) steps through different speeds while rotating in each direction. Each speed lasts for two seconds. It stops for one second at 1500000 ns before rotating in the opposite direction.
+This [script](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweepCont.sh) steps through different speeds while rotating in each direction and unexports the pin after hitting Ctrl+C. Each speed lasts for two seconds. It stops for one second at 1500000 ns before rotating in the opposite direction.
 
 
 

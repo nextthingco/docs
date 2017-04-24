@@ -44,4 +44,4 @@ More information about the GR8 SiP can be found in the [GR8 data sheet.](https:/
 
 ## Block Diagram
 
-![C.H.I.P. Pro Block Diagram](images/block_diagram.jpg)
+![C.H.I.P. Pro Block Diagram](images/blockDiagram.jpg)

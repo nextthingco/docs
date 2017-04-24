@@ -282,29 +282,6 @@ Other helpful commands:
 * :x then Enter - save and exit
 * :q! then Enter - exit without saving
 
-### Enable Wifi Antenna
-In order to use it, you need to set the path of the external antenna.
-
-**Buildroot**
-
-The Buildroot C.H.I.P. Pro images come with a [set_antenna script](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) which accepts two arguments of either `pcb` or `ufl` depending on which you want enable. 
-
-```
-set_antenna pcb|ufl
-``` 
-
-**Debian**
-
-In Debian, there are two ways to set the antenna path:
-
-* The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
-
-0 = onboard-antenna 
-
-1 = external-antenna
-
-
-* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) and pass either the `pcb` or `ufl` argument as stating above. 
 
 ## WiFi Setup: Buildroot
 

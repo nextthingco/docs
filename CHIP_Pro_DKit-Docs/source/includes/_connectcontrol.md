@@ -667,7 +667,7 @@ To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing tab
 
 ![pin out](images/Pro_Pinout.jpg)
 
-**Interacting with Sysfs**
+### Interacting with Sysfs**
 
 The Linux kernel provides a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Depending on the image flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using the **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
@@ -685,21 +685,7 @@ echo 132 > /sys/class/gpio/export
 
 Follow along with the examples to learn more about sysfs including how to directly read and write to sysfs. ** All examples in the GPIO documentation are done using one of NTC's **Buildroot** based images. 
 
-### Digital I/O via Sysfs
-
-The GPIO control interface can be found at `/sys/class/gpio`. To explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
-
-```
-ls /sys/class/gpio
-```  
-In the **gpio** directory you will find:
-
-* **export** - Exports a GPIO signal to read and write to. 
-* **unexport** - Reverses the effect of exporting. 
-
-Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. 
-
-### Get GPIO Sysfs File Name
+#### Get GPIO Sysfs File Name
 
 To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of names. To find out what number or name to use for each GPIO pin reference the table below. 
 
@@ -738,7 +724,7 @@ UART1:
 
 **Calculate sysfs Number**
 
-If a pin is not listed above you can calculate the sysfs number. To do this start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+If a pin is not listed above you can calculate the sysfs number starting with the GR8 port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
 As an example, take a look at **D0** which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
@@ -746,7 +732,9 @@ Multiply the letter index by 32, then add the number that follows "PE":
 
 (4*32)+4 = 132
 
-Therefore, to export pin **PE4** in sysfs you use **132** to reference that pin:
+### Export GPIO
+
+To export pin **PE4** in sysfs use **132** to reference that pin:
 
 ```shell
 echo 132 > /sys/class/gpio/export
@@ -765,6 +753,20 @@ The main attributes to work with:
 * **active_low** - Reads as either 0 (false) or 1 (true). Write any nonzero value to invert the value attribute both for reading and writing.
 
 Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).
+
+### Digital I/O via Sysfs
+
+The GPIO control interface can be found at `/sys/class/gpio`. To explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
+
+```
+ls /sys/class/gpio
+```  
+In the **gpio** directory you will find:
+
+* **export** - Exports a GPIO signal to read and write to. 
+* **unexport** - Reverses the effect of exporting. 
+
+Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. 
 
 ### Digital Input
 
@@ -843,7 +845,7 @@ while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/g
 ```
 
 
-### GPIO Done
+### Unexport GPIO 
 
 When you are done using any GPIO pin always tell the system to stop listening by unexporting it:
 

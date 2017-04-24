@@ -652,7 +652,7 @@ USB1 is provided with 5V from pass-through of the 5V supplied to the USB0+UART m
 
 ## GPIO	
 
-C.H.I.P. Pro has a total of 27 GPIO pins ready for use:
+C.H.I.P. Pro has a total of 28 GPIO pins ready for use:
 
 * 2 PWM
 	* pins 9 & 10
@@ -660,6 +660,8 @@ C.H.I.P. Pro has a total of 27 GPIO pins ready for use:
 	* pins 39 - 41
 * 22 input/output
 	* pins 11-16, 21-25, 30-38, 43 & 44
+* 1 LRADC
+	* pin 42
 
 To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
 
@@ -703,22 +705,40 @@ To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin nam
 
 **Sysfs Pin Names**
 
-PE4 - PE11:
+D0 - D7:
 
-| C.H.I.P. Pro Pin # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 | 
+| C.H.I.P. Pro Pin # | 37 | 36 | 35 | 34 | 33 | 32 | 31 | 30 | 
 |------------|-----|-----|-----|-----|-----|-----|------|------|
 | sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
 
-PE4 - PE11:
+TWI1, UART2:
 
-| C.H.I.P. Pro Pin # | PE4 | PE5 | PE6 | PE7 | PE8 | PE9 | PE10 | PE11 | 
-|------------|-----|-----|-----|-----|-----|-----|------|------|
-| sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
+| C.H.I.P. Pro Pin # | 11 | 12 | 13 | 14 | 15 | 16 |  
+|------------|-----|-----|-----|-----|-----|-----|
+| sysfs #    | 47 | 48 | 98 | 99 | 100 | 101 | 
 
+I2S:
 
+| C.H.I.P. Pro Pin # | 21 | 22 | 23 | 24 | 25 |   
+|------------|-----|-----|-----|-----|-----|
+| sysfs #    | 37 | 38 | 39 | 40 | 41 |
 
+SPI2:
 
-To calculate the sysfs number of the remaining GPIO pins, start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+| C.H.I.P. Pro Pin # | 41 | 40 | 39 | 38 |   
+|------------|-----|-----|-----|-----|
+| sysfs #    | 128 | 129 | 130 | 131 | 
+
+UART1:
+** These pins are being used thus not available while connected to the C.H.I.P. Pro Dev board via USB-serial. You can disconnect the micro USB port on the Dev board from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+
+| C.H.I.P. Pro Pin # | 44 | 43 | 
+|------------|-----|-----|
+| sysfs #    | 195 | 196 | 
+
+**Calculate sysfs Number**
+
+If a pin is not listed above you can calculate the sysfs number. To do this start with the GR8 GPIO port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
 
 As an example, take a look at **D0** which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 

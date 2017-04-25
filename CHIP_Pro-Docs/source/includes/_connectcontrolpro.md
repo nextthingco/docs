@@ -723,25 +723,59 @@ Below are some basic exercises to check if the digital in/out pins are working c
 
 **Buildroot** - with our examples you are already logged in as the root user so `sudo` is not necessary. 
 
-### Figure out the GPIO sysfs Pin Number
+### GPIO Sysfs Numbers 
 
-You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf), starting on page 15. 
+To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the table below. 
 
-As an example let's look at CSID0 which is pin **PE4** on the datasheet. 
+**Sysfs Pin Numbers**
 
-Look at the letter that follows the "P". Starting with A = 0, count up in the alphabet until you arrive at that letter. For example, ```E=4```.
+D0 - D7:
+
+| C.H.I.P. Pro Pin # | 37 | 36 | 35 | 34 | 33 | 32 | 31 | 30 | 
+|------------|-----|-----|-----|-----|-----|-----|------|------|
+| sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
+
+TWI1, UART2:
+
+| C.H.I.P. Pro Pin # | 11 | 12 | 13 | 14 | 15 | 16 |  
+|------------|-----|-----|-----|-----|-----|-----|
+| sysfs #    | 47 | 48 | 98 | 99 | 100 | 101 | 
+
+I2S:
+
+| C.H.I.P. Pro Pin # | 21 | 22 | 23 | 24 | 25 |   
+|------------|-----|-----|-----|-----|-----|
+| sysfs #    | 37 | 38 | 39 | 40 | 41 |
+
+SPI2:
+
+| C.H.I.P. Pro Pin # | 41 | 40 | 39 | 38 |   
+|------------|-----|-----|-----|-----|
+| sysfs #    | 128 | 129 | 130 | 131 | 
+
+PWM:
+
+| C.H.I.P. Pro Pin # | 9 | 10 | 
+|------------|-----|-----|
+| sysfs #    | 0 | 1 | 
+
+UART1:
+
+** These pins are used thus are not available while connected to the C.H.I.P. Pro Dev Kit via USB-serial. You can disconnect the micro USB port on the Dev Kit from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+
+| C.H.I.P. Pro Pin # | 44 | 43 | 
+|------------|-----|-----|
+| sysfs #    | 195 | 196 | 
+
+**Calculate sysfs Number**
+
+If a pin is not listed above you can calculate the sysfs number starting with the GR8 port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+
+As an example, take a look at **D0** which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 
-``` (32*4)+4 = 132```
-
-Therefore, to export pin PE4 (CSID0) in sysfs you would use 132 to reference that pin:
-
-```
-sudo sh -c 'echo 132 > /sys/class/gpio/export'
-```
-
-PE4 - PE11 are numbers 132-139 in sysfs.
+(4*32)+4 = 132
 
 ### GPIO Input
 

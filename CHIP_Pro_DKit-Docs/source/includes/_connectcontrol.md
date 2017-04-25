@@ -697,7 +697,7 @@ Follow along with the examples to learn more about sysfs including how to direct
 
 ### GPIO Sysfs Numbers 
 
-To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the table below. 
+To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the tables below. 
 
 **Sysfs Pin Numbers**
 
@@ -822,7 +822,7 @@ Unexport:
 echo 132 > /sys/class/gpio/unexport
 ```
 
-### Digital Output Examples
+### Digital Output Example
 
 **Onboard LEDs**
 

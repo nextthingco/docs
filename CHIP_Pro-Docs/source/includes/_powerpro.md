@@ -22,7 +22,7 @@ Pins
 
 ## Battery Charging and BTS Pin
 
-C.H.I.P. Pro uses the **AXP209 IC** to manage charging. Pin 7 marked **BATTEMP or BTS** is directly connected to the **TS** pin on the AXP209. This pin supports a thermistor to monitor the battery temperature when the battery is charging or discharging.  If you do not incorporate a thermistor into your setup the pin may float from ground interferring with how much charge current is throttled to the **BAT** pin and the **JST connector**. To ensure maximum charge current without a thermistor disable the battery temperature monitoring system.
+C.H.I.P. Pro uses the **AXP209 IC** to manage battery charging. Pin 7 marked **BATTEMP or BTS** is directly connected to the **TS** pin on the AXP209. This pin supports a thermistor to monitor the battery temperature when the battery is charging or discharging.  If you do not incorporate a thermistor into your setup the pin may float from ground interfering with how much charge current is throttled to the **BAT** pin and the **JST connector**. To ensure maximum charge current without a thermistor disable the battery temperature monitoring system.
 
 There are two ways to do this:
 

@@ -722,17 +722,27 @@ ssh root@<CHIPproIP>
 
 There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available.
 
-GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt). By default, **PE4 - PE11** are set as eight digital I/Os ready for you to use (CSID0 - CSID7). 
+GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).  
 
-Below are some basic exercises to check if the digital in/out pins are working correctly. 
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
 
-**Debian** - use `sudo` to gain permission while logged in as default `chip` user.
+**Pro (Debian)**
 
-**Buildroot** - with our examples you are already logged in as the root user so `sudo` is not necessary. 
+```shell
+sudo sh -c 'echo 132 > /sys/class/gpio/export
+```
+
+**Buildroot**:
+
+```shell
+echo 132 > /sys/class/gpio/export
+```
+
+All PWM examples are done using one of NTC's **Buildroot** based images.
 
 ### GPIO Sysfs Numbers 
 
-To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the table below. 
+To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the tables below. 
 
 **Sysfs Pin Numbers**
 
@@ -768,7 +778,7 @@ PWM:
 
 UART1:
 
-** These pins are used thus are not available while connected to the C.H.I.P. Pro Dev Kit via USB-serial. You can disconnect the micro USB port on the Dev Kit from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+** These pins are connected to the FE1.1S USB hub controller IC which is connected to the micro USB providing USB serial functionality. To use them as GPIO disable the USB hub controller by cutting the "UART Disconnect" [traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
 
 | C.H.I.P. Pro Pin # | 44 | 43 | 
 |------------|-----|-----|
@@ -784,7 +794,7 @@ Multiply the letter index by 32, then add the number that follows "PE":
 
 (4*32)+4 = 132
 
-### GPIO Input
+### Digital Input Example
 
 To access the GPIO pins through sysfs there is a process that must be adhered to. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
 
@@ -795,28 +805,28 @@ When connecting a switch, we recommend adding a external pull-up or pull-down re
 In terminal, tell the system you want to listen to a pin by exporting it:
 
 ```shell
-  sudo sh -c 'echo 132 > /sys/class/gpio/export'
+echo 132 > /sys/class/gpio/export
 ```
 
 Next, the pin mode needs to be set. By default, the pin modes are set to input. So, the following command that views the mode will return “in” unless the pin mode was changed to "out" previously:
 
 ```shell
-  cat /sys/class/gpio/gpio132/direction
+cat /sys/class/gpio/gpio132/direction
 ```
 
 Connect a switch between pin PE4 and GND. Use this line of code to read the value:
 
 ```shell
-  cat /sys/class/gpio/gpio132/value
+cat /sys/class/gpio/gpio132/value
 ```
 
 Continuously poll a switch on pin PE4(132) for its state change:
 
 ```shell
-  while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
+while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
 ```
 
-### GPIO Output
+### Digital Output Example
 
 Attach an LED to pin PE4 and ground. We recommend placing a current-limiting resistor in series to protect the GR8 module and LED from overcurrent or a potential short.
 
@@ -825,14 +835,14 @@ Attach an LED to pin PE4 and ground. We recommend placing a current-limiting res
 Change the mode of the pin from "in” to “out”:
 
 ```shell
-  sudo sh -c 'echo out > /sys/class/gpio/gpio132/direction'
+echo out > /sys/class/gpio/gpio132/direction
 ```
 
 Now that it's in output mode, you can write a value to the pin and turn the LED on and off:
 
 ```shell
-  sudo sh -c 'echo 1 > /sys/class/gpio/gpio132/value'
-  sudo sh -c 'echo 0 > /sys/class/gpio/gpio132/value'
+echo 1 > /sys/class/gpio/gpio132/value
+echo 0 > /sys/class/gpio/gpio132/value
 ```
 
 
@@ -843,12 +853,12 @@ while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/g
 ```
 
 
-### GPIO Done
+### Unexport GPIO 
 
 When you are done experimenting, always tell the system to stop listening to the gpio pin by unexporting it:
 
 ```shell
-  sudo sh -c 'echo 132 > /sys/class/gpio/unexport'
+echo 132 > /sys/class/gpio/unexport
 ```
 
 If pins are not unexported, the pins will be "busy" the next time you go to export them. 

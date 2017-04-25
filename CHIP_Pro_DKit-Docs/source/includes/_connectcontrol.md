@@ -733,7 +733,7 @@ PWM:
 
 UART1:
 
-** These pins are used thus are not available while connected to C.H.I.P. Pro Dev Kit via USB-serial. You can disconnect the micro USB port on the Dev Kit from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+** These pins are connected to the FE1.1S USB hub controller IC which is connected to the micro USB providing USB serial functionality. To use them as GPIO disable the USB hub controller by cutting the "UART Disconnect" [traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
 
 | C.H.I.P. Pro Pin # | 44 | 43 | 
 |------------|-----|-----|
@@ -758,7 +758,7 @@ ls /sys/class/gpio
 ```  
 In the **gpio** directory you will find:
 
-* **export** - Exports a GPIO signal to read and write to. 
+* **export** - Allows a GPIO signal to be read and written to. 
 * **unexport** - Reverses the effect of exporting. 
 
 To read and write to a pin it must first be exported. As an example, use the sysfs number **132** to export pin **PE4**:
@@ -905,8 +905,8 @@ ls /sys/class/pwm/pwmchip0
 ```  
 In the **pwmchip0** directory you will find:
 
-* **export** - Exports a PWM channel for use. 
-* **unexport** - Unexports PWM channel from sysfs (always do this after you are done using a channel).
+* **export** - Allows a PWM channel to be read and written to. 
+* **unexport** - Reverses the effect of exporting (always do this after you are done using a channel).
 * **npwm** - Says how many PWM channels are available. 
 
 You can see there are two PWM channels available from C.H.I.P. Pro's PWM controller/chip by using `cat`:

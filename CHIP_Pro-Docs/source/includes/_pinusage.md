@@ -74,14 +74,14 @@ In the "On C.H.I.P. Pro" column:
 |          | PE1      | 40        | TS_ERR    | CSI_MCLK  |_SPI2_CLK_ |           | EINT15 |        |            | 
 |          | PE2      | 39        | TS_SYNC   | CSI_HSYNC |_SPI2_MOSI_|           |        |        |            | 
 |          | PE3      | 38        | TS_DVLD   | CSI_VSYNC |_SPI2_MISO_|           |        |        |            | 
-|          | PE4      | 37        | TS_D0     | CSI_D0    |_SDC2_D0_  |           |        |        |            | 
-|          | PE5      | 36        | TS_D1     | CSI_D1    |_SDC2_D1_  |           |        |        |            | 
-|          | PE6      | 35        | TS_D2     | CSI_D2    |_SDC2_D2_  |           |        |        |            | 
-|          | PE7      | 34        | TS_D3     | CSI_D3    |_SDC2_D3_  |           |        |        |            | 
-|          | PE8      | 33        | TS_D4     | CSI_D4    |_SDC2_CMD_ |           |        |        |            | 
-|          | PE9      | 32        | TS_D5     | CSI_D5    |_SDC2_CLK_ |           |        |        |            | 
-|          | PE10     | 31        | TS_D6     | CSI_D6    |_UART1_TX_ |           |        |        |            | 
-|          | PE11     | 30        | TS_D7     | CSI_D7    |_UART1_RX_ |           |        |        |            | 
+|          | PE4      | 37        | TS_D0     | CSI_D0    |_SDC2 D0_  |           |        |        |            | 
+|          | PE5      | 36        | TS_D1     | CSI_D1    |_SDC2 D1_  |           |        |        |            | 
+|          | PE6      | 35        | TS_D2     | CSI_D2    |_SDC2 D2_  |           |        |        |            | 
+|          | PE7      | 34        | TS_D3     | CSI_D3    |_SDC2 D3_  |           |        |        |            | 
+|          | PE8      | 33        | TS_D4     | CSI_D4    |_SDC2 CMD_ |           |        |        |            | 
+|          | PE9      | 32        | TS_D5     | CSI_D5    |_SDC2 CLK_ |           |        |        |            | 
+|          | PE10     | 31        | TS_D6     | CSI_D6    |_UART1 TX_ |           |        |        |            | 
+|          | PE11     | 30        | TS_D7     | CSI_D7    |_UART1 RX_ |           |        |        |            | 
 | PF(6)    | PF0      |n/e        | SDC0_D1   |           | JTAG_MS1  |           |        |        |            | 
 |          | PF1      |n/e        | SDC0_D0   |           | JTAG_DI1  |           |        |        |            | 
 |          | PF2      |n/e        | SDC0_CLK  |           | UART0_TX  |           |        |        |            | 

@@ -27,9 +27,11 @@ Comprehensive audio handling includes:
 
 To learn more, go to our [Specification](https://docs.getchip.com/chip_pro.html#specifications) section.
 
-**Certifications**
+## Certifications
 
-C.H.I.P. Pro is CE, IC, and FCC part 15 modularly certified with multiple commercially available external antennas as well as the onboard ceramic SMT antenna. 
+C.H.I.P. Pro is CE, IC, and FCC Part 15B Modular Transmitter certified for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna) as well as the onboard ceramic SMT antenna. 
+
+C.H.I.P. Pro’s FCC Modular Transmitter certification is worth special attention. Any products based on C.H.I.P. Pro will not require your company to run certification testing for the unintentional radiator portion of FCC tests, specifically FCC Part 15B. This will save you around 50% in testing time and cost associated with taking your product through FCC certification. You will still need to run FCC Part 15C tests (EMC testing for the intentional radiator portion). You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC-ID. For any questions on this, reach out to us at pro@nextthing.co. 
 
 
 ## GR8 SiP
@@ -44,4 +46,4 @@ More information about the GR8 SiP can be found in the [GR8 data sheet.](https:/
 
 ## Block Diagram
 
-![C.H.I.P. Pro Block Diagram](images/block_diagram.jpg)
+![C.H.I.P. Pro Block Diagram](images/blockDiagram.jpg)

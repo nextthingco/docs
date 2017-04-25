@@ -17,7 +17,7 @@ Pin Headers | Yes | No
 Operating System | Debian | Gadget
 SOC | Allwinner R8 ARM7 | Next Thing GR8 ARM7
 Speed | 1 Ghz | 1 Ghz
-Wifi | B/G/N 2.4GHz (Realtek RTL8723BS) |	B/G/N 2.4GHz (Realtex RTL8723DS)
+Wifi | B/G/N 2.4GHz (Realtex RTL8723BS) |	B/G/N 2.4GHz (Realtex RTL8723DS)
 Bluetooth | 4.0 | 4.2
 PWM | 1 | 2
 Audio Input | 1 channel | 2 channel

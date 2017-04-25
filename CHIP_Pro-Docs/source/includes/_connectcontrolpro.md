@@ -207,7 +207,14 @@ Once a terminal window pops up, press Enter.
 
 
 ## WiFi Antenna
-C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
+C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. Use the antenna that comes with the C.H.I.P. Pro Dev Kit or obtain any of these officially supported ones:
+
+| Antenna Model | Manufacturer | Gain | Antenna Type | Connection Type | Freq. Range (GHz) | Cable Length (mm) |
+|------------|-----|-----|-----|-----|-----|-----|
+| AA107       | Unictron | 3.3 dBi | PCB | IPEX | 2.4 - 2.5 | 100 | 
+| HCX-P321   | Wacosun | 2 dBi | PCB | IPEX | 2.4 - 2.5 | 150 |
+| FXP73.07.0100A | Taoglas | 2.5 dBi | PCB | IPEX | 2.4 - 2.483 | 100 |
+| AA055   | Unictron | 2.5 dBi | Ceramic | SMT | 2.4 - 2.5 | n/a |
 
 ### Connect Antenna
 C.H.I.P. Pro uses a standard 50Ω IPEX (Hirose U.FL compatible) connector for the external antenna path.
@@ -282,29 +289,6 @@ Other helpful commands:
 * :x then Enter - save and exit
 * :q! then Enter - exit without saving
 
-### Enable Wifi Antenna
-In order to use it, you need to set the path of the external antenna.
-
-**Buildroot**
-
-The Buildroot C.H.I.P. Pro images come with a [set_antenna script](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) which accepts two arguments of either `pcb` or `ufl` depending on which you want enable. 
-
-```
-set_antenna pcb|ufl
-``` 
-
-**Debian**
-
-In Debian, there are two ways to set the antenna path:
-
-* The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
-
-0 = onboard-antenna 
-
-1 = external-antenna
-
-
-* `wget` set_antenna script found [here](https://raw.githubusercontent.com/NextThingCo/CHIP-buildroot/34a8cfdab2bbecd6741c435d6c400e46848436f1/package/rtl8723ds_mp_driver/set_antenna) and pass either the `pcb` or `ufl` argument as stating above. 
 
 ## WiFi Setup: Buildroot
 
@@ -746,29 +730,63 @@ Below are some basic exercises to check if the digital in/out pins are working c
 
 **Buildroot** - with our examples you are already logged in as the root user so `sudo` is not necessary. 
 
-### Figure out the GPIO sysfs Pin Number
+### GPIO Sysfs Numbers 
 
-You can calculate the sysfs pin number using the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf), starting on page 15. 
+To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the table below. 
 
-As an example let's look at CSID0 which is pin **PE4** on the datasheet. 
+**Sysfs Pin Numbers**
 
-Look at the letter that follows the "P". Starting with A = 0, count up in the alphabet until you arrive at that letter. For example, ```E=4```.
+D0 - D7:
+
+| C.H.I.P. Pro Pin # | 37 | 36 | 35 | 34 | 33 | 32 | 31 | 30 | 
+|------------|-----|-----|-----|-----|-----|-----|------|------|
+| sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
+
+TWI1, UART2:
+
+| C.H.I.P. Pro Pin # | 11 | 12 | 13 | 14 | 15 | 16 |  
+|------------|-----|-----|-----|-----|-----|-----|
+| sysfs #    | 47 | 48 | 98 | 99 | 100 | 101 | 
+
+I2S:
+
+| C.H.I.P. Pro Pin # | 21 | 22 | 23 | 24 | 25 |   
+|------------|-----|-----|-----|-----|-----|
+| sysfs #    | 37 | 38 | 39 | 40 | 41 |
+
+SPI2:
+
+| C.H.I.P. Pro Pin # | 41 | 40 | 39 | 38 |   
+|------------|-----|-----|-----|-----|
+| sysfs #    | 128 | 129 | 130 | 131 | 
+
+PWM:
+
+| C.H.I.P. Pro Pin # | 9 | 10 | 
+|------------|-----|-----|
+| sysfs #    | 0 | 1 | 
+
+UART1:
+
+** These pins are used thus are not available while connected to the C.H.I.P. Pro Dev Kit via USB-serial. You can disconnect the micro USB port on the Dev Kit from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+
+| C.H.I.P. Pro Pin # | 44 | 43 | 
+|------------|-----|-----|
+| sysfs #    | 195 | 196 | 
+
+**Calculate sysfs Number**
+
+If a pin is not listed above you can calculate the sysfs number starting with the GR8 port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+
+As an example, take a look at **D0** which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
 
 Multiply the letter index by 32, then add the number that follows "PE":
 
-``` (32*4)+4 = 132```
-
-Therefore, to export pin PE4 (CSID0) in sysfs you would use 132 to reference that pin:
-
-```
-sudo sh -c 'echo 132 > /sys/class/gpio/export'
-```
-
-PE4 - PE11 are numbers 132-139 in sysfs.
+(4*32)+4 = 132
 
 ### GPIO Input
 
-To access the GPIO pins through sysfs there is a process that must be adhered. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
+To access the GPIO pins through sysfs there is a process that must be adhered to. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
 
 When connecting a switch, we recommend adding a external pull-up or pull-down resistor to prevent a floating pin logic state.
 

@@ -104,7 +104,7 @@ Once a terminal window pops up, press Enter.
 
 ## Edit Buildroot Examples
 
-After connecting to the Dev Kit via [USB-serial](https://docs.getchip.com/chip_pro_devkit#usb-serial-uart1-connection) you can check out and edit the scripts for each Buildroot example. Use the Vi command-line editor to read and edit example scripts found in /usr/bin. 
+After connecting to the Dev Kit via [USB-serial](https://docs.getchip.com/chip_pro_devkit#usb-serial-uart1-connection) you can check out and edit the scripts for each Buildroot example. Use the Vi command-line editor to read and edit example scripts found in ```/usr/bin```. 
 
 **Blinkenlights**
 
@@ -141,7 +141,16 @@ Other helpful commands:
 * :q! then Enter - exit without saving
 
 ## WiFi Antenna
-C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
+C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. Use the antenna that comes with the C.H.I.P. Pro Dev Kit or obtain any of these officially supported ones:
+
+| Antenna Model | Manufacturer | Gain | Antenna Type | Connection Type | Freq. Range (GHz) | Cable Length (mm) |
+|------------|-----|-----|-----|-----|-----|-----|
+| AA107       | Unictron | 3.3 dBi | PCB | IPEX | 2.4 - 2.5 | 100 | 
+| HCX-P321   | Wacosun | 2 dBi | PCB | IPEX | 2.4 - 2.5 | 150 |
+| FXP73.07.0100A | Taoglas | 2.5 dBi | PCB | IPEX | 2.4 - 2.483 | 100 |
+| AA055   | Unictron | 2.5 dBi | Ceramic | SMT | 2.4 - 2.5 | n/a |
+
+
 
 ### Connect Antenna
 C.H.I.P. Pro uses a standard 50Ω IPEX (Hirose U.FL compatible) connector for the external antenna path.
@@ -528,7 +537,7 @@ NAME           UUID                                  TYPE             DEVICE
 YOUR_NETWORK   xxxxxxxx-yyyy-zzzz-xxxx-yyyyyyyyyyyy  802-11-wireless  wlan0
 ```
 
-Then, delete the network specified between quotes to forget it:
+Then delete the network specified between quotes to forget it:
 
 ```shell
 sudo nmcli connection delete id "YOUR_NETWORK"
@@ -625,7 +634,7 @@ The C.H.I.P. Pro Development Kit has several ways to access audio in and out. St
 * SPIDIF digital audio
 
 ### Input
-There are two (2) analog MEMS (micro electro mechanical) microphones on the Dev board. These are enabled by default. 
+There are two (2) analog MEMS (micro electro mechanical) microphones on the Dev Kit. These are enabled by default. 
 
 If you want to use the MIC1 and MIC2 pins for audio input, you'll need to [cut a trace](#back-traces).
 
@@ -636,14 +645,12 @@ The "Sleeve" (bottom-most ring) on the TRRS jack can be used as a mono audio inp
 The 3.5mm TRRS jack provides stereo output suitable for headphones or amplification to stereo speakers.
 
 ## USB Accessories
-The USB1 port can be used to connect and use popular accessories like storage, MIDI controllers, keyboards, pointing devices, audio hardware, and more. C.H.I.P. Pro does not provide power to the USB A port on its own, so the Development Kit is a good example of how this works. 
+
+The USB1 port can be used to connect and use popular accessories like storage, MIDI controllers, keyboards, pointing devices, audio hardware, and more. C.H.I.P. Pro does not provide power to the USB1 port on its own, so the Development Kit is a good example of how this works. 
 
 **USB1 Power**
 
-USB1 is provided with 5V by one of two ways:
-
-* from the CHG-IN barrel jack circuit’s regulated 5V output
-* from pass-through of the 5V suppied into the USB0+UART micro USB port on the devkit pcb 
+USB1 is provided with 5V from pass-through of the 5V supplied to the USB0+UART micro USB port on the devkit pcb 
 
 **For high-load devices** attached to USB1, make sure an adequate power supply is provided. For example, when you plug in a keyboard and an optical mouse, they will draw too much current from the C.H.I.P. Pro Dev Kit, not leaving enough for the processor. As a result, C.H.I.P. Pro will immediately shut down. There are a few ways to avoid this.
 
@@ -652,13 +659,423 @@ USB1 is provided with 5V by one of two ways:
 * Execute the command `sudo axp209 --no-limit` in the terminal before you attach your USB peripherals.
 * Provide power from a supply connecting ground and 4.8V to 6V to the CHG-IN , pin 4.
 
-## On-board LEDs
-The Dev board provides ten LEDs to make it easy to test your GPIO skills without having to wire anything up. 
+## GPIO	
 
-### GPIO LEDs
-Eight of these LEDs can be turned on and off with standard Linux sysfs commands to the GPIO pins DO to D7. 
+C.H.I.P. Pro has a total of 28 GPIO pins ready for use:
 
-### PWM LEDs
-There are also two LEDs that are connected to the PWM pins for testing and learning about pulse width modulation. 
+* 2 PWM
+	* pins 9 & 10
+* 3 input
+	* pins 39 - 41
+* 22 input/output
+	* pins 11-16, 21-25, 30-38, 43 & 44
+* 1 LRADC
+	* pin 42
 
-To see an example of how to control the On-board LEDs [flash the board with our Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and view the example scripts using the command-line editor Vi.
+
+To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
+
+![pin out](images/Pro_Pinout.jpg)
+
+### Interacting with Sysfs
+
+The Linux kernel provides a simple [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt) to access GPIO from. Depending on the image flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using the **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+
+**Pro (Debian)** 
+
+```shell
+sudo sh -c 'echo 132 > /sys/class/gpio/export' 
+```
+
+**Buildroot**:
+
+```shell
+echo 132 > /sys/class/gpio/export 
+```
+
+Follow along with the examples to learn more about sysfs including how to directly read and write to sysfs. All examples in the GPIO documentation are done using one of NTC's **Buildroot** based images. 
+
+### GPIO Sysfs Numbers 
+
+To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the table below. 
+
+**Sysfs Pin Numbers**
+
+D0 - D7:
+
+| C.H.I.P. Pro Pin # | 37 | 36 | 35 | 34 | 33 | 32 | 31 | 30 | 
+|------------|-----|-----|-----|-----|-----|-----|------|------|
+| sysfs #    | 132 | 133 | 134 | 135 | 136 | 137 | 138  | 139  |
+
+TWI1, UART2:
+
+| C.H.I.P. Pro Pin # | 11 | 12 | 13 | 14 | 15 | 16 |  
+|------------|-----|-----|-----|-----|-----|-----|
+| sysfs #    | 47 | 48 | 98 | 99 | 100 | 101 | 
+
+I2S:
+
+| C.H.I.P. Pro Pin # | 21 | 22 | 23 | 24 | 25 |   
+|------------|-----|-----|-----|-----|-----|
+| sysfs #    | 37 | 38 | 39 | 40 | 41 |
+
+SPI2:
+
+| C.H.I.P. Pro Pin # | 41 | 40 | 39 | 38 |   
+|------------|-----|-----|-----|-----|
+| sysfs #    | 128 | 129 | 130 | 131 | 
+
+PWM:
+
+| C.H.I.P. Pro Pin # | 9 | 10 | 
+|------------|-----|-----|
+| sysfs #    | 0 | 1 | 
+
+UART1:
+
+** These pins are used thus are not available while connected to C.H.I.P. Pro Dev Kit via USB-serial. You can disconnect the micro USB port on the Dev Kit from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+
+| C.H.I.P. Pro Pin # | 44 | 43 | 
+|------------|-----|-----|
+| sysfs #    | 195 | 196 | 
+
+**Calculate sysfs Number**
+
+If a pin is not listed above you can calculate the sysfs number starting with the GR8 port number. All port numbers are printed on C.H.I.P. Pro for your convenience. They can also be found in the [Allwinner R8 Datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/GR8_Datasheet_v1.0.pdf) starting on page 15. 
+
+As an example, take a look at **D0** which is port **PE4**. Look at the letter that follows the "P", in this case it's "E". Starting with A = 0, count up in the alphabet until you arrive at "E" and that is the letter index. For example, **E=4**.
+
+Multiply the letter index by 32, then add the number that follows "PE":
+
+(4*32)+4 = 132
+
+### Export Digital GPIOs
+
+The GPIO control interface can be found at `/sys/class/gpio`. To explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
+
+```
+ls /sys/class/gpio
+```  
+In the **gpio** directory you will find:
+
+* **export** - Exports a GPIO signal to read and write to. 
+* **unexport** - Reverses the effect of exporting. 
+
+To read and write to a pin it must first be exported. As an example, use the sysfs number **132** to export pin **PE4**:
+
+```shell
+echo 132 > /sys/class/gpio/export
+```
+
+Once exported, a GPIO signal will have a path like `/sys/class/gpio/gpioN` where N is the sysfs number. In the **gpioN** directory, you can see what attributes are available to read and write to:
+
+```shell
+ls /sys/class/gpio/export/gpio132 
+```
+
+* **direction** - Set direction of pin using "in" or out". All GPIOs are I/Os except for PE0, PE1 and PE2 which are input only.
+* **value** - Value of pin written or read as either 0 (low) or 1 (high).
+* **edge** - Written or read as either "non", "rising", "falling", or "both". This attribute only shows up when the pin can be configurred as an interrupt.
+* **active_low** - Reads as either 0 (false) or 1 (true). Write any nonzero value to invert the value attribute both for reading and writing.
+
+Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).
+
+### Digital Input Example
+
+The following example goes through a general command sequence to read the changing state of a pin. This example reads a switch connected to **PE4**. When wiring up a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
+
+![pull-down resistor](images/pullDown.jpg)
+
+In terminal, tell the system you want to listen to a pin by exporting it:
+
+```shell
+echo 132 > /sys/class/gpio/export
+```
+
+Next, the pin direction needs to be set. Use `cat` to read what direction the pin is currently set to:
+
+```shell
+cat /sys/class/gpio/gpio132/direction
+```
+
+Switch the pin's direction to "in":
+
+```shell
+echo in > /sys/class/gpio/gpio132/direction
+```
+
+Connect a switch between pin PE4 and GND and read the value:
+
+```shell
+cat /sys/class/gpio/gpio132/value
+```
+
+Continuously check the value of the switch pin for its state change:
+
+```shell
+while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
+```
+
+Unexport:
+
+```shell
+echo 132 > /sys/class/gpio/unexport
+```
+
+### Digital Output Examples
+
+**Onboard LEDs**
+
+The Dev Kit provides ten onboard LEDs to make testing the GPIOs easy without having to wire anything up. Eight of these LEDs are connected to digital I/O pins that can be turned on and off with standard Linux sysfs commands. 
+
+* Pins 30 - 37 which are seen as 132 - 139 in sysfs.
+
+**Blinkenlights Image**
+
+To start with an example that demos the eight I/Os and two PWM onboard LEDs, [flash C.H.I.P. Pro Dev Kit with the Blinkenlights](https://docs.getchip.com/chip_pro_devkit.html#examples) image and [view the example scripts](https://docs.getchip.com/chip_pro_devkit.html#edit-buildroot-examples) using the command-line editor Vi. 
+
+**Turn LED On and Off**
+
+Follow along to turn on and off the LED attached to pin 37.
+
+![UART connection](images/blink.gif)
+
+Export the pin and change the mode from "in” to “out”:
+
+```shell
+echo 132 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio132/direction
+```
+
+Now that it's in output mode, you can write a value to the pin and turn the LED on and off:
+
+```shell
+echo 1 > /sys/class/gpio/gpio132/value
+echo 0 > /sys/class/gpio/gpio132/value
+```
+Unexport: 
+
+```shell
+echo 132 > /sys/class/gpio/unexport
+```
+
+#### Blink 
+After exporting a pin run this to blink an LED on pin 37.
+
+``` shell
+while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; echo 0 >  /sys/class/gpio/gpio132/value; cat /sys/class/gpio/gpio132/value; sleep 1; done;
+```
+
+### Unexport GPIO 
+
+If pins have not been unexported an error will occur stating the pins are "busy" the next time you go to export them. When you are done using a GPIO pin **always** tell the system to stop listening by unexporting it:
+
+```shell
+echo 132 > /sys/class/gpio/unexport
+```
+
+## PWM 
+
+C.H.I.P. Pro can output a PWM signal up to 24 MHz on two pins: PWM0 and PWM1. The Dev Kit also features two places to connect servos that provide the power needed to drive them. 
+
+### PWM via sysfs
+
+Depending on the image that is flashed to C.H.I.P. Pro, the commands used to interact with the sysfs interface will differ. If using a **Pro** image, you need to act as root and use `sudo sh -c` with quotes around the command string. For example:
+
+**Pro (Debian)**
+
+```shell
+sudo sh -c 'echo 0 > export' #PWM0
+```
+
+**Buildroot**:
+
+```shell
+echo 0 > export #PWM0
+```
+
+All PWM examples are done using one of NTC's **Buildroot** based images. 
+
+### Export PWM Channel
+
+The Linux kernel provides a simple **sysfs** interface to access PWM from. The PWM controller can be found exported as **pwmchip0** at `/sys/class/pwm/pwmchip0`. To test the PWM channels and explore the sysfs file structure, connect to C.H.I.P. Pro via [USB-serial](https://docs.getchip.com/chip_pro_devkit.html#usb-serial-uart1-connection) and in a terminal window type: 
+
+```
+ls /sys/class/pwm/pwmchip0
+```  
+In the **pwmchip0** directory you will find:
+
+* **export** - Exports a PWM channel for use. 
+* **unexport** - Unexports PWM channel from sysfs (always do this after you are done using a channel).
+* **npwm** - Says how many PWM channels are available. 
+
+You can see there are two PWM channels available from C.H.I.P. Pro's PWM controller/chip by using `cat`:
+
+```
+cd /sys/class/pwm/pwmchip0
+cat npwm
+``` 
+
+Before you can use a channel you need to export it. Use these numbers to reference which pin you would like to export:
+
+| C.H.I.P. Pro Pin # | 9 | 10 | 
+|------------|-----|-----|
+| sysfs #    | 0 | 1 | 
+
+```shell
+echo 0 > export #PWM0
+ls
+```
+
+After exporting, you will find that a new directory **pwmX**, where X is the channel number, has been created. Go into the pwmX directory to check out the attributes available for use:
+
+```shell
+cd pwm0 
+ls
+```
+
+In the pwmX directory you will find: 
+
+* **duty_cycle** - The active time of the PWM signal in nanoseconds. Must be less than the **period**.
+* **enable** - Enable/disable the PWM signal using either 0 or 1.
+
+	0 - disabled
+	
+	1 - enabled
+* **period** - Total period of inactive and active time of the PWM signal in nanoseconds.
+* **polarity** - Changes the polarity of the PWM signal. Value is "normal" or "inversed".
+
+To test the PWM channels follow the examples below.
+
+### PWM LED Example
+
+There are two onboard LEDs connected to the PWM pins for testing and learning about pulse width modulation. You can disconnect these PWM LEDs at any time by [cutting traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+
+![PWM0 LED fade](images/fade.gif)
+
+Export a channel, set the polarity and enable PWM0:
+
+```shell
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo "normal" > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+```
+
+Set the period to 10000000 nanoseconds (1 second) and the duty cycle to 0:
+
+```shell
+echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+```
+From here, set the duty_cycle in nanoseconds. Start dim at 1% and step up to the 100%:
+
+```shell
+echo 100000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 5000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 10000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+```
+
+Disable and unexport:
+
+```shell
+echo 0 > /sys/class/pwm/pwmchip0/enable
+echo 0 > /sys/class/pwm/pwmchip0/unexport
+```
+
+### PWM Servo Examples
+
+![servo connected to dev kit](images/mainServo.jpg)
+
+The C.H.I.P. Pro Dev Kit provides breakout pins to conveniently power and control servos. 
+
+Most servos have three pins: **power**, **ground**, and a **control signal**. The control signal is a pulse-width-modulated input signal whose high pulse width (within a determined period) determines the servo's angular position. The control signal pin draws a small enough amount of current that it can be directly controlled by the PWM pins on C.H.I.P. Pro. 
+
+![servo connected to dev kit](images/pwmPins.jpg)
+
+While the control signal pin draws a low amount of power, the servo motor draws more power than the C.H.I.P. Pro can provide on its own. The Dev Kit helps with this by providing a **5 volt power pin** next to the signal and ground pin. This pin is connected to the **DC-In barrel jack**. 
+
+The PWM0 and PWM1 through-holes are staggered just enough to friction hold male header pins. No soldering needed! \(•◡•)/
+
+**Setup PWM Channel**
+
+Export the PWM pin you want to use:
+
+```shell
+echo 0 > /sys/class/pwm/pwmchip0/pwm0/export
+```
+
+**Enable** the channel and set the **polarity**, **period** of the waveform and **duty cycle**. Units are in **nanoseconds**. The **polarity** can only be set before the pin is enabled. If you set it after enabling a pin the script should still work but you will see a "I/O error". Most servos operate at **50Hz which translates into a 20000000 ns period**. Start the **duty cycle** at **0**:
+
+```shell
+echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+echo 20000000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 0 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+```
+
+Once you do this initial setup, to rotate the servo change the **duty_cycle**. Whatever value is written to the duty_cycle changes the active time of the PWM signal. To get you started, there are two examples below, one rotates a 180º servo, the other rotates and stops a 360º continuous servo.
+  
+#### 180º Servo
+
+![180º servo sweeping](images/sweep_180.gif)
+
+**Servo Used in Example**
+
+* 180º degree 4.8V - 6V [Hitec HS-40](http://hitecrcd.com/products/servos/micro-and-mini-servos/analog-micro-and-mini-servos/hs-40-economical-nano-nylon-gear-servo/product)
+
+Before you start to work with your servo, check the servo's datasheet. There you can sometimes find the pulse width range needed to control it. 
+
+To rotate 180º most servos require a duty cycle where 1000000 ns/1 ms corresponds to the minimum angle and 2000000 ns/2 ms corresponds to the maximum angle. However, not all servos are the same and will require calibration. For example, the HS-40 used in this example has a minimum of 600000 ns/0.6 ms and maximum of 2400000 ns/2.4 ms. A good place to start is somewhere in the middle like 1500000 ns/1.5 ms. You can then go up and down from there to find the max. and min. 
+
+Change the duty cycle to 1500000 ns and step up every 100000 ns to move the servo:
+
+```shell
+echo 1500000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1600000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo 1700000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+```
+
+When done, disable and unexport pin:
+
+```shell
+echo 0 > /sys/class/pwm/pwmchip0/pwm0/enable
+echo 0 > /sys/class/pwm/pwmchip0/unexport
+```
+
+##### Sweep Script
+
+[This](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweep.sh) script rotates a servo on PWM0 from 0º to 180º while printing the duty cycle. Press Ctrl+C to unexport PWM0 and exit the script. You may need to calibrate the minimum and maximum to fit your servo. 
+
+#### 360º Continuos Servo 
+
+![360º sweeping](images/sweep_360.gif)
+
+**Servo Used in Example**
+
+* 360º Continuous 4.8V - 6V [FEETEC FS90R Micro Servo](https://cdn-shop.adafruit.com/product-files/2442/FS90R-V2.0_specs.pdf)
+
+For a continuous servo the PWM input signal controls the speed, direction of rotation and stopping period.  Before you start to work with your servo, check the servo's datasheet. There you can sometimes find the pulse width range needed to control it. 
+
+A typical stop width is **1500000 ns/1.5 ms**. The further the time travels above and below the stop width, the slower the rotation speed gets.
+
+Below are the times for the FS90R servo. Yours may be slightly different. A good place to start is 1500000 ns and going 100000 ns up and down from there to find the stop, right and left pulse times.
+
+* 1500000 ns: stop
+* 1000000 ns - 1400000 ns: slow - fast right
+* 1600000 ns - 2000000 ns: slow - fast left  
+
+##### Sweep Script
+
+This [script](https://github.com/laraCat/CHIP_Pro_DKit_Examples/blob/master/PWM/sweepCont.sh) steps a servo connected to PWM0 through different speeds while rotating in each direction. Press Ctrl+C to unexport PWM0 and exit script. Each speed lasts for two seconds. It stops for one second at 1500000 ns before rotating in the opposite direction.
+
+### Unexport PWM 
+
+If pins have not been unexported an error will occur stating the pins are "busy" the next time you go to export them. When you are done using a PWM pin **always** tell the system to stop listening by unexporting it:
+
+```shell
+echo 0 > /sys/class/gpio/unexport #PWM0
+```
+ 
+

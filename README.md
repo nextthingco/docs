@@ -1,6 +1,6 @@
 # Docs 
 
-This repository contains the sources of the documentation for CHIP, the DIPS, PocketCHIP, CHIP PRO, and the CHIP PRO DevKit.
+This repository contains the sources of the documentation for CHIP, the DIPS, PocketCHIP, CHIP PRO, CHIP PRO DevKit, and Gadget.
 
 ## Submit an Request for Edit 
 

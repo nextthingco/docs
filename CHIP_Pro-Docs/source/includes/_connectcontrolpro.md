@@ -742,7 +742,7 @@ All PWM examples are done using one of NTC's **Buildroot** based images.
 
 ### GPIO Sysfs Numbers 
 
-To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the table below. 
+To address a GPIO port via sysfs, you do not use the C.H.I.P. Pro or GR8 pin name. Sysfs sees the pins as another set of numbers. To find out what number to use for each GPIO pin reference the tables below. 
 
 **Sysfs Pin Numbers**
 
@@ -778,7 +778,7 @@ PWM:
 
 UART1:
 
-** These pins are used thus are not available while connected to the C.H.I.P. Pro Dev Kit via USB-serial. You can disconnect the micro USB port on the Dev Kit from the UART1 pins by cutting a [couple traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
+** These pins are connected to the FE1.1S USB hub controller IC which is connected to the micro USB providing USB serial functionality. To use them as GPIO disable the USB hub controller by cutting the "UART Disconnect" [traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
 
 | C.H.I.P. Pro Pin # | 44 | 43 | 
 |------------|-----|-----|
@@ -794,7 +794,7 @@ Multiply the letter index by 32, then add the number that follows "PE":
 
 (4*32)+4 = 132
 
-### GPIO Input
+### Digital Input Example
 
 To access the GPIO pins through sysfs there is a process that must be adhered to. The following lines of code are an example that reads the changing state of pin **PE4** which corresponds to **132** in sysfs.
 
@@ -826,7 +826,7 @@ Continuously poll a switch on pin PE4(132) for its state change:
 while ( true ); do cat /sys/class/gpio/gpio132/value; sleep 1; done;
 ```
 
-### GPIO Output
+### Digital Output Example
 
 Attach an LED to pin PE4 and ground. We recommend placing a current-limiting resistor in series to protect the GR8 module and LED from overcurrent or a potential short.
 
@@ -853,7 +853,7 @@ while ( true ); do echo 1 > /sys/class/gpio/gpio132/value; cat /sys/class/gpio/g
 ```
 
 
-### GPIO Done
+### Unexport GPIO 
 
 When you are done experimenting, always tell the system to stop listening to the gpio pin by unexporting it:
 

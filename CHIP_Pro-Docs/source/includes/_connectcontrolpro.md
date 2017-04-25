@@ -207,7 +207,17 @@ Once a terminal window pops up, press Enter.
 
 
 ## WiFi Antenna
-C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. 
+C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. Use the antenna that comes with the C.H.I.P. Pro Dev Kit or obtain any of these officially supported ones:
+
+| Antenna Model | Manufacturer | Gain | Antenna Type | Connection Type | Freq. Range (GHz) | Cable Length (mm) |
+|------------|-----|-----|-----|-----|-----|-----|
+| AA107       | Unictron | 3.3 dBi | PCB | IPEX | 2.4 - 2.5 | 100 | 
+|------------|-----|-----|-----|-----|-----|-----|
+| HCX-P321   | Wacosun | 2 dBi | PCB | IPEX | 2.4 - 2.5 | 150 |
+|------------|-----|-----|-----|-----|-----|-----|
+| FXP73.07.0100A | Taoglas | 2.5 dBi | PCB | IPEX | 2.4 - 2.483 | 100 |
+|------------|-----|-----|-----|-----|-----|-----|
+| AA055   | Unictron | 2.5 dBi | Ceramic | SMT | 2.4 - 2.5 | n/a |
 
 ### Connect Antenna
 C.H.I.P. Pro uses a standard 50Ω IPEX (Hirose U.FL compatible) connector for the external antenna path.

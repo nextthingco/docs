@@ -20,7 +20,7 @@ Pins
 
 * **VBUS** - Connect 5 volts to this pin (and GND to pin 53) to provide power to C.H.I.P. Pro. Power connected to VBUS will also charge a battery, just at a slower rate than from **CHG-IN**. The VBUS pin is the same one than in the microUSB connector.
 
-## Battery Charging Management
+## Battery Charging and BTS Pin
 
 C.H.I.P. Pro uses the **AXP209 IC** to manage charging. Pin 7 marked **BATTEMP or BTS** is directly connected to the **TS** pin on the AXP209. This pin supports a thermistor to monitor the battery temperature when the battery is charging or discharging.  If you do not incorporate a thermistor into your setup the pin may float from ground interferring with how much charge current is throttled to the **BAT** pin and the **JST connector**. To ensure maximum charge current without a thermistor disable the battery temperature monitoring system.
 

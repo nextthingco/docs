@@ -780,7 +780,7 @@ ls /sys/class/gpio/export/gpio132
 
 Learn more about the sysfs interface [here](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).
 
-### Digital Input
+### Digital Input Example
 
 The following example goes through a general command sequence to read the changing state of a pin. This example reads a switch connected to **PE4**. When wiring up a switch, add an external pull-up or pull-down resistor to prevent a floating pin logic state. The photo below shows a pull-down resistor.
 
@@ -822,7 +822,7 @@ Unexport:
 echo 132 > /sys/class/gpio/unexport
 ```
 
-### Digital Output
+### Digital Output Examples
 
 **Onboard LEDs**
 
@@ -947,7 +947,7 @@ In the pwmX directory you will find:
 
 To test the PWM channels follow the examples below.
 
-### PWM LEDs
+### PWM LED Example
 
 There are two onboard LEDs connected to the PWM pins for testing and learning about pulse width modulation. You can disconnect these PWM LEDs at any time by [cutting traces](https://docs.getchip.com/chip_pro_devkit.html#cuttable-traces). 
 
@@ -984,7 +984,7 @@ echo 0 > /sys/class/pwm/pwmchip0/enable
 echo 0 > /sys/class/pwm/pwmchip0/unexport
 ```
 
-### PWM Servo 
+### PWM Servo Examples
 
 ![servo connected to dev kit](images/mainServo.jpg)
 

@@ -212,11 +212,8 @@ C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purpo
 | Antenna Model | Manufacturer | Gain | Antenna Type | Connection Type | Freq. Range (GHz) | Cable Length (mm) |
 |------------|-----|-----|-----|-----|-----|-----|
 | AA107       | Unictron | 3.3 dBi | PCB | IPEX | 2.4 - 2.5 | 100 | 
-|------------|-----|-----|-----|-----|-----|-----|
 | HCX-P321   | Wacosun | 2 dBi | PCB | IPEX | 2.4 - 2.5 | 150 |
-|------------|-----|-----|-----|-----|-----|-----|
 | FXP73.07.0100A | Taoglas | 2.5 dBi | PCB | IPEX | 2.4 - 2.483 | 100 |
-|------------|-----|-----|-----|-----|-----|-----|
 | AA055   | Unictron | 2.5 dBi | Ceramic | SMT | 2.4 - 2.5 | n/a |
 
 ### Connect Antenna

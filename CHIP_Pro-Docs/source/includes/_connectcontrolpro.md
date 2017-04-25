@@ -720,7 +720,19 @@ ssh root@<CHIPproIP>
 
 ## Access I/O via sysfs	
 
-There are several pins that can be configured as digital input and output on the C.H.I.P. Pro. Check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro)  to see what is available.
+C.H.I.P. Pro has a total of 27 GPIO pins ready for use:
+
+* 2 PWM
+	* pins 9 & 10
+* 3 input
+	* pins 39 - 41
+* 22 input/output
+	* pins 11-16, 21-25, 30-38, 43 & 44
+
+
+To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).
+
+![pin out](images/Pro_Pinout.jpg)
 
 GPIO is accessed through Linux's [sysfs interface](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).  
 

@@ -661,7 +661,7 @@ USB1 is provided with 5V from pass-through of the 5V supplied to the USB0+UART m
 
 ## GPIO	
 
-C.H.I.P. Pro has a total of 28 GPIO pins ready for use:
+C.H.I.P. Pro has a total of 27 GPIO pins ready for use:
 
 * 2 PWM
 	* pins 9 & 10
@@ -669,8 +669,6 @@ C.H.I.P. Pro has a total of 28 GPIO pins ready for use:
 	* pins 39 - 41
 * 22 input/output
 	* pins 11-16, 21-25, 30-38, 43 & 44
-* 1 LRADC
-	* pin 42
 
 
 To see all the functions C.H.I.P. Pro pins offer check out the [Multiplexing table](https://docs.getchip.com/chip_pro.html#gr8-pins-and-multiplexing-on-c-h-i-p-pro).

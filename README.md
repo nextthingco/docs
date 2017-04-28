@@ -98,4 +98,4 @@ In the past, the documetation is spread over 6 different repositories on github.
   - The landing page: https://github.com/getchip/landingpage
 
 They should soon be deleted.
-# CHIP_Pro_DKit_Examples
+

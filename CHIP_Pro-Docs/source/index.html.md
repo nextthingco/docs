@@ -15,6 +15,7 @@ includes:
   - CPfaq
   - chipvchippro
   - pinusage
+  - howtopcb
 
 search: true
 ---

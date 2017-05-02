@@ -38,17 +38,21 @@ Default Current Output Before Loading BAT
 |--------------|--------|---------|---------|
 | Min. and Max | 500 mA | 900 mA  | 2500 mA |
 
-The VBUS has a current limit set by register 30H. The values to write can be find on page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
-
-## Current Draw
+### Current Draw
 
 Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what you need it to do for your product. Idle current gets down to 100 mA with multiple peripherals unused. Peak current can get around 750 mA during WiFi radio signaling while maxing out processor, NAND, and DRAM loads. 
 
 Budgeting 250-350 mA for normal operation is a midrange target to aim for. A reliable 2A+ rated power supply will work well. 
 
+The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit". If the current draw exceeds the set threshold, C.H.I.P. shuts down. Find more on page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+
 ### Button 
 
 The PWRON pin can be connected to GND through a button as a Power Enable Key (PEK) or hibernation/wake button. The AXP209 can automatically identify long and short button presses. Read more about this on page 10 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+
+### IPSOUT Pin
+
+When utilized, power is drawn from VBUS, BAT and CHG-IN which is combined by the AXP209 and accessible through IPSOUT (Intelligent Power Source OUT).
 
 ## Additional USB Port
 
@@ -56,7 +60,11 @@ Whether you want to add a micro USB 5V source or a host USB-A port here are some
 
 * Standard USB peripherals operate at 5 volts and can draw a good amount of current.
 * IPSOUT can provide 5 volts to your USB-A 5V pin if there's a 5 volt input to the system via VBUS or CHG-IN. If a battery is connected and power is not available through VBUS or CHG-IN IPSOUT will provide 3.7 volts which is most likely not sufficient for a USB peripheral.
-* Use a 5V DC/DC buck/boost converter on IPSOUT to maintain a 5 volt bus to your additional USB port. In this case, if the device goes into battery mode it will still be getting 5 volts. If you go this route, set the VBUS current limit appropriately for your system's current draw. See page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) to learn more.
+	* Consider using a 5V DC/DC buck/boost converter on IPSOUT to maintain a 5 volt rail to your additional USB port. In this case, if the device goes into battery mode it will still be getting 5 volts. If you go this route, set the VBUS current limit appropriately for your system's current draw. See page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) to learn more.
+
+
+
+
 
 
 

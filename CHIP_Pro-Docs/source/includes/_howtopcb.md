@@ -5,15 +5,16 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 * [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
 * [Component datasheets](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets)
 * [Mechanical documents](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
+* [C.H.I.P. Pro schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/CHIP_Pro_v1_0_Schematic.pdf)
 * [PCB board files](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/PCB%20Source)
-* [Footprint]((https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
+* [Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
 
 
 ## Footprint
 
 C.H.I.P. Pro has castellated mounting holes making it destined to be mounted to another PCB. Each mounting hole aligns with a solder pad on an appropriately designed footprint. Soldering C.H.I.P. Pro to the footprint can be done during production or initial tests of your custom PCB design. 
 
-No need to measure and create a footprint on your own! We have created one for you that ensures proper alignment. 
+No need to measure and create a footprint on your own! We have created one for you that ensures proper alignment. Download the footprint above.
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 

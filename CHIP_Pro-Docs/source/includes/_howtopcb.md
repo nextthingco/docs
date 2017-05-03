@@ -1,8 +1,9 @@
-# How to Design a Circuit with C.H.I.P. Pro
+# Custom Circuit Design Tips for C.H.I.P. Pro 
 
 C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to keep in mind and help you along the way to your next great idea.
 
 * [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
+* C.H.I.P. Pro Manual
 * [Component datasheets](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets)
 * [Mechanical documents](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
 * [C.H.I.P. Pro schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/CHIP_Pro_v1_0_Schematic.pdf)
@@ -88,6 +89,11 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 
 C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding a I2C controlled ADC to your circuit. 
 
+## Digital Inputs
+
+Use external pull-ups or pull-downs 
+
+## Modular Certification 
 
 
 

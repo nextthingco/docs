@@ -2,6 +2,12 @@
 
 C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to keep in mind and help you along the way to your next great idea.
 
+* [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
+* [Component datasheets](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets)
+* [Mechanical documents](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
+* [PCB board files](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/PCB%20Source)
+* [Footprint]((https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
+
 
 ## Footprint
 
@@ -11,7 +17,7 @@ No need to measure and create a footprint on your own! We have created one for y
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 
-Download a Eagle compatible footprint [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr). The footprint includes an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro.
+The footprint includes an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro.
 
 ![C.H.I.P. Pro footprint](images/clearance.jpg)
 

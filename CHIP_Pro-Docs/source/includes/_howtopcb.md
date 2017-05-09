@@ -1,4 +1,4 @@
-# Custom Circuit Design Tips for C.H.I.P. Pro 
+# Circuit Design Tips for C.H.I.P. Pro 
 
 C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to keep in mind and help you along the way to your next great idea.
 
@@ -56,15 +56,7 @@ The current draw limit of VBUS is set by register 30H. The options are 100mA, 50
 
 ### Button 
 
-The PWRON pin can be connected to GND through a button as a Power Enable Key (PEK) or hibernation/wake button. The AXP209 can automatically identify long and short button presses. Read more about this on page 10 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
-
-### IPSOUT Pin
-
-Assuming that a battery and a USB and CHG-IN power supply is present, power is drawn from VBUS, BAT and CHG-IN which is combined by the AXP209 and accessible through the IPSOUT (Intelligent Power Source OUT) pin.
-
-BTS Pin
-
-The AXP209 
+The PWRON pin can be connected to GND through a button as a Power Enable Key (PEK) or hibernation/wake button. The AXP209 can automatically identify long and short button presses. Read more about this on page 10 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf).  
 
 ## Additional USB Port
 
@@ -89,10 +81,8 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 
 C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding a I2C controlled ADC to your circuit. 
 
-## Digital Inputs
-
-Use external pull-ups or pull-downs 
-
 ## Modular Certification 
 
-C.H.I.P. Pro is CE, IC, and FCC Part 15B Modular Transmitter certified for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna) as well as the onboard ceramic SMT antenna. Any products based on C.H.I.P. Pro will not require your company to run certification testing for the unintentional radiator portion of FCC tests, specifically FCC Part 15B. This will save you around 50% in testing time and cost associated with taking your product through FCC certification. You will still need to run FCC Part 15C tests (EMC testing for the intentional radiator portion). You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC-ID. For any questions on this, reach out to us at pro@nextthing.co. 
+C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna) as well as the onboard ceramic SMT antenna. 
+
+Any products built around C.H.I.P. Pro will not require your company to run certification testing for the unintentional radiator portion of FCC tests, specifically FCC Part 15B. This will save you around 50% in testing time and cost associated with taking your product through FCC certification. You will still need to run FCC Part 15C tests (EMC testing for the intentional radiator portion). You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC-ID. For any questions on this, reach out to us at pro@nextthing.co. 

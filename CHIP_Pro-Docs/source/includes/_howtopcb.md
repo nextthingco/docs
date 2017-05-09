@@ -1,6 +1,6 @@
 # Circuit Design Tips for C.H.I.P. Pro 
 
-C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to keep in mind and help you along the way to your next great idea.
+C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to help you along the way while you design your product.
 
 * [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
 * C.H.I.P. Pro Manual
@@ -13,9 +13,7 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 
 ## Footprint
 
-C.H.I.P. Pro has castellated mounting holes making it destined to be mounted to another PCB. Each mounting hole aligns with a solder pad on an appropriately designed footprint. Soldering C.H.I.P. Pro to the footprint can be done during production or initial tests of your custom PCB design. 
-
-No need to measure and create a footprint on your own! We have created one for you that ensures proper alignment. Download the footprint above.
+C.H.I.P. Pro has castellated mounting holes making it destined to be mounted to another PCB. Each mounting hole aligns with a solder pad on an appropriately designed footprint. No need to measure and create a footprint on your own, we have created one that ensures proper alignment. The footprint is available for download above.
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 
@@ -52,7 +50,7 @@ Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what
 
 Budgeting 250-350 mA for normal operation is a midrange target to aim for. A reliable 2A+ rated power supply will work well to power C.H.I.P. Pro.
 
-The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit". If the current draw exceeds the set threshold, C.H.I.P. shuts down. Read more from page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit". If the current draw exceeds the set threshold, C.H.I.P. shuts down. Read more about the VBUS limit on page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
 
 ### Button 
 
@@ -63,7 +61,7 @@ The PWRON pin can be connected to GND through a button as a Power Enable Key (PE
 Whether you want to add a micro USB 5V source or a host USB-A port, here are some points on power to consider while designing your PCB.
 
 * Standard USB peripherals operate at 5 volts and can draw a good amount of current.
-* IPSOUT can provide 5 volts to your USB-A 5V pin if there's a 5 volt input to the system via VBUS or CHG-IN. If a battery is connected and power is not available through VBUS or CHG-IN IPSOUT will provide 3.7 volts which is most likely not sufficient for a USB peripheral.
+* IPSOUT can provide 5 volts to your USB-A 5V pin if there's a 5 volt input to the system via VBUS or CHG-IN. If a battery is connected and power is not available through VBUS or CHG-IN, IPSOUT will provide 3.7 volts which is most likely not sufficient for a USB peripheral.
 	* Consider using a 5V DC/DC buck/boost converter on IPSOUT to maintain a 5 volt rail to your additional USB port. In this case, if the device goes into battery mode it will still be getting 5 volts. If you go this route, set the VBUS current limit appropriately for your system's current draw. See page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) to learn more.
 
 ## WiFi Signal
@@ -83,6 +81,8 @@ C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your produc
 
 ## Modular Certification 
 
-C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna) as well as the onboard ceramic SMT antenna. 
+* C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna) as well as the onboard ceramic SMT antenna. 
 
-Any products built around C.H.I.P. Pro will not require your company to run certification testing for the unintentional radiator portion of FCC tests, specifically FCC Part 15B. This will save you around 50% in testing time and cost associated with taking your product through FCC certification. You will still need to run FCC Part 15C tests (EMC testing for the intentional radiator portion). You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC-ID. For any questions on this, reach out to us at pro@nextthing.co. 
+* Any product with C.H.I.P. Pro as the only active radio transmitter will not require your company to run certification testing for the unintentional radiator portion of FCC tests, specifically FCC Part 15B. This will save you testing time and cost associated with taking your product through FCC certification. You will still need to run FCC Part 15C tests (EMC testing for the intentional radiator portion). 
+
+* You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC-ID. For any questions on this, reach out to us at pro@nextthing.co. 

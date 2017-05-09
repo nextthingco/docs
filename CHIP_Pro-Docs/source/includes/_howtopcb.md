@@ -14,25 +14,32 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 
 You may have experience with software development or product design but not a lot of experience with hardware or PCB design and fabrication. If you have an idea that you want to make a reality but are not sure where to start, we have compiled a list of helpful articles and software to get you going. 
 
+**Basic Terminology**
+
+* **PCB** - Printed circuit board.
+* **Surface-mount technology (SMT)** - Method in which electronic components are placed directly on top of a PCB.
+* **Through-hole technology** - Method in which the leads of a component are inserted into drilled holes of a PCB and soldered to the opposite side. 
+* **Footprint** - Arranged pattern of surface-mount solder pads or through-holes used to attach a component to a PCB.
+
 ### EDA (Electronic Design Automation) Software
 
-There is a wealth of EDA software to choose from. Some are better for beginners than others. It's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Two pieces of software you can start with are:
+There is a wealth of EDA software to choose from. Some are better for beginners than others. C.H.I.P. Pro is designed to be surface mounted to a PCB. To start designing your circuit, we offer a Eagle supported footprint and measurements required to create your won depending on what EDA software you use. If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Two pieces of software you can start with are:
 
 * [EasyEDA](https://easyeda.com/)
 
 	A cloud-based software suite that is free and user friendly. Not only can you design PCBS, they offer circuit simulation and PCB fabrication orders through their website. Footprints to components can be designed and contributed by community members for use by anyone. A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in libraries. Get started with EasyEDA's online [tutorials](https://easyeda.com/Doc/Tutorial/).
 
-* Eagle 
+* [Eagle](https://www.autodesk.com/products/eagle/overview) 
 
-	
+	Eagle is powerful PCB design and schematic layout software. It's features go deep but it's main work flow can be learned by beginners quickly. It's well used and has a strong community behind it. There are plenty of tutorials found online, such as at [Sparkfun](https://www.sparkfun.com/tutorials/108), [Adafruit](https://learn.adafruit.com/ktowns-ultimate-creating-parts-in-eagle-tutorial/introduction), and [YouTube](https://www.youtube.com/user/EAGLECadSoftComputer). Start by reading an overview of the software and finding links to tutorials, example projects and more on [Eagle's product page](https://www.autodesk.com/products/eagle/overview). Find our C.H.I.P. Pro Eagle compatible footprint for download above. 
 
-## Footprint
+## Designing Your Own Footprint
 
-C.H.I.P. Pro has castellated mounting holes making it destined to be mounted to another PCB. Each mounting hole aligns with a solder pad on an appropriately designed footprint. No need to measure and create a footprint on your own, we have created one that ensures proper alignment. The footprint is available for download above.
+C.H.I.P. Pro has castellated mounting holes making it destined to be mounted to another PCB. Each mounting hole aligns with a solder pad on an appropriately designed footprint.
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 
-The footprint includes an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro.
+Our footprints include an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. If designing your own, include a negative space measuring 43mm x 26mm so C.H.I.P. Pro can sit properly on the PCB. 
 
 ![C.H.I.P. Pro footprint](images/clearance.jpg)
 

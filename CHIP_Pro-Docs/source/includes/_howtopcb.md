@@ -38,7 +38,7 @@ Operating Voltage
 | BAT    | 3.0 | 3.8     | 4.2+/-0.5% | V    |
 | VBUS   | 3.8 | 5-5.5   | 6.3        | V    |
 
-Default Current Output Before Loading BAT
+PMU (Power Management Unit) Vout Current Available Before Loading Battery
 
 | Iout         | Min    | Typical | Max     |
 |--------------|--------|---------|---------|
@@ -46,11 +46,13 @@ Default Current Output Before Loading BAT
 
 ### Current Draw
 
-Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what you need it to do. Idle current gets down to 100 mA with multiple peripherals unused. Peak current can get around 750 mA during WiFi radio signaling while maxing out processor, NAND, and DRAM loads. 
+**C.H.I.P. Pro Current Draw**
 
-Budgeting 250-350 mA for normal operation is a midrange target to aim for. A reliable 2A+ rated power supply will work well to power C.H.I.P. Pro.
+Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what you need it to do. Idle current gets down to 100 mA with multiple peripherals unused. Peak current can get around 750 mA during WiFi radio signaling while maxing out processor, NAND, and DRAM loads. Budgeting 250-350 mA for normal operation is a midrange target to aim for. A reliable 2A+ rated power supply will work well to power C.H.I.P. Pro.
 
-The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit". If the current draw exceeds the set threshold, C.H.I.P. shuts down. Read more about the VBUS limit on page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+**Setting USB VBUS Current Draw** 
+
+The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit" which is what it is set to by default upon boot of C.H.I.P. Pro. If you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down. Read more about the VBUS limit on page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
 
 ### Button 
 

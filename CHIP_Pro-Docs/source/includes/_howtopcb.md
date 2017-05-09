@@ -8,22 +8,22 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 * [Mechanical documents](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
 * [C.H.I.P. Pro schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/CHIP_Pro_v1_0_Schematic.pdf)
 * [PCB board files](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/PCB%20Source)
-* [Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
+* [Eagle Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
 
 ## Getting Started 
 
-You may have experience with software development or product design but not a lot of experience with hardware or PCB design and fabrication. If you have an idea that you want to make a reality but are not sure where to start, we have compiled a list of helpful articles and software to get you going. 
+You may have experience with software development or product design but not a lot of experience with hardware or PCB design and fabrication. If you have an idea that you want to make a reality but are not sure where to start. This Getting Started section is compiled to get you started with PCB design software and e have compiled a list of helpful articles and software to get you going. 
 
 **Basic Terminology**
 
 * **PCB** - Printed circuit board.
-* **Surface-mount technology (SMT)** - Method in which electronic components are placed directly on top of a PCB.
+* **Surface-mount technology (SMT)** - Method in which electronic components are placed and soldered directly on top of a PCB.
 * **Through-hole technology** - Method in which the leads of a component are inserted into drilled holes of a PCB and soldered to the opposite side. 
 * **Footprint** - Arranged pattern of surface-mount solder pads or through-holes used to attach a component to a PCB.
 
 ### EDA (Electronic Design Automation) Software
 
-There is a wealth of EDA software to choose from. Some are better for beginners than others. C.H.I.P. Pro is designed to be surface mounted to a PCB. To start designing your circuit, we offer a Eagle supported footprint and measurements required to create your won depending on what EDA software you use. If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Two pieces of software you can start with are:
+There is a wealth of EDA software to choose from. Some are better for beginners than others. C.H.I.P. Pro is designed to be surface-mounted to a PCB. To start designing your PCB, we offer a Eagle supported footprint and measurements required to create your own. You can design custom footprints in EDA software, the method will depend on which software you use. If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Two pieces of software that have accompanying footprints that you can start with are:
 
 * [EasyEDA](https://easyeda.com/)
 
@@ -35,7 +35,7 @@ There is a wealth of EDA software to choose from. Some are better for beginners 
 
 ## Designing Your Own Footprint
 
-C.H.I.P. Pro has castellated mounting holes making it destined to be mounted to another PCB. Each mounting hole aligns with a solder pad on an appropriately designed footprint.
+C.H.I.P. Pro has castellated mounting holes making it destined to be surface-mounted to another PCB. Each mounting hole aligns with a solder pad on an appropriately designed footprint.
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 
@@ -109,4 +109,6 @@ C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your produc
 
 * Any product with C.H.I.P. Pro as the only active radio transmitter will not require your company to run certification testing for the unintentional radiator portion of FCC tests, specifically FCC Part 15B. This will save you testing time and cost associated with taking your product through FCC certification. You will still need to run FCC Part 15C tests (EMC testing for the intentional radiator portion). 
 
-* You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC-ID. For any questions on this, reach out to us at pro@nextthing.co. 
+* You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC ID. For any questions on this, reach out to us at pro@nextthing.co. The FCC ID can be found etched on the WiFi module. 
+
+![C.H.I.P. Pro FCC ID](images/CHIP_PRO_FCC.png)

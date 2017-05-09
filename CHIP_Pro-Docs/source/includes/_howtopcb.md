@@ -12,7 +12,7 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 
 ## Getting Started 
 
-You may have experience with software development or product design but not a lot of experience with hardware or PCB design and fabrication. If you have an idea that you want to make a reality but are not sure where to start. This Getting Started section is compiled to get you started with PCB design software and e have compiled a list of helpful articles and software to get you going. 
+You may have experience with software development or product design but not a lot of experience with hardware. This Getting Started section is designed as a reference for those who need a starting point. It lists some basic terms, software and services to get you designing and fabricating PCBs.
 
 **Basic Terminology**
 
@@ -32,6 +32,10 @@ There is a wealth of EDA software to choose from. Some are better for beginners 
 * [Eagle](https://www.autodesk.com/products/eagle/overview) 
 
 	Eagle is powerful PCB design and schematic layout software. It's features go deep but it's main work flow can be learned by beginners quickly. It's well used and has a strong community behind it. There are plenty of tutorials found online, such as at [Sparkfun](https://www.sparkfun.com/tutorials/108), [Adafruit](https://learn.adafruit.com/ktowns-ultimate-creating-parts-in-eagle-tutorial/introduction), and [YouTube](https://www.youtube.com/user/EAGLECadSoftComputer). Start by reading an overview of the software and finding links to tutorials, example projects and more on [Eagle's product page](https://www.autodesk.com/products/eagle/overview). Find our C.H.I.P. Pro Eagle compatible footprint for download above. 
+	
+### PCB Fabrication Services
+
+
 
 ## Designing Your Own Footprint
 
@@ -76,7 +80,7 @@ Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what
 
 The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit" which is what it is set to by default upon boot of C.H.I.P. Pro. If you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down. Read more about the VBUS limit on page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
 
-### Button 
+### Power Button 
 
 The PWRON pin can be connected to GND through a button as a Power Enable Key (PEK) or hibernation/wake button. The AXP209 can automatically identify long and short button presses. Read more about this on page 10 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf).  
 
@@ -99,10 +103,6 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 | FXP73.07.0100A | Taoglas | 2.5 dBi | PCB | IPEX | 2.4 - 2.483 | 100 |
 | AA055   | Unictron | 2.5 dBi | Ceramic | SMT | 2.4 - 2.5 | n/a |
 
-## Analog Input
-
-C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding a I2C controlled ADC to your circuit. 
-
 ## Modular Certification 
 
 * C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna) as well as the onboard ceramic SMT antenna. 
@@ -111,4 +111,8 @@ C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your produc
 
 * You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC ID. For any questions on this, reach out to us at pro@nextthing.co. The FCC ID can be found etched on the WiFi module. 
 
-![C.H.I.P. Pro FCC ID](images/CHIP_PRO_FCC.png)
+![C.H.I.P. Pro FCC ID](images/CHIP_Pro_FCC.png)
+
+## Analog Input
+
+C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding a I2C controlled ADC to your circuit. 

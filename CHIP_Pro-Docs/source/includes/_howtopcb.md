@@ -10,6 +10,21 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 * [PCB board files](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/PCB%20Source)
 * [Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
 
+## Getting Started 
+
+You may have experience with software development or product design but not a lot of experience with hardware or PCB design and fabrication. If you have an idea that you want to make a reality but are not sure where to start, we have compiled a list of helpful articles and software to get you going. 
+
+### EDA (Electronic Design Automation) Software
+
+There is a wealth of EDA software to choose from. Some are better for beginners than others. It's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Two pieces of software you can start with are:
+
+* [EasyEDA](https://easyeda.com/)
+
+	A cloud-based software suite that is free and user friendly. Not only can you design PCBS, they offer circuit simulation and PCB fabrication orders through their website. Footprints to components can be designed and contributed by community members for use by anyone. A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in libraries. Get started with EasyEDA's online [tutorials](https://easyeda.com/Doc/Tutorial/).
+
+* Eagle 
+
+	
 
 ## Footprint
 

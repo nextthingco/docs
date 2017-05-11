@@ -1,6 +1,8 @@
-# Circuit Design Tips for C.H.I.P. Pro 
+# PCB Design Tips 
 
 C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to help you along the way while you design your product.
+
+![C.H.I.P. Pro PCBs](images/boards.jpg)
 
 * [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
 * C.H.I.P. Pro Manual
@@ -9,10 +11,11 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 * [C.H.I.P. Pro schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/CHIP_Pro_v1_0_Schematic.pdf)
 * [PCB board files](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/PCB%20Source)
 * [Eagle Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
+* [C.H.I.P. Pro and Dev Kit Docs](https://docs.getchip.com/)
 
 ## Getting Started 
 
-You may have experience with software development or product design but not a lot of experience with hardware. This Getting Started section is designed as a reference for those who need a starting point. It lists some basic terms, software and services to get you designing and fabricating PCBs.
+You may have experience with software development or product design but not a lot of experience with hardware. This Getting Started section is designed as a reference for those who need a starting point. It lists some basic terms, software and services to get you designing and fabricating PCBs. Order C.H.I.P. Pro in small or large quantities from our [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to quantities. 
 
 **Basic Terminology**
 
@@ -33,17 +36,37 @@ There is a wealth of EDA software to choose from. Some are better for beginners 
 
 	Eagle is powerful PCB design and schematic layout software. It's features go deep but it's main work flow can be learned by beginners quickly. It's well used and has a strong community behind it. There are plenty of tutorials found online, such as at [Sparkfun](https://www.sparkfun.com/tutorials/108), [Adafruit](https://learn.adafruit.com/ktowns-ultimate-creating-parts-in-eagle-tutorial/introduction), and [YouTube](https://www.youtube.com/user/EAGLECadSoftComputer). Start by reading an overview of the software and finding links to tutorials, example projects and more on [Eagle's product page](https://www.autodesk.com/products/eagle/overview). Find our C.H.I.P. Pro Eagle compatible footprint for download above. 
 	
+* [Altium](http://www.altium.com/)
+
+	A bigger learning curve comes with Altium but it is worth the time invested if you plan on continuing to design PCBs.
+	
 ### PCB Fabrication Services
 
+When you are ready to get your board fabricated, there are several choices to choose from. Your choice will be based on a number of factors including, turn around time, board features (flex and color options) and scale of order. All of the services listed do small quantities to get you started. 
 
+* [Advanced Circuits](http://www.4pcb.com/)
 
+	Several pricing options to choose from depending on what your board design specifications are. Many board features available with no minimum quantity. They also offer design and assembly services.
+	
+* [PCBWay](https://www.pcbway.com/)
+
+	No minimums, fast turn around and easy to use interface for uploading board designs and getting a quote. They offer flexible pcbs, SMD (surface mount device) stencils and assembly services. 
+	
+* [Seeed Fusion PCB & PCB Assembly](https://www.seeedstudio.com/fusion.html)
+
+	They offer layout, manufacturing and assembly services along with other CNC services such as 3D printing and milling. They offer several colors of PCB starting at the cheapest fabrication option.
+	
+* [OSH Park](https://oshpark.com/)
+
+	They do batch manufacturing meaning that your board gets created with others on the same panel. This affects the turn around time making them the slowest option on the list. However, their straight forward and simple ordering interface makes it very easy to upload and check a board design in a minutes.
+	
 ## Designing Your Own Footprint
 
-C.H.I.P. Pro has castellated mounting holes making it destined to be surface-mounted to another PCB. Each mounting hole aligns with a solder pad on an appropriately designed footprint.
+C.H.I.P. Pro has castellated mounting holes making it destined to be surface-mounted and machine placeable. Each mounting hole aligns with a solder pad on C.H.I.P. Pro's footprint. Our footprint includes an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. 
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 
-Our footprints include an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. If designing your own, include a negative space measuring 43mm x 26mm so C.H.I.P. Pro can sit properly on the PCB. 
+If designing your own, include a negative space measuring 43mm x 26mm so C.H.I.P. Pro can sit properly on the PCB. 
 
 ![C.H.I.P. Pro footprint](images/clearance.jpg)
 
@@ -70,6 +93,8 @@ PMU (Power Management Unit) Vout Current Available Before Loading Battery
 |--------------|--------|---------|---------|
 | Min. and Max | 500 mA | 900 mA  | 2500 mA |
 
+Power is managed by the AXP209 Power Management Unit. Read the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) to get all the information needed to power C.H.I.P. Pro appropriately for your product.
+
 ### Current Draw
 
 **C.H.I.P. Pro Current Draw**
@@ -78,7 +103,10 @@ Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what
 
 **Setting USB VBUS Current Draw** 
 
-The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit" which is what it is set to by default upon boot of C.H.I.P. Pro. If you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down. Read more about the VBUS limit on page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit" which is what it is set to by default upon boot of C.H.I.P. Pro. If you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down. Read more about the VBUS limit on page 33 of the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+
+### BTS Pin
+
 
 ### Power Button 
 
@@ -115,4 +143,8 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 
 ## Analog Input
 
-C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding a I2C controlled ADC to your circuit. 
+C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding an I2C controlled ADC to your circuit. 
+
+## Mass Production
+
+Are you thinking about mass production? 

@@ -1,8 +1,16 @@
 # PCB Design Tips 
 
-C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to help you along the way while you design your product.
+C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to help you along the way while you design your first PCB.
 
 ![C.H.I.P. Pro PCBs](images/boards.jpg)
+
+## Ordering C.H.I.P. Pros
+
+Order C.H.I.P. Pro in small or large quantities from our [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to quantities. 
+
+## Tech Documents
+
+We are open source so you will find design and technical documents on our Github account. For convenience, here are all the technical documents that relate to designing a PCB from our Github in one place. 
 
 * [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
 * C.H.I.P. Pro Manual
@@ -12,25 +20,35 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 * [PCB board files](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/PCB%20Source)
 * [Eagle Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
 * [C.H.I.P. Pro and Dev Kit Docs](https://docs.getchip.com/)
+	
+## Footprint
 
-## Getting Started 
+To start designing your PCB, we offer an Eagle supported footprint and the measurements required to create your own footprint with the software of your choice. If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Our footprint, which you can find above, includes an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. 
 
-You may have experience with software development or product design but not a lot of experience with hardware. This Getting Started section is designed as a reference for those who need a starting point. It lists some basic terms, software and services to get you designing and fabricating PCBs. Order C.H.I.P. Pro in small or large quantities from our [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to quantities. 
+If designing your own, use our diagram that includes measurements to ensure CHIP Pro aligns aligns with the solder pads correctly.  
 
-**Basic Terminology**
+![C.H.I.P. Pro footprint](images/footprint.png)
 
-* **PCB** - Printed circuit board.
-* **Surface-mount technology (SMT)** - Method in which electronic components are placed and soldered directly on top of a PCB.
-* **Through-hole technology** - Method in which the leads of a component are inserted into drilled holes of a PCB and soldered to the opposite side. 
-* **Footprint** - Arranged pattern of surface-mount solder pads or through-holes used to attach a component to a PCB.
+It's important to include a negative space measuring 43mm x 26mm in the design of your PCB. C.H.I.P. Pro is populated on both sides so it needs this space to sits properly on the footprint.
+
+![C.H.I.P. Pro footprint](images/clearance.jpg)
+
+
+## PCB Software and Services 
+
+There are a lot of services and software packages to choose from to start designing your PCB. Perhaps you already have a favorite go-to, but if you are just starting out here are some recommendations to start exploring.
 
 ### EDA (Electronic Design Automation) Software
 
-There is a wealth of EDA software to choose from. Some are better for beginners than others. C.H.I.P. Pro is designed to be surface-mounted to a PCB. To start designing your PCB, we offer a Eagle supported footprint and measurements required to create your own. You can design custom footprints in EDA software, the method will depend on which software you use. If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Two pieces of software that have accompanying footprints that you can start with are:
+There is a wealth of EDA software to choose from. Some are good for beginners others have a larger learning curve if you are just starting out.
+
+*  KiCad
+
+	A free and open source software suite that is liked by hobbyists and professionals alike. Design schematics, layout PCBs and verify for manufacturing. There are plenty of tutorials to learn from on their [website](http://kicad-pcb.org/help/tutorials/).
 
 * [EasyEDA](https://easyeda.com/)
 
-	A cloud-based software suite that is free and user friendly. Not only can you design PCBS, they offer circuit simulation and PCB fabrication orders through their website. Footprints to components can be designed and contributed by community members for use by anyone. A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in libraries. Get started with EasyEDA's online [tutorials](https://easyeda.com/Doc/Tutorial/).
+	A cloud-based software suite that has free and professional priced packages. Not only can you design PCBS, they offer circuit simulation and PCB fabrication orders through their website. Footprints to components can be designed and contributed by community members for use by anyone. A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in libraries. Get started with EasyEDA's online [tutorials](https://easyeda.com/Doc/Tutorial/).
 
 * [Eagle](https://www.autodesk.com/products/eagle/overview) 
 
@@ -38,8 +56,8 @@ There is a wealth of EDA software to choose from. Some are better for beginners 
 	
 * [Altium](http://www.altium.com/)
 
-	A bigger learning curve comes with Altium but it is worth the time invested if you plan on continuing to design PCBs.
-	
+	Used by professionals and hobbyists, a bigger learning curve comes with Altium but it is worth the time invested if you plan on continuing to design PCBs.
+
 ### PCB Fabrication Services
 
 When you are ready to get your board fabricated, there are several choices to choose from. Your choice will be based on a number of factors including, turn around time, board features (flex and color options) and scale of order. All of the services listed do small quantities to get you started. 
@@ -60,15 +78,16 @@ When you are ready to get your board fabricated, there are several choices to ch
 
 	They do batch manufacturing meaning that your board gets created with others on the same panel. This affects the turn around time making them the slowest option on the list. However, their straight forward and simple ordering interface makes it very easy to upload and check a board design in a minutes.
 	
-## Designing Your Own Footprint
+### Verify Manufacturer Design Rules
 
-C.H.I.P. Pro has castellated mounting holes making it destined to be surface-mounted and machine placeable. Each mounting hole aligns with a solder pad on C.H.I.P. Pro's footprint. Our footprint includes an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. 
+PCB manufacturers have specifications outlining their production capabilities called "design rules". When you choose a board manufacturer, find their production specs and check that your PCB design follow the guidelines. These include smallest possible traces, drill hole size and spacing. Most PCB design software automate the DRC (design rule checking) process. If the design software you are using does not have that feature some board manufacturers offer the service or you can use DRC specific software. 
+ 
+As an example, OSH Park's PCB design rules are found on their OSH Park [Design Submission Guidelines](https://oshpark.com/guidelines) page. Conveniently, they provide a ready-made file for checking PCB designs using Eagle. OSH Park also provides [design guideline documents](http://docs.oshpark.com/design-tools/) for many of the EDA software people submit design files to them with. Below are more links to get you started. 
 
-![C.H.I.P. Pro footprint](images/footprint.png)
-
-If designing your own, include a negative space measuring 43mm x 26mm so C.H.I.P. Pro can sit properly on the PCB. 
-
-![C.H.I.P. Pro footprint](images/clearance.jpg)
+* [Altium](https://techdocs.altium.com/display/ADOH/Design+Rules#) 
+* [KiCad](http://kicadhowto.wikidot.com/co1drc)
+* [Eagle](https://www.youtube.com/user/EAGLECadSoftComputer/videos)
+* [EasyEDA](https://easyeda.com/Doc/Tutorial/introduction.htm) 
 
 
 ## Power Considerations
@@ -99,14 +118,29 @@ Power is managed by the AXP209 Power Management Unit. Read the [AXP209 datasheet
 
 **C.H.I.P. Pro Current Draw**
 
-Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what you need it to do. Idle current gets down to 100 mA with multiple peripherals unused. Peak current can get around 750 mA during WiFi radio signaling while maxing out processor, NAND, and DRAM loads. Budgeting 250-350 mA for normal operation is a midrange target to aim for. A reliable 2A+ rated power supply will work well to power C.H.I.P. Pro.
+Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what you need it to do. When idle, current gets down to 100 mA with multiple peripherals unused. Peak current can get around 750 mA during WiFi radio signaling while maxing out processor, NAND, and DRAM loads. Budgeting 250-350 mA for normal operation is a midrange target to aim for. A reliable 2A+ rated power supply will work well to power C.H.I.P. Pro.
 
 **Setting USB VBUS Current Draw** 
 
-The current draw limit of VBUS is set by register 30H. The options are 100mA, 500mA, 900mA and "no limit" which is what it is set to by default upon boot of C.H.I.P. Pro. If you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down. Read more about the VBUS limit on page 33 of the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+The current draw limit of VBUS can be set by software. Check the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+ for information starting on page 33. The setting options are 100mA, 500mA, 900mA and "no limit".  "No Limit" is what C.H.I.P. Pro is set to by default upon boot. Keep in mind that, if you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down.  
 
-### BTS Pin
+### Battery and BTS Pin
 
+Thinking of including a rechargeable battery as a product feature? Read on to learn more about the BTS pin. 
+
+Pin 7 marked **BATTEMP or BTS** is directly connected to the **TS** pin on the AXP209 PMU. This pin supports a thermistor to monitor the battery temperature when the battery is charging or discharging.  If you do not incorporate a thermistor into your setup the pin may float from ground interfering with how much charge current is throttled to the **BAT** pin and the **JST connector**. To ensure maximum charge current without a thermistor disable the battery temperature monitoring system.
+
+There are two ways to do this:
+
+* Connect BTS pin to ground
+* Disable the temperature functionality in software:
+
+```shell
+sudo i2cset -y -f 0 0x34 0x82 0x82
+````
+
+The AXP209 IC is seen as a I2C device on C.H.I.P. Pro. By default the AXP209 is tuned for a 10KΩ 1% thermistor at 25°C with a programmable register for thermistor current to adapt to different devices. You can find more information on this setup in the [AXP209 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). Search "ts pin" to quickly find
 
 ### Power Button 
 
@@ -147,4 +181,10 @@ C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your produc
 
 ## Mass Production
 
-Are you thinking about mass production? 
+Are you thinking about mass production? We can offer 
+
+## Community Projects
+
+See what other people are making with C.H.I.P. Pro.
+
+

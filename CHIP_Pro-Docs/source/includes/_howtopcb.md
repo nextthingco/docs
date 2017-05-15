@@ -1,6 +1,6 @@
 # PCB Design Tips 
 
-C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? Here are some points to help you along the way while you design your first PCB.
+C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? This section includes recommendations and tips to help you plan a successful PCB design. It provides a go-to reference for all C.H.I.P. Pro's technical documents and suggested resources for beginners.  
 
 ![C.H.I.P. Pro PCBs](images/boards.jpg)
 
@@ -23,32 +23,40 @@ We are open source so you will find design and technical documents on our Github
 	
 ## Footprint
 
-To start designing your PCB, we offer an Eagle supported footprint and the measurements required to create your own footprint with the software of your choice. If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Our footprint, which you can find above, includes an open space allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. 
+There are ready-made footprints available for C.H.I.P Pro to start with. We also provide all the measurements required to create your own footprint with the EDA software of your choice. 
 
-If designing your own, use our diagram that includes measurements to ensure CHIP Pro aligns aligns with the solder pads correctly.  
+If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Currently, there are footprints built for two software packages:
+
+* [Eagle](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
+* EasyEDA
+	A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in EasyEDA's libraries.
+
+If designing your own, use our diagram that includes measurements to ensure CHIP Pro aligns with the solder pads correctly.  
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 
-It's important to include a negative space measuring 43mm x 26mm in the design of your PCB. C.H.I.P. Pro is populated on both sides so it needs this space to sits properly on the footprint.
+**Footprint Cutout**
+
+The ready-made footprints include an open space in the middle allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. **It's important to include this negative space measuring 43mm x 26mm** in the design of your PCB. C.H.I.P. Pro is populated on both sides and needs this open space to sit properly on the footprint.
 
 ![C.H.I.P. Pro footprint](images/clearance.jpg)
 
 
 ## PCB Software and Services 
 
-There are a lot of services and software packages to choose from to start designing your PCB. Perhaps you already have a favorite go-to, but if you are just starting out here are some recommendations to start exploring.
+There are many software packages to start designing your PCB and services to use to manufacture one. Perhaps you already have a favorite go-to, but if you are just starting out here are some recommendations to start exploring.
 
 ### EDA (Electronic Design Automation) Software
 
-There is a wealth of EDA software to choose from. Some are good for beginners others have a larger learning curve if you are just starting out.
+There is a wealth of EDA software to choose from. Some are good for beginners others have a bigger learning curve that is worth the effort.
 
-*  KiCad
+*  [KiCad](http://kicad-pcb.org/)
 
-	A free and open source software suite that is liked by hobbyists and professionals alike. Design schematics, layout PCBs and verify for manufacturing. There are plenty of tutorials to learn from on their [website](http://kicad-pcb.org/help/tutorials/).
+	A free and open source software suite that is preferred by hobbyists and professionals alike. Design schematics, layout PCBs, and verify design for manufacturing. There are plenty of tutorials to learn from on their [website](http://kicad-pcb.org/help/tutorials/).
 
 * [EasyEDA](https://easyeda.com/)
 
-	A cloud-based software suite that has free and professional priced packages. Not only can you design PCBS, they offer circuit simulation and PCB fabrication orders through their website. Footprints to components can be designed and contributed by community members for use by anyone. A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in libraries. Get started with EasyEDA's online [tutorials](https://easyeda.com/Doc/Tutorial/).
+	A cloud-based software suite that has free and professional priced packages. Not only can you design PCBS, they offer circuit simulation and take PCB fabrication orders through their website. Footprints to components can be designed and contributed by community members for use by anyone. A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in libraries. Get started with EasyEDA's online [tutorials](https://easyeda.com/Doc/Tutorial/).
 
 * [Eagle](https://www.autodesk.com/products/eagle/overview) 
 

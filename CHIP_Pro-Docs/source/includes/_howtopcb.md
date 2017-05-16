@@ -103,11 +103,11 @@ As an example, OSH Park's PCB design rules are found on their OSH Park [Design S
 
 ### Supplying Power to C.H.I.P. Pro
 
-Powering C.H.I.P. Pro via the *CHG-IN* pin at 5-5.5V is the suggested route for all embedded applications. 
+Powering C.H.I.P. Pro via the *CHG-IN* pin at 5-5.5V is the suggested route for all embedded applications. A reliable 2A+ rated power supply will work well to power C.H.I.P. Pro.
 
 C.H.I.P. Pro can also be powered through *BAT* if a battery is connected, and *VBUS* if a USB charger/supply is connected. 
 
-Operating Voltage
+Recommended Operating Voltage
 
 | Pin    | Min | Typical | Max        | Unit |
 |--------|-----|---------|------------|------|
@@ -123,11 +123,30 @@ PMU (Power Management Unit) Vout Current Available Before Loading Battery
 
 Power is managed by the AXP209 Power Management Unit. Read the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) to get all the information needed to power C.H.I.P. Pro appropriately for your product.
 
-### Current Draw
+### Power Consumption
 
 **C.H.I.P. Pro Current Draw**
 
-Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what you need it to do. When idle, current gets down to 100 mA with multiple peripherals unused. Peak current can get around 750 mA during WiFi radio signaling while maxing out processor, NAND, and DRAM loads. Budgeting 250-350 mA for normal operation is a midrange target to aim for. A reliable 2A+ rated power supply will work well to power C.H.I.P. Pro.
+Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what you need it to do. The following measurements are offered as a rough starting point with which to begin to understand the range of power budgets relevant to a CHIP Pro-based device operated from a battery. Exact power consumption is significantly influenced by factors such as software power optimizations (or lack thereof), power source quality, external peripheral circuitry, and ambient operating conditions. 
+
+| System State    | Measurement | Value |
+|--------|-----|---------|
+| Idle at Linux Shell | Supply (BAT) | 4.17V  |	
+|     | Current | 125.90 mA    |
+|    | Power | 525.00 mW   | 
+| Playing Local Audio | Supply (BAT) | 4.17V  |	
+|     | Current | 209.40 mA    |
+|    | Power | 873.62 mW   |
+| WiFi Pinging | Supply (BAT) | 4.17V  |	
+|     | Current | 184.70 mA    |
+|    | Power | 770.20 mW   |
+| Standby | Supply (BAT) | 4.17V  |	
+|     | Current | 5.30 mA    |
+|    | Power | 22.10 mW   |
+| Shutdown | Supply (BAT) | 4.17V  |	
+|     | Current | 1.60 mA    |
+|    | Power | 6.67 mW   |
+ 
 
 **Setting USB VBUS Current Draw** 
 
@@ -138,7 +157,7 @@ The current draw limit of VBUS can be set by software. Check the [AXP209 datashe
 
 Thinking of including a rechargeable battery as a product feature? Read on to learn more about the BTS pin. 
 
-Pin 7 marked **BATTEMP or BTS** is directly connected to the **TS** pin on the AXP209 PMU. This pin supports a thermistor to monitor the battery temperature when the battery is charging or discharging.  If you do not incorporate a thermistor into your setup the pin may float from ground interfering with how much charge current is throttled to the **BAT** pin and the **JST connector**. To ensure maximum charge current without a thermistor disable the battery temperature monitoring system.
+Pin 7 on C.H.I.P. Pro is marked **BATTEMP or BTS** and is directly connected to the **TS** pin on the AXP209 PMU. This pin supports a 10KΩ 1% thermistor to monitor the battery temperature when the battery is charging or discharging.  If you do not incorporate a thermistor into your circuit the pin may float from ground interfering with how much charge current is throttled to the **BAT** pin and the **JST connector**. To ensure maximum charge current without a thermistor disable the battery temperature monitoring system.
 
 There are two ways to do this:
 
@@ -149,7 +168,7 @@ There are two ways to do this:
 sudo i2cset -y -f 0 0x34 0x82 0x82
 ````
 
-The AXP209 IC is seen as a I2C device on C.H.I.P. Pro. By default the AXP209 is tuned for a 10KΩ 1% thermistor at 25°C with a programmable register for thermistor current to adapt to different devices. You can find more information on this setup in the [AXP209 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). Search "ts pin" to quickly find
+You can find more information on this setup in the [AXP209 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) starting on page 21. 
 
 ### Power Button 
 
@@ -160,8 +179,12 @@ The PWRON pin can be connected to GND through a button as a Power Enable Key (PE
 Whether you want to add a micro USB 5V source or a host USB-A port, here are some points on power to consider while designing your PCB.
 
 * Standard USB peripherals operate at 5 volts and can draw a good amount of current.
-* IPSOUT can provide 5 volts to your USB-A 5V pin if there's a 5 volt input to the system via VBUS or CHG-IN. If a battery is connected and power is not available through VBUS or CHG-IN, IPSOUT will provide 3.7 volts which is most likely not sufficient for a USB peripheral.
-	* Consider using a 5V DC/DC buck/boost converter on IPSOUT to maintain a 5 volt rail to your additional USB port. In this case, if the device goes into battery mode it will still be getting 5 volts. If you go this route, set the VBUS current limit appropriately for your system's current draw. See page 33 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) to learn more.
+* IPSOUT on C.H.I.P. Pro can provide 5 volts to the 5V pin of the additional USB port if there's a 5 volt input via VBUS or CHG-IN. If a battery is connected and power is not available through VBUS or CHG-IN, IPSOUT will provide 3.7 volts which is most likely not sufficient for a USB peripheral.
+	* To avoid IPSOUT dropping to 3.7V in battery mode consider using a 5V DC/DC buck/boost converter to maintain a 5 volt rail to your additional USB port. If you go this route, set the VBUS current limit appropriately for your system's current draw. 
+	
+## Analog Input
+
+C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding an I2C controlled ADC to your circuit. 
 
 ## WiFi Signal
 
@@ -176,17 +199,13 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 
 ## Modular Certification 
 
-* C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna) as well as the onboard ceramic SMT antenna. 
+* C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available external antennas as well as the onboard ceramic SMT antenna. 
 
-* Any product with C.H.I.P. Pro as the only active radio transmitter will not require your company to run certification testing for the unintentional radiator portion of FCC tests, specifically FCC Part 15B. This will save you testing time and cost associated with taking your product through FCC certification. You will still need to run FCC Part 15C tests (EMC testing for the intentional radiator portion). 
+* Any product with C.H.I.P. Pro as the only active radio transmitter will not require your company to run certification testing for the Intentional Radiator portion of FCC tests, specifically FCC Part 15C. This lessens the workload of taking your product through full FCC certification. You will still need to test and state compliance with FCC Part 15B Unintentional Radiation limits. 
 
-* You will not need to apply for a new FCC-ID for your product; when you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC ID. For any questions on this, reach out to us at pro@nextthing.co. The FCC ID can be found etched on the WiFi module. 
+* You will not need to apply for a new FCC-ID for your product. When you process your application with a certified test lab, they will file a Class II Permissive Change under NTC's FCC ID. For any questions on this, reach out to us at pro@nextthing.co. The FCC ID can be found etched on the WiFi module. 
 
 ![C.H.I.P. Pro FCC ID](images/CHIP_Pro_FCC.png)
-
-## Analog Input
-
-C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding an I2C controlled ADC to your circuit. 
 
 ## Mass Production
 

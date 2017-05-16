@@ -23,7 +23,7 @@ We are open source so you will find design and technical documents on our Github
 	
 ## Footprint
 
-There are ready-made footprints available for C.H.I.P Pro to start with. We also provide all the measurements required to create your own footprint with the EDA software of your choice. 
+There are ready-made footprints available for C.H.I.P Pro to start with. We also provide all the measurements required to create your own footprint with the EDA (Electronic Design Automation) software of your choice. 
 
 If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Currently, there are footprints built for two software packages:
 
@@ -31,7 +31,7 @@ If a beginner, it's best to start with an already designed footprint for C.H.I.P
 * EasyEDA
 	A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in EasyEDA's libraries.
 
-If designing your own, use our diagram that includes measurements to ensure CHIP Pro aligns with the solder pads correctly.  
+If designing your own, use our diagram that includes measurements to ensure C.H.I.P. Pro aligns with the solder pads correctly. 
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 
@@ -41,12 +41,13 @@ The ready-made footprints include an open space in the middle allowing for the 1
 
 ![C.H.I.P. Pro footprint](images/clearance.jpg)
 
+Do you want to share a footprint that you have created with us? We would love to include it here for others to use. Send your footprint to docs@nextthing.co. 
 
 ## PCB Software and Services 
 
-There are many software packages to start designing your PCB and services to use to manufacture one. Perhaps you already have a favorite go-to, but if you are just starting out here are some recommendations to start exploring.
+There are many software packages and services to design and manufacture your PCB with. Perhaps you already have a favorite go-to, but if you are just starting out here are some recommendations to start exploring.
 
-### EDA (Electronic Design Automation) Software
+### EDA Software
 
 There is a wealth of EDA software to choose from. Some are good for beginners others have a bigger learning curve that is worth the effort.
 
@@ -60,11 +61,11 @@ There is a wealth of EDA software to choose from. Some are good for beginners ot
 
 * [Eagle](https://www.autodesk.com/products/eagle/overview) 
 
-	Eagle is powerful PCB design and schematic layout software. It's features go deep but it's main work flow can be learned by beginners quickly. It's well used and has a strong community behind it. There are plenty of tutorials found online, such as at [Sparkfun](https://www.sparkfun.com/tutorials/108), [Adafruit](https://learn.adafruit.com/ktowns-ultimate-creating-parts-in-eagle-tutorial/introduction), and [YouTube](https://www.youtube.com/user/EAGLECadSoftComputer). Start by reading an overview of the software and finding links to tutorials, example projects and more on [Eagle's product page](https://www.autodesk.com/products/eagle/overview). Find our C.H.I.P. Pro Eagle compatible footprint for download above. 
+	Eagle is a powerful PCB design and schematic layout software. It's well used and has a strong community behind it. There are plenty of tutorials found online, such as at [Sparkfun](https://www.sparkfun.com/tutorials/108), [Adafruit](https://learn.adafruit.com/ktowns-ultimate-creating-parts-in-eagle-tutorial/introduction), and [YouTube](https://www.youtube.com/user/EAGLECadSoftComputer). Start by reading an overview of the software and finding links to tutorials, example projects and more on [Eagle's product page](https://www.autodesk.com/products/eagle/overview). Find our C.H.I.P. Pro Eagle compatible footprint for download above. 
 	
 * [Altium](http://www.altium.com/)
 
-	Used by professionals and hobbyists, a bigger learning curve comes with Altium but it is worth the time invested if you plan on continuing to design PCBs.
+	Used by professionals and advanced hobbyists. A bigger learning curve comes with Altium but it is worth the time invested if you plan on continuing to design production ready grade PCBs.
 
 ### PCB Fabrication Services
 
@@ -80,17 +81,17 @@ When you are ready to get your board fabricated, there are several choices to ch
 	
 * [Seeed Fusion PCB & PCB Assembly](https://www.seeedstudio.com/fusion.html)
 
-	They offer layout, manufacturing and assembly services along with other CNC services such as 3D printing and milling. They offer several colors of PCB starting at the cheapest fabrication option.
+	They offer layout, manufacturing and assembly services along with other CNC services such as 3D printing and milling. They offer several PCB colors options with their cheapest fabrication option.
 	
 * [OSH Park](https://oshpark.com/)
 
-	They do batch manufacturing meaning that your board gets created with others on the same panel. This affects the turn around time making them the slowest option on the list. However, their straight forward and simple ordering interface makes it very easy to upload and check a board design in a minutes.
+	OSH Park does batch manufacturing meaning that your board gets created with others on the same panel. This affects the turn around time making them the slowest option on the list. However, their straight forward and simple ordering interface makes it very easy to upload and check a board design in minutes.
 	
 ### Verify Manufacturer Design Rules
 
-PCB manufacturers have specifications outlining their production capabilities called "design rules". When you choose a board manufacturer, find their production specs and check that your PCB design follow the guidelines. These include smallest possible traces, drill hole size and spacing. Most PCB design software automate the DRC (design rule checking) process. If the design software you are using does not have that feature some board manufacturers offer the service or you can use DRC specific software. 
+PCB manufacturers have specifications outlining their production capabilities called "design rules". These design rules include smallest possible traces, drill hole size, spacing, etc. Most PCB design software automate a process that checks your design against these rules using files. This is called the DRC (design rule checking) process. If the design software you are using does not have this feature some board manufacturers offer the service or you can use DRC specific software. 
  
-As an example, OSH Park's PCB design rules are found on their OSH Park [Design Submission Guidelines](https://oshpark.com/guidelines) page. Conveniently, they provide a ready-made file for checking PCB designs using Eagle. OSH Park also provides [design guideline documents](http://docs.oshpark.com/design-tools/) for many of the EDA software people submit design files to them with. Below are more links to get you started. 
+As an example, OSH Park's PCB design rules are found on their OSH Park [Design Submission Guidelines](https://oshpark.com/guidelines) page. Conveniently, they provide a file for checking PCB designs using Eagle. OSH Park also provides [design guideline documents](http://docs.oshpark.com/design-tools/) for many of the EDA software people submit designs with. Below are more links to get you started. 
 
 * [Altium](https://techdocs.altium.com/display/ADOH/Design+Rules#) 
 * [KiCad](http://kicadhowto.wikidot.com/co1drc)
@@ -102,9 +103,9 @@ As an example, OSH Park's PCB design rules are found on their OSH Park [Design S
 
 ### Supplying Power to C.H.I.P. Pro
 
-Powering C.H.I.P. Pro via the CHG-IN pin at 5-5.5V is the suggested route for all embedded applications. 
+Powering C.H.I.P. Pro via the *CHG-IN* pin at 5-5.5V is the suggested route for all embedded applications. 
 
-C.H.I.P. Pro can also be powered through BAT if a battery is connected, and VBUS if a USB charger/supply is connected. 
+C.H.I.P. Pro can also be powered through *BAT* if a battery is connected, and *VBUS* if a USB charger/supply is connected. 
 
 Operating Voltage
 
@@ -131,7 +132,7 @@ Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what
 **Setting USB VBUS Current Draw** 
 
 The current draw limit of VBUS can be set by software. Check the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
- for information starting on page 33. The setting options are 100mA, 500mA, 900mA and "no limit".  "No Limit" is what C.H.I.P. Pro is set to by default upon boot. Keep in mind that, if you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down.  
+ for more information starting on page 33. The setting options are 100mA, 500mA, 900mA and "no limit".  "900mA" is what C.H.I.P. Pro is set to by default upon boot. Keep in mind that, if you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down.  
 
 ### Battery and BTS Pin
 

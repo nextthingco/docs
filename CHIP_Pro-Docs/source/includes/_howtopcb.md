@@ -119,13 +119,12 @@ PMU (Power Management Unit) Vout Current Available Before Loading Battery
 
 | Iout         | Min    | Typical | Max     |
 |--------------|--------|---------|---------|
-| Min. and Max | 500 mA | 900 mA  | 2500 mA |
+| PMU Vout | 500 mA | 900 mA  | 2500 mA |
 
-Power is managed by the AXP209 Power Management Unit. Read the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) to get all the information needed to power C.H.I.P. Pro appropriately for your product.
+Programmable current limit can be set in software allowing for safe attachment to USB 2.0, USB 3.0, or high-current CHG-In sources. Check the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+ for more information starting on page 33. The setting options are 100mA, 500mA, 900mA and "no limit".  "900mA" is what C.H.I.P. Pro is set to by default upon boot. Keep in mind that, if you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down.
 
 ### Power Consumption
-
-**C.H.I.P. Pro Current Draw**
 
 Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what you need it to do. The following measurements are offered as a rough starting point with which to begin to understand the range of power budgets relevant to a CHIP Pro-based device operated from a battery. Exact power consumption is significantly influenced by factors such as software power optimizations (or lack thereof), power source quality, external peripheral circuitry, and ambient operating conditions. 
 
@@ -146,12 +145,7 @@ Like any feature-loaded SOM, how much current C.H.I.P. Pro draws depends on what
 | Shutdown | Supply (BAT) | 4.17V  |	
 |     | Current | 1.60 mA    |
 |    | Power | 6.67 mW   |
- 
-
-**Setting USB VBUS Current Draw** 
-
-The current draw limit of VBUS can be set by software. Check the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
- for more information starting on page 33. The setting options are 100mA, 500mA, 900mA and "no limit".  "900mA" is what C.H.I.P. Pro is set to by default upon boot. Keep in mind that, if you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down.  
+  
 
 ### Battery and BTS Pin
 

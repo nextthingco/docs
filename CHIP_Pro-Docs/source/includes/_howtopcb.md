@@ -28,8 +28,8 @@ There are ready-made footprints available for C.H.I.P Pro to start with. We also
 If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Currently, there are footprints built for two software packages:
 
 * [Eagle](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
-* EasyEDA
-	A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in EasyEDA's libraries.
+* [EasyEDA](https://easyeda.com/)
+	* A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in EasyEDA's libraries.
 
 If designing your own, use our diagram that includes measurements to ensure C.H.I.P. Pro aligns with the solder pads correctly. 
 

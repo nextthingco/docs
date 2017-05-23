@@ -6,7 +6,7 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 
 ## Order C.H.I.P. Pros
 
-C.H.I.P. Pro can be ordered in small or large quantities from our [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
+To make scaling up efficient offer C.H.I.P. Pro in small or large quantities from our [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
 
 ## Tech Documents
 
@@ -25,39 +25,39 @@ We are open source so you will find design and technical documents on our Github
 
 There are ready-made footprints available for C.H.I.P Pro to start with. We also provide all the measurements required to create your own footprint with the EDA (Electronic Design Automation) software of your choice. 
 
-If a beginner, it's best to start with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the rest of your circuit. Currently, there are footprints built for two software packages:
+It's best to begin with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the important parts of your circuit. Currently, there are footprints built for two software packages:
 
 * [Eagle](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
 * [EasyEDA](https://easyeda.com/)
 	* A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in EasyEDA's libraries.
 
-If designing your own, use our diagram that includes measurements to ensure C.H.I.P. Pro aligns with the solder pads correctly. 
+If designing your own footprint, use our diagram that includes measurements to ensure C.H.I.P. Pro aligns with the solder pads correctly. 
 
 ![C.H.I.P. Pro footprint](images/footprint.png)
 
 **Footprint Cutout**
 
-The ready-made footprints include an open space in the middle allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. **It's important to include this negative space measuring 43mm x 26mm** in the design of your PCB. C.H.I.P. Pro is populated on both sides and needs this open space to sit properly on the footprint.
+The ready-made footprints include an open space in the middle allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. **It's important to include this negative space measuring 43mm x 26mm** in the design of your PCB. C.H.I.P. Pro is populated on both sides and needs this open space to sit properly on the finished PCB.
 
 ![C.H.I.P. Pro footprint](images/clearance.jpg)
 
-Do you want to share a footprint that you have created with us? We would love to include it here for others to use. Send your footprint to docs@nextthing.co. 
+Do you want to share a footprint that you have created with us? We would like to include it here for others to use. Send your footprint to docs@nextthing.co. 
 
 ## PCB Software and Services 
 
-There are many software packages and services to design and manufacture your PCB with. Perhaps you already have a favorite go-to, but if you are just starting out here are some recommendations to start exploring.
+There are many software packages and services to design and manufacture a PCB with. Perhaps you already have a favorite go-to, but if you are just starting out or want to check out other options here are some recommendations to start exploring.
 
 ### EDA Software
 
-There is a wealth of EDA software to choose from. Some are good for beginners others have a bigger learning curve that is worth the effort.
+There is a wealth of EDA software to choose from. Listed here are resources that are both used by beginners and professionals. 
 
 *  [KiCad](http://kicad-pcb.org/)
 
-	A free and open source software suite that is preferred by hobbyists and professionals alike. Design schematics, layout PCBs, and verify design for manufacturing. There are plenty of tutorials to learn from on their [website](http://kicad-pcb.org/help/tutorials/).
+	A free and open source software suite that is preferred by hobbyists and professionals alike. Design schematics, layout PCBs, and verify design for manufacturing. There are plenty of tutorials to learn from on their [website](http://kicad-pcb.org/help/tutorials/). 
 
 * [EasyEDA](https://easyeda.com/)
 
-	A cloud-based software suite that has free and professional priced packages. Not only can you design PCBS, they offer circuit simulation and take PCB fabrication orders through their website. Footprints to components can be designed and contributed by community members for use by anyone. A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in libraries. Get started with EasyEDA's online [tutorials](https://easyeda.com/Doc/Tutorial/).
+	A cloud-based software suite that has free and professional priced packages. Not only can you design PCBS, they offer circuit simulation and take PCB fabrication orders through their website. Footprints to components can be designed and contributed by community members for use by anyone. A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in libraries. Get started with EasyEDA's online [tutorials](https://easyeda.com/Doc/Tutorial/). This is a great resource for someone who is starting out in PCB design.
 
 * [Eagle](https://www.autodesk.com/products/eagle/overview) 
 
@@ -69,7 +69,7 @@ There is a wealth of EDA software to choose from. Some are good for beginners ot
 
 ### PCB Fabrication Services
 
-When you are ready to get your board fabricated, there are several choices to choose from. Your choice will be based on a number of factors including, turn around time, board features (flex and color options) and scale of order. All of the services listed do small quantities to get you started. 
+When you are ready to get your board fabricated, there are several choices. Your choice will be based on a number of factors including, turn around time, board features (flex and color options) and scale of order. All of the services listed do small quantities to get you started. A few do large scale as well and offer multi-layer boards and other advanced services.
 
 * [Advanced Circuits](http://www.4pcb.com/)
 
@@ -93,9 +93,9 @@ When you are ready to get your board fabricated, there are several choices to ch
 	
 ### Verify Manufacturer Design Rules
 
-PCB manufacturers have specifications outlining their production capabilities called "design rules". These design rules include smallest possible traces, drill hole size, spacing, etc. Most PCB design software automate a process that checks your design against these rules using files. This is called the DRC (design rule checking) process. If the design software you are using does not have this feature some board manufacturers offer the service or you can use DRC specific software. 
+PCB manufacturers have specifications outlining their production capabilities called "design rules". These design rules include smallest possible traces, drill hole size, spacing, etc. Most PCB design software have an automated process that checks your design against these design rules using files. This is called the DRC (design rule checking) process. If the design software you are using does not have this feature some board manufacturers offer the service or you can use DRC specific software. 
  
-As an example, OSH Park's PCB design rules are found on their OSH Park [Design Submission Guidelines](https://oshpark.com/guidelines) page. Conveniently, they provide a file for checking PCB designs using Eagle. OSH Park also provides [design guideline documents](http://docs.oshpark.com/design-tools/) for many of the EDA software people submit designs with. Below are more links to get you started. 
+As an example, OSH Park's PCB design rules are found on their OSH Park [Design Submission Guidelines](https://oshpark.com/guidelines) page. Conveniently, they provide a file for checking PCB designs using Eagle softeare. OSH Park also provides [design guideline documents](http://docs.oshpark.com/design-tools/) for many of the EDA software people submit designs with. To get you started, below are some design rule resources for software linked to in this doc.
 
 * [Altium](https://techdocs.altium.com/display/ADOH/Design+Rules#) 
 * [KiCad](http://kicadhowto.wikidot.com/co1drc)
@@ -176,7 +176,7 @@ The PWRON pin can be connected to GND through a button as a Power Enable Key (PE
 
 Whether you want to add a micro USB 5V source or a host USB-A port, here are some points on power to consider while designing your PCB.
 
-* Standard USB peripherals operate at 5 volts and can draw a good amount of current.
+* Standard USB peripherals operate at 5 volts and can draw a good amount of current so, budget a power supply appropriately.
 * IPSOUT on C.H.I.P. Pro can provide 5 volts to the 5V pin of the additional USB port if there's a 5 volt input via VBUS or CHG-IN. If a battery is connected and power is not available through VBUS or CHG-IN, IPSOUT will provide 3.7 volts which is most likely not sufficient for a USB peripheral.
 	* To avoid IPSOUT dropping to 3.7V in battery mode consider using a 5V DC/DC buck/boost converter to maintain a 5 volt rail to your additional USB port. If you go this route, set the VBUS current limit appropriately for your system's current draw. 
 	

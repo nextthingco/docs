@@ -1,16 +1,16 @@
 # PCB Design Tips 
 
-C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? This section includes recommendations and tips to help you plan a successful PCB design. It provides a go-to reference for all C.H.I.P. Pro's technical documents and suggested resources for beginners.  
+C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. Are you ready to go from breadboard to PCB? This section gives recommendations and provides resources and tips to help you plan a successful PCB design. 
 
 ![C.H.I.P. Pro PCBs](images/boards.jpg)
 
-## Ordering C.H.I.P. Pros
+## Order C.H.I.P. Pros
 
-Order C.H.I.P. Pro in small or large quantities from our [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to quantities. 
+C.H.I.P. Pro can be ordered in small or large quantities from our [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
 
 ## Tech Documents
 
-We are open source so you will find design and technical documents on our Github account. For convenience, here are all the technical documents that relate to designing a PCB from our Github in one place. 
+We are open source so you will find design and technical documents on our Github account. For the sake of convenience, all the technical documents that relate to designing a PCB from our Github are linked to below. 
 
 * [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
 * C.H.I.P. Pro Manual
@@ -21,7 +21,7 @@ We are open source so you will find design and technical documents on our Github
 * [Eagle Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
 * [C.H.I.P. Pro and Dev Kit Docs](https://docs.getchip.com/)
 	
-## Footprint
+## C.H.I.P. Pro Footprint
 
 There are ready-made footprints available for C.H.I.P Pro to start with. We also provide all the measurements required to create your own footprint with the EDA (Electronic Design Automation) software of your choice. 
 
@@ -79,6 +79,10 @@ When you are ready to get your board fabricated, there are several choices to ch
 
 	No minimums, fast turn around and easy to use interface for uploading board designs and getting a quote. They offer flexible pcbs, SMD (surface mount device) stencils and assembly services. 
 	
+* [AllPCB](http://www.allpcb.com/)
+	
+	AllPCB offers low prices and quality services in small and large scale batches. Their website is comprehensive with instant quote services and a way to upload your BOM and search for specific components.
+	
 * [Seeed Fusion PCB & PCB Assembly](https://www.seeedstudio.com/fusion.html)
 
 	They offer layout, manufacturing and assembly services along with other CNC services such as 3D printing and milling. They offer several PCB colors options with their cheapest fabrication option.
@@ -107,7 +111,7 @@ Powering C.H.I.P. Pro via the *CHG-IN* pin at 5-5.5V is the suggested route for 
 
 C.H.I.P. Pro can also be powered through *BAT* if a battery is connected, and *VBUS* if a USB charger/supply is connected. 
 
-Recommended Operating Voltage
+#### Recommended Operating Voltage
 
 | Pin    | Min | Typical | Max        | Unit |
 |--------|-----|---------|------------|------|
@@ -115,7 +119,7 @@ Recommended Operating Voltage
 | BAT    | 3.0 | 3.8     | 4.2+/-0.5% | V    |
 | VBUS   | 3.8 | 5-5.5   | 6.3        | V    |
 
-PMU (Power Management Unit) Vout Current Available Before Loading Battery
+#### PMU (Power Management Unit) Vout Current Available Before Loading Battery
 
 | Iout         | Min    | Typical | Max     |
 |--------------|--------|---------|---------|
@@ -191,7 +195,7 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 | FXP73.07.0100A | Taoglas | 2.5 dBi | PCB | IPEX | 2.4 - 2.483 | 100 |
 | AA055   | Unictron | 2.5 dBi | Ceramic | SMT | 2.4 - 2.5 | n/a |
 
-## Modular Certification 
+## Make Use of Modular Certification 
 
 * C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available external antennas as well as the onboard ceramic SMT antenna. 
 
@@ -201,12 +205,11 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 
 ![C.H.I.P. Pro FCC ID](images/CHIP_Pro_FCC.png)
 
-## Mass Production
+## Do Something G8
 
-Are you thinking about mass production? We can offer 
+Are you thinking about mass production? We offer custom flashing and NRE software services to get you moving quickly towards a fully developed product. We also have lots of experience producing PCBs so, reach out to us for material and manufacturer recommendations at pro@nextthing.co. 
 
-## Community Projects
 
-See what other people are making with C.H.I.P. Pro.
+
 
 

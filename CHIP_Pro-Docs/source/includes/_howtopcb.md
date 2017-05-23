@@ -6,14 +6,13 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 
 ## Order C.H.I.P. Pros
 
-To make scaling up efficient offer C.H.I.P. Pro in small or large quantities from our [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
+To make scaling up efficient we offer C.H.I.P. Pro in small or large quantities from our online [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
 
 ## Tech Documents
 
-We are open source so you will find design and technical documents on our Github account. For the sake of convenience, all the technical documents that relate to designing a PCB from our Github are linked to below. 
+NTC hardware and software is open source so you will find design and technical documents on our Github account. For the sake of convenience, all the technical documents that relate to designing a PCB from our Github are linked to below. 
 
 * [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
-* C.H.I.P. Pro Manual
 * [Component datasheets](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets)
 * [Mechanical documents](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
 * [C.H.I.P. Pro schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/CHIP_Pro_v1_0_Schematic.pdf)
@@ -49,7 +48,7 @@ There are many software packages and services to design and manufacture a PCB wi
 
 ### EDA Software
 
-There is a wealth of EDA software to choose from. Listed here are resources that are both used by beginners and professionals. 
+There is a wealth of EDA software to choose from. Listed here are resources that are both used by beginners and professionals alike. 
 
 *  [KiCad](http://kicad-pcb.org/)
 

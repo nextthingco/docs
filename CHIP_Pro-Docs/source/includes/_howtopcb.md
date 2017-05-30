@@ -207,7 +207,14 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 
 ## Do Something GR8
 
-Are you thinking about mass production? We offer custom flashing and NRE software services to get you moving quickly towards a fully developed product. We also have lots of experience producing PCBs so, reach out to us for material and manufacturer recommendations at pro@nextthing.co. 
+Are you thinking of going into mass production, but not sure what path to take? We offer services at several production stages to get you moving quickly towards a fully developed product.  
+
+* Custom flashing 
+* NRE software 
+* Custom engineering support
+* PCB material and manufacturer recommendations
+
+If you would like to learn more about how we can help you make a GR8 product, reach out to us at pro@nextthing.co.
 
 
 

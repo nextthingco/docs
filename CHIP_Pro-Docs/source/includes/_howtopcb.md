@@ -4,7 +4,7 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 
 ![C.H.I.P. Pro PCBs](images/boards.jpg)
 
-## Small or Large Quantities 
+## From 1 to 1MM 
 
 To make scaling up efficient and easy, we offer C.H.I.P. Pro in small or large quantities from our online [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
 

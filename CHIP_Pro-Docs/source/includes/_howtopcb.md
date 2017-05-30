@@ -4,9 +4,9 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 
 ![C.H.I.P. Pro PCBs](images/boards.jpg)
 
-## Order C.H.I.P. Pros
+## Small or Large Quantities 
 
-To make scaling up efficient we offer C.H.I.P. Pro in small or large quantities from our online [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
+To make scaling up efficient and easy, we offer C.H.I.P. Pro in small or large quantities from our online [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
 
 ## Tech Documents
 
@@ -16,6 +16,7 @@ NTC hardware and software is open source so you will find design and technical d
 * [Component datasheets](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets)
 * [Mechanical documents](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
 * [C.H.I.P. Pro schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/CHIP_Pro_v1_0_Schematic.pdf)
+* [C.H.I.P. Pro Dev Kit schematics](https://github.com/NextThingCo/Dev_Kit-Hardware/tree/master/PDFs)
 * [PCB board files](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/PCB%20Source)
 * [Eagle Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
 * [C.H.I.P. Pro and Dev Kit Docs](https://docs.getchip.com/)
@@ -204,7 +205,7 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 
 ![C.H.I.P. Pro FCC ID](images/CHIP_Pro_FCC.png)
 
-## Do Something G8
+## Do Something GR8
 
 Are you thinking about mass production? We offer custom flashing and NRE software services to get you moving quickly towards a fully developed product. We also have lots of experience producing PCBs so, reach out to us for material and manufacturer recommendations at pro@nextthing.co. 
 

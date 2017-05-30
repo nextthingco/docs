@@ -2,7 +2,7 @@
 
 <span style="font-size: 36px">&#128226;</span> We at Next Thing Co. would like to introduce the developer preview of Gadget, our open source suite of software tools. Gadget is built for developing, deploying, and distributing custom Linux operating systems for projects and products. Since it's open source we want to hear from all you Docker enthusiasts and CHIP Pro Dev Kit owners about how you are using it. To leave feedback, Gadget can be found on NTC's [github account]. 
 
-Currently, Gadget supports the C.H.I.P. Pro and our example script is written to use the LEDs on the Dev Kit. If you are using C.H.I.P. Pro bare, connect LEDs to pins PE4 - PE11 (with in-series resistor!). Stay tuned for updates on further supported hardware and more software features.
+Currently, Gadget supports C.H.I.P. Pro. Our example script lights up LEDs connected to pins PE4 - PE11. The Dev Kit comes with LEDs hardwired to these pins. If you are using C.H.I.P. Pro bare, you will need to manually connect LEDs to pins PE4 - PE11 (with in-series resistor!). Stay tuned for updates on further supported hardware and more software features.
 
 # What is Gadget?
 

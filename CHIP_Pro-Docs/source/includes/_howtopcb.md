@@ -48,7 +48,7 @@ NTC does not officially recommend one EDA software package. The effectiveness of
 
 ### EDA Software
 
-* [OrCAD](http://www.orcad.com/products/orcad-overview}
+* [OrCAD](http://www.orcad.com/products/orcad-overview)
 
 	OrCAD is a collection of tools you can use to design PCBs, schematics, analyze circuits with and more. Learn how to use their schematic design tool Capture through [interactive tutorials](http://www.orcadmarketplace.com/Capture-Tutorial/captutor.htm).  
 

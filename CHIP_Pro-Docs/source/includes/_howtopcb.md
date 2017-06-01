@@ -32,7 +32,7 @@ We also provide all the measurements required to create your own footprint with 
 
 ![C.H.I.P. Pro footprint](images/footprint0.png)
 
-<aside class="notice">
+<aside class="warning">
 The ready-made footprints include an open space in the middle allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. **It's important to include this negative space measuring 43mm x 26mm** in the design of your PCB. C.H.I.P. Pro is populated on both sides and needs this open space to sit properly on the finished PCB.
 </aside>
 
@@ -42,11 +42,15 @@ Do you want to share a footprint that you have created with us? We would like to
 
 ## PCB Software and Services 
 
-There are many software packages and services to design and manufacture a PCB with. Perhaps you already have a favorite go-to, but if you are just starting out or want to check out other options here are some recommendations to start exploring.
+There are many software packages and services to design and manufacture a PCB with. Perhaps you already have a favorite go-to, but if you are just starting out or want to check out other options here are some suggestions to start exploring. 
 
 ### EDA Software
 
-There is a wealth of EDA software to choose from. Listed here are resources that are both used by beginners and professionals alike. 
+The effectiveness of software depends on the user's preferences and skill. 
+
+* [OrCAD](http://www.orcad.com/products/orcad-overview}
+
+	OrCAD is a collection of tools you can use to design PCBs, schematics, analyze circuits with and more. Learn how to use their schematic design tool Capture through [interactive tutorials](http://www.orcadmarketplace.com/Capture-Tutorial/captutor.htm).  
 
 *  [KiCad](http://kicad-pcb.org/)
 

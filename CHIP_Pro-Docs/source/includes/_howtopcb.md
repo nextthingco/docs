@@ -6,7 +6,7 @@ C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC a
 
 ## From 1 to 1MM 
 
-To make scaling up efficient and easy, we offer C.H.I.P. Pro in small or large quantities from our online [store](https://nextthing.co/pages/store). To start, we recommend ordering a handful to prototype with, then ramping up to larger quantities. 
+To make scaling up efficient and easy, we offer C.H.I.P. Pro in small and large quantities. Order from our online [store](https://nextthing.co/pages/store) or email sales@nextthing.co for large quantities. 
 
 ## Tech Documents
 

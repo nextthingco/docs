@@ -32,9 +32,9 @@ We also provide all the measurements required to create your own footprint with 
 
 ![C.H.I.P. Pro footprint](images/footprint0.png)
 
-**Footprint Cutout**
-
+<aside class="notice">
 The ready-made footprints include an open space in the middle allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. **It's important to include this negative space measuring 43mm x 26mm** in the design of your PCB. C.H.I.P. Pro is populated on both sides and needs this open space to sit properly on the finished PCB.
+</aside>
 
 ![C.H.I.P. Pro footprint](images/clearance.jpg)
 

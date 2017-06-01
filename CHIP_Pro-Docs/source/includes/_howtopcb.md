@@ -22,13 +22,7 @@ NTC hardware and software is open source for development. You will find the foll
 	
 ## C.H.I.P. Pro Footprint
 
-Ready-made C.H.I.P. Pro footprints are available to start with, allowing you to get straight to designing the important parts of your circuit. Currently, there are footprints built for two software packages:
-
-* [Eagle](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
-* [EasyEDA](https://easyeda.com/)
-	* A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in EasyEDA's libraries.
-	
-You can also create your own with the EDA (Electronic Design Automation) software of your choice using the measurements provided in our footprint diagram.
+Create a C.H.I.P. Pro footprint with the EDA (Electronic Design Automation) software of your choice using the measurements provided in our footprint diagram.
 
 ![C.H.I.P. Pro footprint](images/CHIP-Pro-Footprint.png)
 
@@ -38,6 +32,8 @@ C.H.I.P. Pro footprints include an open space in the middle allowing for the 1.4
 
 ![C.H.I.P. Pro footprint](images/clearance.jpg)
 
+If using Eagle software to design your PCB with, we've taken away the need to design one. Find our ready-made Eagle footprint [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Footprint/EAGLE).
+	
 Do you want to share a footprint that you have created with us? We would like to include it here for others to use. Send your footprint to docs@nextthing.co. 
 
 ## PCB Software and Services 

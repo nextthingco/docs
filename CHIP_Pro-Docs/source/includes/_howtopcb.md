@@ -32,7 +32,7 @@ We also provide all the measurements required to create your own footprint with 
 
 ![C.H.I.P. Pro footprint](images/footprint0.png)
 
-<aside class="warning">
+<aside class="success">
 The ready-made footprints include an open space in the middle allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. **It's important to include this negative space measuring 43mm x 26mm** in the design of your PCB. C.H.I.P. Pro is populated on both sides and needs this open space to sit properly on the finished PCB.
 </aside>
 
@@ -42,11 +42,11 @@ Do you want to share a footprint that you have created with us? We would like to
 
 ## PCB Software and Services 
 
-There are many software packages and services to design and manufacture a PCB with. Perhaps you already have a favorite go-to, but if you are just starting out or want to check out other options here are some suggestions to start exploring. 
+There are many software packages and services to design and manufacture a PCB with. Perhaps you already have a favorite go-to, but if you are just starting or want to explore other options we offer suggestions below. These are based on what we have seen used in the field and community across all levels of productions. 
+
+NTC does not officially recommend one EDA software package. The effectiveness of a design tool will depend on the user's preferences and skill level. 
 
 ### EDA Software
-
-The effectiveness of software depends on the user's preferences and skill. 
 
 * [OrCAD](http://www.orcad.com/products/orcad-overview}
 
@@ -96,7 +96,7 @@ When you are ready to get your board fabricated, there are several choices. Your
 
 PCB manufacturers have specifications outlining their production capabilities called "design rules". These design rules include smallest possible traces, drill hole size, spacing, etc. Most PCB design software have an automated process that checks your design against these design rules using files. This is called the DRC (design rule checking) process. If the design software you are using does not have this feature some board manufacturers offer the service or you can use DRC specific software. 
  
-As an example, OSH Park's PCB design rules are found on their OSH Park [Design Submission Guidelines](https://oshpark.com/guidelines) page. Conveniently, they provide a file for checking PCB designs using Eagle softeare. OSH Park also provides [design guideline documents](http://docs.oshpark.com/design-tools/) for many of the EDA software people submit designs with. To get you started, below are some design rule resources for software linked to in this doc.
+As an example, OSH Park's PCB design rules are found on their OSH Park [Design Submission Guidelines](https://oshpark.com/guidelines) page. Conveniently, they provide a file for checking PCB designs using Eagle software. OSH Park also provides [design guideline documents](http://docs.oshpark.com/design-tools/) for many of the EDA software people submit designs with. To get you started, below are some design rule resources for software linked to in this doc.
 
 * [Altium](https://techdocs.altium.com/display/ADOH/Design+Rules#) 
 * [KiCad](http://kicadhowto.wikidot.com/co1drc)
@@ -127,7 +127,9 @@ C.H.I.P. Pro can also be powered through *BAT* if a battery is connected, and *V
 | PMU Vout | 500 mA | 900 mA  | 2500 mA |
 
 Programmable current limit can be set in software allowing for safe attachment to USB 2.0, USB 3.0, or high-current CHG-In sources. Check the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
- for more information starting on page 33. The setting options are 100mA, 500mA, 900mA and "no limit".  "900mA" is what C.H.I.P. Pro is set to by default upon boot. Keep in mind that, if you set the current limit and the current draw exceeds the threshold, C.H.I.P. will shut down.
+ for more information starting on page 33. The setting options are 100mA, 500mA, 900mA and "no limit". C.H.I.P. Pro is set to 900mA by default upon boot. 
+ 
+Keep in mind that if the current draw spikes and exceeds the threshold even momentarily this will cause a brownout and C.H.I.P. Pro will shut down. 
 
 ### Power Consumption
 
@@ -183,11 +185,17 @@ Whether you want to add a micro USB 5V source or a host USB-A port, here are som
 	
 ## Analog Input
 
-C.H.I.P. Pro has many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding an I2C controlled ADC to your circuit. 
+If your product requires analog input for sensors, keypads and potentiometers there a few options to choose from.
+
+* Add a I2C controlled ADC to circuit design.
+* Use the 12-bit ADC integrated into the temperature sensor circuit. More info on [page 25 of the AXP209 datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/Component%20Datasheets/AXP209_Datasheet_v1.0en.pdf).
+* C.H.I.P. Pro has a 6-bit LRADC (Low Resolution ADC) accessible through pin 42 suitable for multi-button input. 
+	
+	require analog input C.H.I.P. Pro comes with many GPIO to choose from including two PWM pins. If your product needs analog input we recommend adding an I2C controlled ADC to your circuit. 
 
 ## WiFi Signal
 
-The onboard ceramic WiFi antenna is for debugging purposes only. For products applications use the antenna that comes with the C.H.I.P. Pro Dev Kit or obtain any of these officially supported ones:
+The onboard ceramic WiFi antenna is for debugging purposes only. For product applications use the antenna that comes with the C.H.I.P. Pro Dev Kit or obtain any of these pre-certified options:
 
 | Antenna Model | Manufacturer | Gain | Antenna Type | Connection Type | Freq. Range (GHz) | Cable Length (mm) |
 |------------|-----|-----|-----|-----|-----|-----|
@@ -197,6 +205,8 @@ The onboard ceramic WiFi antenna is for debugging purposes only. For products ap
 | AA055   | Unictron | 2.5 dBi | Ceramic | SMT | 2.4 - 2.5 | n/a |
 
 ## Make Use of Modular Certification 
+
+To provide fast integration time into your product NTC has done most of the heavy lifting when it comes to certification.
 
 * C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available external antennas as well as the onboard ceramic SMT antenna. 
 

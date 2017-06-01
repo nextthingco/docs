@@ -10,30 +10,27 @@ To make scaling up efficient and easy, we offer C.H.I.P. Pro in small or large q
 
 ## Tech Documents
 
-NTC hardware and software is open source so you will find design and technical documents on our Github account. For the sake of convenience, all the technical documents that relate to designing a PCB from our Github are linked to below. 
+NTC hardware and software is open source for development. You will find the following design and technical documents for [C.H.I.P. Pro](https://github.com/NextThingCo/CHIP_Pro-Hardware) and the [C.H.I.P. Pro Dev Kit](https://github.com/NextThingCo/CHIP_Pro-Dev-Kit) on our Github account. 
 
-* [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf)
-* [Component datasheets](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets)
-* [Mechanical documents](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents)
-* [C.H.I.P. Pro schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/CHIP_Pro_v1_0_Schematic.pdf)
-* [C.H.I.P. Pro Dev Kit schematics](https://github.com/NextThingCo/Dev_Kit-Hardware/tree/master/PDFs)
-* [PCB board files](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/PCB%20Source)
-* [Eagle Footprint](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
-* [C.H.I.P. Pro and Dev Kit Docs](https://docs.getchip.com/)
+* C.H.I.P. Pro datasheet
+* Component datasheets
+* Mechanical documents
+* C.H.I.P. Pro schematics
+* C.H.I.P. Pro Dev Kit schematics
+* PCB board files
+* Eagle Footprint
 	
 ## C.H.I.P. Pro Footprint
 
-There are ready-made footprints available for C.H.I.P Pro to start with. We also provide all the measurements required to create your own footprint with the EDA (Electronic Design Automation) software of your choice. 
-
-It's best to begin with an already designed footprint for C.H.I.P. Pro so you can get straight to designing the important parts of your circuit. Currently, there are footprints built for two software packages:
+There are ready-made footprints available for C.H.I.P Pro to start a PCB layout with. Allowing you to get straight to designing the important parts of your circuit. Currently, there are footprints built for two software packages:
 
 * [Eagle](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/Footprint/EAGLE/CHIP_Pro-Footprint.lbr) 
 * [EasyEDA](https://easyeda.com/)
 	* A user contributed footprint for C.H.I.P. Pro can be found by searching CHIP_Pro in EasyEDA's libraries.
+	
+We also provide all the measurements required to create your own footprint with the EDA (Electronic Design Automation) software of your choice. 
 
-If designing your own footprint, use our diagram that includes measurements to ensure C.H.I.P. Pro aligns with the solder pads correctly. 
-
-![C.H.I.P. Pro footprint](images/footprint.png)
+![C.H.I.P. Pro footprint](images/footprint0.png)
 
 **Footprint Cutout**
 

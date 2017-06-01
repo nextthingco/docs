@@ -73,7 +73,7 @@ You can download a high resolution version of this image [here](https://github.c
 
 C.H.I.P. Pro is designed for scale, so it's ready to drop into any SMT manufacturing line. The exterior dimensions for the PCB pads for C.H.I.P. Pro are 32 mm x 47.60 mm (1.26 in x 1.87 in). More detailed dimensions for your board layout are in the following diagram that can also be found in the C.H.I.P. Datasheet:
 
-![C.H.I.P. Pro PCB Footprint](images/footprint0.png)
+![C.H.I.P. Pro PCB Footprint](images/CHIP-Pro-Footprint.png)
 
 ### Datasheet
 

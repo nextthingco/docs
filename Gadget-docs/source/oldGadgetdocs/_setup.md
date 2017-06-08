@@ -1,4 +1,4 @@
-# Setup Gadget
+# Quick Start
 
 To get the most from Gadget's lighting fast deployment process, development is done on a host computer. Once your code is ready for testing it's compiled and pushed to the hardware device connected via USB using GadgetOS' daemon GadgetOSd. To get started, install the following on your host computer and Gadget compatible hardware. 
 

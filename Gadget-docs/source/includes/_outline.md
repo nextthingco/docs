@@ -1,99 +1,68 @@
-# Introduction
-Gadget is a suite of software tools for developing, deploying, and distributing custom Linux operating systems for projects and products.
-
-Gadget combines a ready to use fast-booting Buildroot image, container support and a cross-platform command line tool with reliable drivers for Gadget compatible hardware. Gadget removes the need for setup and low level optimization so you can focus on your high level code.
-
-We made Gadget to make it much easier to create new and kickass hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier, iterate immediately, replicate quickly, and collaborate seamlessly. It’s also open source so you can customize it to better suit your project’s needs.
-
-# Audience
-Docker enthusiasts
-CHIP Pro Dev Kit owners
-
-IMPORTANT - This is not for…
-general public
-chip users
-pocketchip users
-folks who stumble onto our website
-
-# What is Gadget?
+http://ntc-docs-unstable.surge.sh/gadget.html#welcome
+Lara fills in outline on unstable branch 
  
+Intro [David]
+	What is Gadget intro paragraph
+		Beta, we want feedback!
 	GadgetCLI
-GadgetOS
-		Buildroot
-		Docker
-		GadgetOSd
-		
-Gadget CLI
-a cross platform simplified command line tool for developing a custom Linux distribution. GadgetCLI comes with a Gadget Template containing...
+	GadgetOS
+	Workflow diagram [Lara]
+ 
+Quick Start [David]
+	Install Gadget
+	Install Docker, if already installed make sure it’s the most up to date
+	Hello World test
+	Command def (do they need further explanation than what’s in the help file?)
+	WiFi Setup via gadget shell & connmanctl
+ 
+Build With Gadget [Lara]
+	Two ways to deploy images 
+		build image on local machine 
+		git clone from our repo 
+	Common command sequence
+		init
+		build	
+		deploy
+		start
+		logs
+		status
+		shell w/ illustration showing where you are in relation to the container.
+	Containerize an Application
+	Examples
+		I2C
+		SPI
+		VU-meter
+		Python CHIP_IO
+		Google Assistant?
+		Multiple containers?
+	Gadget.yml breakdown
+	Where and how do you pass args to the docker run command?
+	Once we know ^ we can answer how to add network, volume, kernel module, and device sharing between the host and container.
 
-GadgetFile
-This is container build instructions for your code. Whatever instructions live here, will be built and deployed.
+Alpine [David]
+	Link to forum for feedback
+	What is is Alpine
+	Why is it being used? Why not Debian?
+	Useful CMDs for Alpine Linux
+		How to use APK
+		Note: apk is not the android package!
 
-Blinkenlights.sh 
-A sample bash script to make the LEDs on the C.H.I.P. Pro Dev Kit blink. Our ‘hello world’.
+Git basics [Lara]
+	Clone
+	Pull
+	(commit and push are outside the scope, so we’ll link to outbound docs)
+ 
+Troubleshooting [Lara]
+	df -h
+	Docker rmi and other clean-up commands
+		Gadget shell + clean-up commands
 
-GadgetOS
-a fastbooting buildroot image with built-in container support designed to be flashed to Gadget certified hardware.
-
-Buildroot
-GadgetOS is Next Thing Co.’s custom buildroot, optimized for boot speed. For more information on buildroot, read here.
-
-GadgetOSd
-a GadgetOS daemon allows automatic communication with the GadgetCLI when connected over USB.
-
-Docker
-This version of Gadget makes use of the Docker container system. For more information on Docker, read here.
-
-ASSUMED KNOWLEDGE
-
-# Set Up
-	Install Docker
-	Set up Docker
-	Install CLI
-	Flash CHIP Pro 
-
-# Build and Deploy Your First Application
-
-Plug in CHIP Pro
-Open Gadget
-
-```
-gadget init hello_world
-cd hello_world
-gadget build
-gadget deploy
-```
-
-Where Gadget looks for the container and Dockerfile on Macs, Windows, Linux
-	use tree command? (doesn’t come with Mac)
-	Mac 
-	/Users/userName/containerName
-	/Users/userName/containerName/Gadgetfile
-	
-
-# Gadget Certified Hardware
-
-Gadget has been designed in conjunction with C.H.I.P. Pro to take advantage of C.H.I.P. Pro’s feature set. Learn more about C.H.I.P. Pro here [link to chip pro page].
-Hardware pics
-
-# Going Further 
-	
-
-# OTHER CONTAINERS?
-
-# MOVING FORWARD
-
-# ADDITIONAL RESOURCES
-	Docker!
-	Buildroot!
-	NTC Gadget Forum?!
-
-# TROUBLESHOOTING
-	Is the right image flashed?
-	Permissions
-
-
-
-
-
-
+Feedback
+ 
+Gadget Forum Category [David]
+	Start private for invite only beta
+	Move to public once there’s a public launch
+	Gadget
+	Kernel Hacking? (we need feedback about the gadgetos kernel, but what’s the best way to get it?)
+	Containers
+	Alpine

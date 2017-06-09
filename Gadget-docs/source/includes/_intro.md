@@ -1,38 +1,47 @@
-# Welcome! [David]
+# Welcome to Gadget!
 
-<span style="font-size: 36px">&#128226;</span> We at Next Thing Co. would like to introduce the developer preview of Gadget, our open source suite of software tools. Gadget is built for developing, deploying, and distributing custom Linux operating systems for projects and products. Since it's open source we want to hear from all you Docker enthusiasts and CHIP Pro Dev Kit owners about how you are using it. To leave feedback, Gadget can be found on NTC's [github account]. 
+<span style="font-size: 36px">&#128226;</span>Welcome to the **developer preview** of Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro. 
 
-Currently, Gadget supports C.H.I.P. Pro. Our example script lights up LEDs connected to pins PE4 - PE11. The Dev Kit comes with LEDs hardwired to these pins. If you are using C.H.I.P. Pro bare, you will need to manually connect LEDs to pins PE4 - PE11 (with in-series resistor!). Stay tuned for updates on further supported hardware and more software features.
+<aside class="notice">
+Gadget is an open source and being actively developed, and we want to know what you think about it. The best way to leave us feedback is to use the **developer preview category** in the forum and to submit pull requests to the repos: GadgetOS repo & GadgetCLI repo. 
+</aside>
 
-	* we want your feedback!
 
-# What is Gadget? [David]
+# What is Gadget? 
+Gadget is made up of two pieces of software that work together to simplify embedded software development:
 
-Simply put, Gadget is a suite of open source software tools. We created Gadget to make it much quicker to create and collaborate on new hardware projects and products. With Gadget and Gadget certified hardware, you will boot faster, cross compile easier and iterate immediately.
+1. **GadgetCLI** is a command-line tool you use on your development machine. It lets you manage your code, add and build containers, and deploy your finished projects to C.H.I.P. Pro. See the [GadgetCLI section](TKTK) for specifics.
 
-![init hello world](images/initHelloworld.gif)
+2. **GadgetOS** is a buildroot-based Linux operating system that runs on C.H.I.P. Pro. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI. See the [GadgetOS section](TKTK) for more details.
 
-<span style="color: #F6248D">**Develop**</span> - Create your code in a container with the command-line interface.
+ 
+* * * 
+ 
+## GadgetCLI 
 
-<span style="color: #F6248D">**Cross Compile**</span> - Build your work on your computer rather than the device.
+GadgetCLI is a command-line tool for developing your projects.
+ 
+**Supported Systems:**
 
-<span style="color: #F6248D">**Deploy**</span> - Push the build to your hardware device.
+* Ubuntu Linux TKTK
+* OSX TKTK
+* Windows TKTK
 
-<span style="color: #F6248D">**Iterate**</span> - Make changes using the command-line interface. When you deploy changes, it only pushes the lines of code that have changed which makes it super speedy.
 
-<span style="color: #F6248D">**Replicate**</span> - Because your container is developed and built on a host computer deploying to a new device is a piece of cake.
-
-<span style="color: #F6248D">**Collaborate**</span> - Share your containers and collaborate remotely. Containers have all the code needed to ensure whoever you share with can build and use your project.
-
-Gadget is comprised of three main pieces of software: **GadgetCLI**, **GadgetOS** and **GadgetDev**. *fe
-
-## GadgetCLI [David]
-
-GadgetCLI is a simplified command-line tool for developing a custom Linux distribution. It's what you use to build and deploy applications using the power of Docker and containers. For more information on Docker and containers, read [here](https://www.docker.com/what-docker). 
-     
-## GadgetOS [David]
+## GadgetOS 
 
 Buildroot is at the core of GadgetOS and features Docker support and GadgetOSD. **GadgetOSd** is a daemon that allows automatic communication with GadgetCLI over a USB connection. For more information on Buildroot, read [here](https://buildroot.org/).
+
+
+**TODO**
+* What's the boot time?
+* How much NAND is taken up? 
+* .conf file for kernel (from crunch)
+* supports TKTK by default (high-level stuff like spi, i2c, webcam... what's supported?)
+
+
+
+
 
 ## Workflow [Diagram, Lara]
 

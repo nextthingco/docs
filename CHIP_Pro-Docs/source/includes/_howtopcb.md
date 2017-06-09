@@ -22,15 +22,24 @@ NTC hardware and software is open source for development. You will find the foll
 	
 ## C.H.I.P. Pro Footprint
 
-Create a C.H.I.P. Pro footprint with the EDA (Electronic Design Automation) software of your choice using the measurements provided in our footprint diagram.
+Create a C.H.I.P. Pro footprint with the EDA (Electronic Design Automation) software of your choice using the measurements provided in our footprint diagrams. For SMT manufacturing, you will also find a solder paste stencil.
 
-![C.H.I.P. Pro footprint](images/CHIP-Pro-Footprint.png)
+### SMT Footprint
+
+![C.H.I.P. Pro SMT footprint](images/Pro_Footprint_SMT.jpg)
+
+### Solder Paste Stencil
+
+![C.H.I.P. Pro SMT stencil](images/Pro_stencil.jpg)
+
+### Hand Solder Footprint
+
+![C.H.I.P. Pro footprint](images/Pro_Footprint_hand.jpg)
+
 
 <aside class="success">
 C.H.I.P. Pro footprints include an open space in the middle allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. **It's important to include this negative space measuring 43mm x 26mm** in the design of your PCB. C.H.I.P. Pro is populated on both sides and needs this open space to sit properly on the finished PCB.
 </aside>
-
-![C.H.I.P. Pro footprint](images/clearance.jpg)
 
 If using Eagle software to design your PCB with, we've taken away the need to design one. Find our ready-made Eagle footprint [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Footprint/EAGLE).
 	
@@ -122,7 +131,7 @@ C.H.I.P. Pro can also be battery powered through *BAT*, and by a USB charger/sup
 |--------------|--------|---------|---------|
 | PMU Vout | 500 mA | 900 mA  | 2500 mA |
 
-A programmable current limit can be set in software allowing for safe attachment to USB 2.0, USB 3.0, or high-current CHG-In sources. Check the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf). 
+A programmable current limit can be set in software allowing for safe attachment to USB 2.0, USB 3.0, or high-current CHG-In sources. Check the [AXP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master). 
  for more information starting on page 33. The current set options are 100mA, 500mA, 900mA and "no limit". C.H.I.P. Pro is set to 900mA upon boot by default. 
  
 Keep in mind that if the current draw spikes and exceeds the threshold even momentarily this will cause a brownout and C.H.I.P. Pro will shut down. 
@@ -165,11 +174,11 @@ To ensure maximum charge current without a thermistor disable the battery temper
 sudo i2cset -y -f 0 0x34 0x82 0x82
 ````
 
-You can find more information on this setup in the [AXP209 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf) starting on page 21. 
+You can find more information on this setup in the [AXP209 Datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master) starting on page 21. 
 
 ### Power Button 
 
-The PWRON pin can be connected to GND through a button as a Power Enable Key (PEK) or hibernation/wake button. The AXP209 can automatically identify long and short button presses. Read more about this on page 10 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master/CHIP%5Bv1_0%5D/CHIPv1_0-BOM-Datasheets/AXP209_Datasheet_v1.0en.pdf).  
+The PWRON pin can be connected to GND through a button as a Power Enable Key (PEK) or hibernation/wake button. The AXP209 can automatically identify long and short button presses. Read more about this on page 10 of the [AXMP209 datasheet](https://github.com/NextThingCo/CHIP-Hardware/blob/master).  
 
 ## Additional USB Port
 
@@ -184,7 +193,7 @@ Whether you want to add a micro USB 5V source or a host USB-A port, here are som
 If your product requires analog input for sensors, keypads or potentiometers there a few ways to utilize an ADC.
 
 * An I2C controlled ADC can be added to your product's circuit.
-* There is a 12-bit ADC integrated in the AXP209's temperature sensor circuit. More info on [page 25 of the AXP209 datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/Component%20Datasheets/AXP209_Datasheet_v1.0en.pdf).
+* There is a 12-bit ADC integrated in the AXP209's temperature sensor circuit. More info on [page 25 of the AXP209 datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master).
 * C.H.I.P. Pro has a 6-bit LRADC (Low Resolution ADC) accessible through pin 42 suitable for multi-button input. 
 
 ## WiFi Signal

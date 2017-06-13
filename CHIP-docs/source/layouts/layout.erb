@@ -20,12 +20,12 @@ under the License.
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
+
 		<%# Next Thing Custom %>
 		<link rel="shortcut icon" href="//s3-us-west-2.amazonaws.com/ntcpublic/icon-16.png" type="image/x-icon">
     <link rel="icon" href="//s3-us-west-2.amazonaws.com/ntcpublic/icon-16.png" type="image/x-icon">
 		<%# Next Thing Custom END %>
-		
+
     <title><%= current_page.data.title || "API Documentation" %></title>
 
     <style>
@@ -33,11 +33,11 @@ under the License.
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
-    
+
     <%# Next Thing Custom %>
     <%= stylesheet_link_tag :ntc_override, media: :screen %>
     <%# Next Thing Custom END %>
-    
+
     <% if current_page.data.search %>
       <%= javascript_include_tag  "all" %>
     <% else %>
@@ -53,13 +53,13 @@ under the License.
       </span>
     </a>
     <div class="tocify-wrapper">
-    
+
 			<%# Next Thing Custom %>
       <div class="nav-bar-logo">
         <a href="index.html"><%= image_tag "ntclogo_doccorner.png" %></a>
       </div>
       <%# Next Thing Custom END %>
-      
+
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -90,6 +90,13 @@ under the License.
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
+        <nav class="docs-top-nav-fixed">
+          <a href="https://docs.getchip.com/chip_pro.html"><div class="docs-top-nav-item">CHIP Pro</div></a>
+          <a href="https://docs.getchip.com/chip_pro_devkit.html"><div class="docs-top-nav-item">CHIP Pro Dev Kit</div></a>
+          <a href="#"><div class="docs-top-nav-item active">CHIP</div></a>
+          <a href="https://docs.getchip.com/pocketchip.html"><div class="docs-top-nav-item">PocketCHIP</div></a>
+          <a href="https://docs.getchip.com/dip.html"><div class="docs-top-nav-item">DIP</div></a>
+        </nav>
         <%= yield %>
         <% current_page.data.includes && current_page.data.includes.each do |include| %>
           <%= partial "includes/#{include}" %>

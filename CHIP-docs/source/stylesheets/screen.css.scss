@@ -629,3 +629,32 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+// topnav fixed hack
+h1:before,
+h2:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 1.5em;
+}
+.docs-top-nav {
+  &-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgb(57,57,57);
+  }
+
+  &-item {
+    display: inline-block;
+    padding: 5px;
+    width: 120px;
+    text-align: center;
+    &.active,
+    &:hover {
+      background: #fff;
+    }
+  }
+}

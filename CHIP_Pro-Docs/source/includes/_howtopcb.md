@@ -37,7 +37,7 @@ Create a C.H.I.P. Pro footprint with the EDA (Electronic Design Automation) soft
 ![C.H.I.P. Pro footprint](images/Pro_Footprint_hand.jpg)
 
 
-<aside class="success">
+<aside class="notice">
 C.H.I.P. Pro footprints include an open space in the middle allowing for the 1.4mm height extending from the bottom of C.H.I.P. Pro. **It's important to include this negative space measuring 43mm x 26mm** in the design of your PCB. C.H.I.P. Pro is populated on both sides and needs this open space to sit properly on the finished PCB.
 </aside>
 

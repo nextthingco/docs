@@ -4,9 +4,8 @@ Lara fills in outline on unstable branch
 Intro [David]
 	What is Gadget intro paragraph
 		Beta, we want feedback!
-	GadgetCLI
-	GadgetOS
-	Workflow diagram [Lara]
+		GadgetOS
+		Workflow diagram [Lara]
  
 Quick Start [David]
 	Install Gadget
@@ -66,3 +65,10 @@ Gadget Forum Category [David]
 	Kernel Hacking? (we need feedback about the gadgetos kernel, but what’s the best way to get it?)
 	Containers
 	Alpine
+
+
+
+
+
+
+

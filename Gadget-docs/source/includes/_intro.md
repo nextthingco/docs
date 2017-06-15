@@ -7,6 +7,8 @@ Gadget is an open source and being actively developed, and we want to know what 
 </aside>
 
 
+	* we want your feedback!
+
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development:
 
@@ -14,9 +16,7 @@ Gadget is made up of two pieces of software that work together to simplify embed
 
 2. **GadgetOS** is a buildroot-based Linux operating system that runs on C.H.I.P. Pro. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI. See the [GadgetOS section](TKTK) for more details.
 
- 
-* * * 
- 
+
 ## GadgetCLI 
 
 GadgetCLI is a command-line tool for developing your projects.
@@ -27,7 +27,7 @@ GadgetCLI is a command-line tool for developing your projects.
 * OSX TKTK
 * Windows TKTK
 
-
+     
 ## GadgetOS 
 
 Buildroot is at the core of GadgetOS and features Docker support and GadgetOSD. **GadgetOSd** is a daemon that allows automatic communication with GadgetCLI over a USB connection. For more information on Buildroot, read [here](https://buildroot.org/).
@@ -39,11 +39,9 @@ Buildroot is at the core of GadgetOS and features Docker support and GadgetOSD. 
 * .conf file for kernel (from crunch)
 * supports TKTK by default (high-level stuff like spi, i2c, webcam... what's supported?)
 
-
-
-
-
 ## Workflow [Diagram, Lara]
+
+Use GadgetDev to debug and quickly test code directly on Gadget certified hardware.
 
 
 	

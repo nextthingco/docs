@@ -86,6 +86,15 @@ Push and sync changes:
 
 Get peers to review your changes at http://ntc-docs-testing.surge.sh/
 
+## Working Off Unstable/Testing/Stable Branches 
+
+If a new branch needs to created that will take longer to develop than general updates done to unstable. To keep it from the unstable --> testing --> stable push process use middleman to preview and test:
+
+```
+bundle install
+bundle exec middleman server
+```
+
 ## History
 
 In the past, the documetation is spread over 6 different repositories on github.com:

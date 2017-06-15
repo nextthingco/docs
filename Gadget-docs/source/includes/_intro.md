@@ -3,7 +3,7 @@
 <span style="font-size: 36px">&#128226;</span>Welcome to the **developer preview** of Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro. 
 
 <aside class="notice">
-Gadget is an open source and being actively developed, and we want to know what you think about it. The best way to leave us feedback is to use the **developer preview category** in the forum and to submit pull requests to the repos: GadgetOS repo & GadgetCLI repo. 
+Gadget is open source and being actively developed, and we want to know what you think about it. The best way to leave us feedback is to use the **developer preview category** in the forum and to submit pull requests to the repos: GadgetOS repo & GadgetCLI repo. 
 </aside>
 
 
@@ -30,10 +30,11 @@ GadgetCLI is a command-line tool for developing your projects.
      
 ## GadgetOS 
 
-Buildroot is at the core of GadgetOS and features Docker support and GadgetOSD. **GadgetOSd** is a daemon that allows automatic communication with GadgetCLI over a USB connection. For more information on Buildroot, read [here](https://buildroot.org/).
+Buildroot is at the core of GadgetOS and features Docker support and GadgetOSD. **GadgetOSD** is a daemon that allows automatic communication with GadgetCLI over a USB connection. For more information on Buildroot, read [here](https://buildroot.org/).
 
 
 **TODO**
+
 * What's the boot time?
 * How much NAND is taken up? 
 * .conf file for kernel (from crunch)

@@ -24,5 +24,4 @@ includes:
 search: true
 ---
 
-# Introduction
-Welcome to Next Thing Co documentation.
+

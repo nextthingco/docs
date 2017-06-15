@@ -5,11 +5,13 @@ language_tabs:
 
 
 includes:
-  - overview
-  - setup
-  - builddeploy
-  - features
-  - advanced
+  - intro
+  - quickstart
+  - build
+  - alpine
+  - git
+  - troubleshooting
+  - feedback
 
 search: true
 ---

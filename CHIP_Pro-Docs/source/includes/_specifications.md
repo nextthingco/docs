@@ -57,24 +57,29 @@ FCC Modular certification (47 CFR 15.212) limits the need for final device 	    
 
 To learn more, find the FN-Link Module datasheet [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/Fn-Link%206223A-SRD_datasheet_V1%200_09262016.pdf). 
 
+## Mechanical Drawing
+
+![Mechanical Drawing](images/Mech_Draw_sm.jpg)
+
+You can download a high resolution version of this image [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents).
+
+## PCB Footprint
+
+C.H.I.P. Pro is designed for prototyping and dropping in to a production assembly line. To inform your PCB designs, we have detailed diagrams for mounting C.H.I.P. Pro by hand soldering and by SMT pick-and-place machines. 
+
+* 
+
+More detailed information on how to design a PCB for C.H.I.P. Pro is found here. The stencil and footprints are also included in C.H.I.P. Pro's datasheet.
+
+![C.H.I.P. Pro PCB Footprint](images/CHIP-Pro-Footprint.png)
+
+## Datasheet
+
+The complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets).
+
 ## Open Source Hardware
 
 C.H.I.P. Pro is open source. Find all you need to build a C.H.I.P. Pro in our [Github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware).
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
-### Mechanical Drawing
-
-![Mechanical Drawing](images/Mech_Draw_sm.jpg)
-
-You can download a high resolution version of this image [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents).
-
-### PCB Footprint
-
-C.H.I.P. Pro is designed for scale, so it's ready to drop into any SMT manufacturing line. The exterior dimensions for the PCB pads for C.H.I.P. Pro are 32 mm x 47.60 mm (1.26 in x 1.87 in). More detailed dimensions for your board layout are in the following diagram that can also be found in the C.H.I.P. Datasheet:
-
-![C.H.I.P. Pro PCB Footprint](images/CHIP-Pro-Footprint.png)
-
-### Datasheet
-
-The complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets/CHIP_PRO_Datasheet_v1.0.pdf).

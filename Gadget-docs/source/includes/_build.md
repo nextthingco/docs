@@ -41,44 +41,44 @@ Start your project with one of our Python example images. Examples are pulled fr
 
 A 'hello world' example that blinks an LED on pin 36, CSDID0. If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
 
-1. Launch GadgetCLI
+**1.** Launch GadgetCLI
 
-2. Connect hardware to host computer.
+**2.** Connect hardware to host computer.
 
 	Make sure the hardware is flashed with GadgetOS.  
 	{Pic of Dev Kit connected to host computer}
 
-3. Create project directory
+**3.** Create project directory
 
 	`blink`
 
-4. Initialize Project
+**4.** Initialize Project
 
 	Create the gadget.yml configuration file in your project directory.
 
 	`gadget -C blink init`
 
 
-5. Add Service to Gadget.yml
+**5.** Add Service to Gadget.yml
 
 	Go into project directory:
 
 	`cd blink` 
 
-**TKTK When I  create project directory, i can create a .yml file but then can't add service with the gadget mac release i have.**
+	**TKTK When I  create project directory, i can create a .yml file but then can't add 	service with the gadget mac release i have.**
 
-This file holds the options that are needed for a container at run time. This is also where you add services and onboot actions. 
+	This file holds the options that are needed for a container at run time. This is also 	where you add services and onboot actions. 
 
-Check out the Configuring gadget.yml LINK to learn more about the available options. 
-
-
-`gadget add service blink #add a service to file`
+	Check out the Configuring gadget.yml LINK to learn more about the available options. 
 
 
-**should friendly and project directory name be different?**
-**How do I delete services?**
+	`gadget add service blink #add a service to file`
 
-6. Edit gadget.yml
+
+	**should friendly and project directory name be different?**
+	**How do I delete services?**
+
+**6.** Edit gadget.yml
 
 	`nano gadget.yml`
 	
@@ -104,7 +104,7 @@ Check out the Configuring gadget.yml LINK to learn more about the available opti
 	ERRO[0001] Failed to build 'pythonio'                   
 	WARN[0001] Is the docker daemon installed and running?
 
-7. Build Image
+**7.** Build Image
 
 	```
 	gadget build blinkdemo

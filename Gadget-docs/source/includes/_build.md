@@ -110,26 +110,6 @@ Check out the Configuring gadget.yml LINK to learn more about the available opti
 	gadget build blinkdemo
 	```
 
-
-## Configuring Gadget.yml
-
-Definition of all the things in gadget.yml file.
-
-**onboot**
-
-**services**
-
-**name** - Name of project
-**uuid** - Unique container ID
-**image** - Pathname of Docker Hub 
-**directory** - Pathname of local image
-**net** - 
-**pid** -
-**readonly** - Set to false by default
-**command**
-**binds** - Bind mount a volume
-**capabilities** - 
-
 ### I2C
 
 **ADS1015**
@@ -188,6 +168,24 @@ docker tag blinkdemo pushreset/blink:v1
 docker push pushreset/blink:v1
 
 ```
+## Configuring Gadget.yml
+
+Definition of all the things in gadget.yml file.
+
+**onboot**
+
+**services**
+
+**name** - Name of project
+**uuid** - Unique container ID
+**image** - Pathname of Docker Hub 
+**directory** - Pathname of local image
+**net** - 
+**pid** -
+**readonly** - Set to false by default
+**command**
+**binds** - Bind mount a volume
+**capabilities** - 
 
 ## Common Command Sequence
 

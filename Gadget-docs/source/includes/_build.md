@@ -23,19 +23,19 @@ Once you get our Blink Python script up and running you are ready to dive deeper
 
 **Gadget Compatible Hardware**
 
-* GadgetOS 
+ƒ* GadgetOS 
 
 ## Two Ways to Build With Gadget
 
 See demos with pullable images, start developing by cloning/editing/building our Dockerfiles from Github.
 
-1. **Pull Example Images** from Dockerhub and deploy to hardware. See the Examples LINK section to learn about this process.
+1. **Pull Example Images** from Docker Hub and deploy to hardware. See the Examples LINK section to learn about this process.
 
 2. **Build Images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally LINK to learn more about that.
 
 ## Example Images
 
-Start your project with one of our Python example images. Examples are pulled from the official [NTC DockerHub](https://hub.docker.com/r/ntcgadget/). Dockerfiles and supporting files are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
+Start your project with one of our Python example images. Examples are pulled from the official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
 ### Blink
 
@@ -54,24 +54,84 @@ Make sure the hardware is flashed with GadgetOS.
 
 4. Initialize Project
 
-Create the gadget.yml configuration file. 
+Create the gadget.yml configuration file in your project directory.
 
-`gadget init`
+`gadget -C blink init`
+
 
 5. Add Service to Gadget.yml
 
-This file is where the options go that are needed for a container at run time. This is also where you add services and onboot actions. 
+Go into project directory:
 
-Check out the Configuring Gadget.yml LINK to learn more about the available options. 
+```
+cd blink
+``` 
+
+**TKTK When I  create project directory, i can create a .yml file but then can't add service with the gadget mac release i have.**
+
+This file holds the options that are needed for a container at run time. This is also where you add services and onboot actions. 
+
+Check out the Configuring gadget.yml LINK to learn more about the available options. 
 
 ```
 gadget add service blink #add a service to file
 
 ```
+**should friendly and project directory name be different?**
+**How do I delete services?**
+
+6. Edit gadget.yml
+
+```
+nano gadget.yml
+```
+Edit the field after "image:" to reflect the username/repo:tag. 
+
+```
+services:
+- name: blinkdemo
+  uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
+  image: ntcgadget/blink:v1 
+  directory: ""
+  net: ""
+  pid: ""
+  readonly: false
+  command: []
+  binds: []
+  capabilities: []
+```
+
+
+change “image:” section to docker repo, make sure you specify the right tag if you gave one! Otherwise you will get this error:
+ERRO[0001] Error response from daemon: manifest for pushreset/pythonio:latest not found 
+ERRO[0001] Failed to build 'pythonio'                   
+WARN[0001] Is the docker daemon installed and running?
+
+7. Build Image
+
+```
+gadget build blinkdemo
+```
+
 
 ## Configuring Gadget.yml
 
-Definition of all the things in gadget.yml file
+Definition of all the things in gadget.yml file.
+
+**onboot**
+
+**services**
+
+**name** - Name of project
+**uuid** - Unique container ID
+**image** - Pathname of Docker Hub 
+**directory** - Pathname of local image
+**net** - 
+**pid** -
+**readonly** - Set to false by default
+**command**
+**binds** - Bind mount a volume
+**capabilities** - 
 
 ### I2C
 
@@ -102,6 +162,35 @@ Google's Assistant API can be asked questions and be used to control hardware su
 ## Build Image Locally
 
 Take the following steps to learn how to best develop with Gadget and Docker. 
+
+1. Create project directory
+
+```
+mkdir projectname
+cd projectname
+```
+
+1. Create Dockerfile
+
+```
+nano Dockerfile
+```
+
+2. Create supporting files
+
+```
+nano pythonScript.py
+```
+
+3. Build, Tag and Push
+
+```
+docker build -t friendlyname . #build and tag it 
+docker login #log into your personal Docker Hub
+docker tag blinkdemo pushreset/blink:v1
+docker push pushreset/blink:v1
+
+```
 
 ## Common Command Sequence
 

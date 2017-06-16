@@ -23,7 +23,7 @@ Once you get our Blink Python script up and running you are ready to dive deeper
 
 **Gadget Compatible Hardware**
 
-ƒ* GadgetOS 
+* GadgetOS 
 
 ## Two Ways to Build With Gadget
 
@@ -31,7 +31,7 @@ See demos with pullable images, start developing by cloning/editing/building our
 
 1. **Pull Example Images** from Docker Hub and deploy to hardware. See the Examples LINK section to learn about this process.
 
-2. **Build Images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally LINK to learn more about that.
+2. **Build Images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally section LINK to learn more about that.
 
 ## Example Images
 
@@ -39,33 +39,33 @@ Start your project with one of our Python example images. Examples are pulled fr
 
 ### Blink
 
-A 'hello world' to make sure everything is working.
+A 'hello world' example to make sure everything is working.
 
 1. Launch GadgetCLI
 
 2. Connect Hardware to Host
 
-Make sure the hardware is flashed with GadgetOS.  
-{Pic of Dev Kit connected to host computer}
+	Make sure the hardware is flashed with GadgetOS.  
+	{Pic of Dev Kit connected to host computer}
 
 3. Create project directory
 
-`blink`
+	`blink`
 
 4. Initialize Project
 
-Create the gadget.yml configuration file in your project directory.
+	Create the gadget.yml configuration file in your project directory.
 
-`gadget -C blink init`
+	`gadget -C blink init`
 
 
 5. Add Service to Gadget.yml
 
-Go into project directory:
+	Go into project directory:
 
-```
-cd blink
-``` 
+	```
+	cd blink
+	``` 
 
 **TKTK When I  create project directory, i can create a .yml file but then can't add service with the gadget mac release i have.**
 
@@ -82,36 +82,36 @@ gadget add service blink #add a service to file
 
 6. Edit gadget.yml
 
-```
-nano gadget.yml
-```
-Edit the field after "image:" to reflect the username/repo:tag. 
+	```
+	nano gadget.yml
+	```
+	Edit the field after "image:" to reflect the username/repo:tag. 
 
-```
-services:
-- name: blinkdemo
-  uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
-  image: ntcgadget/blink:v1 
-  directory: ""
-  net: ""
-  pid: ""
-  readonly: false
-  command: []
-  binds: []
-  capabilities: []
-```
+	```
+	services:
+	- name: blinkdemo
+ 	 uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
+ 	 image: ntcgadget/blink:v1 
+ 	 directory: ""
+ 	 net: ""
+ 	 pid: ""
+ 	 readonly: false
+ 	 command: []
+ 	 binds: []
+ 	 capabilities: []
+	```
 
 
-change “image:” section to docker repo, make sure you specify the right tag if you gave one! Otherwise you will get this error:
-ERRO[0001] Error response from daemon: manifest for pushreset/pythonio:latest not found 
-ERRO[0001] Failed to build 'pythonio'                   
-WARN[0001] Is the docker daemon installed and running?
+	change “image:” section to docker repo, make sure you specify the right tag if you 						gave one! Otherwise you will get this error:
+	ERRO[0001] Error response from daemon: manifest for pushreset/pythonio:latest not 	found 
+	ERRO[0001] Failed to build 'pythonio'                   
+	WARN[0001] Is the docker daemon installed and running?
 
 7. Build Image
 
-```
-gadget build blinkdemo
-```
+	```
+	gadget build blinkdemo
+	```
 
 
 ## Configuring Gadget.yml

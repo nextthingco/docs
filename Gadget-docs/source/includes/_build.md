@@ -50,40 +50,35 @@ A 'hello world' example that blinks an LED on pin 36, CSDID0. If using a bare C.
 
 **3.** Create project directory
 
-	`blink`
+	`mkdir blink`
 
 **4.** Initialize Project
 
-	Create the gadget.yml configuration file in your project directory.
+	Enter and create the gadget.yml configuration file in your project directory.
 
+	`cd blink`
+	`gadget init`
+	
+	A gadget.yml file can also be created from in project directory from parent. 
+	
 	`gadget -C blink init`
 
 
 **5.** Add Service to Gadget.yml
 
-	Go into project directory:
+	Gadget.yml holds the options that are needed for a container at run time. This is also 	where you add services and onboot actions. 
 
-	`cd blink` 
-
-	**TKTK When I  create project directory, i can create a .yml file but then can't add 	service with the gadget mac release i have.**
-
-	This file holds the options that are needed for a container at run time. This is also 	where you add services and onboot actions. 
-
-	Check out the Configuring gadget.yml LINK to learn more about the available options. 
+	Check out the Configuring gadget.yml LINK to learn more about the available options. In your project folder open gadget.yml to edit.  
 
 
 	`gadget add service blink #add a service to file`
 
-
-	**should friendly and project directory name be different?**
-	**How do I delete services?**
-
 **6.** Edit gadget.yml
 
 	`nano gadget.yml`
+	 
+	Fill in gadget.yml as described below. 
 	
-	Edit the field after "image:" to reflect the username/repo:tag. 
-
 	```
 	services:
 	- name: blinkdemo
@@ -93,22 +88,29 @@ A 'hello world' example that blinks an LED on pin 36, CSDID0. If using a bare C.
  	 net: ""
  	 pid: ""
  	 readonly: false
- 	 command: []
- 	 binds: []
- 	 capabilities: []
+ 	 command: ["python", "blink.py"]
+ 	 binds: [-v /sys:/sys]
+ 	 capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
 	```
+	
+	Edit the field after "image:" to reflect the username/repo:tag.
 
-
-	change “image:” section to docker repo, make sure you specify the right tag if you 						gave one! Otherwise you will get this error:
-	ERRO[0001] Error response from daemon: manifest for pushreset/pythonio:latest not 	found 
-	ERRO[0001] Failed to build 'pythonio'                   
-	WARN[0001] Is the docker daemon installed and running?
-
-**7.** Build Image
+**7.** Build, Deploy, and Start Image
 
 	```
 	gadget build blinkdemo
+	gadget deploy blinkdemo
+	gadget start
 	```
+	
+**8.** Logs and Status
+
+	See if the container is running:
+	`gadget status`
+	
+	Look at the output logs of the container:
+	`gadget logs`
+	
 
 ### I2C
 

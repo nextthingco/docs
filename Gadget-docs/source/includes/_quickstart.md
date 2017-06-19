@@ -21,7 +21,7 @@ Gadget makes use of Docker's container system. Dependent on your host computer's
 For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Find the latest image on our [web flasher](flash.getchip.com/pro). 
 
 
-# Hello World [David]
+## Hello World Example [David]
 
 Follow along to learn how to build and deploy Gadget's 'hello world' Python script. Make sure you have gone through the setup steps of installing Docker, GadgetCLI and flashing your hardware device. All examples here use the C.H.I.P. Pro Dev Kit.
 

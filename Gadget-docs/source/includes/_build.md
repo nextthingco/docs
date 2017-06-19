@@ -101,16 +101,22 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	
 	**command** - Runs the Python script **blink.py**.
 	
-	**binds** - Mounts the /sys directory from the host device into the container at /sys.
+	**binds** - 
 	
 	**capabilities** - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 
 7. **Build, Deploy, and Start Image**
 
-	gadget -C ../projects/gpio/ [command]
+	From parent directory:
 
-	```
+	```bash
 	gadget -C blink/blinkdemo build 
+	gadget -C blink/blinkdemo deploy 
+	gadget -C blink/blinkdemostart
+	```
+	
+	```bash
+	gadget build 
 	gadget deploy blinkdemo
 	gadget start
 	```
@@ -118,9 +124,11 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 8. **Logs and Status**
 
 	See if the container is running:
+	
 	`gadget status`
 	
 	Look at the output logs of the container:
+	
 	`gadget logs`
 	
 
@@ -212,7 +220,7 @@ From parent directory:
 
 Containers defined as a service runs on boot after all of the onboot containers. A service is automatically restarted by Docker if it exits with a non-zero return code.
 
-**name** - Name of project
+**name** - Name 
 **uuid** - Unique container ID
 **image** - Pathname of Docker Hub 
 **directory** - Pathname of local image

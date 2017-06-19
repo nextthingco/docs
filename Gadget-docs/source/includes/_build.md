@@ -42,18 +42,18 @@ LED connected to pin 36, CSID0
 
 A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
 
-**1.** Launch GadgetCLI
+1. **Launch GadgetCLI**
 
-**2.** Connect hardware to host computer.
+2. **Connect Hardware**
 
-	Make sure the hardware is flashed with GadgetOS.  
+	Using a USB cable connect your board to your host computer. Make sure the board is flashed with GadgetOS. LINK
 	{Pic of Dev Kit connected to host computer}
 
-**3.** Create project directory
+3. **Create project directory**
 
 	`mkdir blink`
 
-**4.** Initialize Project
+4. **Initialize Project**
 
 	Enter and create the gadget.yml configuration file in your project directory.
 
@@ -66,7 +66,7 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	`gadget -C blink init`
 
 
-**5.** Add Service to Gadget.yml
+5. **Add Service**
 
 	Gadget.yml holds the options that are needed for a container at run time. This is also 	where you add services and onboot actions. 
 
@@ -78,7 +78,7 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	`gadget -C blink add service blinkdemo`
 	
 
-**6.** Edit gadget.yml
+6. **Edit gadget.yml**
 
 	`nano gadget.yml`
 	 
@@ -100,7 +100,7 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	
 	Edit the field after "image:" to reflect the username/repo:tag.
 
-**7.** Build, Deploy, and Start Image
+7. **Build, Deploy, and Start Image**
 
 	gadget -C ../projects/gpio/ [command]
 
@@ -110,7 +110,7 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	gadget start
 	```
 	
-**8.** Logs and Status
+8. **Logs and Status**
 
 	See if the container is running:
 	`gadget status`

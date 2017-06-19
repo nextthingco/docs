@@ -68,11 +68,10 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 
 5. **Add Service** 
 
-	  
-
-	`gadget add service blink #add a service to file`
+	`gadget add service blink`
 	
 	From parent directory:
+	
 	`gadget -C blink add service blinkdemo`
 	
 
@@ -80,7 +79,7 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 
 	`nano gadget.yml`
 	 
-	Fill in gadget.yml as described below. 
+	Fill in gadget.yml as described below. You container will have a different uuid. To find out what all of the fields in this file are for go to the Configuring Gadget.yml LINK section.
 	
 	```bash
 	services:
@@ -92,11 +91,19 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
  	 pid: ""
  	 readonly: false
  	 command: ["python", "blink.py"]
- 	 binds: [-v /sys:/sys]
+ 	 binds: [/sys:/sys]
  	 capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
 	```
 	
-	Edit the field after "image:" to reflect the username/repo:tag.
+	What each edit does:
+	
+	**image** - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
+	
+	**command** - Runs the Python script **blink.py**.
+	
+	**binds** - Mounts the /sys directory from the host device into the container at /sys.
+	
+	**capabilities** - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 
 7. **Build, Deploy, and Start Image**
 
@@ -177,11 +184,33 @@ docker push pushreset/blink:v1
 ```
 ## Configuring Gadget.yml
 
-Definition of all the things in gadget.yml file. Gadget.yml holds the options that are needed for a container at run time. This is also where you add services and onboot actions.
+The file gadget.yml is where container options go that are executed at run time. It is also where you define in what order containers run and whether they run once or continually. 
 
-**onboot**
+At the top of the file you find:
 
-**services**
+spec: "0.0"
+name: blink
+uuid: e6aa1456-8a4c-44d3-9c0a-06c9b8d1a96c
+type: docker
+
+The file is broken up into two sections: **onboot** and **services**. 
+
+#### onboot
+
+Containers added to the onboot section runs after boot, then exits. When multiple containers are defined they run sequentially from top to bottom. 
+
+Add a container:
+
+`gadget add onboot projectname`
+	
+From parent directory:
+	
+`gadget -C blink add onboot projectname`
+
+
+#### services
+
+Containers defined as a service runs on boot after all of the onboot containers. A service is automatically restarted by Docker if it exits with a non-zero return code.
 
 **name** - Name of project
 **uuid** - Unique container ID

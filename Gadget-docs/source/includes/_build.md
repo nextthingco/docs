@@ -37,11 +37,11 @@ Get working with Gadget, Python and the GPIOs. Follow these two tutorials to get
 
 PIC of LED circuit with Dev Kit
 
-## 1. Pull Image
+### 1. Pull Image: Blink Example
 
 Start your project with one of our Python example images. Examples are pulled from the official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
-### Blink
+#### Blink
 
 Circuit: 
 LED connected to pin 36, CSID0
@@ -167,7 +167,7 @@ Google's Assistant API can be asked questions and be used to control hardware su
 
 #### Multiple Containers?
 
-## 2. Build Image Locally
+## 2. Build Image Locally: Blink Example
 
 Take the following steps to learn how to best develop with Gadget and Docker. 
 

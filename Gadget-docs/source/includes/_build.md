@@ -12,7 +12,7 @@ Once you get our Blink Python script up and running you are ready to dive deeper
 * USB cable
 	* Micro USB to USB cable (Dev Kit) 
 	or
-	* UART serial cable if using C.H.I.P. Pro bare
+	* UART serial cable (bare C.H.I.P. Pro)
 
 #### Software
 
@@ -27,11 +27,9 @@ Once you get our Blink Python script up and running you are ready to dive deeper
 
 ## Two Ways to Build With Gadget
 
-See demos with pullable images, start developing by cloning/editing/building our Dockerfiles from Github.
+1. **Pull images**, including our demos, from Docker Hub and deploy to hardware. See the Examples LINK section to learn about this process.
 
-1. **Pull Example Images** from Docker Hub and deploy to hardware. See the Examples LINK section to learn about this process.
-
-2. **Build Images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally section LINK to learn more about that.
+2. **Build images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally section LINK to learn more.
 
 ## Example Images
 
@@ -39,7 +37,10 @@ Start your project with one of our Python example images. Examples are pulled fr
 
 ### Blink
 
-A 'hello world' example that blinks an LED on pin 36, CSDID0. If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
+Circuit: 
+LED connected to pin 36, CSID0
+
+A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
 
 **1.** Launch GadgetCLI
 
@@ -57,6 +58,7 @@ A 'hello world' example that blinks an LED on pin 36, CSDID0. If using a bare C.
 	Enter and create the gadget.yml configuration file in your project directory.
 
 	`cd blink`
+	
 	`gadget init`
 	
 	A gadget.yml file can also be created from in project directory from parent. 

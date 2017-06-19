@@ -21,68 +21,103 @@ Gadget makes use of Docker's container system. Dependent on your host computer's
 For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Find the latest image on our [web flasher](flash.getchip.com/pro). 
 
 
-## Hello World Example [David]
+### Blink
 
-Follow along to learn how to build and deploy Gadget's 'hello world' Python script. Make sure you have gone through the setup steps of installing Docker, GadgetCLI and flashing your hardware device. All examples here use the C.H.I.P. Pro Dev Kit.
+Circuit: 
+LED connected to pin 36, CSID0
 
-## Connect 
+A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
 
-![Connect to USB0](images/usb0.jpg)
+1. **Launch GadgetCLI**
 
-Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug into USB0 on the Dev board, not the micro USB port on C.H.I.P. Pro itself. 
+2. **Connect Hardware**
 
-## Deploy 
+	Using a USB cable connect your board to your host computer. Make sure the board is flashed with GadgetOS. LINK
+	{Pic of Dev Kit connected to host computer}
 
-Open the GadgetCLI application. A terminal window will open on your desktop displaying Gadget's welcome screen. If you haven't installed Docker, Gadget will detect the OS of your host computer and direct you to the proper url for installing. After Docker has been installed, Gadget's welcome screen will look something like this (screenshot on a Mac): 
+3. **Create project directory**
 
-![Welcome screen Mac](images/welcome.png)
+	`mkdir blink`
 
-From here, simply type the commands listed to deploy your first application. 
+4. **Initialize Project**
 
-```shell
-gadget init hello_world	# initialize the Gadget Template and create a directory called hello_world
-cd hello_world	# enter the hello_world directory
-gadget build	# build hello_world project 
-gadget deploy	# deploy hello_world project
-```
+	Enter and create the gadget.yml configuration file in your project directory.
 
-The project is pushed to the C.H.I.P. Pro Dev Kit and the LEDs connected to PE4 - PE11 will turn on and off in sequential order. A successful deployment looks like this:
-
-![build and deploy](images/build.png)
-
-Congrats, you have built and deployed your first Gadget project!
-
-## Edit Example Script [Probably isn't needed anymore, here for you to look at, David]
-When a project, like **hello_world**, is initialized, Gadget creates a directory on the host computer for it. 
-
-In the **hello_world** project directory there are three files:
-
-* gadget.cfg - 
-* blink-leds.sh - Example 'hello world' script.
-* Dockerfile - This is container build instructions for your code. Whatever instructions live here, will be built and deployed.
+	`cd blink`
+	
+	`gadget init`
+	
+	A gadget.yml file can also be created from in project directory from parent. 
+	
+	`gadget -C blink init`
 
 
-![ls files in project dir](images/twofiles.gif)
+5. **Add Service** 
 
-To edit the 'hello world' script , use the Nano command-line editor: 
+	`gadget add service blink`
+	
+	From parent directory:
+	
+	`gadget -C blink add service blinkdemo`
+	
 
-```shell
-nano blink-leds
-```
-Change the `SPEED` variable, for example, to `1`. Press Ctrl+O to save and Ctrl+X to exit Nano.
+6. **Edit gadget.yml**
 
-![changing SPEED var](images/speedCrop.gif)
+	`nano gadget.yml`
+	 
+	Fill in gadget.yml as described below. You container will have a different uuid. To find out what all of the fields in this file are for go to the Configuring Gadget.yml LINK section.
+	
+	```bash
+	services:
+	- name: blinkdemo
+ 	 uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
+ 	 image: ntcgadget/blink:v1 
+ 	 directory: ""
+ 	 net: ""
+ 	 pid: ""
+ 	 readonly: false
+ 	 command: ["python", "blink.py"]
+ 	 binds: [/sys:/sys]
+ 	 capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
+	```
+	
+	What each edit does:
+	
+	**image** - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
+	
+	**command** - Runs the Python script **blink.py**.
+	
+	**binds** - 
+	
+	**capabilities** - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 
-While still in the project directory, build and deploy:
+7. **Build, Deploy, and Start Image**
 
-```shell
-gadget build 
-gadget deploy
-```
+	From parent directory:
 
-The LEDs will turn on and off at the speed you specified. 
+	```bash
+	gadget -C blink/blinkdemo build 
+	gadget -C blink/blinkdemo deploy 
+	gadget -C blink/blinkdemostart
+	```
+	
+	```bash
+	gadget build 
+	gadget deploy blinkdemo
+	gadget start
+	```
+	
+8. **Logs and Status**
 
-## Exit GadgetCLI 
+	See if the container is running:
+	
+	`gadget status`
+	
+	Look at the output logs of the container:
+	
+	`gadget logs`
+
+### Exit GadgetCLI 
 
 GadgetCLI simply opens a window using your host computer's terminal application. To exit, first stop the running application then exit. 
 
@@ -91,7 +126,7 @@ stop
 exit 
 ```
 
-## Gadget Commands 
+### Gadget Commands 
 
 
 On top of creating and building and deploying, Gadget offers options that apply to a specific project while in the project's directory. For example, commands like `stop` and `start` can be applied to stop a running project and to start it back it up again. To see all the commands and options available for use in GadgetCLI type:

@@ -20,8 +20,79 @@ Gadget makes use of Docker's container system. Dependent on your host computer's
 
 For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Find the latest image on our [web flasher](flash.getchip.com/pro). 
 
+## Hello World Example
 
-### Blink
+Get up and running in minutes with this straight forward "Hello World" example.
+
+1. **Create Project Directory**
+
+	`mkdir hello-world'
+	`cd hello-world`
+	
+2. **Initialize Project**
+
+	`gadget init`
+	
+	This command creates a file called gadget.yml and generates a project called "hello-world". Open gadget.yml using Nano or another command-line editor. It should look like this:
+	
+	```bash
+	spec: "0.0"
+	name: directoryName
+	uuid: 1789cc27-e1a8-40ef-aa1f-324092e6eff7
+	type: docker
+	onboot:
+	- name: hello-world
+  	  uuid: 1ef762fe-a500-41d1-8cf9-bbd621dd09b8
+  	  image: arm32v7/hello-world
+  	  directory: ""
+  	  net: ""
+  	  pid: ""
+  	  readonly: false
+  	  command: []
+      binds: []
+      capabilities: []
+	services: []
+	```
+	
+3. **Build, Deploy, and Start Image**
+
+	Build image:
+	
+	`gadget build`
+	
+	```
+	INFO[0000] Running in directory:                        
+	INFO[0000]   /Users/xxxx/project/pathname/
+	INFO[0000] Building:                                    
+	INFO[0000]   'hello-world'
+	```
+	
+	Deploy image to hardware:
+	
+	`gadget deploy`
+	
+	```
+	INFO[0000] Running in directory:                        
+	INFO[0000]   /Users/xxxx/project/pathname/ 
+	INFO[0000]   Deploying: 'hello-world'                   
+	INFO[0000]     Starting transfer..                      
+	INFO[0000]     Done!  
+	```
+	
+	Run container: 
+	
+	`gadget start`
+	
+	```
+	INFO[0000] Running in directory:                        
+	INFO[0000]   /Users/xxxx/project/pathname/ 
+	INFO[0000] Starting:                                    
+	INFO[0000]   hello-world_1ef762fe-a500-41d1-8cf9-bbd621dd09b8 
+	INFO[0001]     - started 
+	```
+	
+	
+## Blink
 
 Circuit: 
 LED connected to pin 36, CSID0
@@ -85,7 +156,7 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	
 	**image** - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
 	
-	**command** - Runs the Python script **blink.py**.
+	**command** - Runs a Python script called blink.py that is included in the image.
 	
 	**binds** - 
 	
@@ -93,6 +164,14 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 
 7. **Build, Deploy, and Start Image**
 
+	In the project directory:
+	
+	```bash
+	gadget build 
+	gadget deploy blinkdemo
+	gadget start
+	```
+	
 	From parent directory:
 
 	```bash
@@ -101,15 +180,9 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	gadget -C blink/blinkdemostart
 	```
 	
-	```bash
-	gadget build 
-	gadget deploy blinkdemo
-	gadget start
-	```
-	
 8. **Logs and Status**
 
-	See if the container is running:
+	Check the status of the container:
 	
 	`gadget status`
 	

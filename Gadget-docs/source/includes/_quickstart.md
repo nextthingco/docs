@@ -90,107 +90,24 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	INFO[0000]   hello-world_1ef762fe-a500-41d1-8cf9-bbd621dd09b8 
 	INFO[0001]     - started 
 	```
-	
-	
-## Blink
 
-Circuit: 
-LED connected to pin 36, CSID0
+4. Confirm 
 
-A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
-
-1. **Launch GadgetCLI**
-
-2. **Connect Hardware**
-
-	Using a USB cable connect your board to your host computer. Make sure the board is flashed with GadgetOS. LINK
-	{Pic of Dev Kit connected to host computer}
-
-3. **Create project directory**
-
-	`mkdir blink`
-
-4. **Initialize Project**
-
-	Enter and create the gadget.yml configuration file in your project directory.
-
-	`cd blink`
-	
-	`gadget init`
-	
-	A gadget.yml file can also be created from in project directory from parent. 
-	
-	`gadget -C blink init`
-
-
-5. **Add Service** 
-
-	`gadget add service blink`
-	
-	From parent directory:
-	
-	`gadget -C blink add service blinkdemo`
-	
-
-6. **Edit gadget.yml**
-
-	`nano gadget.yml`
-	 
-	Fill in gadget.yml as described below. You container will have a different uuid. To find out what all of the fields in this file are for go to the Configuring Gadget.yml LINK section.
-	
-	```bash
-	services:
-	- name: blinkdemo
- 	 uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
- 	 image: ntcgadget/blink:v1 
- 	 directory: ""
- 	 net: ""
- 	 pid: ""
- 	 readonly: false
- 	 command: ["python", "blink.py"]
- 	 binds: [/sys:/sys]
- 	 capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
-	```
-	
-	What each edit does:
-	
-	**image** - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
-	
-	**command** - Runs a Python script called blink.py that is included in the image.
-	
-	**binds** - 
-	
-	**capabilities** - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
-
-7. **Build, Deploy, and Start Image**
-
-	In the project directory:
-	
-	```bash
-	gadget build 
-	gadget deploy blinkdemo
-	gadget start
-	```
-	
-	From parent directory:
-
-	```bash
-	gadget -C blink/blinkdemo build 
-	gadget -C blink/blinkdemo deploy 
-	gadget -C blink/blinkdemostart
-	```
-	
-8. **Logs and Status**
-
-	Check the status of the container:
-	
-	`gadget status`
-	
-	Look at the output logs of the container:
+	To see if the container did indeed run use the command:
 	
 	`gadget logs`
+	
+	You should see a 'Hello' message that starts with:
+	
+	```
+	Hello from Docker on armhf!
+	This message shows that your installation appears to be working correctly.
+	...
+	```
+	
+	Congrats, you have built and deployed your first Gadget project!
 
-### Exit GadgetCLI 
+### Exit GadgetCLI //test with june gadget version
 
 GadgetCLI simply opens a window using your host computer's terminal application. To exit, first stop the running application then exit. 
 
@@ -199,7 +116,7 @@ stop
 exit 
 ```
 
-### Gadget Commands 
+### Gadget Commands  //test with june gadget version
 
 
 On top of creating and building and deploying, Gadget offers options that apply to a specific project while in the project's directory. For example, commands like `stop` and `start` can be applied to stop a running project and to start it back it up again. To see all the commands and options available for use in GadgetCLI type:

@@ -1,10 +1,10 @@
 # Quick Start [David]
 
-To get the most from Gadget's lighting fast deployment process, development is done on a host computer. Once your code is ready for testing it's compiled and pushed to the hardware device connected via USB using GadgetOS' daemon GadgetOSd. To get started, install the following on your host computer and Gadget compatible hardware. 
+To get the most from Gadget's lighting fast deployment process, development is done on a host computer. Once your code is ready for testing it's compiled and pushed to the hardware device connected via USB using GadgetOS' daemon GadgetOSD. To get started, install the following on your host computer and Gadget compatible hardware. 
 
 ## Install Gadget
 
-Download and install NTC's command-line tool, GadgetCLI [here]. 
+On your host computer download and install NTC's command-line tool, GadgetCLI [here]. 
 
 ## Install Docker
 
@@ -23,13 +23,13 @@ For GadgetCLI to be able to talk to your hardware device it needs to be flashed 
 
 # Hello World [David]
 
-Follow along to learn how to build and deploy Gadget's 'hello world' Bash script. Make sure you have gone through the setup steps of installing Docker, GadgetCLI and flashing your hardware device.
+Follow along to learn how to build and deploy Gadget's 'hello world' Python script. Make sure you have gone through the setup steps of installing Docker, GadgetCLI and flashing your hardware device. All examples here use the C.H.I.P. Pro Dev Kit.
 
 ## Connect 
 
 ![Connect to USB0](images/usb0.jpg)
 
-Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug into USB0 on the Dev board, not C.H.I.P. Pro itself. 
+Connect C.H.I.P. Pro Dev Kit to your host computer via USB. Make sure to plug into USB0 on the Dev board, not the micro USB port on C.H.I.P. Pro itself. 
 
 ## Deploy 
 

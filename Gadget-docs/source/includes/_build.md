@@ -68,10 +68,13 @@ A 'hello world' example that blinks an LED on pin 36, CSDID0. If using a bare C.
 
 	Gadget.yml holds the options that are needed for a container at run time. This is also 	where you add services and onboot actions. 
 
-	Check out the Configuring gadget.yml LINK to learn more about the available options. In your project folder open gadget.yml to edit.  
-
+	Check out the Configuring gadget.yml LINK to learn more about the available options. In your project folder add a new service to gadget.yml.  
 
 	`gadget add service blink #add a service to file`
+	
+	From parent directory:
+	`gadget -C blink add service blinkdemo`
+	
 
 **6.** Edit gadget.yml
 
@@ -97,8 +100,10 @@ A 'hello world' example that blinks an LED on pin 36, CSDID0. If using a bare C.
 
 **7.** Build, Deploy, and Start Image
 
+	gadget -C ../projects/gpio/ [command]
+
 	```
-	gadget build blinkdemo
+	gadget -C blink/blinkdemo build 
 	gadget deploy blinkdemo
 	gadget start
 	```

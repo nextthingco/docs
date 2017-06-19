@@ -66,11 +66,9 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	`gadget -C blink init`
 
 
-5. **Add Service**
+5. **Add Service** 
 
-	Gadget.yml holds the options that are needed for a container at run time. This is also 	where you add services and onboot actions. 
-
-	Check out the Configuring gadget.yml LINK to learn more about the available options. In your project folder add a new service to gadget.yml.  
+	  
 
 	`gadget add service blink #add a service to file`
 	
@@ -84,7 +82,7 @@ A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. P
 	 
 	Fill in gadget.yml as described below. 
 	
-	```
+	```bash
 	services:
 	- name: blinkdemo
  	 uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
@@ -179,7 +177,7 @@ docker push pushreset/blink:v1
 ```
 ## Configuring Gadget.yml
 
-Definition of all the things in gadget.yml file.
+Definition of all the things in gadget.yml file. Gadget.yml holds the options that are needed for a container at run time. This is also where you add services and onboot actions.
 
 **onboot**
 

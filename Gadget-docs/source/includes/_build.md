@@ -146,6 +146,8 @@ Start a project with one of our Python example images. Examples are pulled from 
 
 Take the following steps to learn how to best develop with Gadget and Docker. 
 
+I would actually suggest what you did above. Start with a fresh gadget-os chippro, experiment/build/push to dockerhub. Then use gadgetcli for deployment and orchestration
+
 **1. Create project directory**
 
 	```
@@ -196,8 +198,35 @@ Take the following steps to learn how to best develop with Gadget and Docker.
 
 **3. Create supporting files**
 
+	Create blink Python script that imports CHIP_IO and turns an LED on and off that is connected to pin 36, CSID0.
+
 	```
-	nano pythonScript.py
+	nano blink.py
+	```
+	
+	```
+	import CHIP_IO.GPIO as GPIO
+	from time import sleep
+
+
+	ledPin = "CSID0"
+
+	GPIO.setup(ledPin, GPIO.OUT)
+
+	try:
+		while True:
+			GPIO.output(ledPin, True)
+			sleep(1)
+			GPIO.output(ledPin, False)
+			sleep(1)
+	
+	#exit with CTRL+C			
+	except KeyboardInterrupt:
+		print("exiting")
+	
+	#unexport GPIOs upon exiting      
+	finally:
+		GPIO.cleanup() 
 	```
 
 

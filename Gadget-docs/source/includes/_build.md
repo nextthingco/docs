@@ -27,7 +27,7 @@ Once you get our Blink Python script up and running you are ready to dive deeper
 
 ## Two Ways to Build With Gadget
 
-Get working with Gadget, Python and the GPIOs. Follow these two tutorials to get familiar with the two ways you can work with Gadget. They outline different processes that both use the same Python script to blink an LED.
+Follow these two tutorials to get familiar with the two ways you can work with Gadget.  They each outline a different process. The both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0. 
 
 1. **Pull images**, including our demos, from Docker Hub and deploy to hardware. See the Pull Images LINK section to learn about this process.
 
@@ -37,16 +37,11 @@ Get working with Gadget, Python and the GPIOs. Follow these two tutorials to get
 
 PIC of LED circuit with Dev Kit
 
+**Note:** If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
+
 ### 1. Pull Image: Blink Example
 
-Start your project with one of our Python example images. Examples are pulled from the official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
-
-#### Blink
-
-Circuit: 
-LED connected to pin 36, CSID0
-
-A 'hello world' example that blinks an LED on pin 36. If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
+Start a project with one of our Python example images. Examples are pulled from the official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
 1. **Launch GadgetCLI**
 

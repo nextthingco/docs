@@ -148,55 +148,80 @@ Take the following steps to learn how to best develop with Gadget and Docker.
 
 I would actually suggest what you did above. Start with a fresh gadget-os chippro, experiment/build/push to dockerhub. Then use gadgetcli for deployment and orchestration
 
-**1. Create project directory**
+**1. Create Repo**
+
+	For this process you will need a repository on [Docker Hub](https://hub.docker.com/) or another online repo that you will push your custom built image to and then pull from. We will go over how to pull from Docker Hub and a url in the **Create Dockerfile** step. 
+
+**2. Create project directory**
 
 	```
 	mkdir blink
 	cd blink
 	```
 
-**2. Create Dockerfile**
+**3. Create Dockerfile**
 
 	```
 	nano Dockerfile
 	```
 	
-	CHANGE Create and save a Dockerfile with this in it:
+	We will breifly go over what the Dockerfile for the blink example does but this by no means covers all instructions a Dockerfile can hold. To learn of all the capabilities refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
 
 	
 	```
-	# Base off arm32v7 Alpine Linux image on Docker Hub
+	# Base image is arm32v7 Alpine Linux on Docker Hub
 	FROM armhf/alpine
 
+	# Set and create a working directory called app
 	WORKDIR /app
 
+	# Copy the contents of the current directory into the working directory
 	ADD . /app
 
 	# Install tools needed to download and build the CHIP_IO library from source.
-	RUN apk update && apk add make && apk add gcc && apk add g++ && \
-		apk add flex && apk add bison && apk add git && \
+	RUN apk update && apk add make \
+	 						  gcc \ 
+	 						  g++ \
+							  flex \
+							  bison \ 
+							  git \
+							  
        	 	# Download python and tools for installing libraries
-        	apk add python-dev && apk add py-setuptools && \
+        					  python-dev \
+        					  py-setuptools \
+        					  
         	# Download source code for device tree compiler needed for CHIP_IO
-        	git clone https://github.com/atenart/dtc.git && \
+        	git clone https://github.com/atenart/dtc.git \
+        	
         	# Build and install the device tree compiler
-        	cd dtc && make && make install PREFIX=/usr && \
+        &&	cd dtc && make && make install PREFIX=/usr  \
+        	
         	# Remove the device tree compiler source code now that we've built it
-        	cd .. && rm dtc -rf && \
+        &&	cd .. \
+        && rm dtc -rf \
+        	
         	# Download the latest CHIP_IO source code
-        	git clone https://github.com/xtacocorex/CHIP_IO.git && \
+        &&	git clone https://github.com/xtacocorex/CHIP_IO.git \
+        	
         	# Install the CHIP_IO library from the proper directory
-        	cd CHIP_IO && python setup.py install && \
+        &&	cd CHIP_IO && python setup.py install \
+        	
         	# Remove CHIP_IO source code directory after it has been installed
-        	cd ../ && rm -rf CHIP_IO && \
+        &&	cd ../ && rm -rf CHIP_IO \
+        	
         	# Remove build tools, which are no longer needed after installation
-        	apk del git && apk del make && apk del gcc && apk del g++ && apk del flex && 	apk del bison
+        &&	apk del git \
+         		    make \ 
+         		    gcc \
+         		    g++ \
+         		    flex \
+         		    bison
 
 	CMD ["python", "blink.py"]
 	```
 
 
-**3. Create supporting files**
+**4. Create supporting files**
 
 	Create blink Python script that imports CHIP_IO and turns an LED on and off that is connected to pin 36, CSID0.
 
@@ -230,16 +255,25 @@ I would actually suggest what you did above. Start with a fresh gadget-os chippr
 	```
 
 
-**4. Build, Tag and Push**
+**5. Build, Tag and Push**
+
+	While still the project directory build image and give it a name.
+	
+	
+	`docker build blink .`
+	
+ 
+	
+
+	`docker login`
+	
+	
+
+	`docker tag blinkdemo pushreset/blink:v1`
+	
+	`docker push pushreset/blink:v1`
 
 	
-	```
-	docker build -t friendlyname . #build and tag it 
-	docker login #log into your personal Docker Hub
-	docker tag blinkdemo pushreset/blink:v1
-	docker push pushreset/blink:v1
-
-	```
 
 ### Example Images
 

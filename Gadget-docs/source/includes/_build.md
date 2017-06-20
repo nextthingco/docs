@@ -43,18 +43,18 @@ PIC of LED circuit with Dev Kit
 
 Start a project with one of our Python example images. Examples are pulled from the official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
-1. **Launch GadgetCLI**
+**1. Launch GadgetCLI**
 
-2. **Connect Hardware**
+**2. Connect Hardware**
 
 	Using a USB cable connect your board to your host computer. Make sure the board is flashed with GadgetOS. LINK
 	{Pic of Dev Kit connected to host computer}
 
-3. **Create project directory**
+**3. Create project directory**
 
 	`mkdir blink`
 
-4. **Initialize Project**
+**4. Initialize Project**
 
 	Enter and create the gadget.yml configuration file in your project directory.
 
@@ -67,7 +67,7 @@ Start a project with one of our Python example images. Examples are pulled from 
 	`gadget -C blink init`
 
 
-5. **Add Service** 
+**5. Add Service** 
 
 	`gadget add service blink`
 	
@@ -76,7 +76,7 @@ Start a project with one of our Python example images. Examples are pulled from 
 	`gadget -C blink add service blinkdemo`
 	
 
-6. **Edit gadget.yml**
+**6. Edit gadget.yml**
 
 	`nano gadget.yml`
 	 
@@ -106,7 +106,7 @@ Start a project with one of our Python example images. Examples are pulled from 
 	
 		**capabilities** - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 
-7. **Build, Deploy, and Start Image**
+**7. Build, Deploy, and Start Image**
 
 	In the project directory:
 	
@@ -122,9 +122,10 @@ Start a project with one of our Python example images. Examples are pulled from 
 	gadget -C blink/blinkdemo build 
 	gadget -C blink/blinkdemo deploy 
 	gadget -C blink/blinkdemostart
+
 	```
-	
-8. **Logs and Status**
+		
+**8. Logs and Status**
 
 	Check the status of the container:
 	
@@ -133,34 +134,7 @@ Start a project with one of our Python example images. Examples are pulled from 
 	Look at the output logs of the container:
 	
 	`gadget logs`
-
-### Example Images
-
-#### I2C
-
-**ADS1015**
-
-To read resistor based sensors add a high resolution multiple channel ADC to your circuit.
-
-#### SPI
-
-**ADXL345 Accelerometer**
-
-This is a popular 3-axis MEMs accelerometer that's great for applications sensing different kinds of motion and lack there of.
-
-**Note:** Most breakout boards for the ADXL345 are also accessible through I2C.
-
-#### LEDs and Microphones
-This VU-meter example uses C.H.I.P. Pro Dev Kit's onboard mics and LEDs. The LED's brightness is mapped to the amplitude of the Mic inputs. Speak into or tap the mics to turn the LEDs on. 
-
-If using a bare C.H.I.P. Pro additional hardware is needed. Connect LEDs to pins PE0 - PE7 and MEMs microphones to pins 26-29 labeled: AGND, MICIN1, MICIN2, and VMIC respectively.
-
-#### Python CHIP_IO
-
-####  Google Assistant
-Google's Assistant API can be asked questions and be used to control hardware such as voice activated robots. 
-
-#### Multiple Containers?
+	
 
 ## Build Image Locally: Blink Example
 
@@ -194,6 +168,35 @@ docker tag blinkdemo pushreset/blink:v1
 docker push pushreset/blink:v1
 
 ```
+
+### Example Images
+
+#### I2C
+
+**ADS1015**
+
+To read resistor based sensors add a high resolution multiple channel ADC to your circuit.
+
+#### SPI
+
+**ADXL345 Accelerometer**
+
+This is a popular 3-axis MEMs accelerometer that's great for applications sensing different kinds of motion and lack there of.
+
+**Note:** Most breakout boards for the ADXL345 are also accessible through I2C.
+
+#### LEDs and Microphones
+This VU-meter example uses C.H.I.P. Pro Dev Kit's onboard mics and LEDs. The LED's brightness is mapped to the amplitude of the Mic inputs. Speak into or tap the mics to turn the LEDs on. 
+
+If using a bare C.H.I.P. Pro additional hardware is needed. Connect LEDs to pins PE0 - PE7 and MEMs microphones to pins 26-29 labeled: AGND, MICIN1, MICIN2, and VMIC respectively.
+
+#### Python CHIP_IO
+
+####  Google Assistant
+Google's Assistant API can be asked questions and be used to control hardware such as voice activated robots. 
+
+#### Multiple Containers?
+
 ## Configuring Gadget.yml
 
 The file gadget.yml is where container options go that are executed at run time. It is also where you define in what order containers run and whether they run once or continually. 

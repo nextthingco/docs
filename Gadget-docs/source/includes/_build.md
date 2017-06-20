@@ -96,6 +96,7 @@ Start a project with one of our Python example images. Examples are pulled from 
  	 capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
 	```
 	
+	
 	What each edit does:
 	
 		**image** - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
@@ -135,39 +136,44 @@ Start a project with one of our Python example images. Examples are pulled from 
 	
 	`gadget logs`
 	
+	
+**9. Stop Container**
+
+	`gadget stop`
+	
 
 ## Build Image Locally: Blink Example
 
 Take the following steps to learn how to best develop with Gadget and Docker. 
 
-1. Create project directory
+**1. Create project directory**
 
-```
-mkdir projectname
-cd projectname
-```
+	```
+	mkdir projectname
+	cd projectname
+	```
 
-1. Create Dockerfile
+**2. Create Dockerfile**
 
-```
-nano Dockerfile
-```
+	```
+	nano Dockerfile
+	```
 
-2. Create supporting files
+**3. Create supporting files**
 
-```
-nano pythonScript.py
-```
+	```
+	nano pythonScript.py
+	```
 
-3. Build, Tag and Push
+**4. Build, Tag and Push**
 
-```
-docker build -t friendlyname . #build and tag it 
-docker login #log into your personal Docker Hub
-docker tag blinkdemo pushreset/blink:v1
-docker push pushreset/blink:v1
+	```
+	docker build -t friendlyname . #build and tag it 
+	docker login #log into your personal Docker Hub
+	docker tag blinkdemo pushreset/blink:v1
+	docker push pushreset/blink:v1
 
-```
+	```
 
 ### Example Images
 

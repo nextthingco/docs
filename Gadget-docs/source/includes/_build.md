@@ -39,7 +39,7 @@ PIC of LED circuit with Dev Kit
 
 **Note:** If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
 
-### 1. Pull Image: Blink Example
+### Pull Image: Blink Example
 
 Start a project with one of our Python example images. Examples are pulled from the official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
@@ -98,13 +98,13 @@ Start a project with one of our Python example images. Examples are pulled from 
 	
 	What each edit does:
 	
-	**image** - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
+		**image** - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
 	
-	**command** - Runs a Python script called blink.py that is included in the image.
+		**command** - Runs a Python script called blink.py that is included in the image.
 	
-	**binds** - 
+		**binds** - Mounts the /sys volume from the host device TKTK into the container at /sys.
 	
-	**capabilities** - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+		**capabilities** - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 
 7. **Build, Deploy, and Start Image**
 
@@ -162,7 +162,7 @@ Google's Assistant API can be asked questions and be used to control hardware su
 
 #### Multiple Containers?
 
-## 2. Build Image Locally: Blink Example
+## Build Image Locally: Blink Example
 
 Take the following steps to learn how to best develop with Gadget and Docker. 
 

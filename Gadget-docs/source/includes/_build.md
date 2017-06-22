@@ -27,11 +27,11 @@ Once you get our Blink Python script up and running you are ready to dive deeper
 
 ## Two Ways to Build With Gadget
 
-Follow these two tutorials to get familiar with the two ways you can work with Gadget.  They each outline a different process. The both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0. 
-
 1. **Pull images**, including our demos, from Docker Hub and deploy to hardware. See the Pull Images LINK section to learn about this process.
 
 2. **Build images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally section LINK to learn more.
+
+Follow the two Blink Example tutorials and get familiar with the ways you can work with Gadget. They each outline a different process. They both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0. 
 
 **Circuit**
 
@@ -47,7 +47,7 @@ Start a project with one of our Python example images. Examples are pulled from 
 
 **2. Connect Hardware**
 
-	Using a USB cable connect your board to your host computer. Make sure the board is flashed with GadgetOS. LINK
+	Connect your board to your host computer via a USB cable. Make sure the board is flashed with GadgetOS before moving on. LINK
 	{Pic of Dev Kit connected to host computer}
 
 **3. Create project directory**
@@ -83,20 +83,18 @@ Start a project with one of our Python example images. Examples are pulled from 
 	Fill in gadget.yml as described below. You container will have a different uuid. To find out what all of the fields in this file are for go to the Configuring Gadget.yml LINK section.
 	
 	```bash
-	
-	services:
-	- name: blinkdemo
- 	 uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
- 	 image: ntcgadget/blink:v1 
- 	 directory: ""
- 	 net: ""
- 	 pid: ""
- 	 readonly: false
- 	 command: ["python", "blink.py"]
- 	 binds: [/sys:/sys]
- 	 capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
- 	 
-	```
+		services:
+		- name: blinkdemo
+ 	 	uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
+ 	 	image: ntcgadget/blink:v1 
+ 	 	directory: ""
+ 	 	net: ""
+ 	 	pid: ""
+ 	 	readonly: false
+ 	 	command: ["python", "blink.py"]
+ 	 	binds: [/sys:/sys]
+ 	 	capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
+ 	 ```
 	
 	
 	What each edit does:

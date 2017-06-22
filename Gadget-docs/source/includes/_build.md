@@ -90,33 +90,48 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 	<p>
 	<pre>
 	nano gadget.yml
-	</pre> 
+	</pre>
 	</p>
 	
 	Fill in the fields described below and learn what each one does.
 	
+	* Specify a image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
+	
+	Format: username/repo:tag. 
+	
+	**Note:** If the tag is not included the image with the default "latest" tag will be pulled.
+
 	<p>
 	<pre>
-	image: ntcgadget/blink:v1 
+	image: ntcgadget/blink:v1
+	</pre>
+	</p>
+
+
+	
+	* Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
+	
+	<p>
+	<pre>
+	command:["python", "blink.py"]
 	</pre>
 	</p>
 	
-	Specify a image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in this format:
-	username/repo:tag. 
-	 
-	**Note:** If the tag is not included the image with the default "latest" tag will be pulled.
+	* Mounts the /sys directory from the host(gadget) into the container at /sys. 
 	
-	* `command:["python", "blink.py"]` 
+	Format: whereFrom:whereTo
 	
-	Commands that run automatically upon `gadget start` or reboot go here. In this example we run the `blink.py` script with `python`.
+	<p>
+	<pre>
+	**binds:[/sys:/sys]**
+	</pre>
+	</p>
 	
-	* `binds:[/sys:/sys]`
+	* Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 	
-	This mounts the /sys directory from the host(gadget) into the container at /sys. 
+	**capabilities:[--cap-add SYS_RAWIO --device /dev/mem]**
 	
-	* `capabilities:[--cap-add SYS_RAWIO --device /dev/mem]` 
 	
-	Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 	
 	```bash
 	services:

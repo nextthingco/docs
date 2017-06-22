@@ -150,7 +150,7 @@ Get up and running in minutes with this straight forward "Hello World" example.
 
 GadgetCLI simply opens a window using your host computer's terminal application. To exit, first stop the running application then exit. 
 
-```shell
-stop
-exit 
-```
+	```shell
+	stop
+	exit 
+	```

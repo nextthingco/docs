@@ -35,7 +35,9 @@ Get up and running in minutes with this straight forward "Hello World" example.
 
 	`gadget init`
 	
-	This command creates a file called gadget.yml and generates a project called "hello-world". Open gadget.yml using Nano or another command-line editor. It should look like this:
+	This command creates a template file gadget.yml and generates a project called "hello-world" ready to be deployed to your hardware. 
+	
+	Open gadget.yml using Nano or another command-line editor. It should look like this:
 	
 	```bash
 	spec: "0.0"
@@ -56,24 +58,26 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	services: []
 	```
 	
-3. **Build, Deploy, and Start Image**
-
-	Build image:
+3. **Build**
 	
-	`gadget build`
-	
+	```bash
+	gadget build
 	```
+	
+	```bash
 	INFO[0000] Running in directory:                        
 	INFO[0000]   /Users/xxxx/project/pathname/
 	INFO[0000] Building:                                    
 	INFO[0000]   'hello-world'
 	```
 	
-	Deploy image to hardware:
+4. **Deploy**
 	
-	`gadget deploy`
-	
+	```bash
+	gadget deploy
 	```
+	
+	```bash
 	INFO[0000] Running in directory:                        
 	INFO[0000]   /Users/xxxx/project/pathname/ 
 	INFO[0000]   Deploying: 'hello-world'                   
@@ -81,11 +85,13 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	INFO[0000]     Done!  
 	```
 	
-	Run container: 
+5. **Start**
 	
-	`gadget start`
-	
+	```bash
+	gadget start
 	```
+	
+	```bash
 	INFO[0000] Running in directory:                        
 	INFO[0000]   /Users/xxxx/project/pathname/ 
 	INFO[0000] Starting:                                    
@@ -93,11 +99,13 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	INFO[0001]     - started 
 	```
 
-4. Confirm 
+6. **Print Output** 
 
-	To see if the container did indeed run use the command:
+	To see if the container did indeed run use the `logs` command to print the output:
 	
-	`gadget logs`
+	```bash
+	gadget logs
+	```
 	
 	You should see a 'Hello' message that starts with:
 	
@@ -116,38 +124,4 @@ GadgetCLI simply opens a window using your host computer's terminal application.
 ```shell
 stop
 exit 
-```
-
-### Gadget Commands  //test with june gadget version
-
-
-On top of creating and building and deploying, Gadget offers options that apply to a specific project while in the project's directory. For example, commands like `stop` and `start` can be applied to stop a running project and to start it back it up again. To see all the commands and options available for use in GadgetCLI type:
-
-```shell
-gadget #or 
-gadget --help
-```
-
-This menu will display:
-
-```shell
-usage: gadget <command> [<args>]
-
-common gadget commands: 
-  init        Create an empty gadget project 
-  build       Build the project in the current directory
-  deploy      Deploys the project in the current directory
-  start       Starts the application on a device
-  stop        Stops the application running on a device
-  delete      Deletes the application instance from a device
-  purge       Purges the application from a device
-  status      Shows status information
-  shell       Start debugging shell to investigate container
-  log         Show container log
-
-optional arguments:
-  -h, --help  show this help message and exit
-
-get help for specific command:
-  gadget <command> --help
 ```

@@ -1,14 +1,20 @@
 # Build With Gadget 
 
-Once you get the "hello world" example up and running you are ready to dive deeper. There are two ways to build with Gadget.
+Once you get the "hello world" example up and running you are ready to dive deeper. There are two ways we recommend when building with Gadget.
 
-1. **Pull images**, including demos, from Docker Hub and deploy to hardware. See the Pull Images LINK section to learn about this process.
+1. **Pull Images**
 
-2. **Build images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally section LINK to learn more.
+	Images are pulled from a remote location and deployed to hardware. See the Pull Images LINK section to learn about this process.
 
-Follow the two Blink tutorials and get familiar with the work flow. They each outline a different process. Both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0.  
+2. **Build Images** 
+
+	Build images locally on your development computer. This takes some Docker knowledge but give you the most flexibility. See the Build Images Locally section LINK to learn more.
+
+To get familiar with each process follow the two Blink tutorials. Both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0.  
 
 ### Requirements
+
+Before moving on make sure you have gone through the Quickstart LINK section to meet the requirements.
 
 #### Hardware
 
@@ -25,50 +31,45 @@ Follow the two Blink tutorials and get familiar with the work flow. They each ou
 **Host Computer**
 
 * GadgetCLI 
-* Docker
+* Docker  
 
 **Gadget Compatible Hardware**
 
-* GadgetOS 
+* GadgetOS  
 
-## Two Ways to Build With Gadget
+#### Circuit
 
-1. **Pull images**, including our demos, from Docker Hub and deploy to hardware. See the Pull Images LINK section to learn about this process.
+There is no need to build a circuit with the C.H.I.P. Pro Dev Kit, it uses the onboard LED on pin 36, CSID0.
 
-2. **Build images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally section LINK to learn more.
+If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
 
-Follow the two Blink Example tutorials and get familiar with the ways you can work with Gadget. They each outline a different process. They both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0. 
+## Pull Image: Blink
 
-**Circuit**
+1. **Launch GadgetCLI and Docker**
+	
+	Docker works hand in hand with GadgetCLI. Open and keep Docker running in the background as you work.
 
-PIC of LED circuit with Dev Kit
-
-**Note:** If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
-
-## Pull Image: Blink Example
-
-Start a project with one of our Python example images. Examples are pulled from the official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
-
-**1. Launch GadgetCLI**
-
-**2. Connect Hardware**
+2. **Connect Hardware**
 
 	Connect your board to your host computer via a USB cable. Make sure the board is flashed with GadgetOS before moving on. LINK
+	
 	{Pic of Dev Kit connected to host computer}
 
-**3. Create project directory**
+3. **Create project directory**
+
+	Fire up Terminal and create a space for your project to live in:
 
 	`mkdir blink`
 
-**4. Initialize Project**
+4. **Initialize Project**
 
-	Enter and create the gadget.yml configuration file in your project directory.
+	Enter and create a gadget.yml template file in your project directory.
 
 	`cd blink`
 	
 	`gadget init`
 	
-	A gadget.yml file can also be created from in project directory from parent. 
+	A gadget.yml file can also be created from your project's parent directory. 
 	
 	`gadget -C blink init`
 
@@ -79,33 +80,26 @@ Start a project with one of our Python example images. Examples are pulled from 
 	
 	From parent directory:
 	
-	`gadget -C blink add service blinkdemo`
+	`gadget -C blink add service blink`
 	
 
 **6. Edit gadget.yml**
 
-	`nano gadget.yml`
-	 
-	Fill in gadget.yml as described below. You container will have a different uuid. To find out what all of the fields in this file are for go to the Configuring Gadget.yml LINK section.
+	In the blink directory open and edit gadget.yml with a command-line text editor such as Nano:
 	
-	```bash
-	services:
-	- name: blinkdemo
- 	uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
- 	image: ntcgadget/blink:v1 
- 	directory: ""
- 	net: ""
- 	pid: ""
- 	readonly: false
- 	command: ["python", "blink.py"]
- 	binds: [/sys:/sys]
- 	capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
- 	```
+	<p>
+	```
+	nano gadget.yml`
+	``` 
+	</p>
 	
+	Fill in the fields as described below.
 	
-	What each edit does:
-	
-	* `image: ntcgadget/blink:v1` 
+	<p>
+	```
+	image: ntcgadget/blink:v1` 
+	```
+	</p>
 	
 	Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
 	
@@ -120,6 +114,21 @@ Start a project with one of our Python example images. Examples are pulled from 
 	* `capabilities:[--cap-add SYS_RAWIO --device /dev/mem]` 
 	
 	Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+	
+	```bash
+	services:
+	- name: blink
+ 	uuid: Your-Containers-Uni-Que-UUID
+ 	image: ntcgadget/blink:v1 
+ 	directory: ""
+ 	net: ""
+ 	pid: ""
+ 	readonly: false
+ 	command: ["python", "blink.py"]
+ 	binds: [/sys:/sys]
+ 	capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
+ 	```
+	
 
 **7. Build, Deploy, and Start Image**
 
@@ -155,7 +164,7 @@ Start a project with one of our Python example images. Examples are pulled from 
 	`gadget stop`
 	
 
-## Build Image Locally: Blink Example
+## Build Image Locally: Blink 
 
 Take the following steps to learn how to best develop with Gadget and Docker. 
 
@@ -291,6 +300,8 @@ I would actually suggest what you did above. Start with a fresh gadget-os chippr
 	
 
 ### Example Images
+
+Start a project with one of our Python example images. Examples are pulled from our official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
 Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code. Before completing any of the examples make sure to go through the Quickstart [LINK] guide to meet the requirements below.
 

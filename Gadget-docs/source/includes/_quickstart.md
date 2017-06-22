@@ -16,6 +16,8 @@ Gadget makes use of Docker's container system. Dependent on your host computer's
 * Windows 10 - [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 * Ubuntu - [Docker CE](https://store.docker.com/editions/community/docker-ce-server-ubuntu?tab=description)
 
+GadgetCLI uses the Docker daemon to pull from Docker Hub [check function with Crunch]. Once Docker is installed, run it before using GadgetCLI.
+
 ## Flash GadgetOS 
 
 For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Find the latest image on our [web flasher](flash.getchip.com/pro). 
@@ -33,11 +35,13 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	
 2. **Initialize Project**
 
-	`gadget init`
+	```bash
+	gadget init`
+	```
 	
 	This command creates a template file gadget.yml and generates a project called "hello-world" ready to be deployed to your hardware. 
 	
-	Open gadget.yml using Nano or another command-line editor. It should look like this:
+	Open gadget.yml using Nano or another command-line editor. It should look like this except your will have a uuid unique to your container:
 	
 	```bash
 	spec: "0.0"
@@ -64,6 +68,8 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	gadget build
 	```
 	
+	Output:
+	
 	```bash
 	INFO[0000] Running in directory:                        
 	INFO[0000]   /Users/xxxx/project/pathname/
@@ -76,6 +82,8 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	```bash
 	gadget deploy
 	```
+	
+	Output:
 	
 	```bash
 	INFO[0000] Running in directory:                        
@@ -90,6 +98,8 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	```bash
 	gadget start
 	```
+	
+	Output:
 	
 	```bash
 	INFO[0000] Running in directory:                        

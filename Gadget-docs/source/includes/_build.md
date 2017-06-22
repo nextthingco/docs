@@ -12,11 +12,11 @@ Once you get the "hello world" example up and running you are ready to dive deep
 
 To get familiar with each process follow the two Blink tutorials. Both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0.  
 
-### Requirements
+## Requirements
 
 Before moving on make sure you have gone through the Quickstart LINK section to meet the requirements.
 
-#### Hardware
+### Hardware
 
 * Host computer (Mac, Windows or Linux)
 * Gadget compatible hardware
@@ -26,7 +26,7 @@ Before moving on make sure you have gone through the Quickstart LINK section to 
 	or
 	* UART serial cable (bare C.H.I.P. Pro)
 
-#### Software
+### Software
 
 **Host Computer**
 
@@ -37,7 +37,7 @@ Before moving on make sure you have gone through the Quickstart LINK section to 
 
 * GadgetOS  
 
-#### Circuit
+### Circuit
 
 There is no need to build a circuit with the C.H.I.P. Pro Dev Kit, it uses the onboard LED on pin 36, CSID0.
 
@@ -45,23 +45,23 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 
 ## Pull Image: Blink
 
-#### 1. Launch GadgetCLI and Docker
+### 1. Launch GadgetCLI and Docker
 	
 	Docker works hand in hand with GadgetCLI. Open and keep Docker running in the background as you work.
 
-#### 2. Connect Hardware
+### 2. Connect Hardware
 
 	Connect your board to your host computer via a USB cable. Make sure the board is flashed with GadgetOS before moving on. LINK
 	
 	{Pic of Dev Kit connected to host computer}
 
-#### 3. Create project directory
+### 3. Create project directory
 
 	Fire up Terminal and create a space for your project to live in:
 
 	`mkdir blink`
 
-#### 4. Initialize Project
+### 4. Initialize Project
 
 	Enter and create a gadget.yml template file in your project directory.
 
@@ -74,7 +74,7 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 	`gadget -C blink init`
 
 
-#### 5. Add Service
+### 5. Add Service
 
 	`gadget add service blink`
 	
@@ -83,7 +83,7 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 	`gadget -C blink add service blink`
 	
 
-#### 6. Edit gadget.yml
+### 6. Edit gadget.yml
 
 	In the blink directory open and edit gadget.yml with a command-line text editor such as Nano:
 	
@@ -309,19 +309,19 @@ I would actually suggest what you did above. Start with a fresh gadget-os chippr
 
 	
 
-### Example Images
+## Example Images
 
 Start a project with one of our Python example images. Examples are pulled from our official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
 Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code. Before completing any of the examples make sure to go through the Quickstart [LINK] guide to meet the requirements below.
 
-#### I2C
+### I2C
 
 **ADS1015**
 
 To read resistor based sensors add a high resolution multiple channel ADC to your circuit.
 
-#### SPI
+### SPI
 
 **ADXL345 Accelerometer**
 
@@ -329,17 +329,17 @@ This is a popular 3-axis MEMs accelerometer that's great for applications sensin
 
 **Note:** Most breakout boards for the ADXL345 are also accessible through I2C.
 
-#### LEDs and Microphones
+### LEDs and Microphones
 This VU-meter example uses C.H.I.P. Pro Dev Kit's onboard mics and LEDs. The LED's brightness is mapped to the amplitude of the Mic inputs. Speak into or tap the mics to turn the LEDs on. 
 
 If using a bare C.H.I.P. Pro additional hardware is needed. Connect LEDs to pins PE0 - PE7 and MEMs microphones to pins 26-29 labeled: AGND, MICIN1, MICIN2, and VMIC respectively.
 
-#### Python CHIP_IO
+### Python CHIP_IO
 
-####  Google Assistant
+###  Google Assistant
 Google's Assistant API can be asked questions and be used to control hardware such as voice activated robots. 
 
-#### Multiple Containers?
+### Multiple Containers?
 
 ## Configuring Gadget.yml
 
@@ -354,7 +354,7 @@ type: docker
 
 The file is broken up into two sections: **onboot** and **services**. 
 
-#### onboot
+### onboot
 
 Containers added to the onboot section runs after boot, then exits. When multiple containers are defined they run sequentially from top to bottom. 
 
@@ -367,7 +367,7 @@ From parent directory:
 `gadget -C blink add onboot projectname`
 
 
-#### services
+### services
 
 Containers defined as a service runs on boot after all of the onboot containers. A service is automatically restarted by Docker if it exits with a non-zero return code.
 

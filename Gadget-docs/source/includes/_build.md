@@ -100,7 +100,7 @@ In the blink directory, open gadget.yml with a command-line text editor such as 
 	nano gadget.yml
 	```
 	
-Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
+* Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
 	
 Format: username/repo:tag. 
 	
@@ -126,9 +126,15 @@ Format: username/repo:tag.
 	
 * Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 	
-	**capabilities:[--cap-add SYS_RAWIO --device /dev/mem]**
+	```shell
+	capabilities:[SYS_RAWIO]
+	```
+* Pass the raw Linux device at /dev/mem to the container
+
+	```shell
+	devices:[/dev/mem]
 	
-	
+The finished section will look like this:
 	
 	```shell
 	services:
@@ -143,7 +149,8 @@ Format: username/repo:tag.
  	binds: [/sys:/sys]
  	capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
  	```
-	
+
+Save and close gadget.yml
 
 **7. Build, Deploy, and Start Image**
 

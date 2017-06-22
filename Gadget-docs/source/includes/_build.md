@@ -93,7 +93,7 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 	``` 
 	</p>
 	
-	Fill in the fields as described below.
+	Fill in the fields described below and learn what each one does.
 	
 	<p>
 	```
@@ -101,11 +101,14 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 	```
 	</p>
 	
-	Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
+	Specify a image you what to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in this format:
+	username/repo:tag. 
+	 
+	**Note:** If the tag is not included the image with the default "latest" tag will be pulled.
 	
 	* `command:["python", "blink.py"]` 
 	
-	Runs a Python script called blink.py that is included in the image.
+	This is what runs automatically 
 	
 	* `binds:[/sys:/sys]`
 	

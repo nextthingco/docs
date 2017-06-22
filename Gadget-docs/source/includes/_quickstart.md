@@ -26,10 +26,10 @@ Get up and running in minutes with this straight forward "Hello World" example.
 
 1. **Create Project Directory**
 
-	
-	`mkdir hello-world'
-	
-	`cd hello-world`
+	```bash
+	mkdir hello-world'
+	cd hello-world
+	```
 	
 2. **Initialize Project**
 

@@ -83,6 +83,7 @@ Start a project with one of our Python example images. Examples are pulled from 
 	Fill in gadget.yml as described below. You container will have a different uuid. To find out what all of the fields in this file are for go to the Configuring Gadget.yml LINK section.
 	
 	```bash
+	
 	services:
 	- name: blinkdemo
  	 uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
@@ -94,6 +95,7 @@ Start a project with one of our Python example images. Examples are pulled from 
  	 command: ["python", "blink.py"]
  	 binds: [/sys:/sys]
  	 capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
+ 	 
 	```
 	
 	
@@ -169,6 +171,7 @@ I would actually suggest what you did above. Start with a fresh gadget-os chippr
 
 	
 	```
+	
 	# Base image is arm32v7 Alpine Linux on Docker Hub
 	FROM armhf/alpine
 
@@ -218,6 +221,7 @@ I would actually suggest what you did above. Start with a fresh gadget-os chippr
          		    bison
 
 	CMD ["python", "blink.py"]
+	
 	```
 
 
@@ -355,6 +359,40 @@ Containers defined as a service runs on boot after all of the onboot containers.
 * shell w/ illustration showing where you are in relation to container
 
 ## Containerize Application
+
+## Gadget Commands  //test with june gadget version
+
+
+On top of creating and building and deploying, Gadget offers options that apply to a specific project while in the project's directory. For example, commands like `stop` and `start` can be applied to stop a running project and to start it back it up again. To see all the commands and options available for use in GadgetCLI type:
+
+```shell
+gadget #or 
+gadget --help
+```
+
+This menu will display:
+
+```shell
+usage: gadget <command> [<args>]
+
+common gadget commands: 
+  init        Create an empty gadget project 
+  build       Build the project in the current directory
+  deploy      Deploys the project in the current directory
+  start       Starts the application on a device
+  stop        Stops the application running on a device
+  delete      Deletes the application instance from a device
+  purge       Purges the application from a device
+  status      Shows status information
+  shell       Start debugging shell to investigate container
+  log         Show container log
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+get help for specific command:
+  gadget <command> --help
+```
 
 
 ## Where and how to pass args to docker run commmand?

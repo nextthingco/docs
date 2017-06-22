@@ -39,7 +39,7 @@ PIC of LED circuit with Dev Kit
 
 **Note:** If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
 
-### Pull Image: Blink Example
+## Pull Image: Blink Example
 
 Start a project with one of our Python example images. Examples are pulled from the official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
@@ -99,13 +99,13 @@ Start a project with one of our Python example images. Examples are pulled from 
 	
 	What each edit does:
 	
-		**image** - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
+	`image: ntcgadget/blink:v1` - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
 	
-		**command** - Runs a Python script called blink.py that is included in the image.
+	`command:["python", "blink.py"]` - Runs a Python script called blink.py that is included in the image.
 	
-		**binds** - Mounts the /sys volume from the host device TKTK into the container at /sys.
+	`binds:[/sys:/sys]` - Mounts the /sys volume from the host device TKTK into the container at /sys.
 	
-		**capabilities** - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+	`capabilities:[--cap-add SYS_RAWIO --device /dev/mem]` - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 
 **7. Build, Deploy, and Start Image**
 
@@ -123,7 +123,6 @@ Start a project with one of our Python example images. Examples are pulled from 
 	gadget -C blink/blinkdemo build 
 	gadget -C blink/blinkdemo deploy 
 	gadget -C blink/blinkdemostart
-
 	```
 		
 **8. Logs and Status**

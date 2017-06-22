@@ -59,7 +59,7 @@ Connect your board to your host computer via a USB cable. Make sure the board is
 
 Fire up Terminal and create a space for your project to live in:
 
-	```shell
+	```
 	mkdir blink
 	```
 
@@ -67,28 +67,28 @@ Fire up Terminal and create a space for your project to live in:
 
 Enter and create a gadget.yml template file in your project directory.
 
-	```shell
-	cd blink
-	gadget init
-	```
+```
+cd blink
+gadget init
+```
 	
 A gadget.yml file can also be created from your project's parent directory. 
 	
-	```shell
+	```
 	gadget -C blink init
 	```
 
 
 ### 5. Add Service
 
-	```shell
+	```
 	gadget add service blink
 	```
 	
 	
-	From parent directory:
+From parent directory:
 	
-	```shell
+	```
 	gadget -C blink add service blink
 	```
 
@@ -96,7 +96,7 @@ A gadget.yml file can also be created from your project's parent directory.
 
 In the blink directory, open gadget.yml with a command-line text editor such as Nano and make the following edits:
 	
-	```shell
+	```
 	nano gadget.yml
 	```
 	
@@ -158,16 +158,16 @@ Save and close gadget.yml
 	
 	```shell
 	gadget build 
-	gadget deploy blinkdemo
+	gadget deploy blink/
 	gadget start
 	```
 	
 	From parent directory:
 
 	```shell
-	gadget -C blink/blinkdemo build 
-	gadget -C blink/blinkdemo deploy 
-	gadget -C blink/blinkdemostart
+	gadget -C blink/blink build 
+	gadget -C blink/blink deploy 
+	gadget -C blink/blink start
 	```
 		
 **8. Logs and Status**

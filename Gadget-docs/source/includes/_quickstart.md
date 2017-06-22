@@ -26,17 +26,17 @@ For GadgetCLI to be able to talk to your hardware device it needs to be flashed 
 
 Get up and running in minutes with this straight forward "Hello World" example.
 
-1. **Create Project Directory**
+#### 1. Create Project Directory
 
 	```bash
-	mkdir hello-world'
+	mkdir hello-world
 	cd hello-world
 	```
 	
-2. **Initialize Project**
+#### 2. Initialize Project
 
 	```bash
-	gadget init`
+	gadget init
 	```
 	
 	This command creates a template file gadget.yml and generates a project called "hello-world" ready to be deployed to your hardware. 
@@ -62,7 +62,7 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	services: []
 	```
 	
-3. **Build**
+#### 3. Build
 	
 	```bash
 	gadget build
@@ -77,7 +77,7 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	INFO[0000]   'hello-world'
 	```
 	
-4. **Deploy**
+#### 4. Deploy
 	
 	```bash
 	gadget deploy
@@ -93,7 +93,7 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	INFO[0000]     Done!  
 	```
 	
-5. **Start**
+####5. Start
 	
 	```bash
 	gadget start
@@ -109,7 +109,7 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	INFO[0001]     - started 
 	```
 
-6. **Confirm** 
+#### 6. Confirm
 
 	To see if the container did indeed run use the `logs` command to print the output:
 	
@@ -132,7 +132,7 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	gadget status
 	```
 
-7. **Stop and Cleanup**
+#### 7. Stop and Cleanup
 	
 	Stop all running containers:
 	

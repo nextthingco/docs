@@ -99,7 +99,7 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	INFO[0001]     - started 
 	```
 
-6. **Print Output** 
+6. **Confirm** 
 
 	To see if the container did indeed run use the `logs` command to print the output:
 	
@@ -114,10 +114,29 @@ Get up and running in minutes with this straight forward "Hello World" example.
 	This message shows that your installation appears to be working correctly.
 	...
 	```
-	
 	Congrats, you have built and deployed your first Gadget project!
+	
+	If the container doesn't produce an output this will be blank. To see what containers are running check the status:
+	
+	```bash
+	gadget status
+	```
 
-### Exit GadgetCLI //test with june gadget version
+7. **Stop and Cleanup**
+	
+	Stop all running containers:
+	
+	```bash
+	gadget stop
+	```
+	
+	Delete containers:
+	
+	```bash
+	gadge delete
+	```
+
+### Exit GadgetCLI //test with installer version
 
 GadgetCLI simply opens a window using your host computer's terminal application. To exit, first stop the running application then exit. 
 

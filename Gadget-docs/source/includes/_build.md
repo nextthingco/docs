@@ -1,6 +1,12 @@
 # Build With Gadget 
 
-Once you get our Blink Python script up and running you are ready to dive deeper. Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code. Before completing any of the examples make sure to go through the Quickstart [LINK] guide to meet the requirements below. 
+Once you get the "hello world" example up and running you are ready to dive deeper. There are two ways to build with Gadget.
+
+1. **Pull images**, including demos, from Docker Hub and deploy to hardware. See the Pull Images LINK section to learn about this process.
+
+2. **Build images** locally on a development computer. Use GadgetCLI to deploy and run containers on C.H.I.P. Pro and other Gadget supported hardware. See the Build Images Locally section LINK to learn more.
+
+Follow the two Blink tutorials and get familiar with the work flow. They each outline a different process. Both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0.  
 
 ### Requirements
 
@@ -82,21 +88,19 @@ Start a project with one of our Python example images. Examples are pulled from 
 	 
 	Fill in gadget.yml as described below. You container will have a different uuid. To find out what all of the fields in this file are for go to the Configuring Gadget.yml LINK section.
 	
-	<!-- -->
-	
 	```bash
-		services:
-		- name: blinkdemo
- 	 	uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
- 	 	image: ntcgadget/blink:v1 
- 	 	directory: ""
- 	 	net: ""
- 	 	pid: ""
- 	 	readonly: false
- 	 	command: ["python", "blink.py"]
- 	 	binds: [/sys:/sys]
- 	 	capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
- 	 ```
+	services:
+	- name: blinkdemo
+ 	uuid: 2f54774d-2904-4dc3-b157-3db5800e256b
+ 	image: ntcgadget/blink:v1 
+ 	directory: ""
+ 	net: ""
+ 	pid: ""
+ 	readonly: false
+ 	command: ["python", "blink.py"]
+ 	binds: [/sys:/sys]
+ 	capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
+ 	```
 	
 	
 	What each edit does:
@@ -287,6 +291,8 @@ I would actually suggest what you did above. Start with a fresh gadget-os chippr
 	
 
 ### Example Images
+
+Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code. Before completing any of the examples make sure to go through the Quickstart [LINK] guide to meet the requirements below.
 
 #### I2C
 

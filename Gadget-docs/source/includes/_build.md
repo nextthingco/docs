@@ -101,13 +101,21 @@ Start a project with one of our Python example images. Examples are pulled from 
 	
 	What each edit does:
 	
-	`image: ntcgadget/blink:v1` - Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
+	* `image: ntcgadget/blink:v1` 
 	
-	`command:["python", "blink.py"]` - Runs a Python script called blink.py that is included in the image.
+	Pulls from the Docker Hub repo specified in this format -  username/repo:tag. Don't forget the version tag if it's not the default "latest". 
 	
-	`binds:[/sys:/sys]` - Mounts the /sys volume from the host device TKTK into the container at /sys.
+	* `command:["python", "blink.py"]` 
 	
-	`capabilities:[--cap-add SYS_RAWIO --device /dev/mem]` - Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+	Runs a Python script called blink.py that is included in the image.
+	
+	* `binds:[/sys:/sys]`
+	
+	Mounts the /sys volume from the host device TKTK into the container at /sys.
+	
+	* `capabilities:[--cap-add SYS_RAWIO --device /dev/mem]` 
+	
+	Grants Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 
 **7. Build, Deploy, and Start Image**
 

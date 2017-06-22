@@ -47,85 +47,90 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 
 ### 1. Launch GadgetCLI and Docker
 	
-	Docker works hand in hand with GadgetCLI. Open and keep Docker running in the background as you work.
+Docker works hand in hand with GadgetCLI. Open and keep Docker running in the background as you work.
 
 ### 2. Connect Hardware
 
-	Connect your board to your host computer via a USB cable. Make sure the board is flashed with GadgetOS before moving on. LINK
+Connect your board to your host computer via a USB cable. Make sure the board is flashed with GadgetOS before moving on. LINK
 	
-	{Pic of Dev Kit connected to host computer}
+{Pic of Dev Kit connected to host computer}
 
 ### 3. Create project directory
 
-	Fire up Terminal and create a space for your project to live in:
+Fire up Terminal and create a space for your project to live in:
 
-	`mkdir blink`
+	```shell
+	mkdir blink
+	```
 
 ### 4. Initialize Project
 
-	Enter and create a gadget.yml template file in your project directory.
+Enter and create a gadget.yml template file in your project directory.
 
-	`cd blink`
+	```shell
+	cd blink
+	gadget init
+	```
 	
-	`gadget init`
+A gadget.yml file can also be created from your project's parent directory. 
 	
-	A gadget.yml file can also be created from your project's parent directory. 
-	
-	`gadget -C blink init`
+	```shell
+	gadget -C blink init
+	```
 
 
 ### 5. Add Service
 
-	`gadget add service blink`
+	```shell
+	gadget add service blink
+	```
+	
 	
 	From parent directory:
 	
-	`gadget -C blink add service blink`
-	
+	```shell
+	gadget -C blink add service blink
+	```
 
 ### 6. Edit gadget.yml
 
-	In the blink directory open and edit gadget.yml with a command-line text editor such as Nano:
+In the blink directory, open gadget.yml with a command-line text editor such as Nano and make the following edits:
 	
 	```shell
 	nano gadget.yml
 	```
 	
-	Fill in the fields described below and learn what each one does.
+Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
 	
-	* Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
+Format: username/repo:tag. 
 	
-	Format: username/repo:tag. 
-	
-	**Note:** If the tag is not included the image with the default "latest" tag will be pulled.
+**Note:** If the tag is not included the image with the default "latest" tag will be pulled.
 
 	```shell
 	image: ntcgadget/blink:v1
 	```
 
-
-	
-	* Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
+* Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
 	
 	```shell
 	command:["python", "blink.py"]
 	```
 	
-	* Mounts the /sys directory from the host(gadget) into the container at /sys. 
+* Mounts the /sys directory from the host(gadget) into the container at /sys. 
 	
 	Format: whereFrom:whereTo
 	
 	```shell
-	**binds:[/sys:/sys]**
+	binds:[/sys:/sys]
 	```
 	
-	* Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+* Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 	
 	**capabilities:[--cap-add SYS_RAWIO --device /dev/mem]**
 	
 	
 	
-	```bash
+	```shell
 	services:
 	- name: blink
  	uuid: Your-Containers-Uni-Que-UUID
@@ -144,7 +149,7 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 
 	In the project directory:
 	
-	```bash
+	```shell
 	gadget build 
 	gadget deploy blinkdemo
 	gadget start
@@ -152,7 +157,7 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 	
 	From parent directory:
 
-	```bash
+	```shell
 	gadget -C blink/blinkdemo build 
 	gadget -C blink/blinkdemo deploy 
 	gadget -C blink/blinkdemostart

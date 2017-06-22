@@ -59,9 +59,9 @@ Connect your board to your host computer via a USB cable. Make sure the board is
 
 Fire up Terminal and create a space for your project to live in:
 
-	```
-	mkdir blink
-	```
+```
+mkdir blink
+```
 
 ### 4. Initialize Project
 
@@ -74,31 +74,31 @@ gadget init
 	
 A gadget.yml file can also be created from your project's parent directory. 
 	
-	```
-	gadget -C blink init
-	```
+```
+gadget -C blink init
+```
 
 
 ### 5. Add Service
 
-	```
-	gadget add service blink
-	```
+```
+gadget add service blink
+```
 	
 	
 From parent directory:
 	
-	```
-	gadget -C blink add service blink
-	```
+```
+gadget -C blink add service blink
+```
 
 ### 6. Edit gadget.yml
 
 In the blink directory, open gadget.yml with a command-line text editor such as Nano and make the following edits:
 	
-	```
-	nano gadget.yml
-	```
+```
+nano gadget.yml
+```
 	
 * Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
 	
@@ -136,54 +136,59 @@ Format: username/repo:tag.
 	
 The finished section will look like this:
 	
-	```shell
-	services:
-	- name: blink
- 	uuid: Your-Containers-Uni-Que-UUID
- 	image: ntcgadget/blink:v1 
- 	directory: ""
- 	net: ""
- 	pid: ""
- 	readonly: false
- 	command: ["python", "blink.py"]
- 	binds: [/sys:/sys]
- 	capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
- 	```
+```shell
+services:
+- name: blink
+uuid: Your-Containers-Uni-Que-UUID
+image: ntcgadget/blink:v1 
+directory: ""
+net: ""
+pid: ""
+readonly: false
+command: ["python", "blink.py"]
+binds: [/sys:/sys]
+capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
+```
 
 Save and close gadget.yml
 
-**7. Build, Deploy, and Start Image**
+### 7. Build, Deploy, and Start Image
 
-	In the project directory:
-	
-	```shell
-	gadget build 
-	gadget deploy blink/
-	gadget start
-	```
-	
-	From parent directory:
+In the project directory:
 
-	```shell
-	gadget -C blink/blink build 
-	gadget -C blink/blink deploy 
-	gadget -C blink/blink start
-	```
+```shell
+gadget build 
+gadget deploy 
+gadget start
+```
+	
+From parent directory:
+
+```shell
+gadget -C blink/blink build 
+gadget -C blink/blink deploy 
+gadget -C blink/blink start
+```
 		
-**8. Logs and Status**
+### 8. Logs and Status
 
-	Check the status of the container:
+Check the status of the container:
 	
-	`gadget status`
+```
+gadget status
+```	
+Look at the output logs of the container:
 	
-	Look at the output logs of the container:
+```
+gadget logs
+```
 	
-	`gadget logs`
 	
-	
-**9. Stop Container**
+### 9. Stop Container
 
-	`gadget stop`
+```
+gadget stop
+```
 	
 
 ## Build Image Locally: Blink 
@@ -192,133 +197,147 @@ Take the following steps to learn how to best develop with Gadget and Docker.
 
 I would actually suggest what you did above. Start with a fresh gadget-os chippro, experiment/build/push to dockerhub. Then use gadgetcli for deployment and orchestration
 
-**1. Create Repo**
+### 1. Create Repo
 
 	For this process you will need a repository on [Docker Hub](https://hub.docker.com/) or another online repo that you will push your custom built image to and then pull from. We will go over how to pull from Docker Hub and a url in the **Create Dockerfile** step. 
 
-**2. Create project directory**
+### 2. Create project directory
 
-	```
-	mkdir blink
-	cd blink
-	```
+```
+mkdir blink
+cd blink
+```
 
-**3. Create Dockerfile**
+### 3. Create Dockerfile
 
-	```
-	nano Dockerfile
-	```
+```
+nano Dockerfile
+```
 	
-	We will breifly go over what the Dockerfile for the blink example does but this by no means covers all instructions a Dockerfile can hold. To learn of all the capabilities refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
+We will breifly go over what the Dockerfile for the blink example does but this by no means covers all instructions a Dockerfile can hold. To learn of all the capabilities refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
 
+```
+# Base image is arm32v7 Alpine Linux on Docker Hub
+FROM armhf/alpine
+
+# Set and create a working directory called app
+WORKDIR /app
+
+# Copy the contents of the current directory into the working directory
+ADD . /app
+
+# Install tools needed to download and build the CHIP_IO library from source.
+RUN apk update && apk add make \
+						  gcc \ 
+						  g++ \
+						  flex \
+						  bison \ 
+						  git \
+						  
+		# Download python and tools for installing libraries
+						  python-dev \
+						  py-setuptools \
+						  
+		# Download source code for device tree compiler needed for CHIP_IO
+		git clone https://github.com/atenart/dtc.git \
+		
+		# Build and install the device tree compiler
+	&&	cd dtc && make && make install PREFIX=/usr  \
+		
+		# Remove the device tree compiler source code now that we've built it
+	&&	cd .. \
+	&& rm dtc -rf \
+		
+		# Download the latest CHIP_IO source code
+	&&	git clone https://github.com/xtacocorex/CHIP_IO.git \
+		
+		# Install the CHIP_IO library from the proper directory
+	&&	cd CHIP_IO && python setup.py install \
+		
+		# Remove CHIP_IO source code directory after it has been installed
+	&&	cd ../ && rm -rf CHIP_IO \
+		
+		# Remove build tools, which are no longer needed after installation
+	&&	apk del git \
+				make \ 
+				gcc \
+				g++ \
+				flex \
+				bison
+
+CMD ["python", "blink.py"]
+```
+
+
+### 4. Create supporting files
+
+Create blink Python script:
+
+```
+nano blink.py
+```
+
+Copy and paste this or create your own.
+
+```
+import CHIP_IO.GPIO as GPIO
+from time import sleep
+
+
+ledPin = "CSID0"
+
+GPIO.setup(ledPin, GPIO.OUT)
+
+try:
+	while True:
+		GPIO.output(ledPin, True)
+		sleep(1)
+		GPIO.output(ledPin, False)
+		sleep(1)
+
+#exit with CTRL+C			
+except KeyboardInterrupt:
+	print("exiting")
+
+#unexport GPIOs upon exiting      
+finally:
+	GPIO.cleanup() 
+```
+
+
+### 5. Build, Tag and Push
+
+While still in the project directory build the image and give it a name.
 	
-	```
+```
+docker build blink .
+```
 	
-	# Base image is arm32v7 Alpine Linux on Docker Hub
-	FROM armhf/alpine
-
-	# Set and create a working directory called app
-	WORKDIR /app
-
-	# Copy the contents of the current directory into the working directory
-	ADD . /app
-
-	# Install tools needed to download and build the CHIP_IO library from source.
-	RUN apk update && apk add make \
-	 						  gcc \ 
-	 						  g++ \
-							  flex \
-							  bison \ 
-							  git \
-							  
-       	 	# Download python and tools for installing libraries
-        					  python-dev \
-        					  py-setuptools \
-        					  
-        	# Download source code for device tree compiler needed for CHIP_IO
-        	git clone https://github.com/atenart/dtc.git \
-        	
-        	# Build and install the device tree compiler
-        &&	cd dtc && make && make install PREFIX=/usr  \
-        	
-        	# Remove the device tree compiler source code now that we've built it
-        &&	cd .. \
-        && rm dtc -rf \
-        	
-        	# Download the latest CHIP_IO source code
-        &&	git clone https://github.com/xtacocorex/CHIP_IO.git \
-        	
-        	# Install the CHIP_IO library from the proper directory
-        &&	cd CHIP_IO && python setup.py install \
-        	
-        	# Remove CHIP_IO source code directory after it has been installed
-        &&	cd ../ && rm -rf CHIP_IO \
-        	
-        	# Remove build tools, which are no longer needed after installation
-        &&	apk del git \
-         		    make \ 
-         		    gcc \
-         		    g++ \
-         		    flex \
-         		    bison
-
-	CMD ["python", "blink.py"]
+Log into your Docker Hub: 
 	
-	```
-
-
-**4. Create supporting files**
-
-	Create blink Python script that imports CHIP_IO and turns an LED on and off that is connected to pin 36, CSID0.
-
-	```
-	nano blink.py
-	```
+````
+docker login
+```
 	
-	```
-	import CHIP_IO.GPIO as GPIO
-	from time import sleep
+Or, log into a repository hosted elsewhere:
 
+```
+docker login example-reg.githost.io
+```
 
-	ledPin = "CSID0"
+Tag the blink image with a version number. This is not mandatory but helps. 
 
-	GPIO.setup(ledPin, GPIO.OUT)
+```
+docker tag blinkdemo pushreset/blink:v1 #Docker Hub
+docker tag example-reg.githost.io/blinkdemo pushreset/blink:v1 #repo elsewhere
+```
 
-	try:
-		while True:
-			GPIO.output(ledPin, True)
-			sleep(1)
-			GPIO.output(ledPin, False)
-			sleep(1)
-	
-	#exit with CTRL+C			
-	except KeyboardInterrupt:
-		print("exiting")
-	
-	#unexport GPIOs upon exiting      
-	finally:
-		GPIO.cleanup() 
-	```
+Push the image to your Docker Hub repository:
 
-
-**5. Build, Tag and Push**
-
-	While still the project directory build image and give it a name.
-	
-	
-	`docker build blink .`
-	
- 
-	
-
-	`docker login`
-	
-	
-
-	`docker tag blinkdemo pushreset/blink:v1`
-	
-	`docker push pushreset/blink:v1`
-
+```
+docker push pushreset/blink:v1 #Docker Hub
+docker push example-reg.githost.io/blinkdemo #repo elsewhere
+```
 	
 
 ## Example Images

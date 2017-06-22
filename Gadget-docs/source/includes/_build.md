@@ -82,6 +82,8 @@ Start a project with one of our Python example images. Examples are pulled from 
 	 
 	Fill in gadget.yml as described below. You container will have a different uuid. To find out what all of the fields in this file are for go to the Configuring Gadget.yml LINK section.
 	
+	<!-- -->
+	
 	```bash
 		services:
 		- name: blinkdemo

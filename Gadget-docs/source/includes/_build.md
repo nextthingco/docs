@@ -93,7 +93,7 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 	
 	Fill in the fields described below and learn what each one does.
 	
-	* Specify a image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
+	* Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
 	
 	Format: username/repo:tag. 
 	

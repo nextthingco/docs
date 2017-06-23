@@ -106,37 +106,38 @@ Format: username/repo:tag.
 	
 **Note:** If the tag is not included the image with the default "latest" tag will be pulled.
 
-	```shell
+	```
 	image: ntcgadget/blink:v1
 	```
 
 * Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
 	
-	```shell
-	command:["python", "blink.py"]
+	```
+	command:[python, blink.py]
 	```
 	
 * Mounts the /sys directory from the host(gadget) into the container at /sys. 
 	
 	Format: whereFrom:whereTo
 	
-	```shell
+	```
 	binds:[/sys:/sys]
 	```
 	
 * Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
 	
-	```shell
+	```
 	capabilities:[SYS_RAWIO]
 	```
 * Pass the raw Linux device at /dev/mem to the container
 
-	```shell
+	```
 	devices:[/dev/mem]
+	```
 	
 The finished section will look like this:
 	
-```shell
+```
 services:
 - name: blink
 uuid: Your-Containers-Uni-Que-UUID
@@ -156,7 +157,7 @@ Save and close gadget.yml
 
 In the project directory:
 
-```shell
+```
 gadget build 
 gadget deploy 
 gadget start
@@ -164,7 +165,7 @@ gadget start
 	
 From parent directory:
 
-```shell
+```
 gadget -C blink/blink build 
 gadget -C blink/blink deploy 
 gadget -C blink/blink start
@@ -177,6 +178,7 @@ Check the status of the container:
 ```
 gadget status
 ```	
+
 Look at the output logs of the container:
 	
 ```
@@ -185,6 +187,7 @@ gadget logs
 	
 	
 ### 9. Stop Container
+
 
 ```
 gadget stop

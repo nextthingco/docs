@@ -266,7 +266,10 @@ I would actually suggest what you did above. Start with a fresh gadget-os chippr
 
 ### 1. Create Repo
 
-	For this process you will need an online code repository. You can either create one on [Docker Hub](https://hub.docker.com/) or another free online service such as GitLab or GitHub. We will go over how to pull from Docker Hub and a url in the **Create Dockerfile** step. 
+For this process you will need a [Docker Hub](https://hub.docker.com/) repository to push and pull your built images to. 
+	
+Popular git repositories such as GitLab and GitHub have their own container repos and ways of working with Docker. If that is what you prefer you will need to push images according to their documentation.
+
 
 ### 2. Create project directory
 
@@ -339,9 +342,9 @@ CMD ["python", "blink.py"]
 
 Dockerfiles are capable of holding many kinds of instruction. To learn more, refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
 
-### 4. Create supporting files
+### 4. Create Supporting Files
 
-Create blink Python script:
+Create a Python script named blink:
 
 ```
 nano blink.py
@@ -349,7 +352,7 @@ nano blink.py
 
 Copy and paste this or create your own.
 
-```
+```python
 import CHIP_IO.GPIO as GPIO
 from time import sleep
 
@@ -375,38 +378,42 @@ finally:
 ```
 
 
-### 5. Build, Tag and Push
+### 5. Build
 
 While still in the project directory build the image and give it a name.
 	
 ```
-docker build blink .
+docker build -t blink .
 ```
-	
-Log into your Docker Hub: 
+
+Docker will output all the build commands and tell you that it has successfully built.
+
+![GR8](images/localBuild.png)
+
+### 6. Login
+
+Log into your repository account to push and pull and images from.
+
+Docker Hub: 
 	
 ````
 docker login
 ```
-	
-Or, log into a repository hosted elsewhere:
 
-```
-docker login example-reg.githost.io
-```
+### 7. Tag
 
 Tag the blink image with a version number. This is not mandatory but helps. 
 
 ```
-docker tag blinkdemo pushreset/blink:v1 #Docker Hub
-docker tag example-reg.githost.io/blinkdemo pushreset/blink:v1 #repo elsewhere
+docker tag blink pushreset/blink:v1 
 ```
+
+### 8. Push
 
 Push the image to your Docker Hub repository:
 
 ```
-docker push pushreset/blink:v1 #Docker Hub
-docker push example-reg.githost.io/blinkdemo #repo elsewhere
+docker push pushreset/blink:v1 
 ```
 	
 

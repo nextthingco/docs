@@ -451,7 +451,7 @@ html, body {
 
   p, li, dt, dd {
     line-height: 1.6;
-    margin-top: 0;
+    //margin-top: 0;
   }
 
   img {
@@ -530,7 +530,7 @@ html, body {
     color: #fff;
 
     padding: 1.1em $main-padding;
-    margin: 1;
+    margin: 0;
     width: $examples-width;
 
     float:right;

@@ -67,30 +67,11 @@ services: []
 ```bash
 gadget build
 ```
-
-Output:
-
-```bash
-INFO[0000] Running in directory:                        
-INFO[0000]   /Users/xxxx/project/pathname/
-INFO[0000] Building:                                    
-INFO[0000]   'hello-world'
-	```
 	
 #### 4. Deploy
 	
 ```bash
 gadget deploy
-```
-
-Output:
-
-```bash
-INFO[0000] Running in directory:                        
-INFO[0000]   /Users/xxxx/project/pathname/ 
-INFO[0000]   Deploying: 'hello-world'                   
-INFO[0000]     Starting transfer..                      
-INFO[0000]     Done!  
 ```
 	
 ####5. Start
@@ -98,18 +79,9 @@ INFO[0000]     Done!
 ```bash
 gadget start
 ```
-	
-Output:
-	
-```bash
-INFO[0000] Running in directory:                        
-INFO[0000]   /Users/xxxx/project/pathname/ 
-INFO[0000] Starting:                                    
-INFO[0000]   hello-world_1ef762fe-a500-41d1-8cf9-bbd621dd09b8 
-INFO[0001]     - started 
-```
 
-#### 6. Confirm
+
+#### 6. Verify
 
 To see if the container did indeed run use the `logs` command to print the output:
 

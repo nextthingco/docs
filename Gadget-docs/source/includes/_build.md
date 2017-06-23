@@ -1,24 +1,24 @@
 # Build With Gadget 
 
-Once you get the "hello world" example up and running you are ready to dive deeper. There are two ways we recommend when building with Gadget.
+Once you get the "hello world" example up and running you are ready to dive deeper. There are two ways we recommend building with Gadget.
 
 1. **Pull Images**
 
-	Images are pulled from a remote location and deployed to hardware. See the Pull Images LINK section to learn about this process.
+	In this scenario, images are pulled from a remote location and deployed to hardware. See the Pull Images LINK section to learn about this process.
 
 2. **Build Images** 
 
-	Build images locally on your development computer. This takes some Docker knowledge but give you the most flexibility. See the Build Images Locally section LINK to learn more.
+	Build images locally on your development computer. This takes some Docker knowledge but gives you the most flexibility. See the Build Images Locally section LINK to learn more.
 
 To get familiar with each process follow the two Blink tutorials. Both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0.  
 
 ## Requirements
 
-Before moving on make sure you have gone through the Quickstart LINK section to meet the requirements.
+Before moving forward, make sure you have gone through the Quickstart LINK section to meet the below requirements.
 
 ### Hardware
 
-* Host computer (Mac, Windows or Linux)
+* Host computer (Mac, Windows 10 or Linux)
 * Gadget compatible hardware
 	* All examples pictured here are with the Dev Kit
 * USB cable
@@ -45,13 +45,13 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 
 ## Pull Image: Blink
 
-### 1. Launch GadgetCLI and Docker
+### 1. Open GadgetCLI and Docker
 	
-Docker works hand in hand with GadgetCLI. Open and keep Docker running in the background as you work.
+Docker works hand in hand with GadgetCLI. Open and keep Docker running in the background as you work with GadgetCLI.
 
 ### 2. Connect Hardware
 
-Connect your board to your host computer via a USB cable. Make sure the board is flashed with GadgetOS before moving on. LINK
+Connect your board to your host computer via a USB cable. 
 	
 {Pic of Dev Kit connected to host computer}
 
@@ -65,7 +65,7 @@ mkdir blink
 
 ### 4. Initialize Project
 
-Enter and create a gadget.yml template file in your project directory.
+Enter and use `gadget init` to create a gadget.yml template file in your project directory.
 
 ```
 cd blink
@@ -78,6 +78,13 @@ A gadget.yml file can also be created from your project's parent directory.
 gadget -C blink init
 ```
 
+Gadget will tell you that it created a new project:
+
+```
+  Creating new project:
+    in /Users/username/Documents/blink
+```
+The gadget.yml file is where all the configurations needed for a container at runtime go. It is also where you state which containers to run and in what order. To learn more go to the Configuring Gadget.yml LINK section. 
 
 ### 5. Add Service
 
@@ -85,55 +92,77 @@ gadget -C blink init
 gadget add service blink
 ```
 	
-	
 From parent directory:
 	
 ```
 gadget -C blink add service blink
 ```
 
+Gadget notifies you of a new service added:
+
+```
+  Running in directory:
+    /Users/username/Documents/blink
+  Adding new service: "blink"
+```
+
 ### 6. Edit gadget.yml
 
-In the blink directory, open gadget.yml with a command-line text editor such as Nano and make the following edits:
+In the project directory, open gadget.yml with a command-line text editor such as Nano: 
 	
 ```
 nano gadget.yml
 ```
+
+#### Make the edits to following fields:
+
+* **image**
+ 
+	```
+	image: ntcgadget/blink:v1
+	```
 	
-* Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
+Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
 	
 Format: username/repo:tag. 
 	
 **Note:** If the tag is not included the image with the default "latest" tag will be pulled.
 
-	```
-	image: ntcgadget/blink:v1
-	```
+* **command**
 
-* Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
-	
 	```
 	command:[python, blink.py]
 	```
+
+Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
+
 	
-* Mounts the /sys directory from the host(gadget) into the container at /sys. 
-	
-	Format: whereFrom:whereTo
+* **binds**
 	
 	```
 	binds:[/sys:/sys]
 	```
 	
-* Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+Mounts the /sys directory from the host(gadget) into the container at /sys. 
+
+Format: whereFrom:whereTo
+	
+* **capabilities**
+
 	
 	```
 	capabilities:[SYS_RAWIO]
 	```
-* Pass the raw Linux device at /dev/mem to the container
+
+Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+
+* **devices**
 
 	```
 	devices:[/dev/mem]
 	```
+
+Pass the raw Linux device at /dev/mem to the container
 	
 The finished section will look like this:
 	
@@ -146,9 +175,10 @@ directory: ""
 net: ""
 pid: ""
 readonly: false
-command: ["python", "blink.py"]
+command: [python, blink.py]
 binds: [/sys:/sys]
-capabilities: [--cap-add SYS_RAWIO --device /dev/mem]
+capabilities:[SYS_RAWIO]
+devices:[/dev/mem]
 ```
 
 Save and close gadget.yml
@@ -162,14 +192,39 @@ gadget build
 gadget deploy 
 gadget start
 ```
-	
+
 From parent directory:
 
 ```
-gadget -C blink/blink build 
-gadget -C blink/blink deploy 
-gadget -C blink/blink start
+gadget -C blink build 
+gadget -C blink deploy 
+gadget -C blink start
 ```
+
+If the container builds and deploys successfully you will see the following output messages along with the pathname where project is being built:
+
+```
+#build
+  Building:
+    'hello-world'
+    'blink'
+
+#deploy
+  Stopping/deleting older 'hello-world' if applicable
+  Deploying: 'hello-world'
+    Starting transfer..
+    
+  Stopping/deleting older 'blink' if applicable
+  Deploying: 'blink'
+    Starting transfer..
+
+#start
+  Starting:
+    hello-world_58915d6b-2770-4988-8f16-b681f3fc5fc7
+      - started
+```
+
+If any of these processes fail Gadget will output an error along with suggestions of what may be the issue. Go to the troubleshooting section LINK for more information.
 		
 ### 8. Logs and Status
 
@@ -184,25 +239,34 @@ Look at the output logs of the container:
 ```
 gadget logs
 ```
+
+
+From parent directory:
+
+```
+gadget -C blink/blink build 
+gadget -C blink/blink deploy 
+gadget -C blink/blink start
+```	
 	
-	
-### 9. Stop Container
+### 9. Stop and Delete Container
 
 
 ```
 gadget stop
+gadget delete
 ```
 	
 
 ## Build Image Locally: Blink 
 
-Take the following steps to learn how to best develop with Gadget and Docker. 
+Images built on a local machine are pushed to an online repo and are then available to be pulled to one or multiple devices at anytime.
 
 I would actually suggest what you did above. Start with a fresh gadget-os chippro, experiment/build/push to dockerhub. Then use gadgetcli for deployment and orchestration
 
 ### 1. Create Repo
 
-	For this process you will need a repository on [Docker Hub](https://hub.docker.com/) or another online repo that you will push your custom built image to and then pull from. We will go over how to pull from Docker Hub and a url in the **Create Dockerfile** step. 
+	For this process you will need an online code repository. You can either create one on [Docker Hub](https://hub.docker.com/) or another free online service such as GitLab or GitHub. We will go over how to pull from Docker Hub and a url in the **Create Dockerfile** step. 
 
 ### 2. Create project directory
 
@@ -213,13 +277,15 @@ cd blink
 
 ### 3. Create Dockerfile
 
+Create a Dockerfile using a command-line editor such as Nano. 
+
 ```
 nano Dockerfile
 ```
 	
-We will breifly go over what the Dockerfile for the blink example does but this by no means covers all instructions a Dockerfile can hold. To learn of all the capabilities refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
+Copy and paste the following content into the new Dockerfile. 
 
-```
+```bash
 # Base image is arm32v7 Alpine Linux on Docker Hub
 FROM armhf/alpine
 
@@ -230,26 +296,26 @@ WORKDIR /app
 ADD . /app
 
 # Install tools needed to download and build the CHIP_IO library from source.
-RUN apk update && apk add make \
-						  gcc \ 
-						  g++ \
+RUN apk update && apk add bison \
 						  flex \
-						  bison \ 
+						  g++ \
+						  gcc \ 
 						  git \
+						  make \
 						  
 		# Download python and tools for installing libraries
 						  python-dev \
 						  py-setuptools \
 						  
 		# Download source code for device tree compiler needed for CHIP_IO
-		git clone https://github.com/atenart/dtc.git \
+	&&	git clone https://github.com/NextThingCo/dtc.git \
 		
 		# Build and install the device tree compiler
 	&&	cd dtc && make && make install PREFIX=/usr  \
 		
 		# Remove the device tree compiler source code now that we've built it
 	&&	cd .. \
-	&& rm dtc -rf \
+	&&  rm dtc -rf \
 		
 		# Download the latest CHIP_IO source code
 	&&	git clone https://github.com/xtacocorex/CHIP_IO.git \
@@ -261,16 +327,17 @@ RUN apk update && apk add make \
 	&&	cd ../ && rm -rf CHIP_IO \
 		
 		# Remove build tools, which are no longer needed after installation
-	&&	apk del git \
-				make \ 
-				gcc \
-				g++ \
+	&&	apk del bison \
 				flex \
-				bison
+				g++ \
+				gcc \
+				git \
+				make 
 
 CMD ["python", "blink.py"]
 ```
 
+Dockerfiles are capable of holding many kinds of instruction. To learn more, refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
 
 ### 4. Create supporting files
 

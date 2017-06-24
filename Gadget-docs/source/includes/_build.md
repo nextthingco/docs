@@ -114,7 +114,7 @@ In the project directory, open gadget.yml with a command-line text editor such a
 nano gadget.yml
 ```
 
-#### Make the edits to following fields:
+#### Make edits to following fields:
 
 * **image**
  
@@ -422,14 +422,17 @@ The image is ready to share and pull to your device. From here, the workflow is 
 * Connect hardware to host machine by USB
 * Create or enter project directory
 * Initialize project
+
 ```
 gadget init
 ```
 * Add service to gadget.yml
+
 ```
 gadget add service blink
 ```
 * Edit gadget.yml
+
 ```
 services:
 - name: blink
@@ -445,17 +448,132 @@ capabilities:[SYS_RAWIO]
 devices:[/dev/mem]
 ```
 * Build
+
 ```
 gadget build
 ```
 * Deploy
+
 ```
 gadget deploy
 ```
 * Start
+
 ```
 gadget start
 ```
+
+## Edit Examples
+
+Experiment and develop with this process. 
+
+### 1. Obtain Source Code
+
+The source code can be a previously program on your local computer or you can start with one of our example scripts. For this tutorial we will use a simple blink example. 
+
+Clone the examples to your computer:
+```
+git clone https://github.com/NextThingCo/Gadget-Docker-Examples.git
+```
+### 2. Initialize Project
+
+In the project directory create the gadget.yml template file.
+
+```
+cd Gadget-Docker-Examples/blink
+gadget init
+```
+
+### 3. Add Service
+
+Add a service to gadget.yml.
+
+```
+gadget add service blink
+```
+
+
+### 3. Edit Gadget.yml
+
+Edit gadget.yml using a command-line editor such as Nano.
+
+```
+nano gadget.yml
+```
+
+#### Make edits to following fields:
+
+* **image**
+ 
+	```
+	image: "" #leave empty
+	```
+This field is reserved for pulling images from Docker Hub so, leave it empty.
+
+* **directory**
+
+	```
+	directory:[.] 
+	```
+
+Run Gadget commands pointed to the specified directory. In this example that is the current directory. If gadget.yml is in the parent directory it would be `directory:[blink]`.
+
+* **command**
+
+	```
+	command:[python, blink.py]
+	```
+
+Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
+
+	
+* **binds**
+	
+	```
+	binds:[/sys:/sys]
+	```
+	
+Mounts the /sys directory from the host(gadget) into the container at /sys. 
+
+Format: whereFrom:whereTo
+	
+* **capabilities**
+
+	
+	```
+	capabilities:[SYS_RAWIO]
+	```
+
+Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+
+* **devices**
+
+	```
+	devices:[/dev/mem]
+	```
+
+Pass the raw Linux device at /dev/mem to the container
+	
+The finished section will look like this:
+	
+```
+services:
+- name: blink
+uuid: Your-Containers-Uni-Que-UUID
+image: ntcgadget/blink:v1 
+directory: ""
+net: ""
+pid: ""
+readonly: false
+command: [python, blink.py]
+binds: [/sys:/sys]
+capabilities:[SYS_RAWIO]
+devices:[/dev/mem]
+```
+
+Save and close gadget.yml
+
+### 2. 
 
 
 ## Example Images

@@ -350,7 +350,7 @@ Create a Python script named blink:
 nano blink.py
 ```
 
-Copy and paste this or create your own.
+Copy and paste this simple blink python script or, feel free to create your own.
 
 ```python
 import CHIP_IO.GPIO as GPIO
@@ -393,8 +393,6 @@ Docker will output all the build commands and tell you that it has successfully 
 ### 6. Login
 
 Log into your repository account to push and pull and images from.
-
-Docker Hub: 
 	
 ````
 docker login
@@ -402,7 +400,7 @@ docker login
 
 ### 7. Tag
 
-Tag the blink image with a version number. This is not mandatory but helps. 
+Tag the blink image with a version number. If an image is not tagged it will automatically be tagged with the default of "latest".
 
 ```
 docker tag blink pushreset/blink:v1 
@@ -415,7 +413,50 @@ Push the image to your Docker Hub repository:
 ```
 docker push pushreset/blink:v1 
 ```
-	
+
+### 9. Pull 
+
+The image is ready to share and pull to your device. From here, the workflow is the same as the one outlined in Pull Image. Here is a condensed version of the steps. 
+
+* Open and run Docker (if not already) and GadgetCLI
+* Connect hardware to host machine by USB
+* Create or enter project directory
+* Initialize project
+```
+gadget init
+```
+* Add service to gadget.yml
+```
+gadget add service blink
+```
+* Edit gadget.yml
+```
+services:
+- name: blink
+uuid: Your-Containers-Uni-Que-UUID
+image: ntcgadget/blink:v1 
+directory: ""
+net: ""
+pid: ""
+readonly: false
+command: [python, blink.py]
+binds: [/sys:/sys]
+capabilities:[SYS_RAWIO]
+devices:[/dev/mem]
+```
+* Build
+```
+gadget build
+```
+* Deploy
+```
+gadget deploy
+```
+* Start
+```
+gadget start
+```
+
 
 ## Example Images
 

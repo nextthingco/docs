@@ -3,9 +3,6 @@ title: Next Thing Co. PocketC.H.I.P. Documentation
 
 language_tabs:
 
-toc_footers:
-  - <a href='http://github.com/getchip/PocketCHIP-Docs'>Have something to add or change?<br>Visit our GitHub!</a>
-
 includes:
   - _welcome-to-pocketchip.md
   - _glance.md  

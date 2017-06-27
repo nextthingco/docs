@@ -28,7 +28,7 @@ You will be sent to the **"Flasher First Time Setup"** page which will have inst
 
 	* A Debian-based Linux computer requires creating a set of udev rules to communicate with your C.H.I.P. Pro. Paste the following into a terminal window. 
 	
-	```
+	```shell
 	sudo usermod -a -G dialout ${USER}
 	sudo usermod -a -G plugdev ${USER}
 

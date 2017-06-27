@@ -38,10 +38,12 @@ You may not want to use the browser-based flashing procedure. If this is the cas
 Before you try anything else, try using a different USB cable. Many cables are charging-only, or do not support high bandwidth and will cause flashing to fail.
 
 ### Windows-specific
+
    * You must install [drivers](https://s3-us-west-2.amazonaws.com/getchip.com/extension/drivers/windows/InstallDriver2.exe) to be able to talk with C.H.I.P.
    * Reboot after installing drivers on previous versions (<10) of Windows.
 
 Unfortunately, due to the nature of how Windows manages drivers, the flashing procedure will likely fail the first time you use it. When that happens, try completely closing and reopening your browser. Depending on your version of windows, this might happen twice, once when waiting for FEL, and then again waiting for Fastboot.
+   * During the fastboot process **Windows may issue the warning "device not recognized"**. Getting this warning during fastboot is **normal** and **flashing should proceed**.
 
 #### Troubleshooting The Web Flasher
    * Try using a USB2 port (USB3 ports have issues).
@@ -93,7 +95,6 @@ For more information, check [the systems group page on debian.org](https://wiki.
 **USB3 Issues**
    * If you have any issues, try using a USB2 port and not a USB3 one, or try using a USB2 hub in your USB3 port and plug C.H.I.P. into that.
    * If you get stuck "Waiting for Fastboot" and the above options do not work, you should be able to install a "headless no fastboot" image. However, it will take quite a bit longer, and the Operating System won't have a GUI.
-
 
 
 **Caveat**

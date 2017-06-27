@@ -22,7 +22,7 @@ After installing the extension the main page will give you the option to either 
 
 ![flasher home page](images/main.png)
 
-You will be sent to the **"Flasher First Time Setup"** page which will have instructions dependent on the operating system of your computer. 
+You will be sent to the **"Flasher First Time Setup"** page which will have instructions dependent on the operating system of your computer. Follow along in the browser or below.
 
 * Linux-specific
 

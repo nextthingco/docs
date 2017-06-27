@@ -28,7 +28,7 @@ Click **FLASH** to flash C.H.I.P. Pro.
 
 ![flasher home page](images/main.png)
 
-You will then arrive at the **"Flasher First Time Setup"** page which will have setup instructions specific to your computer's operating system. 
+You will then arrive at the **"Flasher First Time Setup"** page which will have setup instructions specific to your computer's operating system. Follow along in the browser or below.
 
 * Linux-specific
 

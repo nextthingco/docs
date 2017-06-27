@@ -28,11 +28,11 @@ Click **FLASH** to flash C.H.I.P. Pro.
 
 ![flasher home page](images/main.png)
 
-You will then arrive at the "Flasher First Time Setup" page which will have setup instructions specific to your computer's operating system. 
+You will then arrive at the **"Flasher First Time Setup"** page which will have setup instructions specific to your computer's operating system. 
 
 * Linux-specific
 
-	* A Debian-based Linux computer requires creating a set of udev rules to communicate with your C.H.I.P. Pro. Paste the following into a terminal window. Then log out and back in to finish configuration.
+	* A Debian-based Linux computer requires creating a set of udev rules to communicate with your C.H.I.P. Pro. Paste the following into a terminal window. 
 	
 	```
 	sudo usermod -a -G dialout ${USER}
@@ -53,16 +53,16 @@ You will then arrive at the "Flasher First Time Setup" page which will have setu
 	For the curious:
 
    	- ${USER}: outputs your username
+   	
     - dialout: gives non-root access to serial connections
+    
     - plugdev: allows non-root mounting with pmount
 
-	The udev rules then map the usb device to the groups.
-
-	For more information, check [the systems group page on 	debian.org](https://wiki.debian.org/SystemGroups).
+	The udev rules then map the usb device to the groups. For more information, check [the systems group page on 	debian.org](https://wiki.debian.org/SystemGroups).
 
 * Windows-specific
    
-	* To communicate to C.H.I.P. Pro from a Windows computer you must install [drivers](https://s3-us-west-2.amazonaws.com/getchip.com/extension/drivers/windows/InstallDriver2.exe) to be able to talk with C.H.I.P.
+	* To communicate to C.H.I.P. Pro from a Windows computer you must install [drivers](https://s3-us-west-2.amazonaws.com/getchip.com/extension/drivers/windows/InstallDriver2.exe).
    	* Reboot after installing drivers on previous versions (<10) of Windows. 
 	* During the fastboot process **Windows may issue the warning "device not recognized"**. Getting this warning during fastboot is **normal** and **flashing should proceed**.
 	

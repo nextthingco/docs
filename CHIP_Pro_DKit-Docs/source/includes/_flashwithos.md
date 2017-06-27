@@ -22,7 +22,51 @@ After installing the extension the main page will give you the option to either 
 
 ![flasher home page](images/main.png)
 
-You will be sent to the "Flasher First Time Setup" page which will have instructions dependent on the operating system of your computer. When done with setup, press **START!**.
+You will be sent to the **"Flasher First Time Setup"** page which will have instructions dependent on the operating system of your computer. 
+
+* Linux-specific
+
+	* A Debian-based Linux computer requires creating a set of udev rules to communicate with your C.H.I.P. Pro. Paste the following into a terminal window. 
+	
+	```
+	sudo usermod -a -G dialout ${USER}
+	sudo usermod -a -G plugdev ${USER}
+
+	# Create udev rules
+	echo -e 'SUBSYSTEM=="usb", ATTRS{idVendor}=="1f3a", ATTRS{idProduct}=="efe8", 		GROUP="plugdev", MODE="0660" SYMLINK+="usb-chip"
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="1010", GROUP="plugdev", 	MODE="0660" SYMLINK+="usb-chip-fastboot"
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="1f3a", ATTRS{idProduct}=="1010", GROUP="plugdev", 	MODE="0660" SYMLINK+="usb-chip-fastboot"
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", GROUP="plugdev", 	MODE="0660" SYMLINK+="usb-serial-adapter"
+	' | sudo tee /etc/udev/rules.d/99-allwinner.rules
+
+	sudo udevadm control --reload-rules
+	```
+	
+	Then logout and log back in.
+
+	For the curious:
+
+   	- ${USER}: outputs your username
+   	
+    - dialout: gives non-root access to serial connections
+    
+    - plugdev: allows non-root mounting with pmount
+
+	The udev rules then map the usb device to the groups. For more information, check [the systems group page on 	debian.org](https://wiki.debian.org/SystemGroups).
+
+* Windows-specific
+   
+	* To communicate to C.H.I.P. Pro from a Windows computer you must install [drivers](https://s3-us-west-2.amazonaws.com/getchip.com/extension/drivers/windows/InstallDriver2.exe).
+   	* Reboot after installing drivers on previous versions (<10) of Windows. 
+	* During the fastboot process **Windows may issue the warning "device not recognized"**. Getting this warning during fastboot is **normal** and **flashing should proceed**.
+	
+* MacOS specific
+   	
+   	* Using USB3 ports can cause the flashing to fail. If you can, try using a USB2 port, not a USB3. If you find yourself with a modern Mac that only has USB3 ports, try using a USB2 hub in your USB3 port and plug C.H.I.P. Pro into that.
+	* OS X El Capitan has been known to have issue with the flashing process. If a new cable or USB2 hub does not work and you are able to, upgrade to macOS Sierra.
+
+
+When done with setup, press **START!**.
 
 ![first time setup](images/firstsetup.png)
 

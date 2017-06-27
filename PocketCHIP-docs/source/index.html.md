@@ -4,7 +4,7 @@ title: Next Thing Co. PocketC.H.I.P. Documentation
 language_tabs:
 
 toc_footers:
-  - Have something to add or change? Email us at docs@gmail.com
+  - Have something to add or change? <br> Email us at docs@gmail.com
 
 includes:
   - _welcome-to-pocketchip.md

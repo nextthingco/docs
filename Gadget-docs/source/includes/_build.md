@@ -6,7 +6,7 @@ Once you get the "hello world" example up and running you are ready to dive deep
 
 	In this scenario, images are pulled from a remote location and deployed to hardware. See the Pull Images LINK section to learn about this process.
 
-2. **Build Containers Locally** 
+2. **Build Images Locally** 
 
 	Build images locally on your development computer. This takes some Docker knowledge but gives you the most flexibility. See the Build Images Locally section LINK to learn more.
 

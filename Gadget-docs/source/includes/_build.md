@@ -39,9 +39,9 @@ Before moving forward, make sure you have gone through the Quickstart LINK secti
 
 ### Circuit
 
-There is no need to build a circuit with the C.H.I.P. Pro Dev Kit, it uses the onboard LED on pin 36, CSID0.
-
 If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
+
+There is no need to build a circuit with the C.H.I.P. Pro Dev Kit, it uses the onboard LED on pin 36, CSID0.
 
 ## Pull Image: Blink
 
@@ -49,9 +49,9 @@ If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in serie
 	
 Docker works hand in hand with GadgetCLI. Open and keep Docker running in the background as you work with GadgetCLI.
 
-### 2. Connect Hardware
+### 2. Connect Hardware 
 
-Connect your board to your host computer via a USB cable. 
+Connect your board to your host computer via a USB cable. The board must be flashed with GadgetOS. If flashing the board for the first time unplug and plug the board back in after flashing to power cycle.
 	
 {Pic of Dev Kit connected to host computer}
 
@@ -65,7 +65,7 @@ mkdir blink
 
 ### 4. Initialize Project
 
-Enter and use `gadget init` to create a gadget.yml template file in your project directory.
+Enter and use `gadget init` to create a **gadget.yml** template file in your project directory.
 
 ```
 cd blink
@@ -81,10 +81,11 @@ gadget -C blink init
 Gadget will tell you that it created a new project:
 
 ```
-  Creating new project:
-    in /Users/username/Documents/blink
+Creating new project:
+  in /Users/username/Documents/blink
 ```
-The gadget.yml file is where all the configurations needed for a container at runtime go. It is also where you state which containers to run and in what order. To learn more go to the Configuring Gadget.yml LINK section. 
+
+The **gadget.yml** file is where all the configurations needed for a container at runtime go. It is also where you state which containers to run and in what order. To learn more go to the Configuring Gadget.yml LINK section. 
 
 ### 5. Add Service
 
@@ -101,9 +102,9 @@ gadget -C blink add service blink
 Gadget notifies you of a new service added:
 
 ```
-  Running in directory:
-    /Users/username/Documents/blink
-  Adding new service: "blink"
+Running in directory:
+  /Users/username/Documents/blink
+Adding new service: "blink"
 ```
 
 ### 6. Edit gadget.yml
@@ -114,15 +115,15 @@ In the project directory, open gadget.yml with a command-line text editor such a
 nano gadget.yml
 ```
 
-#### Make edits to following fields:
+#### Make edits to the following fields:
 
 * **image**
  
 	```
-	image: ntcgadget/blink:v1
+	image: ntcgadget/blink
 	```
 	
-Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username. State images in 		
+Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username.		
 	
 Format: username/repo:tag. 
 	
@@ -134,7 +135,7 @@ Format: username/repo:tag.
 	command:[python, blink.py]
 	```
 
-Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
+Run the command `python blink.py` automatically when a container is started and upon reboot.
 
 	
 * **binds**
@@ -154,7 +155,7 @@ Format: whereFrom:whereTo
 	capabilities:[SYS_RAWIO]
 	```
 
-Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+Grant Linux capabilities to the container. The ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations. CHECK WITH LANGLEY
 
 * **devices**
 
@@ -162,7 +163,7 @@ Grant Linux capabilities to the container. Specifically the ones used here mount
 	devices:[/dev/mem]
 	```
 
-Pass the raw Linux device at /dev/mem to the container
+Pass the raw Linux device at /dev/mem to the container to allow access with privileges.  CHECK WITH LANGLEY
 	
 The finished section will look like this:
 	
@@ -170,7 +171,7 @@ The finished section will look like this:
 services:
 - name: blink
 uuid: Your-Containers-Uni-Que-UUID
-image: ntcgadget/blink:v1 
+image: ntcgadget/blink 
 directory: ""
 net: ""
 pid: ""
@@ -185,23 +186,29 @@ Save and close gadget.yml
 
 ### 7. Build, Deploy, and Start Image
 
-In the project directory:
+To build an image you must be in the same directory as the gadget.yml file. 
+
+Your gadget.yml file now defines two containers: hello-world under onboot and blink in services. To work with one container specify it by name when running Gadget commands. For example to only build the blink image rather than hello-world then blink: 
 
 ```
-gadget build 
-gadget deploy 
-gadget start
+gadget build blink
+```
+When the image is done building, deploy and start:
+
+```
+gadget deploy blink
+gadget start blink
 ```
 
 From parent directory:
 
 ```
-gadget -C blink build 
-gadget -C blink deploy 
-gadget -C blink start
+gadget -C blink build blink
+gadget -C blink deploy blink
+gadget -C blink start blink
 ```
 
-If the container builds and deploys successfully you will see the following output messages along with the pathname where project is being built:
+If the container builds, deploys and starts successfully you will see the following output messages:
 
 ```
 #build
@@ -240,13 +247,11 @@ Look at the output logs of the container:
 gadget logs
 ```
 
-
 From parent directory:
 
 ```
-gadget -C blink/blink build 
-gadget -C blink/blink deploy 
-gadget -C blink/blink start
+gadget -C blink status blink
+gadget -C blink logs blink
 ```	
 	
 ### 9. Stop and Delete Container
@@ -255,6 +260,13 @@ gadget -C blink/blink start
 ```
 gadget stop
 gadget delete
+```
+
+From parent directory:
+
+```
+gadget -C blink stop blink
+gadget -C blink delete blink
 ```
 	
 
@@ -392,7 +404,7 @@ Docker will output all the build commands and tell you that it has successfully 
 
 ### 6. Login
 
-Log into your repository account to push and pull and images from.
+Log into the repository account you created. Enter your username and password when prompted.
 	
 ````
 docker login
@@ -403,7 +415,7 @@ docker login
 Tag the blink image with a version number. If an image is not tagged it will automatically be tagged with the default of "latest".
 
 ```
-docker tag blink pushreset/blink:v1 
+docker tag blink YourUserName/blink:v1 
 ```
 
 ### 8. Push
@@ -411,16 +423,16 @@ docker tag blink pushreset/blink:v1
 Push the image to your Docker Hub repository:
 
 ```
-docker push pushreset/blink:v1 
+docker push YourUserName/blink:v1 
 ```
 
 ### 9. Pull 
 
-The image is ready to share and pull to your device. From here, the workflow is the same as the one outlined in Pull Image. Here is a condensed version of the steps. 
+The blink image is now ready to share and pull to your device. From here, the workflow is the same as the one outlined in Pull Image. Here is a condensed version of the steps. 
 
 * Open and run Docker (if not already) and GadgetCLI
-* Connect hardware to host machine by USB
-* Create or enter project directory
+* Connect hardware flashed with GadgetOS to host machine via USB
+* Create a new project directory, separate from the one that contains the Dockerfile, and enter it.
 * Initialize project
 
 ```
@@ -462,6 +474,16 @@ gadget deploy
 ```
 gadget start
 ```
+* Stop
+
+```
+gadget stop
+```
+* Delete
+
+```
+gadget delete
+```
 
 ## Edit Examples
 
@@ -469,7 +491,7 @@ Experiment and develop with this process.
 
 ### 1. Obtain Source Code
 
-The source code can be a previously program on your local computer or you can start with one of our example scripts. For this tutorial we will use a simple blink example. 
+The source code can be a previously written program on your local computer or you can start with one of our example scripts. For this tutorial we will use a simple blink example. 
 
 Clone the examples to your computer:
 ```
@@ -477,10 +499,10 @@ git clone https://github.com/NextThingCo/Gadget-Docker-Examples.git
 ```
 ### 2. Initialize Project
 
-In the project directory create the gadget.yml template file.
+Enter the Gadget-Docker-Examples directory and create a gadget.yml template there. This is where you will orchestrate your image builds while testing scripts and Dockerfiles in the project directories. 
 
 ```
-cd Gadget-Docker-Examples/blink
+cd Gadget-Docker-Examples
 gadget init
 ```
 
@@ -501,22 +523,22 @@ Edit gadget.yml using a command-line editor such as Nano.
 nano gadget.yml
 ```
 
-#### Make edits to following fields:
+#### Make edits to the following fields:
 
 * **image**
  
 	```
 	image: "" #leave empty
 	```
-This field is reserved for pulling images from Docker Hub so, leave it empty.
+This field is reserved for pulling images from Docker Hub, so for this workflow it stays empty.
 
 * **directory**
 
 	```
-	directory:[.] 
+	directory:"blink" 
 	```
 
-Run Gadget commands pointed to the specified directory. In this example that is the current directory. If gadget.yml is in the parent directory it would be `directory:[blink]`.
+In this field put the pathname of the project directory containing the Dockerfile in relation to the gadget.yml file. In this example that is the blink directory. 
 
 * **command**
 
@@ -544,7 +566,7 @@ Format: whereFrom:whereTo
 	capabilities:[SYS_RAWIO]
 	```
 
-Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations and allows access /dev/mem device with privileges. CHECK WITH LANGLEY
+Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations. CHECK WITH LANGLEY
 
 * **devices**
 
@@ -552,7 +574,7 @@ Grant Linux capabilities to the container. Specifically the ones used here mount
 	devices:[/dev/mem]
 	```
 
-Pass the raw Linux device at /dev/mem to the container
+Pass the raw Linux device at /dev/mem to the container to allow access with privileges.  CHECK WITH LANGLEY
 	
 The finished section will look like this:
 	
@@ -560,8 +582,8 @@ The finished section will look like this:
 services:
 - name: blink
 uuid: Your-Containers-Uni-Que-UUID
-image: ntcgadget/blink:v1 
-directory: ""
+image: "" 
+directory: "blink"
 net: ""
 pid: ""
 readonly: false
@@ -573,8 +595,42 @@ devices:[/dev/mem]
 
 Save and close gadget.yml
 
-### 2. 
+### 4. Build, Deploy, and Start Image
 
+```
+gadget build 
+gadget deploy
+gadget start
+```
+
+### 5. Stop and Delete
+
+When ready, stop the container and clean up:
+
+```
+gadget stop
+gadget delete
+```
+
+### 6. Shell into GadgetOS
+
+With GadgetCLI you have the ability to shell into GadgetOS at any time:
+
+```
+gadget shell
+```
+
+See what containers are currently running:
+
+```
+docker ps
+```
+
+Exit shell:
+
+```
+exit
+```
 
 ## Example Images
 

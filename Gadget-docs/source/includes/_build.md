@@ -2,11 +2,11 @@
 
 Once you get the "hello world" example up and running you are ready to dive deeper. There are two ways we recommend building with Gadget.
 
-1. **Pull Images**
+1. **Pull Remote Images**
 
 	In this scenario, images are pulled from a remote location and deployed to hardware. See the Pull Images LINK section to learn about this process.
 
-2. **Build Images** 
+2. **Build Containers Locally** 
 
 	Build images locally on your development computer. This takes some Docker knowledge but gives you the most flexibility. See the Build Images Locally section LINK to learn more.
 
@@ -485,6 +485,38 @@ gadget stop
 gadget delete
 ```
 
+## Example Images
+
+Start a project with one of our Python example images. Examples are pulled from our official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
+
+Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code. Before completing any of the examples make sure to go through the Quickstart [LINK] guide to meet the requirements below.
+
+### I2C
+
+**ADS1015**
+
+To read resistor based sensors add a high resolution multiple channel ADC to your circuit.
+
+### SPI
+
+**ADXL345 Accelerometer**
+
+This is a popular 3-axis MEMs accelerometer that's great for applications sensing different kinds of motion and lack there of.
+
+**Note:** Most breakout boards for the ADXL345 are also accessible through I2C.
+
+### LEDs and Microphones
+This VU-meter example uses C.H.I.P. Pro Dev Kit's onboard mics and LEDs. The LED's brightness is mapped to the amplitude of the Mic inputs. Speak into or tap the mics to turn the LEDs on. 
+
+If using a bare C.H.I.P. Pro additional hardware is needed. Connect LEDs to pins PE0 - PE7 and MEMs microphones to pins 26-29 labeled: AGND, MICIN1, MICIN2, and VMIC respectively.
+
+### Python CHIP_IO
+
+###  Google Assistant
+Google's Assistant API can be asked questions and be used to control hardware such as voice activated robots. 
+
+### Multiple Containers?
+
 ## Edit Examples
 
 Experiment and develop with this process. 
@@ -631,38 +663,6 @@ Exit shell:
 ```
 exit
 ```
-
-## Example Images
-
-Start a project with one of our Python example images. Examples are pulled from our official [NTC Docker Hub](https://hub.docker.com/r/ntcgadget/). All supporting materials including Dockerfiles are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
-
-Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code. Before completing any of the examples make sure to go through the Quickstart [LINK] guide to meet the requirements below.
-
-### I2C
-
-**ADS1015**
-
-To read resistor based sensors add a high resolution multiple channel ADC to your circuit.
-
-### SPI
-
-**ADXL345 Accelerometer**
-
-This is a popular 3-axis MEMs accelerometer that's great for applications sensing different kinds of motion and lack there of.
-
-**Note:** Most breakout boards for the ADXL345 are also accessible through I2C.
-
-### LEDs and Microphones
-This VU-meter example uses C.H.I.P. Pro Dev Kit's onboard mics and LEDs. The LED's brightness is mapped to the amplitude of the Mic inputs. Speak into or tap the mics to turn the LEDs on. 
-
-If using a bare C.H.I.P. Pro additional hardware is needed. Connect LEDs to pins PE0 - PE7 and MEMs microphones to pins 26-29 labeled: AGND, MICIN1, MICIN2, and VMIC respectively.
-
-### Python CHIP_IO
-
-###  Google Assistant
-Google's Assistant API can be asked questions and be used to control hardware such as voice activated robots. 
-
-### Multiple Containers?
 
 ## Configuring Gadget.yml
 

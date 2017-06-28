@@ -1,4 +1,4 @@
-# Quick Start [David]
+# Quick Start 
 
 To get the most from Gadget's lighting fast deployment process, development is done on a host computer. Once your code is ready for testing it's compiled and pushed to the hardware device connected via USB using GadgetOS' daemon GadgetOSD. To get started, install the following on your host computer and Gadget compatible hardware. 
 
@@ -8,7 +8,7 @@ On your host computer download and install NTC's command-line tool, GadgetCLI [h
 
 ## Install Docker
 
-	* If already installed make sure it's up to date
+If Docker is already installed on your host computer make sure it's up to date.
 
 Gadget makes use of Docker's container system. Dependent on your host computer's OS, download and install the appropriate version of Docker using the below links. For more information on Docker, read [here](https://www.docker.com/).
 
@@ -20,7 +20,7 @@ GadgetCLI uses the Docker daemon to pull from Docker Hub [check function with Cr
 
 ## Flash GadgetOS 
 
-For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Find the latest image on our [web flasher](flash.getchip.com/pro). 
+For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Find the latest image here TKTK. 
 
 ## Hello World Example
 
@@ -41,7 +41,7 @@ gadget init
 
 This command creates a template file gadget.yml and generates a project called "hello-world" ready to be deployed to your hardware. 
 
-Open gadget.yml using Nano or another command-line editor. It should look like this except your will have a uuid unique to your container:
+Open gadget.yml using Nano or another command-line editor. It should look like this except the uuid will be unique to your container:
 
 ```bash
 spec: "0.0"
@@ -62,28 +62,28 @@ onboot:
 services: []
 ```
 	
-#### 3. Build
+#### 3. Build Container
 	
 ```bash
 gadget build
 ```
 	
-#### 4. Deploy
+#### 4. Deploy Container
 	
 ```bash
 gadget deploy
 ```
 	
-####5. Start
+#### 5. Start Container
 	
 ```bash
 gadget start
 ```
 
 
-#### 6. Verify
+#### 6. Look at Logs and Check Status
 
-To see if the container did indeed run use the `logs` command to print the output:
+Once the hello-world container runs it outputs a message. To see if the container successfully started use the `logs` command to fetch the output:
 
 ```bash
 gadget logs
@@ -98,10 +98,22 @@ This message shows that your installation appears to be working correctly.
 ```
 Congrats, you have built and deployed your first Gadget project!
 
-If the container doesn't produce an output this will be blank. To see what containers are running check the status:
+To see what containers are running check the status:
 
 ```bash
 gadget status
+```
+
+You can also use ssh into GadgetOS using:
+
+```bash
+gadget shell
+```
+Once inside GadgetOS, use Docker commands to see running and built containers. 
+
+```
+Docker images #existing built containers
+Docker ps #list running containers
 ```
 
 #### 7. Stop and Cleanup

@@ -141,7 +141,7 @@ Run the command `python blink.py` automatically when a container is started and 
 * **binds**
 	
 	```
-	binds:[/sys:/sys]
+	binds:["/sys:/sys"]
 	```
 	
 Mounts the /sys directory from the host(gadget) into the container at /sys. 
@@ -177,7 +177,7 @@ net: ""
 pid: ""
 readonly: false
 command: [python, blink.py]
-binds: [/sys:/sys]
+binds: ["/sys:/sys"]
 capabilities:[SYS_RAWIO]
 devices:[/dev/mem]
 ```
@@ -455,7 +455,7 @@ net: ""
 pid: ""
 readonly: false
 command: [python, blink.py]
-binds: [/sys:/sys]
+binds: ["/sys:/sys"]
 capabilities:[SYS_RAWIO]
 devices:[/dev/mem]
 ```
@@ -552,7 +552,7 @@ Run the command `python blink.py` automatically upon `gadget start`. Any command
 * **binds**
 	
 	```
-	binds:[/sys:/sys]
+	binds:["/sys:/sys"]
 	```
 	
 Mounts the /sys directory from the host(gadget) into the container at /sys. 
@@ -588,7 +588,7 @@ net: ""
 pid: ""
 readonly: false
 command: [python, blink.py]
-binds: [/sys:/sys]
+binds: ["/sys:/sys"]
 capabilities:[SYS_RAWIO]
 devices:[/dev/mem]
 ```

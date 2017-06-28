@@ -3,16 +3,13 @@
 <span style="font-size: 36px">&#128226;</span>Welcome to the **developer preview** of Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro. 
 
 <aside class="notice">
-Gadget is open source and being actively developed, and we want to know what you think about it. The best way to leave us feedback is to use the __developer preview category__ in the forum and to submit pull requests to the repos: GadgetOS repo & GadgetCLI repo. 
+Gadget is open source and being actively developed, and we want to know what you think about it. The best way to leave us feedback is to use the Developer Preview category in the forum and to submit pull requests to the repos: [GadgetOS](https://github.com/NextThingCo/gadget-buildroot) repo & GadgetCLI repo. 
 </aside>
-
-
-	* we want your feedback!
 
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development:
 
-1. **GadgetCLI** is a command-line tool you use on your development machine. It lets you manage your code, add and build containers, and deploy your finished projects to C.H.I.P. Pro. See the [GadgetCLI section](TKTK) for specifics.
+1. **GadgetCLI** is a command-line tool you use on your development machine. It lets you manage your code, add and build containers, and deploy your finished projects to Gadget supported hardware such as C.H.I.P. Pro. See the [GadgetCLI section](TKTK) for specifics.
 
 2. **GadgetOS** is a buildroot-based Linux operating system that runs on C.H.I.P. Pro. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI. See the [GadgetOS section](TKTK) for more details.
 

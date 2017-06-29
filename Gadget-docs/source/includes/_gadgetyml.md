@@ -66,7 +66,7 @@ If you choose to edit this field after generation the container will need to be 
 	
 ### Uuid: Container ID
 
-You can have several instances of the same image. These instances are identified by their uuid. For example, if you build an image then change the **command** configuration and build again you can see both instances on your host machine when you run:
+You can have several instances of the same image. These instances are identified by their uuid. For example, if you build an image then change the **command** configuration and build again you can see both instances on your host computer when you run:
 	
 ```
 docker images
@@ -77,25 +77,26 @@ docker images
 An entry for `image:` is generated when you add to onboot or services via the command:
 
 ```
-gadget add service|onboot imageName
+gadget add service|onboot projectName
 ```
 	
 To pull a base image from Docker Hub change `image:` to the username and repository you would like to pull from. The tag also needs to be included if a unique one was given when built, otherwise it will pull the image with the default ["latest" tag](https://docs.docker.com/get-started/part2/#tag-the-image). Learn more about [Docker Hub](https://docs.docker.com/docker-hub/) and how to use it.
 
-__Format__
+Format:
 
-Generated: `parent_directory/projectname`
-Docker Image: `username/repoName:tag`
+Generated: `image: parent_directory/projectname`
+
+Docker Image: `image: username/repoName:tag`
 	
 ### Directory: Pathname of local image
 
-Used when building and deploying images on your host machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (called the build's context) here in relation to the gadget.yml file. 
+Used when building and deploying images on your host machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file. 
 
-__Format__
+Format:
 
 `directory: projDir`
 	
-<span style="font-size: 16px">**[Net:](https://docs.docker.com/engine/reference/run/#network-settings) Define which network to use or none**</span>
+<span style="font-size: 20px">**[Net:](https://docs.docker.com/engine/reference/run/#network-settings) Define which network to use or none**</span>
 
 By default, all containers have networking enabled and can make outgoing connections. Use the following arguments to choose which network you would like the container use:
 
@@ -107,20 +108,33 @@ By default, all containers have networking enabled and can make outgoing connect
 | container: <name | id> | Use the network stack or another container, specified via its __name__ or __id__        |
 | NETWORK                | Connects the container to a use created network (using `docker network create` command) |
 
-Syntax: 
+Format:
+
+`net: host`  
 
 ### Pid - 
 
 ### Readonly - Set to false by default
+
 ### Command - Run this command at start
 	
-For example, to run the executable myPythonScript.py as soon as the container starts ['myPythonScript.py'] 
+Set a command to be executed automatically upon running a container with:
+```
+gadget start
+```
+If the CMD is used in the Dockerfile the 
+
+Format
+command: ['python', 'myPyScript.py']
 	
 ### Binds - Mount a directory 
 	
 Put any directories here that you would like to mount from the host into the container. 
 
-### [Capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)** - Define Linux capabilities
+Format
+`binds: [/fromDir:/toDir]
+
+### [Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)** - Define [Linux capabilities]([Capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html))
 	
 This is where specific Linux capabilities that bypass kernel permission checks get enabled.
 

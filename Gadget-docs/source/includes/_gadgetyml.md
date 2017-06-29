@@ -2,6 +2,8 @@
 
 GadgetCLI's function is built around the gadget.yml configuration file. This is where you define the container's resources, issue commands once a container is started and state what containers to run and in what order. 
 
+The gadget.yml file conveniently wraps us Docker commands, options and parameters all in one place. To learn more about what each configuration does on the Docker side click the title to be taken to Docker documentation.
+
 From here on out "host" refers to the Gadget compatible hardware running GadgetOS and "host computer" refers to the computer the Gadget compatible hardware is plugged into via USB.
 
 Starting from the top of the file, here is what each section of gadget.yml does. 
@@ -24,13 +26,13 @@ Containers added to the **onboot** section run after boot, then exit. They run b
 Add a container to onboot:
 
 ```
-gadget add onboot projectname
+gadget add onboot projectName
 ```
 	
 From parent directory:
 	
 ```
-gadget -C blink add onboot projectname
+gadget -C blink add onboot projectName
 ```
 
 
@@ -86,7 +88,7 @@ To pull a base image from Docker Hub edit it to read: **username/repo:tag**. Lea
 
 Used when building and deploying images on your host machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (called the build's context) here in relation to the gadget.yml file. 
 	
-**[Net](https://docs.docker.com/engine/reference/run/#network-settings): Define which network to use or none**
+<span style="font-size: 16px">**[Net:](https://docs.docker.com/engine/reference/run/#network-settings) Define which network to use or none**</span>
 
 By default, all containers have networking enabled and can make outgoing connections. Use the following arguments to choose which network you would like the container use:
 

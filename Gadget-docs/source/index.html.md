@@ -10,8 +10,9 @@ includes:
   - intro
   - quickstart
   - build
+  - gadgetyml
   - alpine
-  - git
+  - docker
   - troubleshooting
   - feedback
 

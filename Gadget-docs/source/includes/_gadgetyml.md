@@ -56,11 +56,11 @@ Containers defined under **services** run on boot and are automatically restarte
 **pid** - 
 
 **readonly** - Set to false by default
-**command** - The command that should run on the container when it starts.
+**command** - Run this command at start
 	For example, to run the executable myPythonScript.py as soon as the container starts ['myPythonScript.py'] 
 	
-**binds** -  Mount a directory into container
-	Put any directories here that you would like to mount from the host (GadgetOS) 
+**binds** -  Mount a directory 
+	Put any directories here that you would like to mount from the host into the container. 
 	GadgetCLI does not enable you to disable the security labeling for a container with the `--privileged` flag.
 
 **capabilities** - Define Linux capabilities
@@ -71,8 +71,6 @@ Containers defined under **services** run on boot and are automatically restarte
 	If you want to use a device from the host (GadgetOS) you need to define it here. 
 
 	**Note:** GadgetCLI does not enable you to disable the security labeling for a container with the `--privileged` flag.
-
-
 
 General Rules
 

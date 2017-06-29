@@ -1,4 +1,4 @@
-# Build With Gadget 
+# Build With Gadget
 
 Once you get the "hello world" example up and running you are ready to dive deeper. There are two ways we recommend building with Gadget.
 
@@ -627,7 +627,7 @@ devices:[/dev/mem]
 
 Save and close gadget.yml
 
-### 4. Build, Deploy, and Start Image
+### 4. Build, Deploy, and Start Container
 
 ```
 gadget build 
@@ -663,47 +663,6 @@ Exit shell:
 ```
 exit
 ```
-
-## Configuring Gadget.yml
-
-The file gadget.yml is where container options go that are executed at run time. It is also where you define in what order containers run and whether they run once or continually. 
-
-At the top of the file you find:
-
-spec: "0.0"
-name: blink
-uuid: e6aa1456-8a4c-44d3-9c0a-06c9b8d1a96c
-type: docker
-
-The file is broken up into two sections: **onboot** and **services**. 
-
-### onboot
-
-Containers added to the onboot section runs after boot, then exits. When multiple containers are defined they run sequentially from top to bottom. 
-
-Add a container:
-
-`gadget add onboot projectname`
-	
-From parent directory:
-	
-`gadget -C blink add onboot projectname`
-
-
-### services
-
-Containers defined as a service runs on boot after all of the onboot containers. A service is automatically restarted by Docker if it exits with a non-zero return code.
-
-**name** - Name 
-**uuid** - Unique container ID
-**image** - Pathname of Docker Hub 
-**directory** - Pathname of local image
-**net** - 
-**pid** -
-**readonly** - Set to false by default
-**command**
-**binds** - Bind mount a volume
-**capabilities** - 
 
 ## Common Command Sequence
 

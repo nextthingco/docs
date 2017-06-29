@@ -54,7 +54,7 @@ gadget -C blink add service projectName
 
 ## Configurations
 
-### Name: Name of project
+<span style="font-size: 20px">**Name: Name of project**</span>
 
 This entry gets generated when you add to onboot or service via the command:
 
@@ -63,16 +63,23 @@ gadget add service|onboot projectName
 ``` 
 	
 If you choose to edit this field after generation the container will need to be built and deployed again.
+
+Format
+
+`name: projectName`
 	
-### Uuid: Container ID
+<span style="font-size: 20px">**Uuid: Container ID**</span>
 
 You can have several instances of the same image. These instances are identified by their uuid. For example, if you build an image then change the **command** configuration and build again you can see both instances on your host computer when you run:
 	
 ```
 docker images
 ```
-	
-### Image: Pathname of Docker Hub image
+Format
+
+`uni-versal-uniq-i-d`	
+
+<span style="font-size: 20px">**Image: Pathname of Docker Hub image**</span>
 
 An entry for `image:` is generated when you add to onboot or services via the command:
 
@@ -88,7 +95,7 @@ Generated: `image: parent_directory/projectname`
 
 Docker Image: `image: username/repoName:tag`
 	
-### Directory: Pathname of local image
+<span style="font-size: 20px">**Directory: Pathname of local image**</span>
 
 Used when building and deploying images on your host machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file. 
 
@@ -112,11 +119,11 @@ Format:
 
 `net: host`  
 
-### Pid - 
+<span style="font-size: 20px">**Pid -**</span>
 
-### Readonly - Set to false by default
+<span style="font-size: 20px">**Readonly - Set to false by default**</span>
 
-### Command - Run this command at start
+<span style="font-size: 20px">**Command - Run this command at start**</span>
 	
 Set a command to be executed automatically upon running a container with:
 ```
@@ -127,25 +134,31 @@ If the CMD is used in the Dockerfile the
 Format
 command: ['python', 'myPyScript.py']
 	
-### Binds - Mount a directory 
+<span style="font-size: 20px">**Binds - Mount a directory**</span> 
 	
 Put any directories here that you would like to mount from the host into the container. 
 
 Format
-`binds: [/fromDir:/toDir]
 
-### [Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)** - Define [Linux capabilities]([Capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html))
+`binds: ['/fromDir:/toDir']`
+
+<span style="font-size: 20px">**[Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Enable [Linux capabilities]([Capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)**</span>
 	
-This is where specific Linux capabilities that bypass kernel permission checks get enabled.
+This is where specific Linux capabilities that bypass kernel permission checks get enabled. Some are enabled by default, all others are defined here depending on what is needed for the container at runtime.
 
+Format
 
-### [Devices](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)** - Grant access to devices
+`capabilities: [SYS_RAWIO]`
+
+<span style="font-size: 20px">**[Devices](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Grant access to devices**</span>
 	
-Define and make a specific device accessible from inside a container.
+Define a raw device in Linux to pass to a container. These are different from binds because Linux devices have several different modes of access.
 
+Format
 
+`devices: [/dev/mem]`
 
-General Rules
+**General Rules**
 
 * When listing items in an array, surround each item with single quotes. For example:
 	`binds: ['/sys:/sys']`

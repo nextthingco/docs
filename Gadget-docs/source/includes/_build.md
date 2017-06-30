@@ -1,16 +1,17 @@
 # Build With Gadget
 
-At Gadget's heart is Docker. GadgetCLI makes orchestrating Docker images simple by wrapping up functionality in to one file: gadget.yml. Once you get the "hello world" example is up and running you are ready to dive deeper. The "hello world" example pulls an image from the Docker Hub. It knows to do this because it's defined in the gadget.yml template file. 
+At Gadget's heart is [Docker](https://docs.docker.com/). With GadgetCLI you will be building Docker images and running containers. Gadget makes orchestrating Docker images simple by wrapping up Docker functionality into one file: gadget.yml. 
 
-The gadget.yml configuration file is where all of GadgetCLI's functionality stems from. Below is an example that pulls an existing image from Docker Hub and enables functionality needed by the container at runtime from gadget.yml. 
+The "hello world" example pulls an image from the Docker Hub and knows to do this because it's defined in the gadget.yml template file. To get more familiar with the gadget.yml file go through the next example which also pulls an existing image from Docker Hub and enables functionality needed by the container at runtime from gadget.yml. 
 
-## Pull Remote Image: Blink
+## Pull Remote Image
 
 This example blinks an LED on pin 36, CSID0.
 
 ### 1. Set Up 
 	
-Make sure you are set up with all the necessary software. Connect C.H.I.P. Pro Dev Kit to your host computer via a USB cable. 
+* Make sure you are set up with all the necessary software. 
+* Connect C.H.I.P. Pro Dev Kit to your host computer via a USB cable. 
 
 ### 2. Create project directory
 
@@ -44,7 +45,7 @@ Creating new project:
 
 ### 4. Add Service
 
-Containers that run from **onboot** start, stop and then exit when done. The Blink container goes under **services** which will loop and not exit until we tell it to stop. 
+Containers that run from **onboot** start, stop and then exit when done. The Blink container goes under **services** which will loop and not exit until we tell it to. To learn more about the configurations of gadget.yml head over to the [Configuring Gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml) section.
 
 ```
 gadget add service blink
@@ -89,7 +90,7 @@ Format: username/repo:tag.
 * **command**
 
 	```
-	command:[python, blink.py]
+	command:['python', 'blink.py']
 	```
 
 Run the command `python blink.py` automatically when a container is started and upon reboot.
@@ -98,10 +99,10 @@ Run the command `python blink.py` automatically when a container is started and 
 * **binds**
 	
 	```
-	binds:["/sys:/sys"]
+	binds:['/sys:/sys']
 	```
 	
-Mounts the /sys directory from the host(gadget) into the container at /sys. 
+Mounts the /sys directory from the host(gadgetOS) into the container at /sys. 
 
 Format: whereFrom:whereTo
 	
@@ -112,7 +113,7 @@ Format: whereFrom:whereTo
 	capabilities:[SYS_RAWIO]
 	```
 
-Grant Linux capabilities to the container. The ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations. CHECK WITH LANGLEY
+Enable Linux capabilities in the container. The ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations.
 
 * **devices**
 
@@ -133,8 +134,8 @@ directory: ""
 net: ""
 pid: ""
 readonly: false
-command: [python, blink.py]
-binds: ["/sys:/sys"]
+command: ['python', 'blink.py']
+binds: ['/sys:/sys']
 capabilities:[SYS_RAWIO]
 devices:[/dev/mem]
 ```
@@ -145,7 +146,7 @@ Save and close gadget.yml
 
 To build an image you must be in the same directory as the gadget.yml file. 
 
-Your gadget.yml file now defines two containers: hello-world under onboot and blink in services. To work with one container specify it by name when running Gadget commands. For example to only build the blink image rather than hello-world then blink: 
+Your gadget.yml file now defines two containers: hello-world under onboot and blink in services. To work with one container specify it by name when running Gadget commands. For example, to only build the blink image rather than hello-world: 
 
 ```
 gadget build blink
@@ -188,7 +189,7 @@ If the container builds, deploys and starts successfully you will see the follow
       - started
 ```
 
-If any of these processes fail Gadget will output an error along with suggestions of what may be the issue. Go to the troubleshooting section LINK for more information.
+If any of these processes fail, Gadget will output an error along with suggestions of what may be the issue. Go to the [troubleshooting section](http://ntc-docs-unstable.surge.sh/gadget.html#troubleshooting) for more information.
 		
 ### 8. Logs and Status
 
@@ -203,13 +204,6 @@ Look at the output logs of the container:
 ```
 gadget logs
 ```
-
-From parent directory:
-
-```
-gadget -C blink status blink
-gadget -C blink logs blink
-```	
 	
 ### 9. Stop and Delete Container
 
@@ -219,39 +213,27 @@ gadget stop
 gadget delete
 ```
 
-From parent directory:
-
-```
-gadget -C blink stop blink
-gadget -C blink delete blink
-```
-
-You can also ssh into GadgetOS using:
+SSH into GadgetOS using:
 
 ```bash
 gadget shell
 ```
 
-Once inside GadgetOS, use Docker commands to see images, running containers and to check on NAND availability.
+Once inside GadgetOS, use Docker commands to see images, running containers and to check NAND availability.
 
 ```
 Docker images #existing images
 Docker ps #running containers
 df -h #check NAND availability
-
 ```
 
-## Build Image Locally: Blink 
+## Build Image Locally 
 
-Images built on a local machine are pushed to an online repo and are then available to be pulled to one or multiple devices at anytime.
+Most likely building images locally will be the process you will use the most as you develop and test applications. To build an image you need a Docker file and supporting files AKA the build's context. These files can either be written from scratch or cloned onto a development computer. 
 
-I would actually suggest what you did above. Start with a fresh gadget-os chippro, experiment/build/push to dockerhub. Then use gadgetcli for deployment and orchestration
+Images are then built and deployed to hardware for testing and further iterations. To share an image they can then be pushed to an online repo which makes them available to be pulled to one or multiple devices at anytime.
 
-### 1. Create Repo
-
-For this process you will need a [Docker Hub](https://hub.docker.com/) repository to push and pull your built images to. 
-	
-Popular git repositories such as GitLab and GitHub have their own container repos and ways of working with Docker. If that is what you prefer you will need to push images according to their documentation.
+Follow along to set up a repo and build an image that uses Robert Wolterman's [CHIP_IO](https://github.com/xtacocorex/CHIP_IO) python library to access C.H.I.P. Pro Dev Kit's LEDs.
 
 
 ### 2. Create project directory
@@ -373,9 +355,17 @@ Docker will output all the build commands and tell you that it has successfully 
 
 ![GR8](images/localBuild.png)
 
-That's it! You've successfully built a 
+That's it! You've successfully built an image. From here you can share it through Docker Hub or deploy it to hardware and develop the application further. 
 
-### 6. Login
+## Share Image
+
+### 1. Create Repo
+
+For this process you will need a [Docker Hub](https://hub.docker.com/) repository to push and pull your built images to. 
+	
+Popular git repositories such as GitLab and GitHub have their own container repos and ways of working with Docker. If that is what you prefer you will need to push images according to their documentation.
+
+### 2. Login
 
 Log into the repository account you created. Enter your username and password when prompted.
 	
@@ -383,7 +373,7 @@ Log into the repository account you created. Enter your username and password wh
 docker login
 ```
 
-### 7. Tag
+### 3. Tag
 
 Tag the blink image with a version number. If an image is not tagged it will automatically be tagged with the default of "latest".
 
@@ -391,7 +381,7 @@ Tag the blink image with a version number. If an image is not tagged it will aut
 docker tag blink YourUserName/blink:v1 
 ```
 
-### 8. Push
+### 4. Push
 
 Push the image to your Docker Hub repository:
 

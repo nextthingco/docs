@@ -1,6 +1,7 @@
 # Troubleshooting
 
 * Error: 
+
 ```
 W:    Private key login failed, trying default key
 E:    Default key login also failed
@@ -8,9 +9,11 @@ W:    Is the gadget connected and powered on?
 W:    Was the gadget first used on another computer/account?
 E:  Failed to connect to Gadget
 ```
+
 Fix: Did you power cycle your board after flashing? 
 
 * Error:
+
 ```
 E:  Error response from daemon: repository jelly/spike not found: does not exist or no pull access
 E:  Failed to build 'spike'

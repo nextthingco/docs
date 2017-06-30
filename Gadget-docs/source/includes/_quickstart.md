@@ -59,13 +59,13 @@ gadget start
 
 #### 6. Look at Logs and Check Status
 
-Once the hello-world container runs, it outputs a message. To see if the container successfully started use the `logs` command to fetch the output:
+Once the container runs, it outputs a "hello world" message. To see if the container successfully started use the `logs` command to fetch the output:
 
 ```bash
 gadget logs
 ```
 
-You should see a 'Hello' message that starts with:
+You should see a message that starts with:
 
 ```
 Hello from Docker on armhf!

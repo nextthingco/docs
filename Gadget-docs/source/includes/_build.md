@@ -236,14 +236,14 @@ Images are then built and deployed to hardware for testing and further iteration
 Follow along to set up a repo and build an image that uses Robert Wolterman's [CHIP_IO](https://github.com/xtacocorex/CHIP_IO) python library to access C.H.I.P. Pro Dev Kit's LEDs.
 
 
-### 2. Create project directory
+### 1. Create project directory
 
 ```
 mkdir blink
 cd blink
 ```
 
-### 3. Create Dockerfile
+### 2. Create Dockerfile
 
 Create a Dockerfile using a command-line editor such as Nano. 
 
@@ -307,7 +307,7 @@ CMD ["python", "blink.py"]
 
 Dockerfiles are capable of holding many kinds of instruction. To learn more, refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
 
-### 4. Create Supporting Files
+### 3. Create Supporting Files
 
 Create a Python script named blink:
 
@@ -343,7 +343,7 @@ finally:
 ```
 
 
-### 5. Build
+### 4. Build
 
 While still in the project directory build the image and give it a name.
 	
@@ -355,7 +355,146 @@ Docker will output all the build commands and tell you that it has successfully 
 
 ![GR8](images/localBuild.png)
 
-That's it! You've successfully built an image. From here you can share it through Docker Hub or deploy it to hardware and develop the application further. 
+
+### 5. Deploy 
+
+You are ready to use GadgetCLI to deploy the image to your hardware for further testing. 
+
+Step up one directory and create a gadget.yml file:
+
+```
+cd ..
+gadget init
+```
+
+### 3. Add Service
+
+Add a new service:
+
+```
+gadget add service blink
+```
+
+### 3. Edit Gadget.yml
+
+Edit gadget.yml using a command-line editor such as Nano:
+
+```
+nano gadget.yml
+```
+
+#### Make edits to the following fields:
+
+* **image**
+ 
+	```
+	image: "" #leave empty
+	```
+This field is reserved for pulling images from Docker Hub, so for this workflow it stays empty.
+
+* **directory**
+
+	```
+	directory:"blink" 
+	```
+
+In this field put the pathname of the project directory containing the Dockerfile in relation to the gadget.yml file. In this example that is the blink directory. 
+
+* **command**
+
+	```
+	command:[python, blink.py]
+	```
+
+Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
+
+	
+* **binds**
+	
+	```
+	binds:["/sys:/sys"]
+	```
+	
+Mounts the /sys directory from the host(gadget) into the container at /sys. 
+
+Format: whereFrom:whereTo
+	
+* **capabilities**
+
+	
+	```
+	capabilities:[SYS_RAWIO]
+	```
+
+Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations. CHECK WITH LANGLEY
+
+* **devices**
+
+	```
+	devices:[/dev/mem]
+	```
+
+Pass the raw Linux device at /dev/mem to the container to allow access with privileges.  CHECK WITH LANGLEY
+	
+The finished section will look like this:
+	
+```
+services:
+- name: blink
+uuid: Your-Containers-Uni-Que-UUID
+image: "" 
+directory: "blink"
+net: ""
+pid: ""
+readonly: false
+command: [python, blink.py]
+binds: ["/sys:/sys"]
+capabilities:[SYS_RAWIO]
+devices:[/dev/mem]
+```
+
+Save and close gadget.yml
+
+### 4. Build, Deploy, and Start Container
+
+```
+gadget build 
+gadget deploy
+gadget start
+```
+
+### 5. Stop and Delete
+
+When ready, stop the container and clean up:
+
+```
+gadget stop
+gadget delete
+```
+
+### 6. Shell into GadgetOS
+
+With GadgetCLI you have the ability to shell into GadgetOS at any time:
+
+```
+gadget shell
+```
+
+See what containers are currently running:
+
+```
+docker ps
+```
+
+Exit shell:
+
+```
+exit
+```
+
+
+
+ or [share it](http://ntc-docs-unstable.surge.sh/gadget.html#share-image) through Docker Hub. 
 
 ## Share Image
 
@@ -389,64 +528,9 @@ Push the image to your Docker Hub repository:
 docker push YourUserName/blink:v1 
 ```
 
-### 9. Pull 
+### 5. Pull 
 
-The blink image is now ready to share and pull to your device. From here, the workflow is the same as the one outlined in Pull Image. Here is a condensed version of the steps. 
-
-* Open and run Docker (if not already) and GadgetCLI
-* Connect hardware flashed with GadgetOS to host machine via USB
-* Create a new project directory, separate from the one that contains the Dockerfile, and enter it.
-* Initialize project
-
-```
-gadget init
-```
-* Add service to gadget.yml
-
-```
-gadget add service blink
-```
-* Edit gadget.yml
-
-```
-services:
-- name: blink
-uuid: Your-Containers-Uni-Que-UUID
-image: ntcgadget/blink:v1 
-directory: ""
-net: ""
-pid: ""
-readonly: false
-command: [python, blink.py]
-binds: ["/sys:/sys"]
-capabilities:[SYS_RAWIO]
-devices:[/dev/mem]
-```
-* Build
-
-```
-gadget build
-```
-* Deploy
-
-```
-gadget deploy
-```
-* Start
-
-```
-gadget start
-```
-* Stop
-
-```
-gadget stop
-```
-* Delete
-
-```
-gadget delete
-```
+The blink image is now ready to share and pull to your device. From here, the workflow is the same as the one outlined in the [Pull Image](http://ntc-docs-unstable.surge.sh/gadget.html#pull-remote-image-blink) section. 
 
 ## Example Images
 

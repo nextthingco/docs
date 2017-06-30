@@ -10,7 +10,7 @@ The best way to leave us feedback is to submit changes to the [Gadget Community 
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development:
 
-1. **GadgetCLI** is a command-line tool you use on your development machine. It lets you manage your code, add and build containers, and deploy your finished projects to Gadget supported hardware such as C.H.I.P. Pro. 
+<span style="color: EB008B">**GadgetCLI**</span> is a command-line tool you use on your development machine. It lets you manage your code, add and build containers, and deploy your finished projects to Gadget supported hardware such as C.H.I.P. Pro. 
 
 **Supported Systems:**
 
@@ -18,7 +18,7 @@ Gadget is made up of two pieces of software that work together to simplify embed
 * OSX 
 * Windows 10 Pro 64-bit
 
-2. **GadgetOS** is a buildroot-based Linux operating system. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI.
+<span style="color: EB008B">**GadgetOS**</span> is a buildroot-based Linux operating system. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI.
 
 Buildroot is at the core of GadgetOS and features Docker support and GadgetOSD. **GadgetOSD** is a daemon that allows automatic communication with GadgetCLI over a USB connection. For more information on Buildroot, read [here](https://buildroot.org/).
 

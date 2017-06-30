@@ -1,61 +1,18 @@
 # Build With Gadget
 
-Once you get the "hello world" example up and running you are ready to dive deeper. There are two ways we recommend building with Gadget.
+At Gadget's heart is Docker. GadgetCLI makes orchestrating Docker images simple by wrapping up functionality in to one file: gadget.yml. Once you get the "hello world" example is up and running you are ready to dive deeper. The "hello world" example pulls an image from the Docker Hub. It knows to do this because it's defined in the gadget.yml template file. 
 
-1. **Pull Remote Images**
+The gadget.yml configuration file is where all of GadgetCLI's functionality stems from. Below is an example that pulls an existing image from Docker Hub and enables functionality needed by the container at runtime from gadget.yml. 
 
-	In this scenario, images are pulled from a remote location and deployed to hardware. See the Pull Images LINK section to learn about this process.
+## Pull Remote Image: Blink
 
-2. **Build Images Locally** 
+This example blinks an LED on pin 36, CSID0.
 
-	Build images locally on your development computer. This takes some Docker knowledge but gives you the most flexibility. See the Build Images Locally section LINK to learn more.
-
-To get familiar with each process follow the two Blink tutorials. Both use Python and the CHIP_IO python library with a simple script that blinks an LED on pin 36, CSID0.  
-
-## Requirements
-
-Before moving forward, make sure you have gone through the Quickstart LINK section to meet the below requirements.
-
-### Hardware
-
-* Host computer (Mac, Windows 10 or Linux)
-* Gadget compatible hardware
-	* All examples pictured here are with the Dev Kit
-* USB cable
-	* Micro USB to USB cable (Dev Kit) 
-	or
-	* UART serial cable (bare C.H.I.P. Pro)
-
-### Software
-
-**Host Computer**
-
-* GadgetCLI 
-* Docker  
-
-**Gadget Compatible Hardware**
-
-* GadgetOS  
-
-### Circuit
-
-If using a bare C.H.I.P. Pro, connect a 5mm LED with a 220 Ohm resistor in series to pin 36 and ground. 
-
-There is no need to build a circuit with the C.H.I.P. Pro Dev Kit, it uses the onboard LED on pin 36, CSID0.
-
-## Pull Image: Blink
-
-### 1. Open GadgetCLI and Docker
+### 1. Set Up 
 	
-Docker works hand in hand with GadgetCLI. Open and keep Docker running in the background as you work with GadgetCLI.
+Make sure you are set up with all the necessary software. Connect C.H.I.P. Pro Dev Kit to your host computer via a USB cable. 
 
-### 2. Connect Hardware 
-
-Connect your board to your host computer via a USB cable. The board must be flashed with GadgetOS. If flashing the board for the first time unplug and plug the board back in after flashing to power cycle.
-	
-{Pic of Dev Kit connected to host computer}
-
-### 3. Create project directory
+### 2. Create project directory
 
 Fire up Terminal and create a space for your project to live in:
 
@@ -63,7 +20,7 @@ Fire up Terminal and create a space for your project to live in:
 mkdir blink
 ```
 
-### 4. Initialize Project
+### 3. Initialize Project
 
 Enter and use `gadget init` to create a **gadget.yml** template file in your project directory.
 
@@ -83,11 +40,11 @@ Gadget will tell you that it created a new project:
 ```
 Creating new project:
   in /Users/username/Documents/blink
-```
+``` 
 
-The **gadget.yml** file is where all the configurations needed for a container at runtime go. It is also where you state which containers to run and in what order. To learn more go to the Configuring Gadget.yml LINK section. 
+### 4. Add Service
 
-### 5. Add Service
+Containers that run from **onboot** start, stop and then exit when done. The Blink container goes under **services** which will loop and not exit until we tell it to stop. 
 
 ```
 gadget add service blink
@@ -107,7 +64,7 @@ Running in directory:
 Adding new service: "blink"
 ```
 
-### 6. Edit gadget.yml
+### 5. Edit gadget.yml
 
 In the project directory, open gadget.yml with a command-line text editor such as Nano: 
 	
@@ -163,7 +120,7 @@ Grant Linux capabilities to the container. The ones used here mount a FUSE (**F*
 	devices:[/dev/mem]
 	```
 
-Pass the raw Linux device at /dev/mem to the container to allow access with privileges.  CHECK WITH LANGLEY
+Pass the raw Linux device at /dev/mem to the container.
 	
 The finished section will look like this:
 	
@@ -268,7 +225,21 @@ From parent directory:
 gadget -C blink stop blink
 gadget -C blink delete blink
 ```
-	
+
+You can also ssh into GadgetOS using:
+
+```bash
+gadget shell
+```
+
+Once inside GadgetOS, use Docker commands to see images, running containers and to check on NAND availability.
+
+```
+Docker images #existing images
+Docker ps #running containers
+df -h #check NAND availability
+
+```
 
 ## Build Image Locally: Blink 
 
@@ -401,6 +372,8 @@ docker build -t blink .
 Docker will output all the build commands and tell you that it has successfully built.
 
 ![GR8](images/localBuild.png)
+
+That's it! You've successfully built a 
 
 ### 6. Login
 

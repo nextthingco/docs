@@ -11,10 +11,8 @@ includes:
   - quickstart
   - build
   - gadgetyml
-  - alpine
   - docker
   - troubleshooting
-  - feedback
 
 search: true
 ---

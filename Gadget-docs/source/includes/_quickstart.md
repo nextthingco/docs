@@ -1,30 +1,7 @@
-# Quick Start 
+ 
+# Hello World 
 
-To get the most from Gadget's lighting fast deployment process, development is done on a host computer. Once your code is ready for testing it's compiled and pushed to the hardware device connected via USB using GadgetOS' daemon GadgetOSD. To get started, install the following on your host computer and Gadget compatible hardware. 
-
-## Install Gadget
-
-On your host computer download and install NTC's command-line tool, GadgetCLI [here]. 
-
-## Install Docker
-
-If Docker is already installed on your host computer make sure it's up to date.
-
-Gadget makes use of Docker's container system. Dependent on your host computer's OS, download and install the appropriate version of Docker using the below links. For more information on Docker, read [here](https://www.docker.com/).
-
-* MacOS - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-mac?tab=description)
-* Windows 10 - [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
-* Ubuntu - [Docker CE](https://store.docker.com/editions/community/docker-ce-server-ubuntu?tab=description)
-
-GadgetCLI uses the Docker daemon to pull from Docker Hub [check function with Crunch]. Once Docker is installed, run it before using GadgetCLI.
-
-## Flash GadgetOS 
-
-For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Find the latest image here TKTK. 
-
-## Hello World Example
-
-Get up and running in minutes with this straight forward "Hello World" example.
+Get up and running in minutes with this straight forward "Hello World" example. 
 
 #### 1. Create Project Directory
 
@@ -41,7 +18,7 @@ gadget init
 
 This command creates a template file gadget.yml and generates a project called "hello-world" ready to be deployed to your hardware. 
 
-Open gadget.yml using Nano or another command-line editor. It should look like this except the uuid will be unique to your container:
+Open gadget.yml using Nano or another command-line editor. It should look like this except the uuid will be different:
 
 ```bash
 spec: "0.0"
@@ -62,28 +39,27 @@ onboot:
 services: []
 ```
 	
-#### 3. Build Container
+#### 3. Build 
 	
 ```bash
 gadget build
 ```
 	
-#### 4. Deploy Container
+#### 4. Deploy 
 	
 ```bash
 gadget deploy
 ```
 	
-#### 5. Start Container
+#### 5. Start 
 	
 ```bash
 gadget start
 ```
 
-
 #### 6. Look at Logs and Check Status
 
-Once the hello-world container runs it outputs a message. To see if the container successfully started use the `logs` command to fetch the output:
+Once the hello-world container runs, it outputs a message. To see if the container successfully started use the `logs` command to fetch the output:
 
 ```bash
 gadget logs
@@ -98,43 +74,18 @@ This message shows that your installation appears to be working correctly.
 ```
 Congrats, you have built and deployed your first Gadget project!
 
-To see what containers are running check the status:
+#### 7. Stop and Cleanup Container
 
-```bash
-gadget status
-```
-
-You can also use ssh into GadgetOS using:
-
-```bash
-gadget shell
-```
-Once inside GadgetOS, use Docker commands to see running and built containers. 
-
-```
-Docker images #existing built containers
-Docker ps #list running containers
-```
-
-#### 7. Stop and Cleanup
-	
-Stop all running containers:
+Stop the running container:
 
 ```bash
 gadget stop
 ```
 
-Delete containers:
+Delete container:
 
 ```bash
 gadge delete
 ```
 
-### Exit GadgetCLI //test with installer version
 
-GadgetCLI simply opens a window using your host computer's terminal application. To exit, first stop the running application then exit. 
-
-```shell
-stop
-exit 
-```

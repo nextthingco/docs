@@ -16,9 +16,9 @@ cd hello-world
 gadget init
 ```
 
-This command creates a template file gadget.yml and generates a project called "hello-world" ready to be deployed to your hardware. 
+This command creates a template file gadget.yml and generates a project called "hello-world" ready to be deployed. 
 
-Open gadget.yml using Nano or another command-line editor. It should look like this except the uuid will be different:
+Open gadget.yml using Nano or another command-line editor. It should look similar to this:
 
 ```bash
 spec: "0.0"

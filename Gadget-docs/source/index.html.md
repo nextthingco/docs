@@ -8,6 +8,7 @@ toc_footers:
 
 includes:
   - intro
+  - setup
   - quickstart
   - build
   - gadgetyml

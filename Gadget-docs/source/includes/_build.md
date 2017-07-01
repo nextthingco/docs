@@ -1,8 +1,8 @@
 # Build With Gadget
 
-At Gadget's heart is [Docker](https://docs.docker.com/). With GadgetCLI you will be building Docker images and running containers. Gadget makes orchestrating Docker images simple by wrapping up Docker functionality into one file: gadget.yml. 
+At Gadget's heart is [Docker](https://docs.docker.com/). With GadgetCLI you will be building Docker images and running containers. Gadget makes orchestrating Docker images simple by wrapping up Docker functionality into one file: **gadget.yml**. 
 
-The "hello world" example pulls an image from the Docker Hub and knows to do this because it's defined in the gadget.yml template file. To get more familiar with the gadget.yml file go through the next example which also pulls an existing image from Docker Hub and enables functionality needed by the container at runtime from gadget.yml. 
+The "hello world" example pulls an image from Docker Hub that is defined in the gadget.yml configuration file. To get more familiar with using gadget.yml, go through the next example which also pulls an existing image from Docker Hub and enables functionality needed by the container at runtime.
 
 ## Pull Remote Image
 

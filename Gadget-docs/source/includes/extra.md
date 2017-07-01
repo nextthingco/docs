@@ -117,3 +117,6 @@ get help for specific command:
 * sharing volumes
 * kernel module
 * device sharing between host and container
+
+
+For general feedback and questions Lara and David will be available through the Chipster Slack channel.

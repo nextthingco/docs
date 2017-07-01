@@ -541,6 +541,15 @@ Here you will find examples to get you started with popular sensors and breakout
 * [GPIO in C](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Cross compile C applications easily in a Dockerfile.
 * [GPIO in Go](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Written in the [Go](https://golang.org/) language.
 
+#### Python
+
+More to come before Thursday
+
+* SPI
+* Blinkenlights 
+* VU meter
+* I2C 
+
 ## Edit Examples
 
 Experiment and develop with this process. 
@@ -554,6 +563,7 @@ Clone the examples to your computer:
 ```
 git clone https://github.com/NextThingCo/Gadget-Docker-Examples.git
 ```
+
 ### 2. Initialize Project
 
 Enter the Gadget-Docker-Examples directory and create a gadget.yml template there. This is where you will orchestrate your image builds while testing scripts and Dockerfiles in the project directories. 
@@ -570,7 +580,6 @@ Add a service to gadget.yml.
 ```
 gadget add service blink
 ```
-
 
 ### 3. Edit Gadget.yml
 

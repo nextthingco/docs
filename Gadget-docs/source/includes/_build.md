@@ -178,23 +178,8 @@ If the container builds, deploys and starts successfully you will see the follow
 ```
 
 If any of these processes fail, Gadget will output an error along with suggestions of what may be the issue. Go to the [troubleshooting section](http://ntc-docs-unstable.surge.sh/gadget.html#troubleshooting) for more information.
-		
-### 8. Logs and Status
-
-Check the status of the container:
 	
-```
-gadget status
-```	
-
-Look at the output logs of the container:
-	
-```
-gadget logs
-```
-	
-### 9. Stop and Delete Container
-
+### 8. Stop and Delete Container
 
 ```
 gadget stop
@@ -217,11 +202,11 @@ df -h #check NAND availability
 
 ## Build Image Locally 
 
-Most likely building images locally will be the process you will use the most as you develop and test applications. To build an image you need a Docker file and supporting files AKA the build's context. These files can either be written from scratch or cloned onto a development computer. 
+Most likely building images locally will be the process you will use the most as you develop and test applications. To build an image you need a Dockerfile and supporting files AKA the build's context. These files can either be written from scratch or cloned onto a development computer. 
 
-Images are then built and deployed to hardware for testing and further iterations. To share an image they can then be pushed to an online repo which makes them available to be pulled to one or multiple devices at anytime.
+Built images are then deployed to hardware for testing and further iterations. To share an image they can be pushed to an online repo which makes them available to be pulled to one or multiple devices at anytime.
 
-Follow along to set up a repo and build an image that uses Robert Wolterman's [CHIP_IO](https://github.com/xtacocorex/CHIP_IO) python library to access C.H.I.P. Pro Dev Kit's LEDs.
+Follow along and build an image that uses Robert Wolterman's [CHIP_IO](https://github.com/xtacocorex/CHIP_IO) python library to access C.H.I.P. Pro Dev Kit's LEDs.
 
 
 ### 1. Create project directory
@@ -233,7 +218,7 @@ cd blink
 
 ### 2. Create Dockerfile
 
-Create a Dockerfile using a command-line editor such as Nano. 
+Create a Dockerfile:
 
 ```
 nano Dockerfile
@@ -346,12 +331,11 @@ Docker will output all the build commands and tell you that it has successfully 
 
 ### 5. Deploy 
 
-You are ready to use GadgetCLI to deploy the image to your hardware for further testing. 
+You are now ready to use GadgetCLI to deploy the image to your hardware for further testing. 
 
-Step up one directory and create a gadget.yml file:
+Create a gadget.yml file:
 
 ```
-cd ..
 gadget init
 ```
 
@@ -364,8 +348,6 @@ gadget add service blink
 ```
 
 ### 7. Edit Gadget.yml
-
-Edit gadget.yml using a command-line editor such as Nano:
 
 ```
 nano gadget.yml
@@ -383,10 +365,10 @@ This field is reserved for pulling images from Docker Hub, so for this workflow 
 * **directory**
 
 	```
-	directory:"blink" 
+	directory:"./" 
 	```
 
-In this field, put the pathname of the project directory containing the Dockerfile in relation to the gadget.yml file. In this example that is the blink directory. 
+In this field, put the path of the project directory containing the Dockerfile in relation to the gadget.yml file. 
 
 * **command**
 
@@ -592,7 +574,7 @@ This field is reserved for pulling images from Docker Hub, so for this workflow 
 	directory:"blink" 
 	```
 
-In this field put the pathname of the project directory containing the Dockerfile in relation to the gadget.yml file. In this example that is the blink directory. 
+In this field put the path of the project directory containing the Dockerfile in relation to the gadget.yml file. In this example that is the blink directory. 
 
 * **command**
 

@@ -120,3 +120,18 @@ get help for specific command:
 
 
 For general feedback and questions Lara and David will be available through the Chipster Slack channel.
+
+----- 
+
+### 8. Logs and Status
+
+Check the status of the container:
+	
+```
+gadget status
+```	
+
+Look at the output logs of the container:
+	
+```
+gadget logs

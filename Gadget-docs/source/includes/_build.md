@@ -367,7 +367,7 @@ cd ..
 gadget init
 ```
 
-### 3. Add Service
+### 6. Add Service
 
 Add a new service:
 
@@ -375,7 +375,7 @@ Add a new service:
 gadget add service blink
 ```
 
-### 3. Edit Gadget.yml
+### 7. Edit Gadget.yml
 
 Edit gadget.yml using a command-line editor such as Nano:
 
@@ -403,7 +403,7 @@ In this field, put the pathname of the project directory containing the Dockerfi
 * **command**
 
 	```
-	command:[python, blink.py]
+	command:['python', 'blink.py']
 	```
 
 Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
@@ -412,7 +412,7 @@ Run the command `python blink.py` automatically upon `gadget start`. Any command
 * **binds**
 	
 	```
-	binds:["/sys:/sys"]
+	binds:['/sys:/sys']
 	```
 	
 Mounts the /sys directory from the host(gadget) into the container at /sys. 
@@ -426,7 +426,7 @@ Format: whereFrom:whereTo
 	capabilities:[SYS_RAWIO]
 	```
 
-Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations. CHECK WITH LANGLEY
+Enable Linux capabilities in the container. The ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations.
 
 * **devices**
 
@@ -434,7 +434,7 @@ Grant Linux capabilities to the container. Specifically the ones used here mount
 	devices:[/dev/mem]
 	```
 
-Pass the raw Linux device at /dev/mem to the container to allow access with privileges.  CHECK WITH LANGLEY
+Pass the raw Linux device at /dev/mem to the container.
 	
 The finished section will look like this:
 	
@@ -455,7 +455,7 @@ devices:[/dev/mem]
 
 Save and close gadget.yml
 
-### 4. Build, Deploy, and Start Container
+### 8. Build, Deploy, and Start Container
 
 ```
 gadget build 
@@ -463,7 +463,7 @@ gadget deploy
 gadget start
 ```
 
-### 5. Stop and Delete
+### 9. Stop and Delete
 
 When ready, stop the container and clean up:
 
@@ -472,7 +472,7 @@ gadget stop
 gadget delete
 ```
 
-### 6. Shell into GadgetOS
+### 10. Shell into GadgetOS
 
 With GadgetCLI you have the ability to shell into GadgetOS at any time:
 
@@ -532,11 +532,14 @@ The blink image is now ready to share and pull to your device. From here, the wo
 
 ## Example Images
 
-Start a project with one of our Python example images. You can either pull an example from our official [NTC Docker Hub](https://hub.docker.com/r/nextthingco/) or `git clone` the repository to your development computer. All Dockerfiles and supporting files are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
+Start a project with one of our example images. You can either pull an example from our official [NTC Docker Hub](https://hub.docker.com/r/nextthingco/) or `git clone` the repository to your development computer. All Dockerfiles and supporting files are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
 Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code.
 
-### 
+* [Web Server:](https://hub.docker.com/u/nextthingco/) - Use Nginx to create a simple web server. 
+	`image: nextthingco/webserver`
+* [GPIO in C](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Cross compile C applications easily in a Dockerfile.
+* [GPIO in Go](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Written in the [Go](https://golang.org/) language.
 
 ## Edit Examples
 
@@ -547,6 +550,7 @@ Experiment and develop with this process.
 The source code can be a previously written program on your local computer or you can start with one of our example scripts. For this tutorial we will use a simple blink example. 
 
 Clone the examples to your computer:
+
 ```
 git clone https://github.com/NextThingCo/Gadget-Docker-Examples.git
 ```
@@ -596,7 +600,7 @@ In this field put the pathname of the project directory containing the Dockerfil
 * **command**
 
 	```
-	command:[python, blink.py]
+	command:['python', 'blink.py']
 	```
 
 Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
@@ -605,7 +609,7 @@ Run the command `python blink.py` automatically upon `gadget start`. Any command
 * **binds**
 	
 	```
-	binds:["/sys:/sys"]
+	binds:['/sys:/sys']
 	```
 	
 Mounts the /sys directory from the host(gadget) into the container at /sys. 
@@ -619,7 +623,7 @@ Format: whereFrom:whereTo
 	capabilities:[SYS_RAWIO]
 	```
 
-Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations. CHECK WITH LANGLEY
+Grant Linux capabilities to the container. Specifically the ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations. 
 
 * **devices**
 
@@ -627,7 +631,7 @@ Grant Linux capabilities to the container. Specifically the ones used here mount
 	devices:[/dev/mem]
 	```
 
-Pass the raw Linux device at /dev/mem to the container to allow access with privileges.  CHECK WITH LANGLEY
+Pass the raw Linux device at /dev/mem to the container.
 	
 The finished section will look like this:
 	
@@ -640,8 +644,8 @@ directory: "blink"
 net: ""
 pid: ""
 readonly: false
-command: [python, blink.py]
-binds: ["/sys:/sys"]
+command: ['python', 'blink.py']
+binds: ['/sys:/sys']
 capabilities:[SYS_RAWIO]
 devices:[/dev/mem]
 ```
@@ -684,58 +688,3 @@ Exit shell:
 ```
 exit
 ```
-
-## Common Command Sequence
-
-* init
-* build 
-* deploy
-* start
-* logs
-* status
-* shell w/ illustration showing where you are in relation to container
-
-## Containerize Application
-
-## Gadget Commands  //test with june gadget version
-
-
-On top of creating and building and deploying, Gadget offers options that apply to a specific project while in the project's directory. For example, commands like `stop` and `start` can be applied to stop a running project and to start it back it up again. To see all the commands and options available for use in GadgetCLI type:
-
-```shell
-gadget #or 
-gadget --help
-```
-
-This menu will display:
-
-```shell
-usage: gadget <command> [<args>]
-
-common gadget commands: 
-  init        Create an empty gadget project 
-  build       Build the project in the current directory
-  deploy      Deploys the project in the current directory
-  start       Starts the application on a device
-  stop        Stops the application running on a device
-  delete      Deletes the application instance from a device
-  purge       Purges the application from a device
-  status      Shows status information
-  shell       Start debugging shell to investigate container
-  log         Show container log
-
-optional arguments:
-  -h, --help  show this help message and exit
-
-get help for specific command:
-  gadget <command> --help
-```
-
-
-## Where and how to pass args to docker run commmand?
-
-* add network 
-* mapping ports
-* sharing volumes
-* kernel module
-* device sharing between host and container

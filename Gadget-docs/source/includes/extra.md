@@ -72,3 +72,48 @@ If using a bare C.H.I.P. Pro additional hardware is needed. Connect LEDs to pins
 Google's Assistant API can be asked questions and be used to control hardware such as voice activated robots. 
 
 ### Multiple Containers?
+
+--- general extra
+
+## Gadget Commands  //test with june gadget version
+
+
+On top of creating and building and deploying, Gadget offers options that apply to a specific project while in the project's directory. For example, commands like `stop` and `start` can be applied to stop a running project and to start it back it up again. To see all the commands and options available for use in GadgetCLI type:
+
+```shell
+gadget #or 
+gadget --help
+```
+
+This menu will display:
+
+```shell
+usage: gadget <command> [<args>]
+
+common gadget commands: 
+  init        Create an empty gadget project 
+  build       Build the project in the current directory
+  deploy      Deploys the project in the current directory
+  start       Starts the application on a device
+  stop        Stops the application running on a device
+  delete      Deletes the application instance from a device
+  purge       Purges the application from a device
+  status      Shows status information
+  shell       Start debugging shell to investigate container
+  log         Show container log
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+get help for specific command:
+  gadget <command> --help
+```
+
+
+## Where and how to pass args to docker run commmand?
+
+* add network 
+* mapping ports
+* sharing volumes
+* kernel module
+* device sharing between host and container

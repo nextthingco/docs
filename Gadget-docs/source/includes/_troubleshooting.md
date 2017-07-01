@@ -1,6 +1,8 @@
 # Troubleshooting
 
-* Error: 
+## Unable to `gadget deploy` image to board 
+
+### Private key login error
 
 ```
 W:    Private key login failed, trying default key
@@ -10,9 +12,17 @@ W:    Was the gadget first used on another computer/account?
 E:  Failed to connect to Gadget
 ```
 
-Fix: Did you power cycle your board after flashing? 
+Directly after flashing GadgetOS to CHIP Pro Dev Kit the board needs to reboot. Unplug from USB port and plug back in or power cycle using the on/off button.
 
-* Error:
+### Transferring has slowed to a crawl
+
+Your NAND is most likely full. Power down your board and re-flash with GadgetOS. 
+
+To prevent this, use `df-h` to check NAND availability and delete previous images as soon as you are done with them. 
+
+## Unable to `gadget build` image
+
+### Failed to build error
 
 ```
 E:  Error response from daemon: repository jelly/spike not found: does not exist or no pull access
@@ -21,14 +31,10 @@ W:  Are you sure '%s' is a valid image [and tag]?
 W:  Is the docker daemon installed and running?
 ```
 
-Fix: The image defined as `image:` is not a valid Docker Hub username, repo or tag. Double check name. If building an image from a local Dockerfile, leave this field blank and put pathname in "directory:".
+The entry next to `image:` is not a valid Docker Hub username, repo or tag. Double check the entry. 
 
-* After running `gadget deploy` the transfer slows to a crawl. 
+If building an image from a local Dockerfile, leave this field blank and put pathname in "directory:".
 
-Fix: Your NAND is full due. A good habit is to use `df-h` to check availability and to delete previous images as soon as you are done with them.
 
-# Command Glossary
 
-* df -h
-* Docker rmi and other clean-up commands
-	* Gadget shell + clean-up commands
+

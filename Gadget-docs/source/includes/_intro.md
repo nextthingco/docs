@@ -10,7 +10,7 @@ The best way to leave us feedback is to submit changes to the [Gadget Community 
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development.
 
-1) <span style="color: EB008B">**GadgetCLI**</span> is a command-line tool you use on your development machine. It lets you manage your code, add and build containers, and deploy your finished projects to Gadget supported hardware such as C.H.I.P. Pro. 
+1) <span style="color: EB008B">**GadgetCLI**</span> is a command-line tool you use on your development machine. It lets you manage your code, add and build containers, and deploy your finished projects to Gadget supported hardware. 
 
 **Supported Systems:**
 

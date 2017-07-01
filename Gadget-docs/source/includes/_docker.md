@@ -1,6 +1,6 @@
 # Docker Reference
 
-Read up and polish your Docker skills with these references.
+Read up on and polish your Docker skills with these references.
 
 * [Dockerfile best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
 * [Docker Run resources](https://docs.docker.com/engine/reference/run/) 
@@ -17,3 +17,4 @@ Basic Docker Commands
 	remove one or more images
 * [Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)
 	Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+

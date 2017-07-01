@@ -10,7 +10,7 @@ This example blinks an LED on pin 36, CSID0.
 
 ### 1. Set Up 
 	
-* Make sure you are set up with all the necessary software. 
+* Make sure you are set up with all the necessary software outlined in [Set Up](http://ntc-docs-unstable.surge.sh/gadget.html#setup). 
 * Connect C.H.I.P. Pro Dev Kit to your host computer via a USB cable. 
 
 ### 2. Create project directory
@@ -45,7 +45,7 @@ Creating new project:
 
 ### 4. Add Service
 
-Containers that run from **onboot** start, stop and then exit when done. The Blink container goes under **services** which will loop and not exit until we tell it to. To learn more about the configurations of gadget.yml head over to the [Configuring Gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml) section.
+Containers that run from **onboot** like the "hello world: ecample, start, stop and then exit when done. The Blink container gets added as a **services** which will loop and not exit until we tell it to. To learn more about the configurations of gadget.yml head over to the [Configuring Gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml) section.
 
 ```
 gadget add service blink
@@ -57,17 +57,9 @@ From parent directory:
 gadget -C blink add service blink
 ```
 
-Gadget notifies you of a new service added:
-
-```
-Running in directory:
-  /Users/username/Documents/blink
-Adding new service: "blink"
-```
-
 ### 5. Edit gadget.yml
 
-In the project directory, open gadget.yml with a command-line text editor such as Nano: 
+In the project directory, open gadget.yml: 
 	
 ```
 nano gadget.yml
@@ -78,12 +70,10 @@ nano gadget.yml
 * **image**
  
 	```
-	image: ntcgadget/blink
+	image: nextthingco/blink
 	```
 	
-Specify an image to pull from the Docker Hub repo in this field. This example pulls "v1" of an image from the "blink" repo under the "ntcgadget" username.		
-	
-Format: username/repo:tag. 
+Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "blink" repo under the "ntcgadget" username.	 	
 	
 **Note:** If the tag is not included the image with the default "latest" tag will be pulled.
 
@@ -102,9 +92,7 @@ Run the command `python blink.py` automatically when a container is started and 
 	binds:['/sys:/sys']
 	```
 	
-Mounts the /sys directory from the host(gadgetOS) into the container at /sys. 
-
-Format: whereFrom:whereTo
+Mount the /sys directory from the host(gadgetOS) into the container at /sys. 
 	
 * **capabilities**
 
@@ -123,7 +111,7 @@ Enable Linux capabilities in the container. The ones used here mount a FUSE (**F
 
 Pass the raw Linux device at /dev/mem to the container.
 	
-The finished section will look like this:
+The finished file will look like this:
 	
 ```
 services:
@@ -146,7 +134,7 @@ Save and close gadget.yml
 
 To build an image you must be in the same directory as the gadget.yml file. 
 
-Your gadget.yml file now defines two containers: hello-world under onboot and blink in services. To work with one container specify it by name when running Gadget commands. For example, to only build the blink image rather than hello-world: 
+Your gadget.yml file now defines two containers: hello-world under **onboot** and blink in **services**. To work with one container specify it by name when running Gadget commands. For example, to **only build the blink image** rather than hello-world: 
 
 ```
 gadget build blink
@@ -221,9 +209,9 @@ gadget shell
 
 Once inside GadgetOS, use Docker commands to see images, running containers and to check NAND availability.
 
-```
-Docker images #existing images
-Docker ps #running containers
+```shell
+docker images #existing images
+docker ps #running containers
 df -h #check NAND availability
 ```
 

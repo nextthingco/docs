@@ -12,6 +12,7 @@ includes:
   - quickstart
   - build
   - gadgetyml
+  - commands
   - docker
   - troubleshooting
 

@@ -10,7 +10,7 @@ This example blinks an LED on pin 36, CSID0.
 
 ### 1. Set Up 
 	
-* Make sure you are set up with all the necessary software outlined in [Set Up](http://ntc-docs-unstable.surge.sh/gadget.html#setup). 
+* Make sure install all the necessary software outlined in [Set Up](http://ntc-docs-unstable.surge.sh/gadget.html#setup). 
 * Connect C.H.I.P. Pro Dev Kit to your host computer via a USB cable. 
 
 ### 2. Create project directory

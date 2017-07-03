@@ -65,7 +65,7 @@ gadget add service|onboot projectName
 If you choose to edit this field after generation the container will need to be built and deployed again.
 
 Format: `name: projectName`
-	
+
 <span style="font-size: 15px">**Uuid: Container ID**</span>
 
 You can have several instances of the same image. These instances are identified by their uuid. For example, if you build an image then change the **command** configuration and build again you can see both instances on your host computer when you run:

@@ -63,7 +63,7 @@ gadget add service|onboot projectName
 	
 If you choose to edit this field after generation the container will need to be built and deployed again.
 
-Format: `name: projectName`
+__Format:__ `name: projectName`
 
 <span style="font-size: 15px">**Uuid: Container ID**</span>
 
@@ -72,7 +72,7 @@ You can have several instances of the same image. These instances are identified
 ```
 docker images
 ```
-Format: `cont-ainer-uu-i-d`	
+__Format:__ `cont-ainer-uu-i-d`	
 
 <span style="font-size: 15px">**Image: Pathname of Docker Hub image**</span>
 
@@ -84,7 +84,7 @@ gadget add service|onboot projectName
 	
 To pull a base image from Docker Hub change `image:` to the username and repository you would like to pull from. The tag also needs to be included if a unique one was given when built, otherwise it will pull the image with the default ["latest" tag](https://docs.docker.com/get-started/part2/#tag-the-image). Learn more about [Docker Hub](https://docs.docker.com/docker-hub/) and how to use it.
 
-Format:
+__Format:__
 
 Generated: `image: parent_directory/projectname`
 
@@ -94,7 +94,7 @@ Docker Image: `image: username/repoName:tag`
 
 Used when building and deploying images on your host machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file. 
 
-Format: `directory: projDir`
+__Format:__ `directory: projDir`
 	
 <span style="font-size: 15px">**[Net:](https://docs.docker.com/engine/reference/run/#network-settings) Define which network to use or none**</span>
 
@@ -105,7 +105,7 @@ By default, all containers have networking enabled and can make outgoing connect
 | none                   | No networking in the container.                                                         |
 | bridge                 | Connect the container to the bridge via veth interfaces.                                |
 | host                   | Use the host's network stack inside the container.                                      |
-| container: <name-UUID> | Use the network stack or another container, specified via its __name__ or __id__        |
+| container: [name-UUID] | Use the network stack or another container, specified via its __name__ or __id__        |
 | NETWORK                | Connects the container to a use created network (using `docker network create` command) |
 
 Format: `net: host`  
@@ -122,25 +122,25 @@ gadget start
 ```
 If the CMD is used in the Dockerfile the 
 
-Format: `command: ['python', 'myPyScript.py']`
+__Format:__ `command: ['python', 'myPyScript.py']`
 	
 <span style="font-size: 15px">**Binds - Mount a directory**</span> 
 	
 Put any directories here that you would like to mount from the host into the container. 
 
-Format: `binds: ['/fromDir:/toDir']`
+__Format:__ `binds: ['/fromDir:/toDir']`
 
 <span style="font-size: 15px">**[Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Enable [Linux capabilities]([Capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)**</span>
 	
 This is where specific Linux capabilities that bypass kernel permission checks get enabled. Some are enabled by default, all others are defined here depending on what is needed for the container at runtime.
 
-Format: `capabilities: [SYS_RAWIO]`
+__Format:__ `capabilities: [SYS_RAWIO]`
 
 <span style="font-size: 15px">**[Devices](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Grant access to devices**</span>
 	
 Define a raw device in Linux to pass to a container. These are different from binds because Linux devices have several different modes of access.
 
-Format: `devices: [/dev/mem]`
+__Format:__ `devices: [/dev/mem]`
 
 **General Rules**
 

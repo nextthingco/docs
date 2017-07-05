@@ -18,10 +18,9 @@ type: docker
 
 There are two sections to place and define containers in: **onboot** and **services**. 
 
-
 ### Onboot
 
-Containers added to the **onboot** section run after boot, then exit. They run before containers placed in **services** and when multiple containers are defined they run sequentially from top to bottom. 
+Containers that run from **onboot** will run before containers placed in **services** and start in sequence from top to bottom. When their command process exits, the container will stop. 
 
 Add a container to onboot:
 
@@ -32,7 +31,7 @@ gadget add onboot projectName
 From parent directory:
 	
 ```
-gadget -C blink add onboot projectName
+gadget -C blinkdemo/ add onboot projectName
 ```
 
 
@@ -49,7 +48,7 @@ gadget add service projectName
 From parent directory:
 	
 ```
-gadget -C blink add service projectName
+gadget -C blinkdemo/ add service projectName
 ```
 
 ## Configurations
@@ -99,14 +98,14 @@ Format: `directory: projDir`
 	
 <span style="font-size: 15px">**[Net:](https://docs.docker.com/engine/reference/run/#network-settings) Define which network to use or none**</span>
 
-By default, all containers have networking enabled and can make outgoing connections. Use the following arguments to choose which network you would like the container use:
+By default, all containers have networking enabled and can make outgoing connections. Use the following arguments to choose which network you would like the container to use:
 
 | Network                | Description                                                                             |
 |------------------------|-----------------------------------------------------------------------------------------|
 | none                   | No networking in the container.                                                         |
 | bridge                 | Connect the container to the bridge via veth interfaces.                                |
 | host                   | Use the host's network stack inside the container.                                      |
-| container: <name | id> | Use the network stack or another container, specified via its __name__ or __id__        |
+| container: <name-UUID> | Use the network stack or another container, specified via its __name__ or __id__        |
 | NETWORK                | Connects the container to a use created network (using `docker network create` command) |
 
 Format: `net: host`  

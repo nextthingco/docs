@@ -8,15 +8,15 @@ To get started, download and install the following on your host computer and Gad
 
 Gadget makes use of Docker's container system. Dependent on your host computer's OS, download and install the appropriate version of Docker using the below links. For more information on Docker, read [here](https://www.docker.com/).
 
-* MacOS - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-mac?tab=description)
+* MacOS - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 * Windows 10 - [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
-* Linux - [Docker CE](https://docs.docker.com/engine/installation/#supported-platforms)
+* Linux - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 
-GadgetCLI uses the Docker daemon to pull from Docker Hub [Crunch?]. Once Docker is installed, run it before using GadgetCLI.
+GadgetCLI uses the Docker daemon to pull images from Docker Hub, or build directly from local Dockerfiles. Once Docker is installed, run it before using GadgetCLI.
 
 ## Download Gadget
 
-Download GadgetCLI and GadgetOS [here](https://github.com/NextThingCo/gadget-community-preview). Put the gadget binary in your path or precede all the commands with `./` eg. `./gadget`.
+Download GadgetCLI and GadgetOS [here](https://github.com/NextThingCo/gadgetcli/releases). Put the gadget binary in your path or precede all the commands with `./` eg. `./gadget`.
 
 ## Flash GadgetOS 
 

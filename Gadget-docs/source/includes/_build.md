@@ -10,7 +10,7 @@ This example blinks an LED on pin 36, CSID0.
 
 ### 1. Set Up 
 	
-* Make sure install all the necessary software outlined in [Set Up](http://ntc-docs-unstable.surge.sh/gadget.html#setup). 
+* Make sure to install all the necessary software outlined in [Set Up](http://ntc-docs-unstable.surge.sh/gadget.html#setup). 
 * Connect C.H.I.P. Pro Dev Kit to your host computer via a USB cable. 
 
 ### 2. Create project directory
@@ -18,7 +18,7 @@ This example blinks an LED on pin 36, CSID0.
 Fire up Terminal and create a space for your project to live in:
 
 ```
-mkdir blink
+mkdir blinkdemo
 ```
 
 ### 3. Initialize Project
@@ -33,28 +33,28 @@ gadget init
 A gadget.yml file can also be created from your project's parent directory. 
 	
 ```
-gadget -C blink init
+gadget -C blinkdemo/ init
 ```
 
 Gadget will tell you that it created a new project:
 
 ```
 Creating new project:
-  in /Users/username/Documents/blink
+  in /Users/username/Documents/blinkdemo
 ``` 
 
 ### 4. Add Service
 
-Containers that run from **onboot** like the "hello world: ecample, start, stop and then exit when done. The Blink container gets added as a **services** which will loop and not exit until we tell it to. To learn more about the configurations of gadget.yml head over to the [Configuring Gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml) section.
+Containers that run from **onboot** like the “hello-world” example, will start in sequence from top to bottom. When their command process exits, the container will stop. The Blink container gets added as a service which will also run until its command process exits. The difference between services and onboot containers is that if a service container exits with a non-zero code, it will be automatically restarted. To learn more about the configurations of gadget.yml head over to the [Configuring Gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml) section.
 
 ```
-gadget add service blink
+gadget add service gpio
 ```
 	
 From parent directory:
 	
 ```
-gadget -C blink add service blink
+gadget -C blinkdemo/ add service gpio
 ```
 
 ### 5. Edit gadget.yml
@@ -73,7 +73,7 @@ nano gadget.yml
 	image: nextthingco/blink
 	```
 	
-Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "blink" repo under the "ntcgadget" username.	 	
+Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "blink" repo under the "nextthingco" username.	 	
 	
 **Note:** If the tag is not included the image with the default "latest" tag will be pulled.
 
@@ -115,9 +115,9 @@ The finished file will look like this:
 	
 ```
 services:
-- name: blink
+- name: gpio
 uuid: Your-Containers-Uni-Que-UUID
-image: ntcgadget/blink 
+image: nextthingco/blink 
 directory: ""
 net: ""
 pid: ""
@@ -137,21 +137,21 @@ To build an image you must be in the same directory as the gadget.yml file.
 Your gadget.yml file now defines two containers: hello-world under **onboot** and blink in **services**. To work with one container specify it by name when running Gadget commands. For example, to **only build the blink image** rather than hello-world: 
 
 ```
-gadget build blink
+gadget build gpio
 ```
 When the image is done building, deploy and start:
 
 ```
-gadget deploy blink
-gadget start blink
+gadget deploy gpio
+gadget start gpio
 ```
 
 From parent directory:
 
 ```
-gadget -C blink build blink
-gadget -C blink deploy blink
-gadget -C blink start blink
+gadget -C blinkdemo/ build gpio
+gadget -C blinkdemo/ deploy gpio
+gadget -C blinkdemo/ start gpio
 ```
 
 If the container builds, deploys and starts successfully you will see the following output messages:
@@ -160,20 +160,23 @@ If the container builds, deploys and starts successfully you will see the follow
 #build
   Building:
     'hello-world'
-    'blink'
+    'gpio'
 
 #deploy
   Stopping/deleting older 'hello-world' if applicable
   Deploying: 'hello-world'
     Starting transfer..
     
-  Stopping/deleting older 'blink' if applicable
-  Deploying: 'blink'
+  Stopping/deleting older 'gpio' if applicable
+  Deploying: 'gpio'
     Starting transfer..
 
 #start
   Starting:
     hello-world_58915d6b-2770-4988-8f16-b681f3fc5fc7
+      - started
+      Starting:
+    gpio_582583nb-2770-7658-8f16-f681h6fc2bk8
       - started
 ```
 
@@ -182,9 +185,11 @@ If any of these processes fail, Gadget will output an error along with suggestio
 ### 8. Stop and Delete Container
 
 ```
-gadget stop
-gadget delete
+gadget stop gpio
+gadget delete gpio
 ```
+
+**Note:** To build, deploy, delete, etc. all containers use gadget command without specified container name.
 
 ## Build Image Locally 
 
@@ -198,8 +203,8 @@ Follow along and build an image that uses Robert Wolterman's [CHIP_IO](https://g
 ### 1. Create project directory
 
 ```
-mkdir blink
-cd blink
+mkdir blinkdemo
+cd blinkdemo
 ```
 
 ### 2. Create Dockerfile
@@ -213,8 +218,8 @@ nano Dockerfile
 Copy and paste the following content into the new Dockerfile. 
 
 ```bash
-# Base image is arm32v7 Alpine Linux on Docker Hub
-FROM armhf/alpine
+# Base image is arm32v6 Alpine Linux on Docker Hub
+FROM arm32v6/alpine
 
 # Set and create a working directory called app
 WORKDIR /app
@@ -261,7 +266,6 @@ RUN apk update && apk add bison \
 				git \
 				make 
 
-CMD ["python", "blink.py"]
 ```
 
 Dockerfiles are capable of holding many kinds of instruction. To learn more, refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
@@ -331,7 +335,7 @@ gadget init
 Add a new service:
 
 ```
-gadget add service blink
+gadget add service gpio
 ```
 
 ### 7. Edit Gadget.yml
@@ -352,7 +356,7 @@ This field is reserved for pulling images from Docker Hub, so for this workflow 
 * **directory**
 
 	```
-	directory:"blink" 
+	directory:"blinkdemo" 
 	```
 
 In this field, put the path of the project directory containing the Dockerfile in relation to the gadget.yml file. 
@@ -397,10 +401,10 @@ The finished section will look like this:
 	
 ```
 services:
-- name: blink
+- name: gpio
 uuid: Your-Containers-U-U-ID
 image: "" 
-directory: "blink"
+directory: "blinkdemo"
 net: ""
 pid: ""
 readonly: false
@@ -415,9 +419,9 @@ Save and close gadget.yml
 ### 8. Build, Deploy, and Start Container
 
 ```
-gadget build 
-gadget deploy
-gadget start
+gadget build gpio
+gadget deploy gpio
+gadget start gpio
 ```
 
 ### 9. Stop and Delete
@@ -425,8 +429,8 @@ gadget start
 When ready, stop the container and clean up:
 
 ```
-gadget stop
-gadget delete
+gadget stop gpio
+gadget delete gpio
 ```
 
 ### 10. Shell into GadgetOS
@@ -453,13 +457,22 @@ exit
 
 ## Share Image
 
-Gadget makes use of the growing community of official and community supported Docker images.
+Gadget makes use of the growing community of official and community supported Docker images. Images that are pushed to [Docker Hub](https://hub.docker.com/) can be set to private or public. If public, they can be shared, pulled and used by coworkers, friends and the general public. 
 
-### 1. Create Repo
+**Share Source Files**
 
-For this process you will need a [Docker Hub](https://hub.docker.com/) repository to push and pull your built images to. 
+For collaborators to deploy and run containers they will need to know the configurations that go into gadget.yml. An easy way to share these is to create a GitHub repository [GitHub](https://github.com/) and push all source files to it. 
+
+
+### 1. Create Registry and Repo
+
+For this process you will need:
+
+* a [Docker Hub](https://hub.docker.com/) registry to push and pull your built images to. 
+
+* a [GitHub]((https://github.com/)) repository to hold all source files. 
 	
-Popular git repositories such as GitLab and GitHub have their own container repos and ways of working with Docker. If that is what you prefer you will need to push images according to their documentation.
+[GitLab](https://docs.gitlab.com/ee/user/project/container_registry.html#enable-the-container-registry-for-your-project) has their own container registry and ways of working with Docker. If that is what you prefer you will need to push images according to their documentation. 
 
 ### 2. Login
 
@@ -479,7 +492,7 @@ docker tag blink YourUserName/blink:v1
 
 ### 4. Push
 
-Push the image to your Docker Hub repository:
+Push the image to your Docker Hub registry:
 
 ```
 docker push YourUserName/blink:v1 
@@ -497,8 +510,10 @@ Here you will find examples to get you started with popular sensors and breakout
 
 * [Web Server:](https://hub.docker.com/u/nextthingco/) - Use Nginx to create a simple web server. 
 	`image: nextthingco/webserver`
-* [GPIO in C](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Cross compile C applications easily in a Dockerfile.
-* [GPIO in Go](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Written in the [Go](https://golang.org/) language.
+* [Blink in C](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Cross compile C applications easily in a Dockerfile.
+* [Blink in Go](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Written in the [Go](https://golang.org/) language.
+* [Blink in Rust](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0.
+* [Blink in Node](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0.
 
 #### Python
 

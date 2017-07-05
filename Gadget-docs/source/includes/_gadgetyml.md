@@ -128,9 +128,9 @@ __Format:__ `command: ['python', 'myPyScript.py']`
 	
 Put any directories here that you would like to mount from the host into the container. 
 
-__Format:__ `binds: ['/fromDir:/toDir']`
+__Format:__ `binds: ['/fromHostDir:/toContainerDir']`
 
-<span style="font-size: 15px">**[Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Enable [Linux capabilities]([Capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)**</span>
+<span style="font-size: 15px">**[Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Enable [Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)**</span>
 	
 This is where specific Linux capabilities that bypass kernel permission checks get enabled. Some are enabled by default, all others are defined here depending on what is needed for the container at runtime.
 

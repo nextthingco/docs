@@ -3,9 +3,9 @@
 <span style="font-size: 36px">&#128226;</span> Welcome to the **developer preview** of Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro and Gadget supported hardware. 
 
 <aside class="notice">
-Gadget is open source and being actively developed, and we want to know what you think about it. </aside>
+Gadget is open source and being actively developed so, we want to know what you think about it. </aside>
 
-The best way to leave us feedback is to submit changes to the [Gadget Community Preview](https://github.com/NextThingCo/gadgetcli/releases) GitHub repo. 
+The best way to leave us feedback is to submit changes to the [GadgetCLI alpha release repo](https://github.com/NextThingCo/gadgetcli/releases) GitHub repo. 
 
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development.
@@ -25,7 +25,7 @@ Buildroot is at the core of GadgetOS and features Docker support. The **GadgetCL
 **Tech Notes and Specs**
 
 * **Boot time** is ~5 seconds to shell on the UART. Depending on user optimization, containers can load in ~5 - 15 seconds.
-* **NAND** availability for containers, files, assets, etc. is 350MB. 
+* **NAND availability** for containers, files, assets, etc. is 350MB. 
 
 
 

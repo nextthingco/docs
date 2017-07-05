@@ -101,7 +101,7 @@ Mount the /sys directory from the host(gadgetOS) into the container at /sys.
 	capabilities:[SYS_RAWIO]
 	```
 
-Enable Linux capabilities in the container. The ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations.
+Enable Linux capabilities in the container. The ones used here enables the modification of the /dev/mem device.
 
 * **devices**
 

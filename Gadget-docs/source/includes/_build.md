@@ -509,7 +509,6 @@ Start a project with one of our example images. You can either pull an example f
 Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code.
 
 * [Web Server:](https://hub.docker.com/u/nextthingco/) - Use Nginx to host web content from your device.
-	`image: nextthingco/webserver`
 * [Blink in C](https://hub.docker.com/u/nextthingco/) - Cross compile C applications easily in a Dockerfile. A gnu89 compatible C example of GPIO usage, easily translatable to C++.
 * [Blink in Go](https://hub.docker.com/u/nextthingco/) - Written in Golang. 
 * [Blink in Rust](https://hub.docker.com/u/nextthingco/) - Written in Rustlang.

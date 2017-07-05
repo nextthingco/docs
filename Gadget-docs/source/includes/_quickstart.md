@@ -68,7 +68,7 @@ gadget logs
 You should see a message that starts with:
 
 ```
-Hello from Docker on armhf!
+Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ...
 ```

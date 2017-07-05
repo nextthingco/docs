@@ -5,7 +5,7 @@
 <aside class="notice">
 Gadget is open source and being actively developed so, we want to know what you think about it. </aside>
 
-The best way to leave us feedback is to submit changes to the [GadgetCLI alpha release repo](https://github.com/NextThingCo/gadgetcli/releases) GitHub repo. 
+The best way to leave us feedback is to submit changes to the [GadgetCLI alpha release](https://github.com/NextThingCo/gadgetcli/releases) GitHub repo. 
 
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development.

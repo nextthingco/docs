@@ -506,8 +506,6 @@ The blink image is now ready to share and pull to your device. From here, the wo
 
 Start a project with one of our example images. You can either pull an example from our official [NTC Docker Hub](https://hub.docker.com/r/nextthingco/) or `git clone` the repository to your development computer. All Dockerfiles and supporting files are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
-Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code.
-
 * [Web Server:](https://hub.docker.com/u/nextthingco/) - Use Nginx to host web content from your device.
 * [Blink in C](https://hub.docker.com/u/nextthingco/) - Cross compile C applications easily in a Dockerfile. A gnu89 compatible C example of GPIO usage, easily translatable to C++.
 * [Blink in Go](https://hub.docker.com/u/nextthingco/) - Written in Golang. 

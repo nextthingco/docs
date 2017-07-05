@@ -1,6 +1,6 @@
 # Welcome to Gadget!
 
-<span style="font-size: 36px">&#128226;</span> Welcome to the **developer preview** of Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro and Gadget supported hardware. 
+<span style="font-size: 36px">&#128226;</span>  Welcome to the **developer preview** of Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro and Gadget supported hardware. 
 
 <aside class="notice">
 Gadget is open source and being actively developed so, we want to know what you think about it. </aside>

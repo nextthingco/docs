@@ -508,21 +508,14 @@ Start a project with one of our example images. You can either pull an example f
 
 Here you will find examples to get you started with popular sensors and breakout boards as well as how to load and run custom code.
 
-* [Web Server:](https://hub.docker.com/u/nextthingco/) - Use Nginx to create a simple web server. 
+* [Web Server:](https://hub.docker.com/u/nextthingco/) - Use Nginx to host web content from your device.
 	`image: nextthingco/webserver`
-* [Blink in C](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Cross compile C applications easily in a Dockerfile.
-* [Blink in Go](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. 
-* [Blink in Rust](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0.
-* [Blink in Node](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0.
-
-#### Python
-
-More to come before Thursday
-
-* SPI
-* Blinkenlights 
-* VU meter
-* I2C 
+* [Blink in C](https://hub.docker.com/u/nextthingco/) - Cross compile C applications easily in a Dockerfile. A gnu89 compatible C example of GPIO usage, easily translatable to C++.
+* [Blink in Go](https://hub.docker.com/u/nextthingco/) - Written in Golang. 
+* [Blink in Rust](https://hub.docker.com/u/nextthingco/) - Written in Rustlang.
+* [Blink in Node](https://hub.docker.com/u/nextthingco/) - Javascript example running on top of Node.
+* [Blink in Python](https://github.com/NextThingCo/Gadget-Docker-Examples) - Python GPIO example using the community-run library [CHIP_IO](https://github.com/xtacocorex/CHIP_IO).
+* [Mulitple Containers](https://github.com/NextThingCo/Gadget-Docker-Examples) - A demonstration of a multiple-container project running all of the above examples at once.
 
 ## Edit Examples
 

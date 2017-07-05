@@ -26,7 +26,7 @@ mkdir blinkdemo
 Enter and use `gadget init` to create a **gadget.yml** template file in your project directory.
 
 ```
-cd blink
+cd blinkdemo
 gadget init
 ```
 	
@@ -92,7 +92,7 @@ Run the command `python blink.py` automatically when a container is started and 
 	binds:['/sys:/sys']
 	```
 	
-Mount the /sys directory from the host(gadgetOS) into the container at /sys. 
+Mount the /sys directory from the host into the container at /sys. 
 	
 * **capabilities**
 
@@ -134,7 +134,7 @@ Save and close gadget.yml
 
 To build an image you must be in the same directory as the gadget.yml file. 
 
-Your gadget.yml file now defines two containers: hello-world under **onboot** and blink in **services**. To work with one container specify it by name when running Gadget commands. For example, to **only build the blink image** rather than hello-world: 
+Your gadget.yml file now defines two containers: hello-world under **onboot** and blink in **services**. To work with one container specify it by name when running Gadget commands. For example, to **only build the gpio image** rather than hello-world: 
 
 ```
 gadget build gpio
@@ -157,12 +157,12 @@ gadget -C blinkdemo/ start gpio
 If the container builds, deploys and starts successfully you will see the following output messages:
 
 ```
-#build
+#### build output
   Building:
     'hello-world'
     'gpio'
 
-#deploy
+#### deploy output
   Stopping/deleting older 'hello-world' if applicable
   Deploying: 'hello-world'
     Starting transfer..
@@ -171,11 +171,11 @@ If the container builds, deploys and starts successfully you will see the follow
   Deploying: 'gpio'
     Starting transfer..
 
-#start
+#### start output
   Starting:
     hello-world_58915d6b-2770-4988-8f16-b681f3fc5fc7
       - started
-      Starting:
+  Starting:
     gpio_582583nb-2770-7658-8f16-f681h6fc2bk8
       - started
 ```
@@ -195,7 +195,7 @@ gadget delete gpio
 
 Most likely building images locally will be the process you will use the most as you develop and test applications. To build an image you need a Dockerfile and supporting files AKA the build's context. These files can either be written from scratch or cloned onto a development computer. 
 
-Built images are then deployed to hardware for testing and further iterations. To share an image they can be pushed to an online repo which makes them available to be pulled to one or multiple devices at anytime.	
+Built images are then deployed to hardware for testing and further iterations. To share an image they can be pushed to an online registry which makes them available to be pulled to one or multiple devices at anytime.	
 
 Follow along and build an image that uses Robert Wolterman's [CHIP_IO](https://github.com/xtacocorex/CHIP_IO) python library to access C.H.I.P. Pro Dev Kit's LEDs.
 
@@ -461,7 +461,7 @@ Gadget makes use of the growing community of official and community supported Do
 
 **Share Source Files**
 
-For collaborators to deploy and run containers they will need to know the configurations that go into gadget.yml. An easy way to share these is to create a GitHub repository [GitHub](https://github.com/) and push all source files to it. 
+For collaborators to deploy and run containers they will need to know the configurations that go into gadget.yml. An easy way to share these is to create a [GitHub](https://github.com/) repository to push all of the source files to.
 
 
 ### 1. Create Registry and Repo
@@ -511,7 +511,7 @@ Here you will find examples to get you started with popular sensors and breakout
 * [Web Server:](https://hub.docker.com/u/nextthingco/) - Use Nginx to create a simple web server. 
 	`image: nextthingco/webserver`
 * [Blink in C](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Cross compile C applications easily in a Dockerfile.
-* [Blink in Go](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. Written in the [Go](https://golang.org/) language.
+* [Blink in Go](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0. 
 * [Blink in Rust](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0.
 * [Blink in Node](https://hub.docker.com/u/nextthingco/) - Blink an LED on pin 36, CSID0.
 
@@ -533,8 +533,8 @@ git clone https://github.com/NextThingCo/Gadget-Docker-Examples.git
 ```
 
 * Edit the example files in a chosen project directory.
-* [build the image on your host computer](http://ntc-docs-unstable.surge.sh/gadget.html#build-image-locally). 
+* [build and deploy the image on your host computer](http://ntc-docs-unstable.surge.sh/gadget.html#build-image-locally). Each project directory has a gadget.yml file that contains the needed configurations for that specific container. 
 
 **Note:** To build the image you will need to take the .yml config file out of the project directory first. 
 
-* deploy to your hardware to test
+

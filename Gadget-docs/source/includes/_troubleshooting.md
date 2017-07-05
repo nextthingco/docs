@@ -53,7 +53,7 @@ W:  Is the docker daemon installed and running?
 
 The entry next to `image:` is not a valid Docker Hub username, repo or tag. Double check the entry. 
 
-If building an image from a local Dockerfile, leave this field blank and put pathname in "directory:".
+If building an image from a local Dockerfile, leave this field blank and put the project's path in "directory:".
 
 
 

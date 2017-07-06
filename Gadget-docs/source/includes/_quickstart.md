@@ -3,14 +3,14 @@
 
 Get up and running in minutes with this straight forward "Hello World" example. 
 
-#### 1. Create Project Directory
+### 1. Create Project Directory
 
 ```bash
 mkdir hello-world
 cd hello-world
 ```
 	
-#### 2. Initialize Project
+### 2. Initialize Project
 
 ```bash
 gadget init
@@ -39,25 +39,25 @@ onboot:
 services: []
 ```
 	
-#### 3. Build 
+### 3. Build 
 	
 ```bash
 gadget build
 ```
 	
-#### 4. Deploy 
+### 4. Deploy 
 	
 ```bash
 gadget deploy
 ```
 	
-#### 5. Start 
+### 5. Start 
 	
 ```bash
 gadget start
 ```
 
-#### 6. Look at Logs and Check Status
+### 6. Look at Logs and Check Status
 
 Once the container runs, it outputs a "hello world" message. To see if the container successfully started use the `logs` command to fetch the output:
 
@@ -74,7 +74,7 @@ This message shows that your installation appears to be working correctly.
 ```
 Congrats, you have built and deployed your first Gadget project!
 
-#### 7. Stop and Cleanup Container
+### 7. Stop and Cleanup Container
 
 Stop the running container:
 

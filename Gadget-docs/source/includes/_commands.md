@@ -28,3 +28,9 @@ version     Print version information
 help        Print this message
  
 ```
+
+Containers can be layered in the gadget.yml configuration file by adding them as services or at onboot. For optimization one container can be targeted by adding its name after a `gadget` command. For example:
+
+`gadget build gpio`
+
+

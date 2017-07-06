@@ -67,7 +67,7 @@ E:  Failed to build 'projectName'
 W:  Is the docker daemon installed and running?
 ```
 
-Your version of Docker may be out of date. Make sure you have the latest version of Docker installed. To check which version of Docker you have use `Docker -v`.
+Your version of Docker may be out of date. Docker version 17.06 or greater is required. To check which version of Docker you have use `Docker -v`.
 
 
 

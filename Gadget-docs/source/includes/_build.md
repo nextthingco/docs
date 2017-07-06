@@ -29,12 +29,6 @@ Enter and use `gadget init` to create a **gadget.yml** template file in your pro
 cd blinkdemo
 gadget init
 ```
-	
-A gadget.yml file can also be created from your project's parent directory. 
-	
-```
-gadget -C blinkdemo/ init
-```
 
 Gadget will tell you that it created a new project:
 
@@ -49,12 +43,6 @@ Containers that run from **onboot** like the “hello-world” example, will sta
 
 ```
 gadget add service gpio
-```
-	
-From parent directory:
-	
-```
-gadget -C blinkdemo/ add service gpio
 ```
 
 ### 5. Edit gadget.yml
@@ -75,7 +63,7 @@ nano gadget.yml
 	
 Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "gadget-blink-python" repo under the "nextthingco" username.	 	
 	
-**Note:** If the tag is not included the image with the default "latest" tag will be pulled.
+**Note:** If the [tag](https://docs.docker.com/engine/reference/commandline/tag/) is not included the image with the default "latest" tag will be pulled.
 
 * **command**
 
@@ -116,7 +104,7 @@ The finished file will look like this:
 ```
 services:
 - name: gpio
-uuid: Your-Containers-Uni-Que-UUID
+uuid: Your-Containers-U-U-ID
 image: nextthingco/gadget-blink-python 
 directory: ""
 net: ""
@@ -144,14 +132,6 @@ When the image is done building, deploy and start:
 ```
 gadget deploy gpio
 gadget start gpio
-```
-
-From parent directory:
-
-```
-gadget -C blinkdemo/ build gpio
-gadget -C blinkdemo/ deploy gpio
-gadget -C blinkdemo/ start gpio
 ```
 
 If the container builds, deploys and starts successfully you will see the following output messages:
@@ -308,7 +288,7 @@ finally:
 
 ### 4. Build
 
-While still in the project directory build the image and give it a name.
+While still in the project directory build the image. Use the [-t flag](https://docs.docker.com/engine/reference/commandline/build/#options) to give the image a name. A tag can also optionally be added. Here the image is given the name "blink". 
 	
 ```
 docker build -t blink .
@@ -484,7 +464,7 @@ docker login
 
 ### 3. Tag
 
-Tag the blink image with a version number. If an image is not tagged it will automatically be tagged with the default of "latest".
+[Tag](https://docs.docker.com/engine/reference/commandline/tag/) the blink image with a version number. If an image is not tagged it will automatically be tagged with the default of "latest".
 
 ```
 docker tag blink YourUserName/blink:v1 

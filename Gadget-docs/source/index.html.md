@@ -11,8 +11,8 @@ includes:
   - setup
   - quickstart
   - wifi
-  - build
   - gadgetyml
+  - build
   - commands
   - docker
   - troubleshooting

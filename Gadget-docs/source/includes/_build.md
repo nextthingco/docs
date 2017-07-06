@@ -37,7 +37,9 @@ Creating new project:
 
 ### 4. Add Service
 
-The **gpio** container gets added as a service which will also run until its command process exits. To learn more about the configurations of gadget.yml head over to the [Configuring Gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml) section.
+To build and run a project a container needs to be defined and configured either under **services** or **onboot** in the gadget.yml.  
+
+By default, gadget.yml is created with the example "hello-world" project along with a set of configurations. Another set of configurations needs to be generated for the new **gpio** project. To do this use the `add` command, set it as a service and give it the name **gpio**:
 
 ```
 gadget add service gpio
@@ -51,7 +53,9 @@ In the project directory, open gadget.yml:
 nano gadget.yml
 ```
 
-#### Make edits to the following fields:
+The gadget.yml file now defines two containers: hello-world under **onboot** and gpio in **services**. 
+
+#### Make edits to the following fields under services:
 
 * **image**
  
@@ -120,7 +124,7 @@ Save and close gadget.yml
 
 To build an image you must be in the same directory as the gadget.yml file. 
 
-Your gadget.yml file now defines two containers: hello-world under **onboot** and blink in **services**. To work with one container specify it by name when running Gadget commands. For example, to **only build the gpio image** rather than hello-world: 
+To work with one container specify it by name when running Gadget commands. For example, to **only build the gpio image** rather than hello-world: 
 
 ```
 gadget build gpio
@@ -181,8 +185,8 @@ Follow along and build an image that uses Robert Wolterman's [CHIP_IO](https://g
 ### 1. Create project directory
 
 ```
-mkdir blinkdemo
-cd blinkdemo
+mkdir blinkLocal
+cd blinkLocal
 ```
 
 ### 2. Create Dockerfile
@@ -334,7 +338,7 @@ This field is reserved for pulling images from Docker Hub, so for this workflow 
 * **directory**
 
 	```
-	directory:"blinkdemo" 
+	directory:"blinkLocal" 
 	```
 
 In this field, put the path of the project directory containing the Dockerfile in relation to the gadget.yml file. 
@@ -365,7 +369,7 @@ Format: whereFrom:whereTo
 	capabilities:[SYS_RAWIO]
 	```
 
-Enable Linux capabilities in the container. The ones used here mount a FUSE (**F**ilesystem in **Use**rspace) based system for I/O operations.
+Enable Linux capabilities in the container. The one used here is for I/O operations.
 
 * **devices**
 
@@ -382,7 +386,7 @@ services:
 - name: gpio
 uuid: Your-Containers-U-U-ID
 image: "" 
-directory: "blinkdemo"
+directory: "blinkLocal"
 net: ""
 pid: ""
 readonly: false
@@ -484,23 +488,40 @@ The blink image is now ready to share and pull to your device. From here, the wo
 
 Start a project with one of our example images. You can either pull an example from our official [NTC Docker Hub](https://hub.docker.com/r/nextthingco/) or `git clone` the repository to your development computer. All Dockerfiles and supporting files are found [here](https://github.com/NextThingCo/Gadget-Docker-Examples). 
 
-* [Web Server:](https://hub.docker.com/u/nextthingco/) - Use Nginx to host web content from your device.
-* [Blink in C](https://hub.docker.com/u/nextthingco/) - Cross compile C applications easily in a Dockerfile. A gnu89 compatible C example of GPIO usage, easily translatable to C++.
-* [Blink in Go](https://hub.docker.com/u/nextthingco/) - Written in Golang. 
-* [Blink in Rust](https://hub.docker.com/u/nextthingco/) - Written in Rustlang.
-* [Blink in Node](https://hub.docker.com/u/nextthingco/) - Javascript example running on top of Node.
-* [Blink in Python](https://github.com/NextThingCo/Gadget-Docker-Examples) - Python GPIO example using the community-run library [CHIP_IO](https://github.com/xtacocorex/CHIP_IO).
-* [Mulitple Containers](https://github.com/NextThingCo/Gadget-Docker-Examples) - A demonstration of a multiple-container project running all of the above examples at once.
+**Docker Hub Images**
 
-## Edit Examples
+* [Web Server](https://hub.docker.com/r/nextthingco/gadget-webserver/) - Use Nginx to host web content from your device.
+* [Blink in C](https://hub.docker.com/r/nextthingco/gadget-blink-c/) - Cross compile C applications easily in a Dockerfile. A gnu89 compatible C example of GPIO usage, easily translatable to C++.
+* [Blink in Go](https://hub.docker.com/r/nextthingco/gadget-blink-go/) - Written in Golang. 
+* [Blink in Rust](https://hub.docker.com/r/nextthingco/gadget-blink-rust/) - Written in Rustlang.
+* [Blink in Node](https://hub.docker.com/r/nextthingco/gadget-blink-node/) - Javascript example running on top of Node.
+* [Blink in Python](https://hub.docker.com/r/nextthingco/gadget-blink-python/) - Python GPIO example using the community-run library [CHIP_IO](https://github.com/xtacocorex/CHIP_IO).
+* Blink with Multiple Containers - A demonstration of a multiple-container project running all of the Blink examples at once.
 
-Clone the examples to your computer:
+**Run an Example**
+
+* Follow the steps under [Pull Remote Image](http://ntc-docs-unstable.surge.sh/gadget.html#pull-remote-image) up to **Step 5**. 
+* Download and use the project's gadget.yml configuration file from the source file GitHub repo to build and run the container with.
+
+**Source files:**
+
+* [Web Server](https://github.com/NextThingCo/Gadget-Docker-Examples/tree/master/gadget-webserver)
+* [Blink in C](https://github.com/NextThingCo/Gadget-Docker-Examples/tree/master/gadget-blink-c)
+* [Blink in Go](https://github.com/NextThingCo/Gadget-Docker-Examples/tree/master/gadget-blink-go)
+* [Blink in Rust](https://github.com/NextThingCo/Gadget-Docker-Examples/tree/master/gadget-blink-rust)
+* [Blink in Node](https://github.com/NextThingCo/Gadget-Docker-Examples/tree/master/gadget-blink-node)
+* [Blink in Python](https://github.com/NextThingCo/Gadget-Docker-Examples/tree/master/gadget-blink-python)
+* [Blink with Multiple Containers](https://github.com/NextThingCo/Gadget-Docker-Examples/tree/master/gadget-blink-multi)
+
+**Edit Examples**
+
+* Clone the examples to your computer:
 
 ```
 git clone https://github.com/NextThingCo/Gadget-Docker-Examples.git
 ```
 
-* Edit the example files in a chosen project directory.
+* Edit the source files in a chosen project directory.
 * [build and deploy the image on your host computer](http://ntc-docs-unstable.surge.sh/gadget.html#build-image-locally). Each project directory has a gadget.yml file that contains the needed configurations for that specific container. 
 
 **Note:** To build the image you will need to take the .yml config file out of the project directory first. 

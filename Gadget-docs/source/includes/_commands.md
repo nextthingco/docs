@@ -29,8 +29,21 @@ help        Print this message
  
 ```
 
-Containers can be layered in the gadget.yml configuration file by adding them as services or at onboot. For optimization one container can be targeted by adding its name after a `gadget` command. For example:
+* Containers can be layered in the gadget.yml configuration file by adding them as services or at onboot. For optimization one container can be targeted by adding its name after a `gadget` command. For example:
 
-`gadget build gpio`
+```
+gadget build gpio
+```
+
+* A `gadget` command can be issued from a different directory. For example to build an project in a directory called "blinkdemo" from its parent directory: 
+
+```
+gadget -C blinkdemo/ build 
+```
+
+
+
+
+
 
 

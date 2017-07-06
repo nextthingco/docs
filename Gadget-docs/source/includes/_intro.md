@@ -22,7 +22,9 @@ Gadget is made up of two pieces of software that work together to simplify embed
 
 Buildroot is at the core of GadgetOS and features Docker support. The **GadgetCLI** communicates directly with the Docker daemon over ssh, using GadgetOS’s usb ethernet connection. For more information on Buildroot, read [here](https://buildroot.org/).
 
-**Tech Notes and Specs**
+**Tech Notes**
+
+#### C.H.I.P. Pro
 
 * **Boot time** is ~5 seconds to shell on the UART. Depending on user optimization, containers can load in ~5 - 15 seconds.
 * **NAND availability** for containers, files, assets, etc. is 350MB. 

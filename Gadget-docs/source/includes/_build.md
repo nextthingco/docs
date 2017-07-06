@@ -70,10 +70,10 @@ nano gadget.yml
 * **image**
  
 	```
-	image: nextthingco/blink
+	image: nextthingco/gadget-blink-python
 	```
 	
-Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "blink" repo under the "nextthingco" username.	 	
+Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "gadget-blink-python" repo under the "nextthingco" username.	 	
 	
 **Note:** If the tag is not included the image with the default "latest" tag will be pulled.
 
@@ -117,7 +117,7 @@ The finished file will look like this:
 services:
 - name: gpio
 uuid: Your-Containers-Uni-Que-UUID
-image: nextthingco/blink 
+image: nextthingco/gadget-blink-python 
 directory: ""
 net: ""
 pid: ""

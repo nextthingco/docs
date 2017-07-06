@@ -110,8 +110,6 @@ By default, all containers have networking enabled and can make outgoing connect
 
 Format: `net: host`  
 
-<span style="font-size: 15px">**Pid -**</span> TKTK
-
 <span style="font-size: 15px">**Readonly - Set to false by default**</span>
 
 <span style="font-size: 15px">**Command - Run this command at start**</span>

@@ -55,6 +55,19 @@ The entry next to `image:` is not a valid Docker Hub username, repo or tag. Doub
 
 If building an image from a local Dockerfile, leave this field blank and put the project's path in "directory:".
 
+### Failed to build error
+
+```
+I:  Running in directory:
+I:    ~/projectName
+I:  Building:
+I:    'projectName'
+E:  Unknown flag: from
+E:  Failed to build 'projectName'
+W:  Is the docker daemon installed and running?
+```
+
+Your version of Docker may be out of date. Make sure you have the latest version of Docker installed. To check which version of Docker you have use `Docker -v`.
 
 
 

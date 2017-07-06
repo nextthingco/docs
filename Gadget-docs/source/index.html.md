@@ -10,6 +10,7 @@ includes:
   - intro
   - setup
   - quickstart
+  - wifi
   - build
   - gadgetyml
   - commands

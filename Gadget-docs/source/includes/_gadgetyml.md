@@ -1,26 +1,30 @@
 # Configuring Gadget.yml
 
-GadgetCLI's function is built around the gadget.yml configuration file. This is where you define the container's resources, issue commands once a container is started and state what containers to run and in what order. 
+At Gadget's heart is [Docker](https://docs.docker.com/). With GadgetCLI you will be building Docker [images and running containers](https://docs.docker.com/get-started/#a-brief-explanation-of-containers). Gadget makes orchestrating Docker images simple by wrapping up Docker functionality into one file: **gadget.yml**. 
 
-The gadget.yml file conveniently wraps us Docker commands, options and parameters all in one place. To learn more about what each configuration does on the Docker side click the title to be taken to Docker documentation.
+Gadget.yml is where you define the container's resources, issue commands once a container is started and state what containers to run and in what order. For example, the ["hello world"](http://ntc-docs-unstable.surge.sh/gadget.html#hello-world) demo pulls an image from Docker Hub that is defined in the gadget.yml configuration file. 
 
-From here on out "host" refers to the Gadget compatible hardware running GadgetOS and "host computer" refers to the computer the Gadget compatible hardware is plugged into via USB.
-
-Starting from the top of the file, here is what each section of gadget.yml does. 
-
-```
-spec: "0.0" #for future versioning
-name: blink #generated from .yml file's parent directory 
-type: docker 
-```
+**Note:** From here on out "host" refers to the Gadget compatible hardware running GadgetOS and "host computer" refers to the computer the Gadget compatible hardware is plugged into via USB.
 
 ## Onboot and Services
 
-There are two sections to place and define containers in: **onboot** and **services**. 
+There are two sections to place and define containers in: **onboot** and **services**. Multiple containers can be put in each section and either all or one can be specified when running `gadget` commands:
+
+Execute command on all defined containers:
+
+```
+gadget [options] COMMAND 
+```
+
+Execute command on one container:
+
+```
+gadget [options] COMMAND imageName
+```
 
 ### Onboot
 
-Containers that run from **onboot** will run before containers placed in **services** and start in sequence from top to bottom. When their command process exits, the container will stop. 
+Containers that run from **onboot**, like the "hello-world" example, will run before containers placed in **services** and start in sequence from top to bottom. When their command process exits, the container will stop. 
 
 Add a container to onboot:
 
@@ -52,6 +56,8 @@ gadget -C blinkdemo/ add service projectName
 ```
 
 ## Configurations
+
+To learn more about what each configuration does on the Docker side click the title to be taken to the Docker documentation website.
 
 <span style="font-size: 15px">**Name: Name of project**</span>
 

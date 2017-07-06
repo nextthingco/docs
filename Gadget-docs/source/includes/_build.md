@@ -1,8 +1,6 @@
 # Build With Gadget
 
-At Gadget's heart is [Docker](https://docs.docker.com/). With GadgetCLI you will be building Docker images and running containers. Gadget makes orchestrating Docker images simple by wrapping up Docker functionality into one file: **gadget.yml**. 
-
-The "hello world" example pulls an image from Docker Hub that is defined in the gadget.yml configuration file. To get more familiar with using gadget.yml, go through the next example which also pulls an existing image from Docker Hub and enables functionality needed by the container at runtime.
+To get more familiar with using gadget.yml, go through the next example which also pulls an existing image from Docker Hub and enables functionality needed by the container at runtime.
 
 ## Pull Remote Image
 
@@ -39,7 +37,7 @@ Creating new project:
 
 ### 4. Add Service
 
-Containers that run from **onboot** like the “hello-world” example, will start in sequence from top to bottom. When their command process exits, the container will stop. The Blink container gets added as a service which will also run until its command process exits. The difference between services and onboot containers is that if a service container exits with a non-zero code, it will be automatically restarted. To learn more about the configurations of gadget.yml head over to the [Configuring Gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml) section.
+The **gpio** container gets added as a service which will also run until its command process exits. To learn more about the configurations of gadget.yml head over to the [Configuring Gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml) section.
 
 ```
 gadget add service gpio

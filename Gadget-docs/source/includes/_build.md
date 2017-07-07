@@ -382,8 +382,9 @@ Start a project with one of our example images. You can either pull an example f
 
 **Run an Example**
 
-* Follow the steps under [Pull Remote Image](http://ntc-docs-unstable.surge.sh/gadget.html#pull-remote-image). 
-* Download and use the project's gadget.yml configuration file from our GitHub repo to build and run the container with instead of the configurations listed in the steps.
+* Follow the steps under [Pull Remote Image](http://ntc-docs-unstable.surge.sh/gadget.html#pull-remote-image).
+* For the gadget.yml configurations, download and use the gadget.yml file found in the project directory from the source file links below.
+
 
 **Source files:**
 

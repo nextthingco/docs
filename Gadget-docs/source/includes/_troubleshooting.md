@@ -12,8 +12,8 @@ W:    Was the gadget first used on another computer/account?
 E:  Failed to connect to Gadget
 ```
 
-* Directly after flashing GadgetOS to CHIP Pro Dev Kit the board needs to reboot. Unplug from USB port and plug back in or power cycle using the on/off button.
-* As a security precaution, GadgetCLI generates a unique set of login credentials for each computer. This means that if you have deployed a project from one computer you will not be able to deploy from another computer unless you transfer the authorized keys found in the host computer .ssh/ directory. 
+* Directly after flashing GadgetOS to your C.H.I.P. Pro Dev Kit the board needs to reboot. Unplug from USB port and plug back in or power cycle using the On/Off button.
+* As a security precaution, GadgetCLI generates a unique set of login credentials for each computer. This means that if you have deployed a project from one computer, you will not be able to deploy from another computer unless you transfer the authorized keys found in the host computer .ssh/ directory. 
 
 	**File names:**
 	
@@ -53,7 +53,7 @@ W:  Is the docker daemon installed and running?
 
 The entry next to `image:` is not a valid Docker Hub username, repo or tag. Double check the entry. 
 
-If building an image from a local Dockerfile, leave this field blank and put the project's path in "directory:".
+If building an image from a local Dockerfile, leave this field blank and put the project's path in "directory."
 
 ### Unknown flag/failed to build error
 
@@ -67,7 +67,7 @@ E:  Failed to build 'projectName'
 W:  Is the docker daemon installed and running?
 ```
 
-Your version of Docker may be out of date. Docker version 17.06 or greater is required. To check which version of Docker you have use `Docker -v`.
+Your version of Docker may be out of date. Docker version 17.06 or greater is required. To check which version of Docker you have run the command `docker -v`.
 
 
 

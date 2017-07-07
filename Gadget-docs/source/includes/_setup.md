@@ -4,7 +4,7 @@ To get started, download and install the following on your host computer and Gad
 
 ## Install Docker
 
-<aside class="notice"> Gadget requires Docker version 17.06 or greater. If Docker is already installed check which version of Docker you have with the command `Docker -v`.</aside>
+**Note:** Gadget requires Docker version 17.06 or greater. If Docker is already installed check which version of Docker you have with the command `Docker -v`.
 
 Gadget makes use of [Docker's]((https://www.docker.com/)) container system. Dependent on your host computer's OS, download and install the appropriate version of Docker. 
 

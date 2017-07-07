@@ -5,7 +5,7 @@
 <aside class="notice">
 Gadget is open source and being actively developed so, we want to know what you think about it. </aside>
 
-The best way to leave us feedback is to submit changes to the [GadgetCLI alpha release](https://github.com/NextThingCo/gadgetcli/releases) GitHub repo. 
+The best way to leave us feedback is to submit changes to the [GadgetCLI alpha release](https://github.com/NextThingCo/gadgetcli) GitHub repo. 
 
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development.
@@ -18,11 +18,9 @@ Gadget is made up of two pieces of software that work together to simplify embed
 * OSX 
 * Windows 10 Pro 64-bit
 
-2) <span style="color: EB008B">**GadgetOS**</span> is a buildroot-based Linux operating system. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI.
+2) <span style="color: EB008B">**GadgetOS**</span> is a [Buildroot]((https://buildroot.org/))-based Linux operating system. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI. 
 
-Buildroot is at the core of GadgetOS and features Docker support. The **GadgetCLI** communicates directly with the Docker daemon over ssh, using GadgetOS’s usb ethernet connection. For more information on Buildroot, read [here](https://buildroot.org/).
-
-**Tech Notes**
+Buildroot is at the core of GadgetOS and features Docker support. The **GadgetCLI** communicates directly with the Docker daemon over ssh, using GadgetOS’s usb ethernet connection. 
 
 #### C.H.I.P. Pro
 

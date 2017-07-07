@@ -28,7 +28,7 @@ Put the gadget binary somewhere like C:\Program Files (x86)\gadget and edit the 
 
 Click the Windows icon to open the Start Menu. Search for "advanced system settings". When the System Properties window opens click on "Environment Variables". 
  
-Find and select the "Path" variable under "System Variables". Click "Edit" and the "Edit environment variable" window will open. This is where you can add the path of where the gadget binary is located. Click "New" and fill in the location in the empty spot that is provided at the bottom of the list. Afterwards, click "OK" and you are done!
+Find and select the "Path" variable under "System Variables". Click "Edit" and the "Edit environment variable" window will open. This is where you can add the path of where the gadget binary is located. Click "New" and fill in the location in the empty spot that is provided at the bottom of the list then click "OK"
 
 **Linux**
 

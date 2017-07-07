@@ -32,7 +32,7 @@ Gadget will tell you that it created a new project:
 
 ```
 Creating new project:
-  in /Users/username/Documents/blinkdemo
+  in /Users/$USER/Documents/blinkdemo
 ``` 
 
 ### 4. Add Service
@@ -53,27 +53,19 @@ In the project directory, open gadget.yml:
 nano gadget.yml
 ```
 
-The gadget.yml file now defines two containers: hello-world under **onboot** and gpio in **services**. 
+The gadget.yml file now defines two containers: "hello-world" under **onboot** and "gpio" in **services**. 
 
 #### Make edits to the following fields under services:
 
 * **image**
  
 	```
-	image: nextthingco/gadget-blink-python
+	image: nextthingco/gadget-blink-c
 	```
 	
-Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "gadget-blink-python" repo under the "nextthingco" username.	 	
+Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "gadget-blink-c" repo under the "nextthingco" username.	 	
 	
 **Note:** If the [tag](https://docs.docker.com/engine/reference/commandline/tag/) is not included the image with the default "latest" tag will be pulled.
-
-* **command**
-
-	```
-	command:['python', 'blink.py']
-	```
-
-Run the command `python blink.py` automatically when a container is started and upon reboot.
 
 	
 * **binds**
@@ -81,25 +73,6 @@ Run the command `python blink.py` automatically when a container is started and 
 	```
 	binds:['/sys:/sys']
 	```
-	
-Mount the /sys directory from the host into the container at /sys. 
-	
-* **capabilities**
-
-	
-	```
-	capabilities:[SYS_RAWIO]
-	```
-
-Enable Linux capabilities in the container. The ones used here enables the modification of the /dev/mem device.
-
-* **devices**
-
-	```
-	devices:[/dev/mem]
-	```
-
-Pass the raw Linux device at /dev/mem to the container.
 	
 The finished file will look like this:
 	
@@ -112,10 +85,10 @@ directory: ""
 net: ""
 pid: ""
 readonly: false
-command: ['python', 'blink.py']
+command: []
 binds: ['/sys:/sys']
-capabilities:[SYS_RAWIO]
-devices:[/dev/mem]
+capabilities:[]
+devices:[]
 ```
 
 Save and close gadget.yml
@@ -171,7 +144,9 @@ gadget stop gpio
 gadget delete gpio
 ```
 
-**Note:** To build, deploy, delete, etc. all containers use gadget command without specified container name.
+<aside class="notice">
+To build, deploy, delete, etc. all containers use gadget command without specified container name.
+</aside>
 
 ## Build Image Locally 
 
@@ -179,8 +154,7 @@ Most likely building images locally will be the process you will use the most as
 
 Built images are then deployed to hardware for testing and further iterations. To share an image they can be pushed to an online registry which makes them available to be pulled to one or multiple devices at anytime.	
 
-Follow along and build an image that uses Robert Wolterman's [CHIP_IO](https://github.com/xtacocorex/CHIP_IO) python library to access C.H.I.P. Pro Dev Kit's LEDs.
-
+Follow along and build an example written in C that makes use of an GPIO pin on the C.H.I.P. Pro Dev Kit.
 
 ### 1. Create project directory
 
@@ -200,93 +174,30 @@ nano Dockerfile
 Copy and paste the following content into the new Dockerfile. 
 
 ```bash
-# Base image is arm32v6 Alpine Linux on Docker Hub
-FROM arm32v6/alpine
+FROM debian:stretch-slim
 
-# Set and create a working directory called app
-WORKDIR /app
+WORKDIR .
+RUN apt-get -yqq update 
+RUN apt-get install -y crossbuild-essential-armhf
+COPY gpio.c .
+RUN arm-linux-gnueabihf-gcc gpio.c -o gpio -static
 
-# Copy the contents of the current directory into the working directory
-ADD . /app
-
-# Install tools needed to download and build the CHIP_IO library from source.
-RUN apk update && apk add bison \
-						  flex \
-						  g++ \
-						  gcc \ 
-						  git \
-						  make \
-						  
-		# Download python and tools for installing libraries
-						  python-dev \
-						  py-setuptools \
-						  
-		# Download source code for device tree compiler needed for CHIP_IO
-	&&	git clone https://github.com/NextThingCo/dtc.git \
-		
-		# Build and install the device tree compiler
-	&&	cd dtc && make && make install PREFIX=/usr  \
-		
-		# Remove the device tree compiler source code now that we've built it
-	&&	cd .. \
-	&&  rm dtc -rf \
-		
-		# Download the latest CHIP_IO source code
-	&&	git clone https://github.com/xtacocorex/CHIP_IO.git \
-		
-		# Install the CHIP_IO library from the proper directory
-	&&	cd CHIP_IO && python setup.py install \
-		
-		# Remove CHIP_IO source code directory after it has been installed
-	&&	cd ../ && rm -rf CHIP_IO \
-		
-		# Remove build tools, which are no longer needed after installation
-	&&	apk del bison \
-				flex \
-				g++ \
-				gcc \
-				git \
-				make 
-
+FROM scratch
+COPY --from=0 gpio .
+CMD ["./gpio"]
 ```
+For an explanation of what each line of the Dockerfile does reference the Readme file in the [example's GitHub repo](https://github.com/NextThingCo/Gadget-Docker-Examples/tree/master/gadget-blink-c).
 
-Dockerfiles are capable of holding many kinds of instruction. To learn more, refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
+Dockerfiles are capable of holding many kinds of instruction. To learn more about makes one up refer to Docker's [documentation](https://docs.docker.com/engine/reference/builder/). 
 
 ### 3. Create Supporting Files
 
-Create a Python script named blink:
+Create a C file named gpio:
 
 ```
-nano blink.py
+nano gpio.c
 ```
-
-Copy and paste this simple blink python script or, feel free to create your own.
-
-```python
-import CHIP_IO.GPIO as GPIO
-from time import sleep
-
-
-ledPin = "CSID0"
-
-GPIO.setup(ledPin, GPIO.OUT)
-
-try:
-	while True:
-		GPIO.output(ledPin, True)
-		sleep(1)
-		GPIO.output(ledPin, False)
-		sleep(1)
-
-#exit with CTRL+C			
-except KeyboardInterrupt:
-	print("exiting")
-
-#unexport GPIOs upon exiting      
-finally:
-	GPIO.cleanup() 
-```
-
+Copy and paste [this program](https://github.com/NextThingCo/Gadget-Docker-Examples/blob/master/gadget-blink-c/gpio.c) in the newly created file.
 
 ### 4. Build
 
@@ -317,7 +228,7 @@ gadget init
 Add a new service:
 
 ```
-gadget add service gpio
+gadget add service gpio-c
 ```
 
 ### 7. Edit Gadget.yml
@@ -326,7 +237,7 @@ gadget add service gpio
 nano gadget.yml
 ```
 
-#### Make edits to the following fields:
+#### Make edits to the following fields under **services:**
 
 * **image**
  
@@ -343,14 +254,6 @@ This field is reserved for pulling images from Docker Hub, so for this workflow 
 
 In this field, put the path of the project directory containing the Dockerfile in relation to the gadget.yml file. 
 
-* **command**
-
-	```
-	command:['python', 'blink.py']
-	```
-
-Run the command `python blink.py` automatically upon `gadget start`. Any commands specified here will also run upon reboot go here.
-
 	
 * **binds**
 	
@@ -359,41 +262,20 @@ Run the command `python blink.py` automatically upon `gadget start`. Any command
 	```
 	
 Mounts the /sys directory from the host(gadget) into the container at /sys. 
-
-Format: whereFrom:whereTo
-	
-* **capabilities**
-
-	
-	```
-	capabilities:[SYS_RAWIO]
-	```
-
-Enable Linux capabilities in the container. The one used here is for I/O operations.
-
-* **devices**
-
-	```
-	devices:[/dev/mem]
-	```
-
-Pass the raw Linux device at /dev/mem to the container.
-	
-The finished section will look like this:
 	
 ```
 services:
-- name: gpio
+- name: gpio-c
 uuid: Your-Containers-U-U-ID
 image: "" 
 directory: "blinkLocal"
 net: ""
 pid: ""
 readonly: false
-command: ['python', 'blink.py']
+command: []
 binds: ['/sys:/sys']
-capabilities:[SYS_RAWIO]
-devices:[/dev/mem]
+capabilities:[]
+devices:[]
 ```
 
 Save and close gadget.yml
@@ -401,9 +283,9 @@ Save and close gadget.yml
 ### 8. Build, Deploy, and Start Container
 
 ```
-gadget build gpio
-gadget deploy gpio
-gadget start gpio
+gadget build gpio-c
+gadget deploy gpio-c
+gadget start gpio-c
 ```
 
 ### 9. Stop and Delete
@@ -411,8 +293,8 @@ gadget start gpio
 When ready, stop the container and clean up:
 
 ```
-gadget stop gpio
-gadget delete gpio
+gadget stop gpio-c
+gadget delete gpio-c
 ```
 
 ### 10. Shell into GadgetOS
@@ -443,7 +325,7 @@ Gadget makes use of the growing community of official and community supported Do
 
 **Share Source Files**
 
-For collaborators to deploy and run containers they will need to know the configurations that go into gadget.yml. An easy way to share these is to create a [GitHub](https://github.com/) repository to push all of the source files to.
+For collaborators to deploy and run containers they will need to know the [configurations that go into gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml). An easy way to share these is to create a [GitHub](https://github.com/) repository to push all of the source files to.
 
 
 ### 1. Create Registry and Repo

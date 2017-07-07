@@ -2,7 +2,7 @@
 
 At Gadget's heart is [Docker](https://docs.docker.com/). With GadgetCLI you will be building Docker [images and running containers](https://docs.docker.com/get-started/#a-brief-explanation-of-containers). Gadget makes orchestrating Docker images simple by wrapping up Docker functionality into one file: **gadget.yml**. 
 
-Gadget.yml is where you define the container's resources, issue commands once a container is started and state what containers to run and in what order. For example, the ["hello world"](http://ntc-docs-unstable.surge.sh/gadget.html#hello-world) demo pulls an image from Docker Hub that is defined in the gadget.yml configuration file. 
+Gadget.yml is where you define the container's resources, issue commands once a container is started and state what containers to run and in what order. For example, the ["hello world"](http://ntc-docs-unstable.surge.sh/gadget.html#hello-world) demo pulls an image from Docker Hub that is defined in the gadget.yml configuration file.  
 
 **Note:** From here on out "host" refers to the Gadget compatible hardware running GadgetOS and "host computer" refers to the computer the Gadget compatible hardware is plugged into via USB.
 
@@ -10,7 +10,7 @@ Gadget.yml is where you define the container's resources, issue commands once a 
 
 There are two sections to place and define containers in: **onboot** and **services**. Multiple containers can be put in each section and either all or one can be specified when running `gadget` commands:
 
-Execute command on all defined containers:
+Execute command on all containers:
 
 ```
 gadget [options] COMMAND 

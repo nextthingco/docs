@@ -16,7 +16,7 @@ cd hello-world
 gadget init
 ```
 
-This command creates a template file gadget.yml and generates a project called "hello-world" ready to be deployed. 
+This command creates a template file called gadget.yml and generates a project called "hello-world" ready to be deployed. 
 
 Open gadget.yml using Nano or another command-line editor. It should look similar to this:
 
@@ -31,7 +31,6 @@ onboot:
   image: arm32v7/hello-world
   directory: ""
   net: ""
-  pid: ""
   readonly: false
   command: []
   binds: []
@@ -65,7 +64,7 @@ Once the container runs, it outputs a "hello world" message. To see if the conta
 gadget logs
 ```
 
-You should see a message that starts with:
+You should see a message with an intro similar to this:
 
 ```
 Hello from Docker!

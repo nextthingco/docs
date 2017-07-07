@@ -1,8 +1,6 @@
 # Set Up WiFi
 
-### Gadget Shell
-
-Gadget comes with a convenient way to quickly connect to a device through a host computer's USB port. To shell into your device simply type:
+Gadget comes with a quick and convenient way to connect to your device through the host computer's USB port. This is great for things like setting up WiFi. To connect simply type:
 
 ```shell
 gadget shell
@@ -29,11 +27,11 @@ Donut_Hut            wifi_xxxxxxxxxxxx_xxxxxxxxx_managed_psk
 
 ### Connect 
 
-Copy the string that starts with "wifi_' to the right of the network name you want to connect to. If it has `psk` at the end, that means it is password protected. Follow the "Password Protected" section further down to connect.
+Copy the string that starts with "wifi_" to the right of the network name you want to connect to. If it has `psk` at the end, that means it is password protected. Follow the "Password Protected" section further down to connect.
 
 #### No Password
 
-To connect to YOUR_NETWORK, which has no password, `services` shows two choices. We want the one without `psk` in the string. Use the `connect` command:
+To connect to YOUR_NETWORK, which has no password, `services` shows two choices. You want the one without `psk` in the string. Use the `connect` command:
 
 ```shell
 connmanctl connect wifi_xxxxxxxxxxxx_xxxxxx_managed_none
@@ -121,5 +119,12 @@ PING 8.8.8.8 (8.8.8.8): 56 data bytes
 round-trip min/avg/max = 7.474/7.951/9.004 ms
 ```
 
+If you have issues connecting read our "[Troubleshooting Connection Problems](https://docs.getchip.com/chip_pro.html#step-3-test-connection)" on the C.H.I.P. Pro Doc page.
+
+### Step 4. Exit Gadget Shell
+
+```
+exit
+```
 
 

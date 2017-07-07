@@ -2,13 +2,13 @@
 
 At Gadget's heart is [Docker](https://docs.docker.com/). With GadgetCLI you will be building Docker [images and running containers](https://docs.docker.com/get-started/#a-brief-explanation-of-containers). Gadget makes orchestrating Docker images simple by wrapping up Docker functionality into one file: **gadget.yml**. 
 
-Gadget.yml is where you define the container's resources, issue commands once a container is started and state what containers to run and in what order. For example, the ["hello world"](http://ntc-docs-unstable.surge.sh/gadget.html#hello-world) demo pulls an image from Docker Hub that is defined in the gadget.yml configuration file.  
+Gadget.yml is where you define the container's resources, issue commands once a container is started, state what containers to run in what order and more. For example, the ["hello world"](http://ntc-docs-unstable.surge.sh/gadget.html#hello-world) demo pulls an image from Docker Hub that is defined in gadget.yml next to the `image:` configuration.  
 
 **Note:** From here on out "host" refers to the Gadget compatible hardware running GadgetOS and "host computer" refers to the computer the Gadget compatible hardware is plugged into via USB.
 
 ## Onboot and Services
 
-There are two sections to place and define containers in: **onboot** and **services**. Multiple containers can be put in each section and either all or one can be specified when running `gadget` commands:
+There are two sections to define and configure containers in: **onboot** and **services**. Multiple containers can be put in each section and either all or one can be addressed when running `gadget` commands:
 
 Execute command on all containers:
 
@@ -31,13 +31,6 @@ Add a container to onboot:
 ```
 gadget add onboot projectName
 ```
-	
-From parent directory:
-	
-```
-gadget -C blinkdemo/ add onboot projectName
-```
-
 
 ### Services
 
@@ -48,18 +41,12 @@ Add a service:
 ```
 gadget add service projectName
 ```
-	
-From parent directory:
-	
-```
-gadget -C blinkdemo/ add service projectName
-```
 
 ## Configurations
 
-To learn more about what each configuration does on the Docker side click the title to be taken to the Docker documentation website.
+When a service is added, a template of configurations are generated for that project. These get filled in depending on how your project gets build and what your container needs at runtime. Read on to learn what each is for and to learn more about how each relate to Docker click the title.
 
-<span style="font-size: 15px">**Name: Name of project**</span>
+<span style="font-size: 17px">**Name: Name of project**</span>
 
 This entry gets generated when you add to onboot or service via the command:
 
@@ -71,7 +58,7 @@ If you choose to edit this field after generation the container will need to be 
 
 __Format:__ `name: projectName`
 
-<span style="font-size: 15px">**Uuid: Container ID**</span>
+<span style="font-size: 17px">**Uuid: Container ID**</span>
 
 You can have several instances of the same image. These instances are identified by their uuid. For example, if you build an image then change the **command** configuration and build again you can see both instances on your host computer when you run:
 	
@@ -80,7 +67,7 @@ docker images
 ```
 __Format:__ `cont-ainer-uu-i-d`	
 
-<span style="font-size: 15px">**Image: Pathname of Docker Hub image**</span>
+<span style="font-size: 17px">**Image: Pathname of Docker Hub image**</span>
 
 An entry for `image:` is generated when you add to onboot or services via the command:
 
@@ -96,13 +83,13 @@ Generated: `image: parent_directory/projectname`
 
 Docker Image: `image: username/repoName:tag`
 	
-<span style="font-size: 15px">**Directory: Pathname of local image**</span>
+<span style="font-size: 17px">**Directory: Path of local image**</span>
 
 Used when building and deploying images on your host machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file. 
 
 __Format:__ `directory: projDir`
 	
-<span style="font-size: 15px">**[Net:](https://docs.docker.com/engine/reference/run/#network-settings) Define which network to use or none**</span>
+<span style="font-size: 17px">**[Net:](https://docs.docker.com/engine/reference/run/#network-settings) Define which network to use or none**</span>
 
 By default, all containers have networking enabled and can make outgoing connections. Use the following arguments to choose which network you would like the container to use:
 
@@ -116,31 +103,29 @@ By default, all containers have networking enabled and can make outgoing connect
 
 Format: `net: host`  
 
-<span style="font-size: 15px">**Readonly - Set to false by default**</span>
+<span style="font-size: 17px">**[Readonly](https://docs.docker.com/engine/reference/commandline/run/#usage) - Mount the container’s root filesystem as read only**</span>
 
-<span style="font-size: 15px">**Command - Run this command at start**</span>
+Set to false by default.
+
+<span style="font-size: 17px">**[Command](https://docs.docker.com/engine/reference/builder/#cmd) - Run this command at start**</span>
 	
-Set a command to be executed automatically upon running a container with:
-```
-gadget start
-```
-If the CMD is used in the Dockerfile the 
+Set a command to be executed automatically upon the start of a container. This also overwrites any `CMD` specified in a project's Dockerfile.
 
 __Format:__ `command: ['python', 'myPyScript.py']`
 	
-<span style="font-size: 15px">**Binds - Mount a directory**</span> 
+<span style="font-size: 17px">**[Binds](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v-read-only) - Mount a directory**</span> 
 	
 Put any directories here that you would like to mount from the host into the container. 
 
 __Format:__ `binds: ['/fromHostDir:/toContainerDir']`
 
-<span style="font-size: 15px">**[Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Enable [Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)**</span>
+<span style="font-size: 17px">**[Capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Enable [Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)**</span>
 	
 This is where specific Linux capabilities that bypass kernel permission checks get enabled. Some are enabled by default, all others are defined here depending on what is needed for the container at runtime.
 
 __Format:__ `capabilities: [SYS_RAWIO]`
 
-<span style="font-size: 15px">**[Devices](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Grant access to devices**</span>
+<span style="font-size: 17px">**[Devices](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) - Grant access to devices**</span>
 	
 Define a raw device in Linux to pass to a container. These are different from binds because Linux devices have several different modes of access.
 

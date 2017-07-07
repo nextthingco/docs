@@ -6,23 +6,21 @@ To get started, download and install the following on your host computer and Gad
 
 <aside class="notice"> Gadget requires Docker version 17.06 or greater. If Docker is already installed check which version of Docker you have with the command `Docker -v`.</aside>
 
-Gadget makes use of [Docker's]((https://www.docker.com/)) container system. Dependent on your host computer's OS, download and install the appropriate version of Docker using the below links. 
+Gadget makes use of [Docker's]((https://www.docker.com/)) container system. Dependent on your host computer's OS, download and install the appropriate version of Docker. 
 
 * MacOS - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 * Windows 10 - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 * Linux - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 
-GadgetCLI uses the Docker daemon to pull images from Docker Hub, or build directly from local Dockerfiles. Once Docker is installed, run it before using GadgetCLI.
+Once Docker is installed, run it before using GadgetCLI. GadgetCLI uses the Docker daemon to pull images from Docker Hub or to build directly from local Dockerfiles. 
 
 ## Download Gadget
 
-Download GadgetCLI and GadgetOS [here](https://github.com/NextThingCo/gadgetcli/releases). Put the gadget binary in your system's PATH or precede all the commands with `./` eg. `./gadget` while in the same directory as the gadget binary.
+Download the zip file containing GadgetCLI and GadgetOS [here](https://github.com/NextThingCo/gadgetcli/releases). Put the gadget binary in your system's PATH or precede all the commands with `./` eg. `./gadget` while in the same directory.
 
-PATH location:
+**PATH location:**
 
-**MacOS Sierra**
-
-Place the gadget binary here: /usr/local/bin
+**MacOS Sierra**: /usr/local/bin
 
 **Windows 10**
 
@@ -39,6 +37,6 @@ Place the gadget binary here: /usr/bin
 
 ## Flash GadgetOS 
 
-For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Flash C.H.I.P. Pro Dev Kit with the latest .chp file bundled with GadgetCLI. 
+For GadgetCLI to be able to talk to your hardware device it needs to be flashed with the latest GadgetOS image. Use the [web flasher](http://flash.getchip.com/pro) to flash C.H.I.P. Pro Dev Kit with the latest .chp file bundled with GadgetCLI. 
 
 Once flashed, power cycle C.H.I.P. Pro Dev Kit by either unplugging it from the USB port or pressing the on/off button.

@@ -24,7 +24,7 @@ Download the zip file containing GadgetCLI and GadgetOS [here](https://github.co
 
 **Windows 10**
 
-Put the gadget binary somewhere like C:\Program Files (x86)\gadget and edit the "Path" variable to point to that location.
+Put the gadget binary somewhere like C:\Program Files\gadget and edit the "Path" variable to point to that location.
 
 Click the Windows icon to open the Start Menu. Search for "advanced system settings". When the System Properties window opens click on "Environment Variables". 
  

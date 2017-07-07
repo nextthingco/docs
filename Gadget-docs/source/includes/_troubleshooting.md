@@ -42,7 +42,7 @@ Make sure to delete previous images as soon as you are done with them.
 
 ## Unable to `gadget build` image
 
-### Failed to build error
+### Failed to build/valid image error
 
 ```
 E:  Error response from daemon: repository jelly/spike not found: does not exist or no pull access
@@ -55,7 +55,7 @@ The entry next to `image:` is not a valid Docker Hub username, repo or tag. Doub
 
 If building an image from a local Dockerfile, leave this field blank and put the project's path in "directory:".
 
-### Failed to build error
+### Unknown flag/failed to build error
 
 ```
 I:  Running in directory:

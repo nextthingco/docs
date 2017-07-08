@@ -1,13 +1,13 @@
 # Set Up WiFi
 
-Gadget comes with a quick and convenient way to connect to your device through the host computer's USB port. This is great for things like setting up WiFi. To connect simply type:
+GadgetOS comes with a quick and convenient way to connect to your device through the host computer's USB port, which is handy for things like setting up WiFi. To connect your computer to GadgetOS type the following command.
 
 ```shell
 gadget shell
 ```
 ### Enable WiFi and Find a Network
 
-Enable Wifi, scan for networks and list those that were found:
+Use connmanctl to enable WiFi, scan for available networks, and list all the networks in range.
 
 ```shell
 connmanctl enable wifi
@@ -19,15 +19,16 @@ The `services` command has output similar to:
 
 ```shell
 WaffleHouse          wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
-                	 wifi_xxxxxxxxxxxx_hidden_managed_psk
+                         wifi_xxxxxxxxxxxx_hidden_managed_psk
 YOUR_NETWORK         wifi_xxxxxxxxxxxx_xxxxxx_managed_psk
-    				 wifi_xxxxxxxxxxxx_xxxxxx_managed_none
+                                 wifi_xxxxxxxxxxxx_xxxxxx_managed_none
 Donut_Hut            wifi_xxxxxxxxxxxx_xxxxxxxxx_managed_psk
 ```
 
 ### Connect 
 
-Copy the string that starts with "wifi_" to the right of the network name you want to connect to. If it has `psk` at the end, that means it is password protected. Follow the "Password Protected" section further down to connect.
+Copy the string to the right of the network name you want to connect to that starts with "wifi_." If the string contains a `psk` at the end, it means the network is password protected. Follow the "Password Protected" section further down to connect.
+
 
 #### No Password
 
@@ -51,10 +52,10 @@ If your network is not password protected, you'll get some output that will indi
 [  962.320000] RTL871X: set group key camid:5, addr:xx:xx:xx:xx:xx:xx, kid:1, type:AES
 ```
 
-If your network is password protected you'll get an error.
+If your network is password protected, you'll get an error.
 
 #### Password Protected
-To deal with passwords you'll need to put ConnMan into interactive mode:
+To deal with passwords, you'll need to put ConnMan into interactive mode:
 
 ```shell
 connmanctl
@@ -119,7 +120,7 @@ PING 8.8.8.8 (8.8.8.8): 56 data bytes
 round-trip min/avg/max = 7.474/7.951/9.004 ms
 ```
 
-If you have issues connecting read our "[Troubleshooting Connection Problems](https://docs.getchip.com/chip_pro.html#step-3-test-connection)" on the C.H.I.P. Pro Doc page.
+If you have issues connecting, read our "[Troubleshooting Connection Problems](https://docs.getchip.com/chip_pro.html#step-3-test-connection)" on the C.H.I.P. Pro Doc page.
 
 ### Step 4. Exit Gadget Shell
 

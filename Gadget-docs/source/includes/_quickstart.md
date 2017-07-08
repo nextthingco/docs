@@ -1,24 +1,23 @@
- 
 # Hello World 
 
-Get up and running in minutes with this straight forward "Hello World" example. 
+Get up and running in minutes with this straight forward "Hello World" example.
 
-### 1. Create Project Directory
+### 1. Create Project a Directory
 
 ```bash
 mkdir hello-world
 cd hello-world
 ```
-	
+
 ### 2. Initialize Project
 
 ```bash
 gadget init
 ```
 
-This command creates a template file called gadget.yml and generates a project called "hello-world" ready to be deployed. 
+This command creates a template file called gadget.yml and generates a project called "hello-world" ready to be deployed.
 
-Open gadget.yml using Nano or another command-line editor. It should look similar to this:
+Open gadget.yml using Nano or your favorite command-line text editor. The .yml file should look similar to what's below.
 
 ```bash
 spec: "0.0"
@@ -37,28 +36,28 @@ onboot:
   capabilities: []
 services: []
 ```
-	
+
 ### 3. Build 
-	
+
 ```bash
 gadget build
 ```
-	
+
 ### 4. Deploy 
-	
+
 ```bash
 gadget deploy
 ```
-	
+
 ### 5. Start 
-	
+
 ```bash
 gadget start
 ```
 
 ### 6. Look at Logs and Check Status
 
-Once the container runs, it outputs a "hello world" message. To see if the container successfully started use the `logs` command to fetch the output:
+Once the container runs, it outputs a "hello world" message to the log file. You can view these message by using the `gadget logs` command.
 
 ```bash
 gadget logs
@@ -75,16 +74,15 @@ Congrats, you have built and deployed your first Gadget project!
 
 ### 7. Stop and Cleanup Container
 
-Stop the running container:
+To stop the running container use the `gadget stop` command.
 
 ```bash
 gadget stop
 ```
 
-Delete container:
+To delete the container use, you guessed it, the `gadget delete` command.
 
 ```bash
 gadge delete
 ```
-
 

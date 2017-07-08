@@ -26,7 +26,7 @@ cd blinkdemo
 gadget init
 ```
 
-Gadget will tell you that it created a new project:
+GadgetCLI will tell you that it created a new project:
 
 ```
 Creating new project:
@@ -37,7 +37,7 @@ Creating new project:
 
 To build and run a project a container needs to be defined and configured either under **services** or **onboot** in the gadget.yml.  
 
-By default, gadget.yml is created with the example "hello-world" project along with a set of configurations. Another set of configurations needs to be generated for the new project we are creating. To do this use the `add` command, set it as a **service** and give it a **name**, such as "gpio":
+By default, gadget.yml is created with the example "hello-world" project along with a set of configurations. In this example, you'll add another a service called gpio to the configuration file. To do this use the `add` command, set it as a **service**, and give it a **name**, such as "gpio":
 
 ```
 gadget add service gpio
@@ -63,7 +63,7 @@ The gadget.yml file now defines two containers: "hello-world" under **onboot** a
 	
 Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "gadget-blink-c" repo under the "nextthingco" username.	 	
 	
-**Note:** If an image does not receive a [tag](https://docs.docker.com/engine/reference/commandline/tag/) when built and pushed to Docker Hub you do not include it, like for this example. However, if an image is tagged when built and you want to pull it from Docker Hub the [tag](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) needs to be [included](http://ntc-docs-unstable.surge.sh/gadget.html#configurations). You can see available tags by clicking on the Tags tab while in a Docker Hub repo. Sometimes tags are included in the images description on Docker Hub.
+**Note:** If an image does not receive a [tag](https://docs.docker.com/engine/reference/commandline/tag/) when built and pushed to Docker Hub you do not include it, like for this example. However, if an image is tagged when built and you want to pull it from Docker Hub the [tag](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) needs to be [included](http://ntc-docs-unstable.surge.sh/gadget.html#configurations). You can see available tags by clicking on the Tags tab in a Docker Hub repo. Sometimes tags are included in the images description on Docker Hub, but not always.
 
 	
 * **binds**
@@ -91,23 +91,23 @@ devices:[]
 
 Save and close gadget.yml
 
-### 7. Build, Deploy, and Start Image
+### 7. Build, Deploy, and Start an Image
 
-To build an image you must be in the same directory as the gadget.yml file. 
+To build an image you must be in the same directory as the gadget.yml file. By default the GadgetCLI commands will effect all the containers specified in your gadget.yml file. 
 
-To work with one container specify it by name when running Gadget commands. For example, to **only build the gpio image** rather than hello-world: 
+To work with one container, as you'll do in this example,  specify it by name when running GadgetCLI commands. For example, to **only build the gpio image** run the following command: 
 
 ```
 gadget build gpio
 ```
-When the image is done building, deploy and start:
+When the image is done building, deploy, and start your container. Here's how:
 
 ```
 gadget deploy gpio
 gadget start gpio
 ```
 
-If the container builds, deploys and starts successfully you will see the following output messages and **Pin 34, CSID3 will start blinking**:
+If the container builds, deploys, and starts successfully you will see the following output messages and **Pin 34, CSID3 will start blinking**:
 
 ```
 #### build output
@@ -133,9 +133,9 @@ If the container builds, deploys and starts successfully you will see the follow
       - started
 ```
 
-If any of these processes fail, Gadget will output an error along with suggestions of what may be the issue. Go to the [troubleshooting section](http://ntc-docs-unstable.surge.sh/gadget.html#troubleshooting) for more information.
+If any of these processes fail, GadgetCLI will output an error along with suggestions of what may be the issue. Go to the [troubleshooting section](http://ntc-docs-unstable.surge.sh/gadget.html#troubleshooting) for more information.
 	
-### 8. Stop and Delete Container
+### 8. Stop and Delete Containers
 
 ```
 gadget stop gpio
@@ -144,9 +144,9 @@ gadget delete gpio
 
 ## Build Image Locally 
 
-Most likely building images locally will be the process you will use the most as you develop and test applications. To build an image you need a Dockerfile and supporting files AKA the build's context. These files can either be written from scratch or cloned onto a development computer. 
+You will most likely build container images locally as you develop and test your applications. To build an image you need a Dockerfile and supporting files AKA the build's context. These files can either be written from scratch or cloned from an existing repo to your computer. 
 
-Built images are then deployed to hardware for testing and further iterations. To share an image they can be pushed to an online registry which makes them available to be pulled to one or multiple devices at anytime.	
+Built images are then deployed to hardware for testing and further iterations. You can share an image by pushing it to an online registry making it available to be pulled to other devices.	
 
 Follow along and build an example written in C that makes use of an GPIO pin on the C.H.I.P. Pro Dev Kit.
 
@@ -238,7 +238,7 @@ nano gadget.yml
 	```
 	image: "" #leave empty
 	```
-This field is reserved for pulling images from Docker Hub, so for this workflow it stays empty.
+This field is reserved for pulling images from Docker Hub, so for this workflow, it stays empty.
 
 * **directory**
 
@@ -255,7 +255,8 @@ In this field, put the path of the project directory containing the Dockerfile i
 	binds:['/sys:/sys']
 	```
 	
-Mounts the /sys directory from the device into the container at /sys. 
+The `binds:` configuration mounts the /sys directory from the device into the container at /sys. 
+
 	
 ```
 services:
@@ -301,7 +302,7 @@ With GadgetCLI you have the ability to shell into GadgetOS at any time:
 gadget shell
 ```
 
-Once inside GadgetOS, use Docker commands to see images, running containers and to check NAND availability.
+Once inside GadgetOS, use Docker commands to see images, running containers and to check NAND storage availability.
 
 ```shell
 docker images #existing images
@@ -325,7 +326,7 @@ Gadget makes use of the growing community of official and community supported Do
 
 **Share Source Files**
 
-For collaborators to deploy and run containers they will need to know the [configurations that go into gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml). An easy way to share these is to create a [GitHub](https://github.com/) repository to push all of the source files to.
+For collaborators to deploy and run your containers, they will need to know the [configurations that go into gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml). We recommend sharing these in a [GitHub](https://github.com/) repository.
 
 
 ### 1. Create Registry and Repo
@@ -336,7 +337,7 @@ For this process you will need:
 
 * a [GitHub]((https://github.com/)) repository to hold all source files. 
 	
-[GitLab](https://docs.gitlab.com/ee/user/project/container_registry.html#enable-the-container-registry-for-your-project) has their own container registry and ways of working with Docker. If that is what you prefer you will need to push images according to their documentation. 
+[GitLab](https://docs.gitlab.com/ee/user/project/container_registry.html#enable-the-container-registry-for-your-project) has their own container registry and ways of working with Docker.
 
 ### 2. Login
 
@@ -348,12 +349,12 @@ docker login
 
 ### 3. Tag
 
-[Tag](https://docs.docker.com/engine/reference/commandline/tag/) the image with a version number (optional) and create a repo for it. If an image is not tagged it will automatically be tagged with the default of "latest".
+[Tag](https://docs.docker.com/engine/reference/commandline/tag/) the image with a version number (optional) and create a repo for it. If an image is not tagged, it will automatically be tagged with the default of "latest."
 
 ```
 docker tag blink YourUserName/blink:v1 
 ```
-This tags the image we named blink when we [built it](http://ntc-docs-unstable.surge.sh/gadget.html#4-build) with "v1" at YourUserName with the repository name of "blink". 
+This command tags the image you created called [blink](http://ntc-docs-unstable.surge.sh/gadget.html#4-build) with "v1", specified it's location within YourUserName, and in the repository "blink". 
  
 ### 4. Push
 

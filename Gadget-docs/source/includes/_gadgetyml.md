@@ -3,7 +3,7 @@
 At the heart of GadgetOS is a container system called [Docker](https://docs.docker.com/). While GadgetOS runs containers,  GadgetCLI helps you build, run, and manage them.
  If you're new to containers, check out [this primer](https://docs.docker.com/get-started/#a-brief-explanation-of-containers). Together, GadgetOS and GadgetCLI make orchestrating container images easy by using one configuration file: **gadget.yml**.
 
-Gadget.yml is where you define resources available to the container, issue commands to the running container, specify which containers to run and in what order, and much, much more. For example, the ["hello world"](http://ntc-docs-unstable.surge.sh/gadget.html#hello-world) demo uses a gadget.yml file that uses a container available on Docker Hub.
+Gadget.yml is where you define resources available to the container, issue commands to the running container, specify which containers to run and in what order, and much, much more. For example, the ["hello world"](https://docs.getchip.com/gadget.html#hello-world) demo uses a gadget.yml file that uses a container available on Docker Hub.
 
 There are two sections to define and configure containers in: **onboot** and **services**. You can put multiple container configurations in each section and you can use GadgetCLI to specify which container to control: all of them or just one.
 

@@ -789,7 +789,7 @@ Depending on the image that is flashed to C.H.I.P. Pro, the commands used to int
 **Pro (Debian)**
 
 ```shell
-sudo sh -c 'echo 132 > /sys/class/gpio/export
+sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
 **Buildroot**:

@@ -19,7 +19,7 @@ To execute a command on a particular container, specify the containner name.
 gadget [options] COMMAND imageName
 ```
 
-### Onboot
+## Onboot
 
 Containers in the **onboot** section, like the "hello-world" example, are executed before containers in the **services** section. All containers in the gadget.yml file execute sequentially from top to bottom of the configuration file. When their command process exits, the container will stop.
 
@@ -29,7 +29,7 @@ To add a container to onboot, run the following command.
 gadget add onboot projectName
 ```
 
-### Services
+## Services
 
 Containers defined under **services** run after containers listed in **onboot**. They are automatically restarted by Docker if it exits with a non-zero return code.
 
@@ -65,7 +65,7 @@ docker images
 ```
 __Format:__ `cont-ainer-uu-i-d`
 
-<span style="font-size: 17px">**Image: Pathname of Docker Hub image**</span>
+<span style="font-size: 17px">**Image: Path of Docker Hub image**</span>
 
 An entry for `image:` is generated when you add to onboot or services via the command:
 

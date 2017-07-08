@@ -83,11 +83,7 @@ Docker Image: `image: username/repoName:tag`
 
 <span style="font-size: 17px">**Directory: Path of local image**</span>
 
-<<<<<<< HEAD
-Used when building and deploying images on your development machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file. 
-=======
-When building and deploying images on your development machine rather than pulling from Docker Hub the syntax above is used. Put the pathname of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file.
->>>>>>> 768c7648529dbd896a8d09afbb071cd3a16f2a6f
+When building and deploying images on your development machine rather than pulling from Docker Hub the syntax above is used. Put the path of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file.
 
 __Format:__ `directory: projDir`
 

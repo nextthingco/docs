@@ -30,7 +30,7 @@ To enter sleep mode, **tap the power icon** in the bottom left corner of the hom
 
 PocketC.H.I.P. is designed to turn off the screen and backlight after a few minutes without any user interaction. 
 
-To wake from either sleep state, simply touch the screen or press a key.
+To wake up PocketC.H.I.P. from sleep state, simply touch the screen or press a key.
 
 ![Power menu](images/power-menu.jpg)
 

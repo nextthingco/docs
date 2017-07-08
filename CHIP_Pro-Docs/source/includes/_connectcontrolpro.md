@@ -17,13 +17,61 @@ Grab these items to flash C.H.I.P. Pro:
  * Separate computer with [Chrome](https://www.google.com/chrome/browser/desktop/index.html) or [Chromium](https://www.chromium.org/getting-involved/download-chromium) browser and an internet connection.
 
 ### Flashing Process
+
 Head over to the web flasher at [flash.getchip.com/pro](http://flash.getchip.com/pro). If it's your first time flashing, when you arrive you will be asked to install the NTC Flasher Chrome Extension.
 
-After installing the extension, the main page will give you the option to either download an image or follow the wizard to flash C.H.I.P. Pro. For a smooth automated process, click **FLASH** to flash C.H.I.P. Pro.
+After installing the extension, the main page will give you the option to either download an image or follow the wizard to flash C.H.I.P. Pro. 
+
+Download an image to look at the source code or store and flash a board with it when you see an option for choosing an image from your computer. 
+
+Click **FLASH** to flash C.H.I.P. Pro.
 
 ![flasher home page](images/main.png)
 
-You will then arrive at the "Flasher First Time Setup" page which will have setup instructions dependent on the operating system of your computer. After you have setup your computer, press **START!**.
+You will then arrive at the **"Flasher First Time Setup"** page which will have setup instructions specific to your computer's operating system. Follow along in the browser or below.
+
+* Linux-specific
+
+	* A Debian-based Linux computer requires creating a set of udev rules to communicate with your C.H.I.P. Pro. Paste the following into a terminal window. 
+	
+	```shell
+	sudo usermod -a -G dialout ${USER}
+	sudo usermod -a -G plugdev ${USER}
+
+	# Create udev rules
+	echo -e 'SUBSYSTEM=="usb", ATTRS{idVendor}=="1f3a", ATTRS{idProduct}=="efe8", 		GROUP="plugdev", MODE="0660" SYMLINK+="usb-chip"
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="1010", GROUP="plugdev", 	MODE="0660" SYMLINK+="usb-chip-fastboot"
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="1f3a", ATTRS{idProduct}=="1010", GROUP="plugdev", 	MODE="0660" SYMLINK+="usb-chip-fastboot"
+	SUBSYSTEM=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", GROUP="plugdev", 	MODE="0660" SYMLINK+="usb-serial-adapter"
+	' | sudo tee /etc/udev/rules.d/99-allwinner.rules
+
+	sudo udevadm control --reload-rules
+	```
+	
+	Then logout and log back in.
+
+	For the curious:
+
+   	- ${USER}: outputs your username
+   	
+    - dialout: gives non-root access to serial connections
+    
+    - plugdev: allows non-root mounting with pmount
+
+	The udev rules then map the usb device to the groups. For more information, check [the systems group page on 	debian.org](https://wiki.debian.org/SystemGroups).
+
+* Windows-specific
+   
+	* To communicate to C.H.I.P. Pro from a Windows computer you must install [drivers](https://s3-us-west-2.amazonaws.com/getchip.com/extension/drivers/windows/InstallDriver2.exe).
+   	* Reboot after installing drivers on previous versions (<10) of Windows. 
+	* During the fastboot process **Windows may issue the warning "device not recognized"**. Getting this warning during fastboot is **normal** and **flashing should proceed**.
+	
+* MacOS specific
+   	
+   	* Using USB3 ports can cause the flashing to fail. If you can, try using a USB2 port, not a USB3. If you find yourself with a modern Mac that only has USB3 ports, try using a USB2 hub in your USB3 port and plug C.H.I.P. Pro into that.
+	* OS X El Capitan has been known to have issue with the flashing process. If a new cable or USB2 hub does not work and you are able to, upgrade to macOS Sierra.
+
+After you have setup your computer, press **START!**.
 
 ![first time setup](images/firstsetup.png)
   
@@ -741,7 +789,7 @@ Depending on the image that is flashed to C.H.I.P. Pro, the commands used to int
 **Pro (Debian)**
 
 ```shell
-sudo sh -c 'echo 132 > /sys/class/gpio/export
+sudo sh -c 'echo 132 > /sys/class/gpio/export'
 ```
 
 **Buildroot**:

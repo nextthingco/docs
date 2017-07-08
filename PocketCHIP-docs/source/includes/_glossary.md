@@ -7,7 +7,8 @@
 **Booting**: the process of PocketC.H.I.P. powering on and loading Debian. 
 
 **Command Line**: the area in the Terminal where text is input for the Operating System to evaluate.
-Debian: a version of the Linux Operating System that runs on PocketC.H.I.P..
+
+**Debian:** a version of the Linux Operating System that runs on PocketC.H.I.P..
 
 **Fantasy Console**: a console game system that does not have dedicated, specific hardware to run its software. For example, PICO-8.
 
@@ -32,8 +33,6 @@ Debian: a version of the Linux Operating System that runs on PocketC.H.I.P..
 **Stylus**: a pointing device
 
 **Terminal**: a program used to enter text commands for the Operating System to execute or interpret.  
-
-
 
 **TRRS jack**: a connector commonly used for audio or video equipment. TRRS stands for tip, ring, ring, and sleeve and refers the the way the male connector is divided.
 

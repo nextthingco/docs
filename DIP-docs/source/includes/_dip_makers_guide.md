@@ -141,7 +141,7 @@ Think it's right? Now it's time to compile and test it. Unfortunately, the devic
 
 ```shell
 sudo apt-get install flex bison
-git clone https://github.com/atenart/dtc
+git clone https://github.com/nextthingco/dtc
 cd dtc
 make
 sudo  make install PREFIX=/usr

@@ -45,8 +45,11 @@ in other GPL applications. One module (the juce_core module)
 is permissively licensed under the ISC.
 
 ## PICO-8
+
 **PICO-8 v0.1.6**
+
 http://www.pico-8.com
+
 (c) Copyright 2014-2016 Lexaloffle Games LLP
 
 Author: Joseph White // hey@lexaloffle.com
@@ -67,6 +70,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## SunVox
 
 **SunVox modular synthesizer**
+
 Copyright (c) 2002 - 2016, Alexander Zolotov <nightradio@gmail.com>, WarmPlace.ru
 SunDog engine (part of SunVox)
 

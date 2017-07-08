@@ -10,7 +10,7 @@ The point is, **PocketC.H.I.P. can be what you want it to be** and we're excited
 
 These are the **Docs**, which are intended to help you get started with PocketC.H.I.P.. The Docs will introduce you to the software that comes pre-installed on PocketC.H.I.P., explain how to use the system, and hopefully plant some ideas about how you can do even more with your PocketC.H.I.P..
 
-The Docs will *not* teach you how to code (though it will give tips), how to program a game (though it will explain the tools), how to make music (though it will describe options), or how to build onto PocketC.H.I.P. (though it will encourage it).
+The Docs will *not* teach you how to code (though it will give tips), how to program a game (though it will explain the tools), how to make music (though it will describe options), or how to build onto PocketC.H.I.P. (though it be encouraged).
 
 **Have fun!**
 
@@ -19,7 +19,7 @@ This section explains how to **turn on PocketC.H.I.P.**, **setup WiFi**, and **c
 
 ![Step 1](images/image_1.png)
 
-**Turn on PocketC.H.I.P.** by pressing down the **Home/Power button** at the bottom, middle of the keyboard, for about **two seconds**. 
+**Turn on PocketC.H.I.P.** by pressing down the **Home/Power button** located at the bottom in the middle of the keyboard for about **two seconds**. 
 
 **PocketC.H.I.P.** will take a moment to fully load, but while it does you will see the C.H.I.P. logo and then a PocketC.H.I.P. splash screen. 
 
@@ -39,9 +39,9 @@ While using an application, **press the Home/Power button to return to the Home 
 
 From the Home Screen, tap the **settings icon** in the bottom right corner to access the Settings Screen. 
 
-Press the button to the right of the WiFi switch to open a menu of all the networks in range. Scroll through the list and select your network by pressing the arrows above and below the network names. To refresh the network list, just exit the list and enter again. 
+Press the button to the right of the WiFi toggle switch to open a menu of all the networks in range. Scroll through the list and select your network by pressing the arrows above and below the network names. To refresh the network list, just exit the list and enter again. 
 
-When prompted, enter the network password in the text field, then touch the **[Connect]** button. It may take a few seconds to connect.
+When prompted, enter the network password in the text field, then touch the **Connect** button. It may take a few seconds to connect.
 
 ### Charging
 ![image of PocketC.H.I.P. with cable plugged in](images/wall-power.jpg)

@@ -26,7 +26,7 @@ Some buttons are labeled to the top-left with **white text on a pink background*
 
 ![Function keys](images/function-keys.jpg)
 
-For example: **Holding FN** and **pressing J** types **>**
+For example: **Holding FN** and **pressing J** types **>**.
 
 ## Removable enclosure
 ![Exploded View](images/exploded.jpg)
@@ -53,4 +53,4 @@ See the C.H.I.P. documentation to learn how to use them [here](http://docs.getch
 
 ![Stand it up with a pencil](images/stand.jpg)
 
-Give your hands a break! You can **prop PocketC.H.I.P. up on a table with a pencil or pen**. Pencils go in the right-hand-side pencil hole, and pens in the left hole. You only need one.
+Give your hands a break! You can **prop PocketC.H.I.P. up on a table with a pencil or pen**. Pencils go in the hole to the right, and pens in the left hole. You only need one to prop PocketC.H.I.P. up.

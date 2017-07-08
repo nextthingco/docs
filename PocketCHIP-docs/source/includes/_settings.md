@@ -11,11 +11,11 @@ To access the **PocketC.H.I.P. settings**, tap on the sprocket icon on the Home 
 ## WiFi & Bluetooth
 ![wifi settings](images/wifi-setting.jpg)
 
-From the Settings Screen, tap the switch next to the WiFi icon to turn WiFi on. 
+From the Settings Screen, tap the toggle switch next to the WiFi icon to turn WiFi on or off. 
 
 Press the button to the right of the WiFi switch to open a menu of all the networks in range. Scroll through the list by tapping the onscreen arrows, and select your network by tapping on its name.
 
-When prompted, enter the network password in the text field, then touch the **[Connect]** button. It may take a few seconds to connect.
+When prompted, enter the network password in the text field, then touch the **Connect** button. It may take a few seconds to connect.
 
 Currently only WiFi is configurable from the PocketC.H.I.P graphical interface. If you want to configure Bluetooth, consult the C.H.I.P. documentation page [here](http://docs.getchip.com).
 
@@ -32,7 +32,7 @@ Adjust the volume slider by tapping on the left to decrease volume or on the rig
 
 ## Security
 
-Just like you have a **username** and **password** for your e-mail account, PocketC.H.I.P. has a username and password for its operating system. The main user account on PocketC.H.I.P. is chip, and the password is also chip. **Both username and password are case sensitive**.
+Just like you have a **username** and **password** for your e-mail account, PocketC.H.I.P. has a username and password for its operating system. The main user account on PocketC.H.I.P. is **chip**, and the password is also **chip**. Both username and password are case sensitive.
 
 At startup, **PocketC.H.I.P. automatically logs you in as chip**. This means there's no need to manually enter chip’s password chip. There are times when you'll need to use the chip password, but you can get most things done without it.
 
@@ -52,9 +52,9 @@ For more information on using sudo, see the C.H.I.P. docs [here](http://docs.get
 
 ![terminal icon](images/no_scale/terminal-icon.png)
 
-**You should change your password** for both the chip and root account to something other than chip. Open the **terminal application** from the PocketC.H.I.P. Home Screen, type the following command:
+**You should change your password** for both the chip and root account to something other than the default, chip. Open the **terminal application** from the PocketC.H.I.P. Home Screen and type the following command:
 
-*passwd*
+`passwd`
 
 and press **ENTER**.
 

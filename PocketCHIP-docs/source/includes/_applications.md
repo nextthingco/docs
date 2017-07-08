@@ -19,7 +19,7 @@ Your PocketC.H.I.P. comes with six applications on the Home Screen.
 
 ![Playing PICO-8 games](images/pico-play.jpg)
 
-Play games, change games, and make games with PICO-8! With a couple keystrokes, you can join the PICO-8 community and modify their games, or even make your own!
+Play games, change games, and make games with PICO-8! With a couple keystrokes you can join the PICO-8 community and modify their games, or even make your own!
 
 For more resources to learn PICO-8, search YouTube for **PICO-8** videos and check out the PICO-8 Fanzine [link](https://sectordub.itch.io/pico-8-fanzine-1).
 
@@ -39,18 +39,18 @@ If PocketC.H.I.P. is connected to WiFi, **PICO-8 community made games** can be d
 
 While in the splore mode, press **ESC** and select **EXIT TO CONSOLE** to start PICO-8's command line interface. PICO-8's command line commands are listed below:
 
-* **Help** 	lists the available commands
-* **Splore** 	return to cart explorer
-* **dir**        list the contents of the current directory
-* **cd [directory name]**   change to the desired directory
-* **cd ..**      go up a directory
-* **cd /**       change back to top directory (on PICO-8's virtual drive)
-* **keyconfig** customize the keys used by all games
-* **mkdir**      make a new directory
-* **folder**     open the current directory in the host operating system's file browser
-* **load [name of game]**  load a game from the current directory (this is like putting a cartridge into the console)
-* **run** 	plays the cart that is currently loaded
-* **save [filename]** 	saves the currently loaded cart with the given name (this is used when you've made changes to the game's code, graphics, or music)
+* **help** - lists the available commands
+* **splore** - return to cart explorer
+* **dir** - list the contents of the current directory
+* **cd [directory name]** - change to the desired directory
+* **cd ..** - go up a directory
+* **cd /** - change back to top directory (on PICO-8's virtual drive)
+* **keyconfig** - customize the keys used by all games
+* **mkdir** - make a new directory
+* **folder** - open the current directory in the host operating system's file browser
+* **load [name of game]** - load a game from the current directory (this is like putting a cartridge into the console)
+* **run** - plays the cart that is currently loaded
+* **save [filename]** - saves the currently loaded cart with the given name (this is used when you've made changes to the game's code, graphics, or music)
 
 
 ### Make Games (with PICO-8)
@@ -65,11 +65,11 @@ Gamers, get ready to become game-makers. In addition to playing the community's 
 
 **Access the code editor** from the command line by pressing **ESC**. If you are in the middle of a game, press **ESC** and select **EDIT THIS CART** to  edit the game's code. Some other helpful shortcuts are:
 
-* **Hold SHIFT** to select multiple characters or lines (or tap-and-drag)
-* **CTRL-X**, **CTRL-C**, **CTRL-V** to cut, copy, or paste a selection
-* **CTRL-Z**, **CTRL-Y** to undo, redo
-* **CTRL-F**, **CTRL-G** to search for text, repeat search
-* **ALT-UP**, **ALT-DOWN** to navigate to the previous, next function
+* **Hold SHIFT** - select multiple characters or lines (or tap-and-drag)
+* **CTRL-X**, **CTRL-C**, **CTRL-V** - cut, copy, or paste a selection
+* **CTRL-Z**, **CTRL-Y** - undo, redo
+* **CTRL-F**, **CTRL-G** - search for text, repeat search
+* **ALT-UP**, **ALT-DOWN** - navigate to the previous, next function
 
 
 The code editor is not the only editor in PICO-8. Access the other editors by tapping on the icons in the upper right-hand corner of the editor.
@@ -78,30 +78,34 @@ The code editor is not the only editor in PICO-8. Access the other editors by ta
 
 ![Draw custom graphics](images/pico-sprites.jpg)
 
-Use the sprite editor to create the artwork that make up tiles, characters, or other graphical elements of the game. The navigator at the bottom of the sprite editor screen shows an 8x8 pixel box that is displayed in the sprite sheet window, but it is possible to use freeform tools (pan, select) to edit larger areas.
+Use the sprite editor to create custom artwork that makes up tiles, characters, or other graphical elements of the game. The navigator at the bottom of the sprite editor screen shows an 8x8 pixel box that is displayed in the sprite sheet window. It is possible to use the tools (pan, select) to edit larger areas.
 
-Use the following tools to edit sprites:
+The tools can be found directly below the 8x8 editor widow and above the sprite sheet. Use the following tools to create and edit sprites:
 
-**_Draw Tool_**
+**Draw Tool**
 
 * Click on the desired color and then click in the editor window to apply the color to each pixel.
 * Hold the **CTRL** button and click on a pixel to replace all of the same-colored pixels in the window with the selected color.
 
-**_Stamp Tool_**
-* Select an area of the sprite sheet that you want to copy using the select tool.
-* Select the stamp tool and click the location where you want the copied pixels to be pasted.
-* Hold **CTRL** to stamp with transparency (this pastes all of the non-black pixels in the selection).
+**Stamp Tool**
 
-**_Select Tool_**
+* Select an area of the sprite sheet that you want to copy using the select tool. Copy to clipboard with **CTRL+C**.
+* Select the stamp tool and click the location in the editor window where you want the copied pixels to be pasted. Click the top-left corner to center design.
+* Hold **CTRL** while stamping to treat the copied black pixels as transparent. 
+
+**Select Tool**
+
 * Use the shortcut: **SHIFT** or **S** to save time.
 * Click and drag with the select tool to highlight an area of the sprite sheet.
 * Enter or click to select none.
 
 **_Pan Tool_**
+
 * Use the shortcut: **Spacebar**.
 * Click and drag to move around the sprite sheet.
 
 **_Fill Tool_**
+
 * Fill an area with the selected color.
 * If you have selected an area of the sprite sheet, the fill will be limited to the selected area.
 * If no selection is active, the fill will be limited to the area in the editor window.
@@ -109,7 +113,7 @@ Use the following tools to edit sprites:
 ### Map Editor
 ![Create your own levels](images/map.jpg)
 
-The tools for the map editor work similarly to those in the sprite editor. However, rather than choosing colors and drawing directly on the map sheet, select a sprite and use the draw or fill tool to place sprites into the map sheet.
+The tools for the map editor work similarly to those in the sprite editor. However, rather than choosing colors, select a sprite and use the draw or fill tool to place sprites into the map sheet.
 
 ### Sound Effects Editor
 
@@ -129,30 +133,33 @@ Press the **spacebar to play/stop** the current sound effect.
 
 ### Graph mode
 
-In **graph mode**, **choose an instrument** and then click-and-drag left-to-right to *draw* the sound across the pitch window. Draw higher in the window to create a sound with a higher pitch. Adjust the volume of each note, with the sliders in the volume window at the bottom of the graph mode screen.
+In **graph mode**, **choose an instrument** and then click-and-drag left-to-right to **draw** the sound across the pitch window. Draw higher in the window to create a sound with a higher pitch. Adjust the volume of each note, with the sliders in the volume window at the bottom of the graph mode screen.
 
 ### Tracker mode
-In the **tracker mode**, each line of **six dots represents a note**. Each dot represents an aspect of the notes. In left-to-right order they are: frequency, octave, instrument, volume, and effect.
+In the **tracker mode**, each line of **six dots represents a note**. Each dot represents an aspect of the note. In left-to-right order they are: 
 
-**_Frequency_**
+* frequency, octave, instrument, volume, and effect.
+
+**Frequency**
+
 * Denoted by the letter of the musical pitch.
 * Input the pitches, using the **q2w3er5t6y7ui** keys like a piano.
 * **Q** is a *C* note, **W** is a *D* note.
 * The number keys are the **sharps** and **flats** (like the black keys on a piano).
 
-**_Octave_**
+**Octave**
 
-For each note, **choose octave 1**, **2**, **3**, or **4** in the **OCT field** at the top, or type the corresponding number: **1 is the lowest octave** and **4 is the highest**.
+For each note, **choose octave 1**, **2**, **3**, or **4** in the **OCT field** at the top, or type the corresponding number. **1 is the lowest octave** and **4 is the highest**.
 
-**_Instrument_**
+**Instrument**
 
 Choose one of the instruments in the gray waveform boxes or type the corresponding number (0 through 7).
 
-**_Volume_**
+**Volume**
 
 Choose volume level in the VOL field or type the corresponding number (0 through 7).
 
-**_Effect_**
+**Effect**
 
 Choose an effect from the boxes under the instruments or type the corresponding number (0 through 7).
 The 8 effects are:
@@ -182,7 +189,7 @@ The **music editor** allows **up to four effects at a time** for your game's sou
 
 The **SunVox tracker** is a fully featured music production studio. It's lightweight, sounds great, and is designed to work with a stylus on a single, small screen. As a result, it's a perfect fit for for making music and playing with sound on PocketC.H.I.P..
 
-To get started launch **SunVox**, put on some headphones, press **SHIFT-space** to start playback, and dive into a complete world of electronic sound. While SunVox is pretty much limitless in its configuration, C.H.I.P. has limited CPU and memory resources. Keep in mind if you add a lot of filters, reverbs, and delays, SunVox might stutter on playback. It's also a good idea to quit any other processes running on C.H.I.P. using `ALT-tab` to go to other applications and windows and `CTL-q` to quit them.
+To get started launch **SunVox**, put on some headphones, press **SHIFT-space** to start playback, and dive into a complete world of electronic sound. While SunVox is pretty much limitless in its configuration, C.H.I.P. has limited CPU and memory resources. Keep in mind if you add a lot of filters, reverbs, and delays, SunVox might stutter on playback. It's also a good idea to quit any other processes running on C.H.I.P.. Use `ALT-tab` to go to other applications and windows and `CTL-q` to quit them.
 
 ### Interface Overview
 Here's a quick overview of what you see when you launch **SunVox**, and what the different parts of the interface do. Visit [the SunVox page](http://www.warmplace.ru/wiki/sunvox:manual_en) for more information, including complete keyboard mappings. There are also lots of introductory SunVox videos on YouTube, just search for **SunVox intro videos**.
@@ -206,11 +213,11 @@ octaves 0-8 | Shift-[0-8]
 
 ![SunVox pattern editor](images/sunvox_editpattern.jpg)
 
-The **Pattern Editor** is **like a page of sheet music**. Instead of staffs, measures, clefs, notes, and articulations, it has 32 rows and several columns that represent pitch, timing, and even how a pitch is played (soft, hard, bright, *etc*).
+The **Pattern Editor** is **like a page of sheet music**. Instead of staffs, measures, clefs, notes, and articulations, it has 32 rows and several columns that represent pitch, timing, and even how a pitch is played (soft, hard, bright, etc).
 
 **Patterns represent chunks of a song** that will later be dropped into the timeline of the song and arranged with other patterns.
 
-**Note:** All the numbers are in **hexadecimal**, so instead of the number *46*,  you'll see *2E*. These notes can play drums, lead instruments that sound like a guitar (maybe), bass notes, or even atonal washes of sound.
+**Note:** All the numbers are in **hexadecimal**, so instead of the number **46**,  you'll see **2E**. These notes can play drums, lead instruments that sound like a guitar (maybe), bass notes, or even atonal washes of sound.
 
 In the **pattern editor** you can **add notes and note modifiers to compose patterns**.
 
@@ -233,7 +240,7 @@ For **sharp** and **flat** notes, use the row above. For example, **S** is a c-s
 
 The **Module Editor** is located below the **Touch Keyboard** on its right. This includes the **different instruments**, **synthesizers**, or **effects** you can use to change the sounds that you put into the patterns above. You can add new modules, delete current modules or rearrange modules to fit your needs.
 
-With any sounds you make, you need something to generate the sound first. Double-tap on the background in the **module editor** and then choose a **generator** from the list. Once you've picked a generator need to **connect it to the output**. Do this by **holding SHIFT** and then tapping and dragging from the generator to the OUT box
+With any sounds you make, you need something to generate the sound first. Double-tap on the background in the **module editor** and then choose a **generator** from the list. Once you've picked a generator you need to **connect it to the output**. Do this by **holding SHIFT** and then tapping and dragging from the generator to the OUT box
 
 You can also add **effects** to the sounds made by the generator. Double-tap in the background again and choose an effect from the list. Now change the route the sound goes through by tapping and dragging from the generator to the effect. Then tap-and-drag from the effect to the output box.
 
@@ -246,42 +253,44 @@ You can have **multiple instruments** and **different paths** for the sound in t
 
 Tap on a module and use the Parameter Controls on the left to modify the sound. Play the (piano or PocketC.H.I.P.) keyboard to hear the sound of a synth module. Use **CTRL-arrows** to jump to different modules. **SHIFT-drag** to connect and disconnect modules.
 
-**_Resize Handles_**
+* **Resize Handles**
 
-Tap-and-drag in these areas to resize the panels.
+	Tap-and-drag in these areas to resize the panels.
 
-**_Transport_**
+* **Transport**
 
-Record new pattern into timeline, play from beginning, play, play pattern, stop.
+	Record new pattern into timeline, play from beginning, play, play pattern, stop.
 
 #### Octave Up/Down
 Change the octave of the touch keyboard.
 
-**_Edit Pattern Indicator_**
+* **Edit Pattern Indicator**
 
-When locked, you can't make changes to the pattern.
+	When locked, you can't make changes to the pattern.
 
-**Spacebar** unlocks the world of pattern editing!
+* **Spacebar** 
+	
+	Unlocks the world of pattern editing!
 
-**_Volume_**
+* **Volume**
 
-Tap-and-drag the volume control to change output volume.
+	Tap-and-drag the volume control to change output volume.
 
-**_Menu Items_**
+* **Menu Items**
 
-Sunvox has one simple menu. Tap here to save and load projects, set preferences like **MIDI controllers**, and the ultra-fun **Touch Theremin** feature! Select it in the Menu, and start making some noise!
+	Sunvox has one simple menu. Tap here to save and load projects, set preferences like **MIDI controllers**, and the ultra-fun **Touch Theremin** feature! Select it in the Menu, and start making some noise!
 
-**_Switch To Timeline_**
+* **Switch To Timeline**
 
-The **Timeline** allows you to place, move, and rearrange patterns to create a song. On PocketC.H.I.P.'s small screen, you'll need to use the **Switch To Timeline** button.
+	The **Timeline** allows you to place, move, and rearrange patterns to create a song. On PocketC.H.I.P.'s small screen, you'll need to use the **Switch To Timeline** button.
 
-In **Timeline**, you can also freely record notes while you play them with the **Record** button, or you can clone patterns to repeat them. Move the patterns blocks around to create your composition. When finished, you can render a finished stereo file and distribute it as you want!
+	In **Timeline**, you can also freely record notes while you play them with the **Record** button, or you can clone patterns to repeat them. Move the pattern blocks around to create your composition. When finished, you can render a finished stereo file and distribute it as you want!
 
 ![SunVox timeline view](images/sunvox_timeline.jpg)
 
-**_MIDI_**
+* **_MIDI_**
 
-You can attach a **MIDI keyboard or controller** to PocketC.H.I.P.'s USB port and have even more fun with SunVox. Not only can you play notes from a keyboard, but you can use MIDI knobs and sliders to control parameters of different synths. Tweak on!
+	You can attach a **MIDI keyboard or controller** to PocketC.H.I.P.'s USB port and have even more fun with SunVox. Not only can you play notes from a keyboard, but you can use MIDI knobs and sliders to control parameters of different synths. 
 
 ## Terminal
 
@@ -305,13 +314,13 @@ The Terminal has a few small buttons at top.  From left to right, they are:
   * Previous tab
   * Next tab
   * Flip toolbar
-  * Paste - Paste selected text (can be from another tab, not in another application)
+  * Paste - Paste selected text (from another tab, not another application)
  
 ## Write
 
 ![image of write](images/no_scale/write-icon.png)
 
-**Write is a minimalist text editor** that's well suited for basic text entry tasks. If you're looking to code with Write, you'll be pleased to learn that it supports line numbering and auto indentation, just look under the “Option” menu.
+**Write is a minimalist text editor** that's well suited for basic text entry tasks. If you're looking to code with Write, you'll be pleased to learn that it supports line numbering and auto indentation, just look under the **"Option"** menu.
 
 
 ## File Browser

@@ -1,0 +1,43 @@
+# Set Up Gadget
+
+To get started, download and install the following on your development machine and Gadget compatible device.
+
+## Install Docker
+
+**Note:** Gadget requires Docker version 17.06 or greater. If Docker is already installed check which version of Docker you have with the command `Docker -v`.
+
+Gadget makes use of [Docker's]((https://www.docker.com/)) container system. Dependent on your development machine's OS, download and install the appropriate version of Docker.
+
+* MacOS - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
+* Windows 10 - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
+* Linux - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
+
+After you install Docker, you will need to run it once before using GadgetCLI. GadgetCLI uses the Docker daemon to pull images from Docker Hub or to build directly from local Dockerfiles.
+
+## Download Gadget
+
+Download the zip file containing GadgetCLI and GadgetOS [here](https://github.com/NextThingCo/gadgetcli/releases). Put the gadget binary in your system's PATH or precede all the commands with `./` e.g., `./gadget` while in the same directory.
+
+**PATH location:**
+
+**MacOS Sierra**: /usr/local/bin
+
+**Windows 10**
+
+Put the gadget binary somewhere like C:\Program Files\gadget and edit the "Path" variable to point to that location.
+
+Click the Windows icon to open the Start Menu. Search for "Advanced System Settings." When the System Properties window opens click on "Environment Variables."
+
+Find and select the "Path" variable under "System Variables." Click "Edit, " and the "Edit environment variable" window will open. Click "New" and enter the directory path to the Gadget binary. Then click "OK."
+
+**Linux**
+
+Place the gadget binary here: /usr/bin
+
+
+## Flash GadgetOS 
+
+
+Use the [web flasher](http://flash.getchip.com/pro) to install GadgetOS on your C.H.I.P. Pro Dev Kit. The latest GadgetOS is required for GadgetCLI to be able to talk to your hardware device and found in the [GitHub repo](https://github.com/NextThingCo/gadgetcli/releases).
+
+Once flashed, power cycle C.H.I.P. Pro Dev Kit by either unplugging it from the USB port or pressing the On/Off button.

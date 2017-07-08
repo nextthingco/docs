@@ -58,13 +58,8 @@ __Format:__ `name: projectName`
 
 <span style="font-size: 17px">**Uuid: Container ID**</span>
 
-<<<<<<< HEAD
-You can have several instances of the same image. These instances are identified by their uuid. For example, if you build an image then change the **command** configuration and build again you can see both instances on your development machine when you run:
-	
-=======
 You can have several instances of the same image. These instances are identified by their UUID. For example, if you build an image then change the **command** configuration and build again you can see both instances on your development machine when you run:
 
->>>>>>> 768c7648529dbd896a8d09afbb071cd3a16f2a6f
 ```
 docker images
 ```

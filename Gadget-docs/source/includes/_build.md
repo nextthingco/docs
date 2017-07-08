@@ -6,7 +6,7 @@ To get more familiar with using gadget.yml, go through the following examples wh
 
 ### 1. Set Up 
 	
-* Make sure to install all the necessary software outlined in [Set Up](http://ntc-docs-unstable.surge.sh/gadget.html#set-up-gadget). 
+* Make sure to install all the necessary software outlined in [Set Up](https://docs.getchip.com/gadget.html#set-up-gadget). 
 * Connect C.H.I.P. Pro Dev Kit to your development machine via a USB cable. 
 
 ### 2. Create project directory
@@ -63,7 +63,7 @@ The gadget.yml file now defines two containers: "hello-world" under **onboot** a
 	
 Specify an image to pull from the Docker Hub repo in this field. This example pulls an image from the "gadget-blink-c" repo under the "nextthingco" username.	 	
 	
-**Note:** If an image does not receive a [tag](https://docs.docker.com/engine/reference/commandline/tag/) when built and pushed to Docker Hub you do not include it, like for this example. However, if an image is tagged when built and you want to pull it from Docker Hub the [tag](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) needs to be [included](http://ntc-docs-unstable.surge.sh/gadget.html#configurations). You can see available tags by clicking on the Tags tab in a Docker Hub repo. Sometimes tags are included in the images description on Docker Hub, but not always.
+**Note:** If an image does not receive a [tag](https://docs.docker.com/engine/reference/commandline/tag/) when built and pushed to Docker Hub you do not include it, like for this example. However, if an image is tagged when built and you want to pull it from Docker Hub the [tag](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) needs to be [included](https://docs.getchip.com/gadget.html#configurations). You can see available tags by clicking on the Tags tab in a Docker Hub repo. Sometimes tags are included in the images description on Docker Hub, but not always.
 
 	
 * **binds**

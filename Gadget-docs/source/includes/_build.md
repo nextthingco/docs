@@ -133,7 +133,7 @@ If the container builds, deploys, and starts successfully you will see the follo
       - started
 ```
 
-If any of these processes fail, GadgetCLI will output an error along with suggestions of what may be the issue. Go to the [troubleshooting section](http://ntc-docs-unstable.surge.sh/gadget.html#troubleshooting) for more information.
+If any of these processes fail, GadgetCLI will output an error along with suggestions of what may be the issue. Go to the [troubleshooting section](https://docs.getchip.com/gadget.html#troubleshooting) for more information.
 	
 ### 8. Stop and Delete Containers
 
@@ -326,7 +326,7 @@ Gadget makes use of the growing community of official and community supported Do
 
 **Share Source Files**
 
-For collaborators to deploy and run your containers, they will need to know the [configurations that go into gadget.yml](http://ntc-docs-unstable.surge.sh/gadget.html#configuring-gadget-yml). We recommend sharing these in a [GitHub](https://github.com/) repository.
+For collaborators to deploy and run your containers, they will need to know the [configurations that go into gadget.yml](https://docs.getchip.com/gadget.html#configuring-gadget-yml). We recommend sharing these in a [GitHub](https://github.com/) repository.
 
 
 ### 1. Create Registry and Repo
@@ -354,7 +354,7 @@ docker login
 ```
 docker tag blink YourUserName/blink:v1 
 ```
-This command tags the image you created called [blink](http://ntc-docs-unstable.surge.sh/gadget.html#4-build) with "v1", specified it's location within YourUserName, and in the repository "blink". 
+This command tags the image you created called [blink](https://docs.getchip.com/gadget.html#4-build) with "v1", specified it's location within YourUserName, and in the repository "blink". 
  
 ### 4. Push
 
@@ -366,7 +366,7 @@ docker push YourUserName/blink:v1
 
 ### 5. Pull 
 
-After posting to your registry, the blink image is ready to share and pull to your device. From here, the workflow is the same as the one outlined in the [Pull Image](http://ntc-docs-unstable.surge.sh/gadget.html#pull-remote-image) section. Visit the newly created Docker repo and fill in the description and add a link to your GitHub source files.
+After posting to your registry, the blink image is ready to share and pull to your device. From here, the workflow is the same as the one outlined in the [Pull Image](https://docs.getchip.com/gadget.html#pull-remote-image) section. Visit the newly created Docker repo and fill in the description and add a link to your GitHub source files.
 
 ## Example Images
 
@@ -383,7 +383,7 @@ Start a project with one of our example images. You can either pull an example f
 
 **Run an Example**
 
-* Follow the steps under [Pull Remote Image](http://ntc-docs-unstable.surge.sh/gadget.html#pull-remote-image).
+* Follow the steps under [Pull Remote Image](https://docs.getchip.com/gadget.html#pull-remote-image).
 * For the gadget.yml configurations, download and use the gadget.yml file found in the project directory from the source file links below.
 
 
@@ -406,7 +406,7 @@ git clone https://github.com/NextThingCo/Gadget-Docker-Examples.git
 ```
 
 * Edit the source files in a chosen project directory.
-* [Build and deploy the project from your development machine](http://ntc-docs-unstable.surge.sh/gadget.html#build-image-locally). Each project directory has a gadget.yml file that contains the needed configurations for that specific container. 
+* [Build and deploy the project from your development machine](https://docs.getchip.com/gadget.html#build-image-locally). Each project directory has a gadget.yml file that contains the needed configurations for that specific container. 
 
 <aside class="notice">To successfully build an image in the project directory the gadget.yml config file needs to be removed from it first.</aside>
 

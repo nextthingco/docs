@@ -4,8 +4,6 @@ At Gadget's heart is [Docker](https://docs.docker.com/). With GadgetCLI you will
 
 Gadget.yml is where you define the container's resources, issue commands once a container is started, state what containers to run in what order and more. For example, the ["hello world"](http://ntc-docs-unstable.surge.sh/gadget.html#hello-world) demo pulls an image from Docker Hub that is defined in gadget.yml next to the `image:` configuration.  
 
-**Note:** From here on out "host" refers to the Gadget compatible hardware running GadgetOS and "host computer" refers to the computer the Gadget compatible hardware is plugged into via USB.
-
 ## Onboot and Services
 
 There are two sections to define and configure containers in: **onboot** and **services**. Multiple containers can be put in each section and either all or one can be addressed when running `gadget` commands:
@@ -60,7 +58,7 @@ __Format:__ `name: projectName`
 
 <span style="font-size: 17px">**Uuid: Container ID**</span>
 
-You can have several instances of the same image. These instances are identified by their uuid. For example, if you build an image then change the **command** configuration and build again you can see both instances on your host computer when you run:
+You can have several instances of the same image. These instances are identified by their uuid. For example, if you build an image then change the **command** configuration and build again you can see both instances on your development machine when you run:
 	
 ```
 docker images
@@ -85,7 +83,7 @@ Docker Image: `image: username/repoName:tag`
 	
 <span style="font-size: 17px">**Directory: Path of local image**</span>
 
-Used when building and deploying images on your host machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file. 
+Used when building and deploying images on your development machine rather than pulling from Docker Hub. Put the pathname of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file. 
 
 __Format:__ `directory: projDir`
 	
@@ -115,7 +113,7 @@ __Format:__ `command: ['python', 'myPyScript.py']`
 	
 <span style="font-size: 17px">**[Binds](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v-read-only) - Mount a directory**</span> 
 	
-Put any directories here that you would like to mount from the host into the container. 
+Put any directories here that you would like to mount from the device into the container. 
 
 __Format:__ `binds: ['/fromHostDir:/toContainerDir']`
 

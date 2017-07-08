@@ -1,13 +1,13 @@
 # Build With Gadget
 
-To get more familiar with using gadget.yml, go through the following examples which pulls from an image on Docker Hub and builds and deploys an image from your host computer. Each example blinks an LED on C.H.I.P. Pro Dev Kit.
+To get more familiar with using gadget.yml, go through the following examples which pulls from an image on Docker Hub and builds and deploys an image from your development machine. Each example blinks an LED on C.H.I.P. Pro Dev Kit.
 
 ## Pull Remote Image
 
 ### 1. Set Up 
 	
 * Make sure to install all the necessary software outlined in [Set Up](http://ntc-docs-unstable.surge.sh/gadget.html#set-up-gadget). 
-* Connect C.H.I.P. Pro Dev Kit to your host computer via a USB cable. 
+* Connect C.H.I.P. Pro Dev Kit to your development machine via a USB cable. 
 
 ### 2. Create project directory
 
@@ -255,7 +255,7 @@ In this field, put the path of the project directory containing the Dockerfile i
 	binds:['/sys:/sys']
 	```
 	
-Mounts the /sys directory from the host into the container at /sys. 
+Mounts the /sys directory from the device into the container at /sys. 
 	
 ```
 services:
@@ -405,7 +405,7 @@ git clone https://github.com/NextThingCo/Gadget-Docker-Examples.git
 ```
 
 * Edit the source files in a chosen project directory.
-* [Build and deploy the project from your host computer](http://ntc-docs-unstable.surge.sh/gadget.html#build-image-locally). Each project directory has a gadget.yml file that contains the needed configurations for that specific container. 
+* [Build and deploy the project from your development machine](http://ntc-docs-unstable.surge.sh/gadget.html#build-image-locally). Each project directory has a gadget.yml file that contains the needed configurations for that specific container. 
 
 <aside class="notice">To successfully build an image in the project directory the gadget.yml config file needs to be removed from it first.</aside>
 

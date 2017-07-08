@@ -18,7 +18,7 @@ Gadget is made up of two pieces of software that work together to simplify embed
 * OSX 
 * Windows 10 Pro 64-bit
 
-2) <span style="color: EB008B">**GadgetOS**</span> is a [Buildroot]((https://buildroot.org/))-based Linux operating system. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI. 
+2) <span style="color: EB008B">**GadgetOS**</span> is a [Buildroot](https://buildroot.org/)-based Linux operating system. It boots quickly, takes up a small amount of NAND, and is designed to work with GadgetCLI. 
 
 Buildroot is at the core of GadgetOS and features Docker support. The **GadgetCLI** communicates directly with the Docker daemon over ssh, using GadgetOS’s usb ethernet connection. 
 

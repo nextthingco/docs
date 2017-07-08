@@ -6,7 +6,7 @@ To get started, download and install the following on your development machine a
 
 **Note:** Gadget requires Docker version 17.06 or greater. If Docker is already installed check which version of Docker you have with the command `Docker -v`.
 
-Gadget makes use of [Docker's]((https://www.docker.com/)) container system. Dependent on your development machine's OS, download and install the appropriate version of Docker.
+Gadget makes use of [Docker's](https://www.docker.com/) container system. Dependent on your development machine's OS, download and install the appropriate version of Docker.
 
 * MacOS - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 * Windows 10 - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
@@ -20,7 +20,27 @@ Download the zip file containing GadgetCLI and GadgetOS [here](https://github.co
 
 **PATH location:**
 
-**MacOS Sierra**: /usr/local/bin
+**MacOS**
+
+On a Mac place the Gadget binary in this location:
+
+```
+/usr/local/bin
+```
+
+To view the current value of your PATH environment variable:
+
+```
+echo $PATH
+```
+
+To add a new path, open the /etc/paths file:
+
+```
+nano /etc/paths
+```
+
+Add the new path to the end of the file and save. 
 
 **Windows 10**
 
@@ -32,7 +52,23 @@ Find and select the "Path" variable under "System Variables." Click "Edit, " and
 
 **Linux**
 
-Place the gadget binary here: /usr/bin
+Put the Gadget binary here:
+
+```
+/usr/bin
+```
+
+To view the current value of your PATH environment variable:
+
+```
+echo $PATH
+```
+
+To add a new path to the current value after the default system paths of PATH use this command:
+
+```
+PATH=$PATH:/my/new/path
+``` 
 
 
 ## Flash GadgetOS 

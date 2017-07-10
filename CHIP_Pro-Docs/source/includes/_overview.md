@@ -27,19 +27,6 @@ Comprehensive audio handling includes:
 
 To learn more, go to our [Specification](https://docs.getchip.com/chip_pro.html#specifications) section.
 
-## Certifications
-
-C.H.I.P. Pro is officially certified for CE, IC and FCC for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna) as well as the onboard ceramic SMT antenna. 
-
-C.H.I.P. Pro has FCC Modular Transmitter certification meaning any product with C.H.I.P. Pro as the only active radio transmitter will not require your company to run certification testing for the Intentional Radiator portion of FCC tests, specifically FCC Part 15C. 
-
-This greatly lessens the workload of taking your product through FCC certification. You will still need to test and state compliance with FCC Part 15B Unintentional Radiation limits. 
-
-With C.H.I.P. Pro, you can avoid the need to apply for a new FCC-ID for your product, instead listing that your product contains our FCC-ID'd module.
-
-For any questions, reach out to us at pro@nextthing.co.
-
-
 ## GR8 SiP
 
 ![GR8](images/CHIP-Pro-Exploded-View.png)

@@ -24,6 +24,6 @@ The C.H.I.P. Pro Dev Kit comes with accessories to get you started on your first
 * 1 Mini breadboard
 * 4 Little Rubber Feet (LRF)
 * 1 USB A to Micro-USB B cable
-* WiFi Antenna
+* WiFi Antenna [Wacosun model HCX-P321](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/Component%20Datasheets/FCCID.io-PCB-Antenna-Spec-2656771.pdf)
 * Onboarding Map
 

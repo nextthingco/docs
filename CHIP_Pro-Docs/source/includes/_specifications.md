@@ -48,14 +48,15 @@ For more details, the AXP209 datasheet can be found [here](https://github.com/Ne
 * Realtek 8723DS Combination Module
 * Bluetooth 4.2 LE
 * 2.4GHz Wifi 802.11 b/g/n
+* Wifi and BT Unictron antenna model no. AA055
 * IPEX (U.FL) antenna connector
 * FCC/CE/IC certified
 
 A software controlled antenna path selects between the onboard chip antenna or a IPEX (U.FL) antenna connector where several pre-certified antennas can be added. 
 
-FCC Modular certification (47 CFR 15.212) limits the need for final device 	                      “intentional radiator” certification under 47 CFR 15.247, so long as pre-certified      antennas are used with CHIP Pro. 
+FCC Modular certification (47 CFR 15.212) limits the need for final device 	                      “intentional radiator” certification under 47 CFR 15.247, so long as pre-certified      antennas are used with C.H.I.P. Pro. 
 
-To learn more, find the FN-Link Module datasheet [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v0.9/Component%20Datasheets/Fn-Link%206223A-SRD_datasheet_V1%200_09262016.pdf). 
+To learn more, find the FN-Link Module antenna datasheet [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets)
 
 ## Mechanical Drawing
 

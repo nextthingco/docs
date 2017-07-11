@@ -93,7 +93,7 @@ my_project/
 │   └── Dockerfile
 └── gadget.yml
 ```
-In this particular case, the appropriate `directory:` value would be `"container_a"` or `"./container_a"`. The path much be relational. The Dockerfile can also exist in the same directory as the gadget.yml file as illustrated below:
+In this particular case, the appropriate `directory:` value would be `"container_a"` or `"./container_a"`. The path must be relational. The Dockerfile can also exist in the same directory as the gadget.yml file as illustrated below:
 
 ```
 my_project/

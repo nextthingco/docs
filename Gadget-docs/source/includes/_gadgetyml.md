@@ -81,11 +81,29 @@ Generated: `image: parent_directory/projectname`
 
 Docker Image: `image: username/repoName:tag`
 
-<span style="font-size: 17px">**Directory: Path of local image**</span>
+<span style="font-size: 17px">**Directory: Path to directory with Dockerfile**</span>
 
-When building and deploying images on your development machine rather than pulling from Docker Hub the syntax above is used. Put the path of your Dockerfile and supporting files (the build's context) here in relation to the gadget.yml file.
+Images can be built locally, rather than pulling from an online registry. This is done by removing the value entered in `image:` and entering a path in the `directory:` entry. See the file structure below:
 
-__Format:__ `directory: projDir`
+```
+my_project/
+├── container_a
+│   ├── asset_01
+│   ├── asset_02
+│   └── Dockerfile
+└── gadget.yml
+```
+In this particular case, the appropriate `directory:` value would be `"container_a"` or `"./container_a"`. The path much be relational. The Dockerfile can also exist in the same directory as the gadget.yml file as illustrated below:
+
+```
+my_project/
+├── asset_01
+├── Dockerfile
+└── gadget.yml
+```
+Here, the `directory:` value would be `"."` or `"./"` (the Unix value for "here").
+
+__Format:__ `directory: projDir/`
 
 <span style="font-size: 17px">**[Net:](https://docs.docker.com/engine/reference/run/#network-settings) Define which network to use or none**</span>
 

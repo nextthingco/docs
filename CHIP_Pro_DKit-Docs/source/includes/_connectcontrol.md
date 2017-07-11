@@ -141,6 +141,11 @@ Other helpful commands:
 * :q! then Enter - exit without saving
 
 ## WiFi Antenna
+
+* Onboard WiFi and BT ceramic antenna: [Unictron product no. H2U34WGTQW0100, model AA055](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/Component%20Datasheets/WiFi%20BT%20Chip%20321605%20AA055(2400-2500%2080x40)_spec-F.pdf).
+
+* External antenna included in the C.H.I.P. Pro Dev Kit: [Wacosun model HCX-P321](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/Component%20Datasheets/FCCID.io-PCB-Antenna-Spec-2656771.pdf).
+
 C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purposes only. We recommend the use of an external antenna for all product applications. Use the antenna that comes with the C.H.I.P. Pro Dev Kit or obtain any of these officially supported ones:
 
 | Antenna Model | Manufacturer | Gain | Antenna Type | Connection Type | Freq. Range (GHz) | Cable Length (mm) |
@@ -150,9 +155,6 @@ C.H.I.P. Pro has an onboard ceramic antenna that is intended for debugging purpo
 | FXP73.07.0100A | Taoglas | 2.5 dBi | PCB | IPEX | 2.4 - 2.483 | 100 |
 | AA055   | Unictron | 2.5 dBi | Ceramic | SMT | 2.4 - 2.5 | n/a |
 
-Onboard WiFi and BT ceramic antenna: [Unictron product no. H2U34WGTQW0100](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/Component%20Datasheets/WiFi%20BT%20Chip%20321605%20AA055(2400-2500%2080x40)_spec-F.pdf) model AA055.
-
-The C.H.I.P. Pro Dev Kit comes with a [Wacosun model HCX-P321](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/Component%20Datasheets/FCCID.io-PCB-Antenna-Spec-2656771.pdf) external WiFi antenna.
 
 ### Connect Antenna
 C.H.I.P. Pro uses a standard 50Ω IPEX (Hirose U.FL compatible) connector for the external antenna path.

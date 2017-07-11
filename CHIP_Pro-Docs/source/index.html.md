@@ -13,6 +13,7 @@ includes:
   - specifications
   - pins
   - CPfaq
+  - GR8faq
   - chipvchippro
   - pinusage
   - compliance

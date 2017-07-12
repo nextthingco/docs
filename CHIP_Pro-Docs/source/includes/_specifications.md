@@ -66,13 +66,19 @@ You can download a high resolution version of this image [here](https://github.c
 
 ## PCB Footprint
 
-C.H.I.P. Pro is designed for prototyping and dropping in to a production assembly line. To inform your PCB designs, we have detailed diagrams for mounting C.H.I.P. Pro by hand soldering and by SMT pick-and-place machines. 
+C.H.I.P. Pro is designed for prototyping and dropping into a production assembly line. We have detailed diagrams for mounting C.H.I.P. Pro by hand soldering and by SMT pick-and-place machines to include in your PCB designs.
 
-* 
+* [Footprint - Hand soldering](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Footprint)
+* [Footprint - SMT](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Footprint)
+* [Carrier PCB stencil](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Footprint)
 
-More detailed information on how to design a PCB for C.H.I.P. Pro is found here. The stencil and footprints are also included in C.H.I.P. Pro's datasheet.
+More detailed information on designing a PCB for C.H.I.P. Pro is found [here](https://docs.getchip.com/chip_pro.html#pcb-design-tips). 
 
-![C.H.I.P. Pro PCB Footprint](images/CHIP-Pro-Footprint.png)
+![C.H.I.P. Pro PCB Footprint](images/Pro_Footprint_hand.jpg)
+
+![C.H.I.P. Pro PCB Footprint](images/Pro_Footprint_SMT.jpg)
+
+![C.H.I.P. Pro PCB stencil](images/Pro_stencil.jpg)
 
 ## Datasheet
 

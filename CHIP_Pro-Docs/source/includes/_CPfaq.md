@@ -6,9 +6,8 @@
 
 Currently, images with built-in Bluetooth drivers are a work in progress. However, since our software and hardware is [open source](https://github.com/NextThingCo) for development, our community rose to the challenge. Follow the instructions below to manually flash C.H.I.P. Pro with a Debian image that implements the Bluetooth stack using BlueZ.
 
-On development machine:
+These instructions are written for a development machine that runs a Debian distro of Linux. Depending on what OS your machine runs you will either need to download these packages using a package manager other than `apt-get` or your dev machine may already have them.
 
-* Connect to C.H.I.P. Pro via UART-serial
 * Install Git
 
 ```
@@ -57,6 +56,7 @@ sudo ./chip-update-firmware.sh -L img/
 sudo bluetoothctl
 ```
 * scan, pair and connect to devices
+
 ```
 scan on
 pair [MAC ADDRESS]

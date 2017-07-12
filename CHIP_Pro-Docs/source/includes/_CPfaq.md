@@ -4,9 +4,9 @@
 
 ### How do I get Bluetooth working?
 
-Currently, images with built-in Bluetooth drivers are a work in progress. However, since our software and hardware is [open source](https://github.com/NextThingCo) for development, our community rose to the challenge. Follow the instructions below to manually flash C.H.I.P. Pro with a Debian image that implements the Bluetooth stack using BlueZ.
+Currently, the Debian-based Pro image with built-in Bluetooth drivers is a work in progress. Since our software and hardware is [open source](https://github.com/NextThingCo) for development, our community created an image that includes a working Bluetooth utility that you can use to validate that Bluetooth is working. Follow the instructions below to manually flash C.H.I.P. Pro with a Debian image that implements the Bluetooth stack using BlueZ.
 
-These instructions are written for a development machine that runs a Debian distro of Linux. Depending on what OS your machine runs you will either need to download these packages using a package manager other than `apt-get` or your dev machine may already have them.
+These instructions are written for a development machine that runs a Debian distro of Linux. Depending on what OS your machine runs you will either need to install packages using a different package manager than `apt-get` or your dev machine may already include them.
 
 * Install Git
 

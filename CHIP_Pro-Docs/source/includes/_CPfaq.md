@@ -4,7 +4,7 @@
 
 ### How do I get Bluetooth working?
 
-Currently, images with built-in Bluetooth drivers are a work in progress. However, since our software and hardware is [open source](https://github.com/NextThingCo) for development, our community rose to the challenge. Follow these instructions to manually flash C.H.I.P. Pro with a Debian image that implements the Bluetooth stack using BlueZ.  
+Currently, images with built-in Bluetooth drivers are a work in progress. However, since our software and hardware is [open source](https://github.com/NextThingCo) for development, our community rose to the challenge. Follow [these instructions](https://docs.getchip.com/debianbt.html) to manually flash C.H.I.P. Pro with a Debian image that implements the Bluetooth stack using BlueZ. See the original forum post [here](https://bbs.nextthing.co/t/chip-pro-bluetooth-driver-not-available/14905/26).
 
 ### What does FCC Modular Certification mean?
 C.H.I.P. Pro is CE, IC, and FCC Part 15 Modular Transmitter certified for use with multiple commercially available [external antennas](https://docs.getchip.com/chip_pro_devkit.html#wifi-antenna). Read our compliance statement for more information.

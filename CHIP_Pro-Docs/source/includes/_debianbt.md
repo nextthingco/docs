@@ -2,14 +2,14 @@
 
 On development machine:
 
-* Connect to CHIP Pro via UART-serial
+* Connect to C.H.I.P. Pro via UART-serial
 * Install Git
 
 ```
 sudo apt-get update
 sudo apt-get install git -y
 ```
-* Install necessary packages to update CHIP firmware
+* Install necessary packages to update C.H.I.P. firmware
 
 ```
 sudo apt-get install sunxi-tools u-boot-tools -y

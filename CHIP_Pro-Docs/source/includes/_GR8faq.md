@@ -2,7 +2,7 @@
 ![GR8](images/GR8-Crop.png)
 
 ## What are the GR8’s dimensions?
-![GR8 Mechanical Drawing](images/GR8-Mechanical-Drawing.png)
+14mm x 14mm 
 
 ## What is the GR8 package?
 252 ball FBGA package.

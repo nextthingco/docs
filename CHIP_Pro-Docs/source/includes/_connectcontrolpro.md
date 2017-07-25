@@ -77,7 +77,7 @@ After you have setup your computer, press **START!**.
   
 Plug the micro USB cable into the micro USB port on C.H.I.P. Pro. Hold down the FEL button (a pencil eraser works nicely) and with the other hand plug the USB cable into the computer. When the pink power and white status LEDs on C.H.I.P. Pro light up, you can release the FEL button.
 
-![pushing FELL button](images/hold_plugPro800.gif)
+![pushing FELL button](images/hold_plugPro.gif)
 
 The web flasher will search for and recognize C.H.I.P. Pro.
 

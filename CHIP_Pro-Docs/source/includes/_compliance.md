@@ -17,9 +17,9 @@ This greatly lessens the workload of taking your product through FCC certificati
 
 ## CE + RED 2014/53/EU
 
-The CE mark on CHIP Pro enable the free movement of products into and within the European market. 
+The CE mark on CHIP Pro enables the free movement of products into and within the European market. 
 
-CHIP Pro is in compliance with the European Union's Radio Equipment Directive for wireless transmitters and receivers.
+CHIP Pro is in compliance with the European Union's **R**adio **E**quipment **D**irective for wireless transmitters and receivers.
 
 ##Industry Canada
 

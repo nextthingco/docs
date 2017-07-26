@@ -74,8 +74,8 @@ Pin Number | Port | GR8 Pin Name | Signal Description | Type
 -------------- | -------------- | -------------- | -------------- | --------------
 41 | PE0 | SPI2-CS0 | SPI2 Chip Select Signal (active low) | I/O
 40 | PE1 | SPI2-CLK | SPI2 Clock Signal | I/O
-39 | PE2 | SPI2-MISO | SPI2 Master Data In, Slave Data Out | I/O
-38 | PE3 | SPI2-MOSI | SPI2 Master Data Out, Slave Data In | I/O
+39 | PE2 | SPI2-MOSI | SPI2 Master Data Out, Slave Data In | I/O
+38 | PE3 | SPI2-MISO | SPI2 Master Data In, Slave Data Out | I/O
 
 ## D0-D7 – General Purpose In/Out
 Pin Number | Port Name | GR8 Pin Name | Signal Description | Type 

@@ -6,7 +6,7 @@
 C.H.I.P. Pro costs $16. Contact [sales@nextthing.co](mailto:sales@nextthing.co) or visit our [web store](https://nextthing.co/pages/store).
 
 ### Are there quantity discounts?
-C.H.I.P. Pro is $16 if purchasing under 10K units. If you are interested in 10K+ units please contact [sales@nextthing.co](mailto:sales@nextthing.co). 
+C.H.I.P. Pro is $16 if purchasing under 10K units. If you are interested in 10K+ units please contact [sales@nextthing.co](mailto:sales@nextthing.co) to discuss a quantity discount.
 
 ### Is C.H.I.P. Pro open source?
 C.H.I.P. Pro is open source. Find all you need to build with C.H.I.P. Pro in our [Github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware).
@@ -45,7 +45,7 @@ Yes! GR8 has the same Allwinner R8 processor that is in C.H.I.P., so your C.H.I.
 
 The biggest difference between C.H.I.P. Pro and C.H.I.P. is the amount of flash memory available. C.H.I.P. Pro offers 512 MB compared to C.H.I.P.'s 4 GB. 
 
-### What certifications and directive is C.H.I.P. Pro in compliance with?
+### What certifications and directives is C.H.I.P. Pro in compliance with?
 
 * CE
 * IC
@@ -54,3 +54,29 @@ The biggest difference between C.H.I.P. Pro and C.H.I.P. is the amount of flash 
 * RoHS
 
 Visit our [Compliance Statement](https://docs.getchip.com/chip_pro.html#compliance-statement) section for more information.
+
+### I am interested in creating a PCB using C.H.I.P. Pro, where do I start? 
+
+To get started refer to our [PCB Design Tips](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips) guide. If you need further guidance you will find recommendations of services. We are also happy to help where we can, reach out to us by emailing pro@nextthing.co.
+
+### Do you offer custom flashing solutions?
+We offer the service of custom flashing firmware at the factory for an extra fee when you purchase 1K+ C.H.I.P. Pros.
+
+### Are there any existing products in the market that use C.H.I.P. Pro?
+
+## G8 Module
+
+### What are the GR8’s dimensions?
+14mm x 14mm 
+
+### What is the GR8 package?
+252 ball FBGA package.
+
+### I have a prototype of my product, should I choose C.H.I.P. Pro or GR8 to move forward with?
+
+This depends on your needs and resources. For most customers, C.H.I.P. Pro will be the best and most convenient way to work with the GR8 SoC. It contains 127 already sourced components including a power management unit (PMU), micro USB port, WiFi, Bluetooth and more. 
+
+If you’ve tried C.H.I.P. Pro but are looking for a differently layout and functionality, then designing with GR8 is a great option. 
+
+### I’m a distributor, can I carry GR8?
+Sure! We want to talk to you. Contact us at [sales@nextthing.co](mailto:sales@nextthing.co).

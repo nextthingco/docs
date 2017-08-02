@@ -62,7 +62,7 @@ In the gadget-buildroot folder, edit the following file for the board you’re u
 gadget-buildroot/gadget/board/nextthing/chippro/uboot-env
 ```
 
-Let’s say we want to set the CSID6 (sysfs 138) and CSID7 (sysfs 139) pins to default to OUTPUT instead of INPUT. To do this, we need to add a function to the file like this:
+Let’s say we want to set the CSID6 (sysfs #138) and CSID7 (sysfs #139) pins to default to OUTPUT instead of INPUT. To do this, we need to add a function to the file like this:
 
 ```
 set_gpio=gpio clear 138; gpio clear 139;

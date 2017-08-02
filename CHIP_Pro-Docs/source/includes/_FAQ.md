@@ -1,5 +1,9 @@
 # C.H.I.P. Pro FAQ
 
+## The working FAQ is in githost account in the wiki
+
+
+
 ##Ordering
 
 ### How much does C.H.I.P. Pro cost?

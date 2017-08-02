@@ -39,11 +39,11 @@ After it leaves our shipping facility, the time it gets to your doorstep depends
 
 ## Building a Product with C.H.I.P. Pro
 
-###  I made a C.H.I.P. prototype, will it be software compatible with CHIP Pro and the GR8 module it runs on?
+###  I made a C.H.I.P. prototype, will it be software and hardware compatible with C.H.I.P. Pro and the GR8 module?
 
-Yes! GR8 has the same Allwinner R8 processor that is in C.H.I.P., so your C.H.I.P. software is 100% compatible with C.H.I.P. Pro. We believe you shouldn’t have to change your software to go into production. 
+GR8 has the same Allwinner R8 processor that is in C.H.I.P., so your C.H.I.P. software is 100% compatible with C.H.I.P. Pro. We believe you shouldn’t have to change your software to go into production. 
 
-The biggest difference between C.H.I.P. Pro and C.H.I.P. is the amount of flash memory available. C.H.I.P. Pro offers 512 MB compared to C.H.I.P.'s 4 GB. 
+The biggest difference between C.H.I.P. Pro and C.H.I.P. is the amount of flash memory available. C.H.I.P. Pro offers 512 MB compared to C.H.I.P.'s 4 GB. See how else the hardware included with C.H.I.P. Pro differs from C.H.I.P. by referencing this [comparison chart](http://ntc-docs-unstable.surge.sh/chip_pro.html#c-h-i-p-v-c-h-i-p-pro).
 
 ### What certifications and directives is C.H.I.P. Pro in compliance with?
 
@@ -57,14 +57,20 @@ Visit our [Compliance Statement](https://docs.getchip.com/chip_pro.html#complian
 
 ### I am interested in creating a PCB using C.H.I.P. Pro, where do I start? 
 
-To get started refer to our [PCB Design Tips](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips) guide. If you need further guidance you will find recommendations of services. We are also happy to help where we can, reach out to us by emailing pro@nextthing.co.
+To get started refer to our [PCB Design Tips](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips) guide. If you need further guidance you will find recommendations of services. We are also happy to do a PCB review and help where we can, reach out to us by emailing pro@nextthing.co.
 
 ### Do you offer custom flashing solutions?
 We offer the service of custom flashing firmware at the factory for an extra fee when you purchase 1K+ C.H.I.P. Pros.
 
 ### Are there any existing products in the market that use C.H.I.P. Pro?
 
-## G8 Module
+## GR8 Module
+
+### How much does GR8 cost?
+Gr8 costs $6 in any quantity. Contact [sales@nextthing.co](mailto:sales@nextthing.co). 
+
+### Where can I purchase GR8?
+Contact us at [sales@nextthing.co](mailto:sales@nextthing.co) to tell more about your product.
 
 ### What are the GR8’s dimensions?
 14mm x 14mm 
@@ -74,9 +80,9 @@ We offer the service of custom flashing firmware at the factory for an extra fee
 
 ### I have a prototype of my product, should I choose C.H.I.P. Pro or GR8 to move forward with?
 
-This depends on your needs and resources. For most customers, C.H.I.P. Pro will be the best and most convenient way to work with the GR8 SoC. It contains 127 already sourced components including a power management unit (PMU), micro USB port, WiFi, Bluetooth and more. 
+This depends on your product's needs and your company's resources. For most customers, C.H.I.P. Pro will be the best and most convenient way to work with the GR8. It contains 127 already sourced components including a power management unit (PMU), micro USB port, WiFi, Bluetooth and more. 
 
-If you’ve tried C.H.I.P. Pro but are looking for a differently layout and functionality, then designing with GR8 is a great option. 
+If you have tried C.H.I.P. Pro and have found that you need a different layout and different functionality, then designing around GR8 is a great option. 
 
 ### I’m a distributor, can I carry GR8?
-Sure! We want to talk to you. Contact us at [sales@nextthing.co](mailto:sales@nextthing.co).
+Yes! Contact us at [sales@nextthing.co](mailto:sales@nextthing.co).

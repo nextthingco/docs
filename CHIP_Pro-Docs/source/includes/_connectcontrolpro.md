@@ -295,7 +295,7 @@ sh set_antenna pcb|ufl
 
 In Debian, there are two ways to set the antenna path:
 
-* The RF switch is connected to logic pin PB17. Manually set the logic states to choose either the onboard or external antenna.
+* The RF switch is connected to logic pin PB17, Sysfs GPIO #49. Manually set the logic states to choose either the onboard or external antenna.
 
 0 = onboard-antenna 
 

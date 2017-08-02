@@ -3,12 +3,10 @@
 ## Ordering
 
 ### How much does C.H.I.P. Pro cost?
-
 C.H.I.P. Pro costs $16. Contact [sales@nextthing.co](mailto:sales@nextthing.co)
 (pre-flashing available for large orders).
 
 ### Are there quantity discounts?
-
 C.H.I.P. Pro is $16 no matter how many you order.  
 
 ### Is C.H.I.P. Pro open source?
@@ -17,11 +15,11 @@ Yes, you can see our design files in our [git repository](https://github.com/Nex
 
 ### Does C.H.I.P. Pro replace C.H.I.P.?
 
-C.H.I.P. is still a huge part of what we do. We made C.H.I.P. Pro and Gadget so the enterprising members of the CHIPster community would have a great option for scalable hardware, software and infrastructure for their products.
+C.H.I.P. is still a huge part of what we do. We made C.H.I.P. Pro so the enterprising members of the CHIPster community would have a great option for scalable hardware, software and infrastructure for their products.
 
 ### Where can I buy C.H.I.P. Pro?
 
-Currently, we’re offering the C.H.I.P. Pro Dev kit for $49 in our [web store](https://nextthing.co/pages/store).
+Currently, we’re offering the C.H.I.P. Pro Dev kit and CHIP Pro loose in our [web store](https://nextthing.co/pages/store).
 
 ###  How many may I order?
 

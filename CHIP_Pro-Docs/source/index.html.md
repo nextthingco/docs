@@ -14,7 +14,6 @@ includes:
   - pins
   - CPfaq
   - support
-  - GR8faq
   - chipvchippro
   - pinusage
   - compliance

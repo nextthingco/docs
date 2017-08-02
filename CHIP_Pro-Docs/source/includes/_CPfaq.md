@@ -76,7 +76,7 @@ Contact us at [sales@nextthing.co](mailto:sales@nextthing.co) to tell more about
 14mm x 14mm 
 
 ### What is the GR8 package?
-252 ball FBGA package.
+GR8 is built within a 252 ball FBGA (Fine Pitch Ball Grid Array) package.
 
 ### I have a prototype of my product, should I choose C.H.I.P. Pro or GR8 to move forward with?
 

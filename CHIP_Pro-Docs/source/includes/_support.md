@@ -1,23 +1,25 @@
 # Support
 
-This support page is where you can find frequently asked questions and topics of the technical variety. For general inquiries, check out our [C.H.I.P. Pro FAQ](http://ntc-docs-unstable.surge.sh/chip_pro.html#c-h-i-p-pro-faq) section.
+This support section is where you can find frequently asked questions and topics of the technical variety. For general inquiries, check out our [C.H.I.P. Pro FAQ](http://ntc-docs-unstable.surge.sh/chip_pro.html#c-h-i-p-pro-faq) section.
 
 ## Power
 
-### Why is my battery charging very slowly or not at all?
-First, make sure the correct power source is connected to correct pin as stated in the [documentation](https://docs.getchip.com/chip_pro.html#power-c-h-i-p-pro). 
+### Why is my battery charging at a very slow rate or not at all?
+First, make sure the correct power source is connected to the correct pins as stated in the [documentation](https://docs.getchip.com/chip_pro.html#power-c-h-i-p-pro). 
 
-Assuming the power source is connected correctly, the issue may be with the BTS pin which is directly connected to the TS pin on the AXP209 power management unit. This pin expects a specific voltage range in order to know it is safe to charge the battery. It's recommended to disable it by either connecting the pin to ground or disabling through software. Read more about the TS pin and solutions provided in the [Power](https://docs.getchip.com/chip_pro.html#battery-charging-and-bts-pin) section of the C.H.I.P. Pro docs. 
+Assuming the power source is connected correctly, the issue may be with the BTS pin which is directly connected to the TS pin on the AXP209 power management unit. This pin expects a specific voltage range in order to know it is safe to charge the battery. It's recommended to disable it by either connecting the pin to ground or disabling through software. Read more about the TS pin and how to disable it in the [Power](https://docs.getchip.com/chip_pro.html#battery-charging-and-bts-pin) section of the C.H.I.P. Pro docs. 
 
 ### I think my C.H.I.P. Pro is overheating!
 
-There are a few reasons why your C.H.I.P. Pro may experience sudden power loss or a freeze, but heat is almost never the issue. C.H.I.P. Pro has been tested and verified in various extreme temperatures. The cause of possible overheating issues is usually due to lack of a proper power source or a software issue. Check the most recent [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware) for minimum and maximum power and temperature ratings. 
+The cause of possible overheating issues is usually due to lack of a proper power source or a software issue. Check the most recent [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware) for minimum and maximum power and temperature ratings. 
 
-### My CHIP Pro shuts down during boot or when under heavy processing loads.
+There are a few reasons why your C.H.I.P. Pro may experience sudden power loss or a freeze, but heat is almost never the issue. Rest assured knowing that C.H.I.P. Pro has been tested and verified in various extreme temperatures. 
 
-Make sure your are using an adequate power source that can provide a recommended 1 Amp of current. You can also attach a single cell LiPo battery to the BAT pin to provide extra power when the processor needs it. 
+### My C.H.I.P. Pro shuts down during boot or when under heavy processing loads.
 
-Another common cause for sudden power loss is due to the AXP209’s power management shutting down if the current draw reaches a set threshold (900mA, for example). If your project has higher power needs, you may want to disable the current-limit feature so that the AXP209 will allow the system to tolerate higher current.
+Make sure you are using an adequate power source that can provide a recommended **1 Amp of current**. You can also attach a single cell LiPo battery to the BAT pin to provide extra power when the processor needs it. 
+
+Another common cause for sudden power loss is due to the AXP209’s power management shutting down if the current draw reaches a set threshold (900mA, for example). If your project has higher power needs, you may want to disable the current-limit feature and set it to "no limit" so that the AXP209 will allow the system to tolerate higher current. This can be found on page 33 of the [AXP209 datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets).
 
 The common way to set this register is using a systemd service that issues the proper command with i2c-tools:
 
@@ -42,19 +44,19 @@ If C.H.I.P. Pro loses power during these operations, it is most likely a problem
 
 The best practice is to try and ensure that your device never turns off without completing a proper shutdown procedure. For example, when adding a battery to your device, it is best to write code that will monitor battery usage and power down your system gracefully when the voltage drops below a specified threshold.
 
-If this is not an option for your application, you can also try calling the “sync” command periodically when you are writing data. This ensures that the NAND blocks are synchronized and may eliminate data corruption in the case of a sudden power loss.
+If this is not an option for your application, you can also try calling the `sync` command periodically when you are writing data. This ensures that the NAND blocks are synchronized and may eliminate data corruption in the case of a sudden power loss.
 
 ### Is there an interrupt or some kind of event for the AXP209 power management?
 
-A simple way monitor power usage would be to write a script or service that queries the AXP209 on I2C bus 0 at periodic intervals.
+A simple way to monitor power usage would be to write a script or service that queries the AXP209 on I2C bus 0 at periodic intervals.
 
 The AXP209 has its own interrupts, which are connected to pin M2 (NMI) on the GR8. Currently we do not provide documentation on how to use the NMI to respond to such events.
 
 ## Hardware and Software
 
-### How do I set the default state of the IO pins?
+### How do I set the default state of the I/O pins in GadgetOS?
 
-Sometimes you may have a project where you need to set the state of the IO as early as possible before Linux has fully booted. We can accomplish this by adding a script for the U-boot phase of the booting process.
+Sometimes you may have a project where you need to set the state of the I/O as early as possible before Linux has fully booted. We can accomplish this by adding a script for the U-boot phase of the booting process.
 
 In the gadget-buildroot folder, edit the following file for the board you’re using:
 
@@ -68,7 +70,7 @@ Let’s say we want to set the CSID6 (sysfs #138) and CSID7 (sysfs #139) pins to
 set_gpio=gpio clear 138; gpio clear 139;
 ```
 
-In this case, “clear” means resetting the IO to an output state. You can also use commands like “gpio toggle” to invert the current value, “gpio set” to set the pin HIGH, or “gpio input” to set it as an input.
+In this case, “clear” means resetting the I/O to an output state. You can also use commands like “gpio toggle” to invert the current value, “gpio set” to set the pin HIGH, or “gpio input” to set it as an input.
 
 Now we need to call this function as early as possible in the boot process. In the same file, find this line:
 
@@ -172,7 +174,7 @@ If you wish to use the GR8 module to make your own board, it is possible to driv
 
 ### Why won’t GadgetOS use my settings from /etc/network/interfaces?
 
-Gadget OS uses Connman to manage all network connections, which does not support /etc/network/interfaces and will override any of those settings. Instead, Connman uses its own settings file, which can be found here:
+GadgetOS uses Connman to manage all network connections, which does not support /etc/network/interfaces and will override any of those settings. Instead, Connman uses its own settings file, which can be found here:
 
 ```
 /var/lib/connman/*/settings

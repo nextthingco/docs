@@ -3,13 +3,13 @@
 ## Ordering
 
 ### How much does C.H.I.P. Pro cost?
-C.H.I.P. Pro costs $16. To purchase visit our [web store](https://nextthing.co/pages/store) or contact [sales@nextthing.co](mailto:sales@nextthing.co).
+C.H.I.P. Pro costs $16. To purchase, visit our [web store](https://nextthing.co/pages/store) or contact [sales@nextthing.co](mailto:sales@nextthing.co).
 
 ### Are there quantity discounts?
-C.H.I.P. Pro is $16 if purchasing under 10K units. If you are interested in 10K+ units please contact [sales@nextthing.co](mailto:sales@nextthing.co) to discuss a quantity discount.
+C.H.I.P. Pro is $16 unless you are interested in purchasing 10K+ units. If that is the case please contact [sales@nextthing.co](mailto:sales@nextthing.co) to discuss a quantity discount.
 
 ### Is C.H.I.P. Pro open source?
-C.H.I.P. Pro is open source. Find all you need to build with C.H.I.P. Pro in our [Github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware).
+Yes! Find all you need to build with C.H.I.P. Pro in our [Github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware).
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
@@ -57,12 +57,10 @@ Visit our [Compliance Statement](https://docs.getchip.com/chip_pro.html#complian
 
 ### I am interested in creating a PCB using C.H.I.P. Pro, where do I start? 
 
-To get started, refer to our [PCB Design Tips](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips) guide. If you need further guidance, there you will find recommendations of services to help aid you in PCB design and fabrication. We are also happy to do a PCB review and help where we can, reach out to us by emailing pro@nextthing.co.
+To get started, refer to our [PCB Design Guide](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips). If you need further guidance, you will find recommendations of services to help aid you in PCB design and fabrication. We are also happy to do a PCB review and help where we can. If you have questions reach out to us by emailing [pro@nextthing.co](mailto:pro@nextthing.co).
 
 ### Do you offer custom flashing solutions?
-We offer the service of custom flashing firmware at the factory for an extra fee when you purchase 1K+ C.H.I.P. Pros.
-
-The list is growing but there are two companies that we are proud to to say run on CHIP Pro are TRNTBL and the Outernet Lantern.
+We offer flashing of custom firmware at the factory for an extra fee when you purchase 1K+ C.H.I.P. Pros.
 
 ## GR8 Module
 
@@ -82,7 +80,7 @@ GR8 is built within a 252 ball FBGA (Fine Pitch Ball Grid Array) package, 0.8mm 
 
 This depends on your product's needs and your company's resources. For most customers, C.H.I.P. Pro will be the best and most convenient way to work with the GR8 SiP. C.H.I.P. Pro contains 127 already sourced components including a power management unit (PMU), micro USB port, WiFi, Bluetooth and more. 
 
-If you have tried C.H.I.P. Pro and have found that you need a different layout and different functionality, then designing around GR8 is a great option. You can find out all that GR8 has to offer in the GR8 [datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Datasheets).
+If you have tried C.H.I.P. Pro and have found that you need a different layout and different functionality, then designing around GR8 is a great option. You can find out everything that GR8 has to offer in the GR8 [datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Datasheets).
 
 ### I’m a distributor, can I carry GR8?
 Yes! Contact us at [sales@nextthing.co](mailto:sales@nextthing.co).

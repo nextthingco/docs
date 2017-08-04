@@ -7,7 +7,7 @@ This support section is where you can find frequently asked questions and topics
 ### Why is my battery charging at a very slow rate or not at all?
 First, make sure the correct power source is connected to the correct pins as stated in the [documentation](https://docs.getchip.com/chip_pro.html#power-c-h-i-p-pro). 
 
-Assuming the power source is connected correctly, the issue may be with the BTS pin which is directly connected to the TS pin on the AXP209 power management unit. This pin expects a specific voltage range in order to know it is safe to charge the battery. It's recommended to disable it by either connecting the pin to ground or disabling through software. Read more about the TS pin and how to disable it in the [Power](https://docs.getchip.com/chip_pro.html#battery-charging-and-bts-pin) section of the C.H.I.P. Pro docs. 
+Assuming the power source is connected correctly, the issue may be with C.H.I.P. Pro's BTS pin which is directly connected to the TS pin on the AXP209 power management unit. This pin expects a 10K thermistor as a way to monitor the battery by providing the pin with a specific voltage range. Hitting this range tells the PMU that it is safe to charge the battery. Without an added thermistor, it's recommended to disable this function by either connecting the BTS pin to ground or disabling through software. Read more about the BTS pin and how to disable it in the [Power](https://docs.getchip.com/chip_pro.html#battery-charging-and-bts-pin) section of the C.H.I.P. Pro docs. 
 
 ### I think my C.H.I.P. Pro is overheating!
 
@@ -50,7 +50,7 @@ If this is not an option for your application, you can also try calling the `syn
 
 A simple way to monitor power usage would be to write a script or service that queries the AXP209 on I2C bus 0 at periodic intervals.
 
-The AXP209 has its own interrupts, which are connected to pin M2 (NMI) on the GR8. Currently we do not provide documentation on how to use the NMI to respond to such events.
+The AXP209 has its own interrupts, which are connected to pin M2 (NMI) on the GR8. Currently, we do not provide documentation on how to use the NMI to respond to such events.
 
 ## Hardware and Software
 
@@ -70,7 +70,7 @@ Let’s say we want to set the CSID6 (sysfs #138) and CSID7 (sysfs #139) pins to
 set_gpio=gpio clear 138; gpio clear 139;
 ```
 
-In this case, “clear” means resetting the I/O to an output state. You can also use commands like “gpio toggle” to invert the current value, “gpio set” to set the pin HIGH, or “gpio input” to set it as an input.
+In this case, “clear” means resetting the I/O to an output state. You can also use commands like `gpio toggle` to invert the current value, `gpio set` to set the pin HIGH, or `gpio input` to set it as an input.
 
 Now we need to call this function as early as possible in the boot process. In the same file, find this line:
 
@@ -90,9 +90,23 @@ Save this file and recompile your uboot changes.
 /scripts/build-gadget make uboot-reconfigure all
 ```
 
-Re-flash with the new build and reboot. Your IO will now be set during the u-boot portion of the booting process.
+Re-flash with the new build and reboot. Your I/O will now be set during the u-boot portion of the booting process.
 
 **NOTE:** If you then export this pin when Linux is booted, it may revert back to its default state, so be sure to set it again.
+
+### Why is so much of my file system marked as “read only”?
+
+With GadgetOS the intent was to make an operating system distribution that is as secure as possible when deployed to hundreds of devices all over the world. It was also important to limit the possibility of corrupted data during operations like over-the-air updates or sudden power loss.
+
+Because of this, much of the root file system is set to “read only” to create as stable of a device as possible. 
+
+However, any files under **the “/data” folder have full read/write access**, so you should place any data that needs to be written in this location. 
+
+### Why doesn’t my C.H.I.P. Pro (without the Dev Kit) register as a USB serial device when connected to my computer via the micro USB port?
+
+If you are using GadgetOS, the micro USB port is configured as an ethernet gadget, which you can connect to using a shell application. If you want to use this as a USB serial port, you would need to make this change in the services running on the device and bind Getty to this port.
+
+Alternatively, you can [connect a USB UART cable](https://docs.getchip.com/chip_pro.html#make-a-serial-connection) to C.H.I.P. Pro’s UART1-RX and UART1-TX pins (pins 44 and 43) and communicate with it that way. This is essentially what the micro USB port does on the CHIP Pro Dev Kit.
 
 ### I’m using Docker and I need to be able to reboot or shutdown my device from within a container. How can I do this?
 
@@ -136,7 +150,7 @@ Additional raw NAND components may work, but will most likely require changes to
 
 ### Can I boot From an SD Card?
 
-Booting from SD cards or eMMC and are supported on the GR8 processor, but since C.H.I.P. Pro already reserves these data pins for the onboard NAND storage, you would need to create a custom GR8 board with some additional Buildroot configuration settings.
+Booting from SD cards or eMMC are supported on the GR8 processor, but since C.H.I.P. Pro already reserves these data pins for the onboard NAND storage, you would need to create a custom GR8 board with some additional Buildroot configuration settings.
 
 ### How can I make a backup of my NAND or eMMC filesystem?
 
@@ -145,20 +159,6 @@ Using **Rsync** is the current recommended way to do this, as it will create a t
 ```
 rsync -aAXv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*",”/etc/udev/rules.d/*”,"/media/*","/lost+found","/boot/*"} / /tmp/backup && tar -C /tmp/backup -cvzf myBackup.tar.gz .
 ```
-
-### Why is so much of my file system marked as “read only”?
-
-With GadgetOS the intent was to make an operating system distribution that is as secure as possible when deployed to hundreds of devices all over the world. It was also important to limit the possibility of corrupted data during operations like over-the-air updates or sudden power loss.
-
-Because of this, much of the root file system is set to “read only” to create as stable of a device as possible. 
-
-However, any files under **the “/data” folder have full read/write access**, so you should place any data that needs to be written in this location. 
-
-### Why doesn’t my C.H.I.P. Pro (without the Dev Kit) register as a USB serial device when connected to my computer via the micro USB port?
-
-If you are using GadgetOS, the micro USB port is configured as an ethernet gadget, which you can connect to using a shell application. If you want to use this as a USB serial port, you would need to make this change in the services running on the device and bind Getty to this port.
-
-Alternatively, you can [connect a USB UART cable](https://docs.getchip.com/chip_pro.html#make-a-serial-connection) to C.H.I.P. Pro’s UART1-RX and UART1-TX pins (pins 44 and 43) and communicate with it that way. This is essentially what the micro USB port does on the CHIP Pro Dev Kit.
 
 ### How can I trigger an event when a USB device is added or removed?
 
@@ -212,7 +212,7 @@ The recommended way is to add the Bluez 5.x package and then use tools such as �
 
 ### Bluetooth is not working on C.H.I.P. Pro Debian-based Pro image.
 
-Currently, the Debian-based Pro image with built-in Bluetooth drivers is a work in progress. Since our software and hardware is [open source](https://github.com/NextThingCo) for development, our community created an image that includes a working Bluetooth utility that you can use to validate that Bluetooth is working. Follow the instructions below to manually flash C.H.I.P. Pro with a Debian image that implements the Bluetooth stack using BlueZ.
+Currently, the Debian-based Pro image with built-in Bluetooth drivers is a work in progress. Since our software and hardware is [open source](https://github.com/NextThingCo) for development, our community created an image that includes a working Bluetooth utility you can use to validate whether Bluetooth is working. Follow the instructions below to manually flash C.H.I.P. Pro with a Debian image that implements the Bluetooth stack using BlueZ.
 
 These instructions are written for a development machine that runs a Debian distro of Linux. Depending on what OS your machine runs you will either need to install packages using a different package manager than `apt-get` or your dev machine may already include them.
 

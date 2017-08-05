@@ -1,4 +1,4 @@
-# PCB Design Tips 
+# PCB Design Guide 
 
 C.H.I.P. Pro was created to be seamlessly embedded into products and we at NTC are here to help you do that. If you are ready to go from breadboard to PCB, read on. This section gives recommendations and provides resources and tips to help plan a successful PCB design. 
 

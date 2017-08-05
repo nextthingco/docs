@@ -1,6 +1,6 @@
 # Support
 
-This support section is where you can find frequently asked questions and topics of the technical variety. For general inquiries, check out our [C.H.I.P. Pro FAQ](http://ntc-docs-unstable.surge.sh/chip_pro.html#c-h-i-p-pro-faq) section.
+This support section is where you will find frequently asked questions and topics of the technical variety. For general inquiries, check out our [C.H.I.P. Pro FAQ](http://ntc-docs-unstable.surge.sh/chip_pro.html#c-h-i-p-pro-faq) section.
 
 ## Power
 

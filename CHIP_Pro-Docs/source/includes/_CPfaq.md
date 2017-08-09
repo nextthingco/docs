@@ -14,14 +14,14 @@ Yes! Find all you need to build with C.H.I.P. Pro in our [Github repo](https://g
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
 ### Where can I purchase C.H.I.P. Pro?
-We offer the C.H.I.P. Pro Dev kit and C.H.I.P. Pro in our [web store](https://nextthing.co/pages/store).
+We offer the C.H.I.P. Pro Dev kit and C.H.I.P. Pro in our [web store](https://nextthing.co/pages/chippro).
 
 ###  How many may I order?
-As many or as few as you need. 1 to 1 million (or more). For orders over 1K please contact [sales@nextthing.co](mailto:sales@nextthing.co) to set up a purchase order.
+As many or as few as you need: 1 to 1 million (or more). For orders over 1KU please contact [sales@nextthing.co](mailto:sales@nextthing.co) to set up a purchase order.
 
 ### What is the lead time on a C.H.I.P. Pro order?
 
-The time the order leaves our shipping facility depends on the number of units purchased.
+The time your order leaves our shipping facility depends on the number of units purchased.
 
 | # of Units | Ships Out                  |
 |------------|----------------------------|
@@ -29,7 +29,7 @@ The time the order leaves our shipping facility depends on the number of units p
 | 500 -1,000 | 7 -10 days                 |
 | 1,000+     | Contact sales@nextthing.co |
 
-After it leaves our shipping facility, the time it gets to your doorstep depends on your location.
+After your order leaves our shipping facility, the time it gets to your doorstep depends on your location.
 
 | Location | Arrives                 |
 |------------|----------------------------|
@@ -53,9 +53,9 @@ To see some of the hardware differences between C.H.I.P. and C.H.I.P. Pro take a
 * Reach
 * RoHS
 
-Visit our [Compliance Statement](https://docs.getchip.com/chip_pro.html#compliance-statement) section for more information.
+Visit our [Compliance Statement](https://docs.getchip.com/chip_pro.html#compliance-statement) section for more information about each certification.
 
-### I am interested in creating a PCB using C.H.I.P. Pro, where do I start? 
+### I am want to in creating a custom PCB and integrate C.H.I.P. Pro, where do I start? 
 
 To get started, refer to our [PCB Design Guide](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips). If you need further guidance, you will find recommendations of services to help aid you in PCB design and fabrication. We are also happy to do a PCB review and help where we can. If you have questions reach out to us by emailing [pro@nextthing.co](mailto:pro@nextthing.co).
 
@@ -65,7 +65,7 @@ We offer flashing of custom firmware at the factory for an extra fee when you pu
 ## GR8 Module
 
 ### How much does GR8 cost?
-Gr8 costs $6 in any quantity.  
+GR8 costs $6 in any quantity.  
 
 ### Where can I purchase GR8?
 Contact us at [sales@nextthing.co](mailto:sales@nextthing.co) to tell us more about your product and to set up a purchase order.
@@ -78,7 +78,7 @@ GR8 is built within a 252 ball FBGA (Fine Pitch Ball Grid Array) package, 0.8mm 
 
 ### I have a prototype of my product, should I choose C.H.I.P. Pro or GR8 to move forward with?
 
-This depends on your product's needs and your company's resources. For most customers, C.H.I.P. Pro will be the best and most convenient way to work with the GR8 SiP. C.H.I.P. Pro contains 127 already sourced components including a power management unit (PMU), micro USB port, WiFi, Bluetooth and more. 
+This depends on your product's needs and your company's resources. For most customers, C.H.I.P. Pro will be the best and most convenient way to work with the GR8 SiP (System in Package). C.H.I.P. Pro contains 127 already sourced components including a power management unit (PMU), micro-USB port, WiFi, Bluetooth and more. 
 
 If you have tried C.H.I.P. Pro and have found that you need a different layout and different functionality, then designing around GR8 is a great option. You can find out everything that GR8 has to offer in the GR8 [datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Datasheets).
 

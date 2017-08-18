@@ -1,5 +1,9 @@
 # C.H.I.P. Pro FAQ
 
+## The working FAQ is in githost account in the wiki
+
+
+
 ##Ordering
 
 ### How much does C.H.I.P. Pro cost?
@@ -10,7 +14,7 @@ C.H.I.P. Pro costs $16. Contact [sales@nextthing.co](mailto:sales@nextthing.co)
 As many or as few as you’d like. 1 to 1 million (or more). For larger orders, hit us up at [sales@nextthing.co](mailto:sales@nextthing.co)
 
 ### Where can I buy C.H.I.P. Pro?
-Currently, we’re offering the C.H.I.P. Pro Dev kit for $49 in our [web store](https://nextthing.co/pages/store).
+Currently, we’re offering the C.H.I.P. Pro Dev kit for $49 in our [web store](https://nextthing.co/pages/chippro).
 
 ### Are there quantity discounts?
 C.H.I.P. Pro is $16 no matter how many you order. But, if you have to ask you should contact [sales@nextthing.co](mailto:sales@nextthing.co). 

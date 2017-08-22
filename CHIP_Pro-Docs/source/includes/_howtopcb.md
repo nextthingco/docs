@@ -193,7 +193,7 @@ Whether you want to add a micro USB 5V source or a host USB-A port, here are som
 If your product requires analog input for sensors, keypads or potentiometers there a few ways to utilize an ADC.
 
 * An I2C controlled ADC can be added to your product's circuit.
-* There is a 12-bit ADC integrated in the AXP209's temperature sensor circuit. More info on [page 25 of the AXP209 datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master).
+* There is a 12-bit ADC integrated in the AXP209's temperature sensor circuit. More info on [page 25 of the AXP209 datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/blob/master/v1.0/Component%20Datasheets/AXP209_Datasheet_v1.0en.pdf).
 * C.H.I.P. Pro has a 6-bit LRADC (Low Resolution ADC) accessible through pin 42 suitable for multi-button input. 
 
 ## WiFi Signal

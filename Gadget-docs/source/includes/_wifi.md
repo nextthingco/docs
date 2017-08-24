@@ -15,7 +15,7 @@ connmanctl scan wifi
 connmanctl services
 ```
 
-The `services` command has output similar to:
+The `services` command will give output similar to:
 
 ```shell
 WaffleHouse          wifi_xxxxxxxxxxxx_xxxxxx_managed_psk

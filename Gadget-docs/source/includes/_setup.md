@@ -46,9 +46,9 @@ Add the new path to the end of the file and save.
 
 Put the gadget binary somewhere like C:\Program Files\gadget and edit the *Path* variable to point to that location.
 
-Click the Windows icon to open the Start Menu. Search for *Advanced System Settings*. When the System Properties window opens click on *Environment Variables*.
+Click the Windows icon to open the Start Menu. Search for *Advanced System Settings*. When the *System Properties* window opens click on *Environment Variables*.
 
-Find and select the *Path* variable under *System Variables*. Click *Edit* and the *Edit environment variable* window will open. Click *New* and enter the directory path to the Gadget binary. Then click *OK*.
+Find and select the *Path* variable under *System Variables*. Click *Edit* and the *Edit Environment Variable* window will open. Click *New* and enter the directory path to the Gadget binary. Then click *OK*.
 
 **Linux**
 

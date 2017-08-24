@@ -34,6 +34,7 @@ onboot:
   command: []
   binds: []
   capabilities: []
+  devices: []
 services: []
 ```
 
@@ -80,7 +81,7 @@ To stop the running container use the `gadget stop` command.
 gadget stop
 ```
 
-To delete the container use, you guessed it, the `gadget delete` command.
+To delete the container use the `gadget delete` command.
 
 ```bash
 gadge delete

@@ -75,7 +75,7 @@ An entry for `image:` is generated when you add to onboot or services via the co
 gadget add service|onboot projectName
 ```
 
-To pull a base image from Docker Hub change `image:` to the username and repository you would like to pull. By default, the ["latest" tag](https://docs.docker.com/get-started/part2/#tag-the-image) of the image is used. Learn more about [Docker Hub](https://docs.docker.com/docker-hub/) and how to use it.
+To pull a base image from Docker Hub change `image:` to the username and repository you would like to pull. By default, the ["latest" tag](https://docs.docker.com/get-started/part2/#tag-the-image) of the image is used.
 
 __Format:__
 

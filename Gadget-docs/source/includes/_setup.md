@@ -12,7 +12,7 @@ Gadget makes use of [Docker's](https://www.docker.com/) container system. Depend
 * Windows 10 - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 * Linux - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 
-After you install Docker, you will need to run it once before using GadgetCLI. GadgetCLI uses the Docker daemon to pull images from [Docker Hub](https://hub.docker.com/) or to build directly from local Dockerfiles.
+After you install Docker, you will need to run it once before using GadgetCLI. GadgetCLI uses the Docker daemon to pull images from [Docker Hub](https://hub.docker.com/) or to build directly from local Dockerfiles. Learn more about [Docker Hub](https://docs.docker.com/docker-hub/) and how to use it.
 
 ## Download Gadget
 

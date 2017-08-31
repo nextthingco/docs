@@ -14,9 +14,9 @@ Gadget makes use of [Docker's](https://www.docker.com/) container system. Depend
 
 After you install Docker, you will need to run it once before using GadgetCLI. GadgetCLI uses the Docker daemon to pull images from [Docker Hub](https://hub.docker.com/) or to build directly from local Dockerfiles. Learn more about [Docker Hub](https://docs.docker.com/docker-hub/) and how to use it.
 
-### Further Linux Setup
+### Setup for Linux
 
-If your development machine runs Linux you may need to download extra packages for Docker to successfully build from arm binaries. Open a terminal window and install [binfmt-support](https://packages.debian.org/stretch/binfmt-support) and [qemu-user-static](https://packages.debian.org/stretch/qemu-user-static) then reboot.
+If your development machine runs Linux you may need to download extra packages for Docker to successfully build an ARM container. Open a terminal window and install [binfmt-support](https://packages.debian.org/stretch/binfmt-support) and [qemu-user-static](https://packages.debian.org/stretch/qemu-user-static) then reboot.
 
 ```
 sudo apt-get install binfmt-support qemu-user-static

@@ -16,7 +16,7 @@ After you install Docker, you will need to run it once before using GadgetCLI. G
 
 ### Setup for Linux
 
-If your development machine runs Linux you may need to download extra packages for Docker to successfully build an ARM container. Open a terminal window and install [binfmt-support](https://packages.debian.org/stretch/binfmt-support) and [qemu-user-static](https://packages.debian.org/stretch/qemu-user-static) then reboot.
+If your development machine runs Linux you may need to download extra packages for Docker to successfully build an ARM container. Open a terminal window and install [binfmt-support](https://packages.debian.org/stretch/binfmt-support) and [qemu-user-static](https://packages.debian.org/stretch/qemu-user-static) and then reboot.
 
 ```
 sudo apt-get install binfmt-support qemu-user-static

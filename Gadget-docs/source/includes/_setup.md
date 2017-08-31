@@ -9,10 +9,19 @@ To get started, download and install the following on your development machine a
 Gadget makes use of [Docker's](https://www.docker.com/) container system. Dependent on your development machine's OS, download and install the appropriate version of Docker.
 
 * MacOS - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
-* Windows 10 - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
+* Windows 10 (Pro Edition)- [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 * Linux - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 
 After you install Docker, you will need to run it once before using GadgetCLI. GadgetCLI uses the Docker daemon to pull images from [Docker Hub](https://hub.docker.com/) or to build directly from local Dockerfiles. Learn more about [Docker Hub](https://docs.docker.com/docker-hub/) and how to use it.
+
+### Further Linux Setup
+
+If your development machine runs Linux you may need to download extra packages for Docker to successfully build from arm binaries. Open a terminal window and install [binfmt-support](https://packages.debian.org/stretch/binfmt-support) and [qemu-user-static](https://packages.debian.org/stretch/qemu-user-static) then reboot.
+
+```
+sudo apt-get install binfmt-support qemu-user-static
+sudo reboot
+```
 
 ## Download Gadget
 

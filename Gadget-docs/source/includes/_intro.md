@@ -1,6 +1,6 @@
 # Welcome to Gadget!
 
-<span style="font-size: 36px">&#128226;</span>  Welcome to the documentation for Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro and Gadget supported devices. 
+<span style="font-size: 36px">&#128226;</span>  Welcome to the documentation for Gadget. Gadget is a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro and Gadget supported devices. 
 
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development.

@@ -1,11 +1,6 @@
 # Welcome to Gadget!
 
-<span style="font-size: 36px">&#128226;</span>  Welcome to the **developer preview** of Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro and Gadget supported devices. 
-
-<aside class="notice">
-Gadget is open source and is being actively developed; we want to know what you think about it. </aside>
-
-The best way to leave us feedback is to submit changes to the [GadgetCLI alpha release](https://github.com/NextThingCo/gadgetcli) GitHub repo. 
+<span style="font-size: 36px">&#128226;</span>  Welcome to the documentation for Gadget, a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro and Gadget supported devices. 
 
 # What is Gadget? 
 Gadget is made up of two pieces of software that work together to simplify embedded software development.

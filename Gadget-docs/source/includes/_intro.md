@@ -2,7 +2,7 @@
 
 Gadget is a suite of tools for developing, deploying, and distributing your applications to C.H.I.P. Pro and Gadget supported devices. 
 
-This documentation starts by guiding you through the installation of Gadget then a quickstart "hello world" example to make sure everything is set up correctly. It then moves into more detailed instructions on how to build, share and deploy custom and community built applications. After going through the quickstart and how to build with Gadget sections, this documentation offers helpful references and several example projects to start building with.  
+This documentation starts by guiding you through the installation of Gadget then a quickstart "hello world" example to make sure everything is set up correctly. It then moves into more detailed instructions on how to build, share and deploy custom and community built applications. After going through the quickstart and how to build with Gadget sections, this documentation also offers helpful references and several example projects to start building with.  
 
 # What is Gadget? 
 

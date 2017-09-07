@@ -78,7 +78,7 @@ Your version of Docker may be out of date. Docker version 17.06 or greater is re
 standard_init_linux.go:187: exec user process caused "exec format error"
 
 ```
-Docker image this error will occur. The latest versions of Docker for Windows and Docker for Mac can build non-native architecture containers which is not the case for some distributions of Linux. Additional files need to be added and packages installed to enable to ability to build `arm32v7/*` Docker images. To install the necessary packages and get the necessary files, follow the instructions in [Setup for Linux](https://docs.getchip.com/gadget.html#setup-for-linux) section.
+The latest versions of Docker for Windows and Docker for Mac can build non-native architecture containers which is not the case for some distributions of Linux. Additional files need to be added and packages installed to enable to ability to build `arm32v7/*` Docker images. To install the necessary packages and get the necessary files, follow the instructions in [Setup for Linux](https://docs.getchip.com/gadget.html#setup-for-linux) section.
 
 ```
 standard_init_linux.go:187: exec user process caused "no such file or directory"

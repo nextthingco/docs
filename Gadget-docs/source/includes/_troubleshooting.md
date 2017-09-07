@@ -70,4 +70,29 @@ W:  Is the docker daemon installed and running?
 Your version of Docker may be out of date. Docker version 17.06 or greater is required. To check which version of Docker you have run the command `docker -v`.
 
 
+## Unable to `Docker build` an `arm32v7/8*` image 
 
+### "exec format error"
+
+```
+standard_init_linux.go:187: exec user process caused "exec format error"
+
+```
+Docker image this error will occur. The latest versions of Docker for Windows and Docker for Mac can build non-native architecture containers which is not the case for some distributions of Linux. Additional files need to be added and packages installed to enable to ability to build `arm32v7/*` Docker images. To install the necessary packages and get the necessary files, follow the instructions in [Setup for Linux](https://docs.getchip.com/gadget.html#setup-for-linux) section.
+
+```
+standard_init_linux.go:187: exec user process caused "no such file or directory"
+
+```
+
+There is one more step to the process to enable the ability to build `arm32v7/*` Docker images you may have overlooked. Or, the files did not copy over successfully. Head to the [Setup for Linux](https://docs.getchip.com/gadget.html#setup-for-linux) section to complete the step of creating a directory `binfmt.d`, copying files over and restarting `systemd-binfmt.service`.
+
+### Unable to `restart systemd-binfmt.service`
+
+```
+Job for systemd-binfmt.service failed because the control process exited with error code.
+See "systemctl status systemd-binfmt.service" and "journalctl -xe" for details.
+
+```
+
+Download the packages listed in the [Setup for Linux](https://docs.getchip.com/gadget.html#setup-for-linux) section and reboot.

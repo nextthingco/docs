@@ -95,4 +95,4 @@ See "systemctl status systemd-binfmt.service" and "journalctl -xe" for details.
 
 ```
 
-Download the packages listed in the [Setup for Linux](https://docs.getchip.com/gadget.html#setup-for-linux) section and reboot.
+Download the `binfmt-support` and `qemu-user-static` packages listed in the [Setup for Linux](https://docs.getchip.com/gadget.html#setup-for-linux) section and reboot.

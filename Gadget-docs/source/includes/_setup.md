@@ -23,9 +23,9 @@ sudo apt-get update
 sudo apt-get install binfmt-support qemu-user-static
 sudo reboot
 ```
-In addition to installing these packages, you may need to create a directory and copy files over to enable the ability to build `arm32v7/*` Docker images. Follow the instructions outlined [here](https://github.com/computermouth/qemu-static-conf) to get set up. 
+In addition to installing these packages, your Linux distro may still be missing `qemu-user-static` files . Follow the instructions outlined [here](https://github.com/computermouth/qemu-static-conf) to check whether they are missing and how to obtain them.
 
-Check the troubleshooting section for specific errors you may be getting.
+Check the [Troubleshooting](https://docs.getchip.com/gadget.html#troubleshooting) section for specific errors you may be getting.
 
 ## Download Gadget
 

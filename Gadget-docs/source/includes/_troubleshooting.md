@@ -70,7 +70,7 @@ W:  Is the docker daemon installed and running?
 Your version of Docker may be out of date. Docker version 17.06 or greater is required. To check which version of Docker you have run the command `docker -v`.
 
 
-## Unable to `Docker build` an `arm32v7/8*` image 
+## Unable to `Docker build` an `arm32v7/*` image 
 
 ### "exec format error"
 

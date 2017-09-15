@@ -19,23 +19,6 @@ We offer the C.H.I.P. Pro Dev kit and C.H.I.P. Pro in our [web store](https://ne
 ###  How many may I order?
 As many or as few as you need: 1 to 1 million (or more). For orders over 1KU please contact [sales@nextthing.co](mailto:sales@nextthing.co) to set up a purchase order.
 
-### What is the lead time on a C.H.I.P. Pro order?
-
-The time your order leaves our shipping facility depends on the number of units purchased.
-
-| # of Units | Ships Out                  |
-|------------|----------------------------|
-| 1 - 500    | 3 - 5 days                 |
-| 500 -1,000 | 7 -10 days                 |
-| 1,000+     | Contact sales@nextthing.co |
-
-After your order leaves our shipping facility, the time it gets to your doorstep depends on your location.
-
-| Location | Arrives                 |
-|------------|----------------------------|
-| Within the US | 5 - 7 days              |
-| International | 1 - 3 weeks             |
-
 
 ## Building a Product with C.H.I.P. Pro
 

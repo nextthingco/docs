@@ -1,9 +1,13 @@
 # Workshop Materials
 
-Would you like to run a workshop using PocketC.H.I.P.? Here you will find helpful materials for use in the classroom or while developing your own curriculum. [Pico-8](https://docs.nextthing.co/pocketchip.html#pico-8) the fantasy console used to play, create, and share games has proven to be excellent for exercises emphasizing programming and game design skills. We have created several step-by-step documents in response to the many requests we have received asking for example workshop outlines and getting started materials.
+Would you like to run a workshop using PocketC.H.I.P.? In this section you will find materials for use in the classroom or to use while developing your own curriculum. We've created introductions including the basic operation of PocketCHIP and Pico-8 so you get comfortable before running a lesson. We have also created several activities to start with that can be used together or taught as separate modules. We've even included editable files so you can customize the lessons or grab what assets you would like to use for your own. If you don't see a file format that's helpful to you reach out to docs@nextthing.co and let us know what you need.
+
+All use the application [Pico-8](https://docs.nextthing.co/pocketchip.html#pico-8), the fantasy console used to play, create, and share games that comes installed on every PocketC.H.I.P.. Pico-8 has proven to be excellent for learning exercises emphasizing programming and game design skills. 
+
+
 
 ## Getting Started
-These introductory materials are written for educators but can be used in educational material for students as-is or partially. They will teach you the basics needed in order to lead an activity using PocketC.H.I.P. and Pico-8.
+These introductory materials are written for educators but can be used in educational material for students as they are or partially. They will teach you the basics needed in order to lead an activity using PocketC.H.I.P. and Pico-8.
 
 * [Getting Started with PocketC.H.I.P.](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/intros)
 * [Getting Started with Pico-8](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/intros)

@@ -14,6 +14,7 @@ includes:
   - _applications.md  
   - _settings.md
   - _using-accessories.md
+  - _workshops.md
   - _glossary.md
   - _faq.md  
   - _license.md

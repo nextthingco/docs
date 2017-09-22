@@ -7,14 +7,14 @@ All use the application [Pico-8](https://docs.nextthing.co/pocketchip.html#pico-
 
 
 ## Getting Started
-These introductory materials are written for educators but can be used in educational material for students as they are or partially. They will teach you the basics needed in order to lead an activity using PocketC.H.I.P. and Pico-8.
+These introductory materials are written for educators but can also be used in educational material for students. They will teach you the basics needed in order to lead an activity using PocketC.H.I.P. and Pico-8.
 
 * [Getting Started with PocketC.H.I.P.](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/intros)
 * [Getting Started with Pico-8](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/intros)
 
-## Workshop and Activity Outlines
+## Activity Outlines
 
-* [Pico-8 x PocketCHIP: Customize Celeste](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/activities/long) - This lesson includes several ways of editing a favorite Pico-8 game, Celeste. Change the way Celeste looks, edit the map to create bridges to walk over and Learn how to search and change Celeste's source code so Celeste can jump higher and advance onto the next level! 
+* [Pico-8 x PocketCHIP: Customize Celeste](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/activities/long) - This lesson includes several ways of editing a favorite Pico-8 game, Celeste. Change the way Celeste looks, edit the map to create bridges to walk over and learn how to search and change Celeste's source code so Celeste can jump higher and advance onto the next level! 
 * [Pico-8 x PocketCHIP: Start Creating a Game from Scratch](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/activities/long) - This lesson starts you on the path to creating a Pico-8 game from scratch. Learn how to create a sprite and make it move with the D-pad controller. 
 * [Pico-8 x PocketCHIP: Make Celeste Jump Higher!](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/activities/short) - A short, one page tutorial on how to edit the code of Celeste to make her jump higher. 
 * [Pico-8 x PocketCHIP: Edit Celeste Sprite](https://github.com/NextThingCo/PocketCHIP-Education/tree/master/activities/short) - A short, one page tutorial on how to edit the look of Celeste.

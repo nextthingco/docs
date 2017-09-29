@@ -15,7 +15,6 @@ includes:
   - making.md
   - flash-in-browser.md
   - advanced.md
-  - advanced-build-pd.md
   - advanced-headless.md
   - faq.md
   - trouble-faq

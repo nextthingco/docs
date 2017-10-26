@@ -12,9 +12,11 @@ Gadget makes use of [Docker's](https://www.docker.com/) container system. Depend
 * Windows 10 (Pro Edition)- [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 * Linux - [Docker CE](https://store.docker.com/search?type=edition&offering=community)
 
-After you install Docker, you will need to run it once before using GadgetCLI. GadgetCLI uses the Docker daemon to pull images from [Docker Hub](https://hub.docker.com/) or to build directly from local Dockerfiles. Learn more about [Docker Hub](https://docs.docker.com/docker-hub/) and how to use it.
+After you install Docker, you will need to run it once before using GadgetCLI. GadgetCLI uses the Docker daemon to pull images from [Docker Hub](https://hub.docker.com/) or to build directly from local Dockerfiles. Learn more about Docker Hub and how to use it [here](https://docs.docker.com/docker-hub/).
 
-### Setup for Linux
+### Additional Setup for Linux
+
+#### Build and Run ARM Docker Images
 
 If your development machine runs Linux you may need to download extra packages and add missing files to the system for Docker to successfully build an `arm32v7/*` Docker image. Open a terminal window and install [binfmt-support](https://packages.debian.org/stretch/binfmt-support) and [qemu-user-static](https://packages.debian.org/stretch/qemu-user-static) and then reboot.
 
@@ -26,6 +28,10 @@ sudo reboot
 In addition to installing these packages, your Linux distro may still be missing `qemu-user-static` files . Follow the instructions outlined [here](https://github.com/computermouth/qemu-static-conf) to check whether they are missing and how to obtain them.
 
 Check the [Troubleshooting](https://docs.getchip.com/gadget.html#troubleshooting) section for specific errors you may be getting.
+
+#### Run Docker as Unpriviledged User
+
+In some instances, such as compiling NTC's Gadget-OS kernel, Docker needs to run as an unprivileged user. To set this up, follow Docker's [Linux Post-install](https://docs.docker.com/engine/installation/linux/linux-postinstall/) instructions. 
 
 ## Download Gadget
 

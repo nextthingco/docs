@@ -33,7 +33,7 @@ Check the [Troubleshooting](https://docs.getchip.com/gadget.html#troubleshooting
 
 In some instances, such as building NTC's [Gadget-OS kernel](https://github.com/NextThingCo/Gadget-OS), You need to run Docker as an unprivileged user. To set this up, follow Docker's [Linux Post-install](https://docs.docker.com/engine/installation/linux/linux-postinstall/) instructions. 
 
-## Download Gadget
+## Install Gadget
 
 Download the zip file containing the latest release of GadgetCLI and GadgetOS [here](https://github.com/NextThingCo/gadgetcli/releases). Put the gadget binary in your system's PATH or precede all the commands with `./` e.g., `./gadget` while in the same directory.
 

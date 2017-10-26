@@ -29,7 +29,7 @@ In addition to installing these packages, your Linux distro may still be missing
 
 Check the [Troubleshooting](https://docs.getchip.com/gadget.html#troubleshooting) section for specific errors you may be getting.
 
-#### Run Docker as Unpriviledged User
+#### Run Docker as Unprivileged User
 
 In some instances, such as building NTC's [Gadget-OS kernel](https://github.com/NextThingCo/Gadget-OS), Docker needs to run as an unprivileged user. To set this up, follow Docker's [Linux Post-install](https://docs.docker.com/engine/installation/linux/linux-postinstall/) instructions. 
 

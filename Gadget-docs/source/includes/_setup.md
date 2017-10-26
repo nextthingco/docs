@@ -31,7 +31,7 @@ Check the [Troubleshooting](https://docs.getchip.com/gadget.html#troubleshooting
 
 #### Run Docker as Unprivileged User
 
-In some instances, such as building NTC's [Gadget-OS kernel](https://github.com/NextThingCo/Gadget-OS), Docker needs to run as an unprivileged user. To set this up, follow Docker's [Linux Post-install](https://docs.docker.com/engine/installation/linux/linux-postinstall/) instructions. 
+In some instances, such as building NTC's [Gadget-OS kernel](https://github.com/NextThingCo/Gadget-OS), You need to run Docker as an unprivileged user. To set this up, follow Docker's [Linux Post-install](https://docs.docker.com/engine/installation/linux/linux-postinstall/) instructions. 
 
 ## Download Gadget
 

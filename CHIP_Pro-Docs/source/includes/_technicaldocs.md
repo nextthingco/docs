@@ -2,7 +2,7 @@
 
 ## C.H.I.P. Pro Datasheet
 
-The complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets).
+The complete datasheet for C.H.I.P. Pro is available [in our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets).
 
 ## C.H.I.P. Pro Mechanical Drawing
 

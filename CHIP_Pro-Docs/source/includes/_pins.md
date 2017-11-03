@@ -1,5 +1,7 @@
 # Pin Descriptions
 
+## Pinout Diagram 
+
 ![C.H.I.P. Pro Pins](images/Pinout_Diagram_sm.png)
 
 C.H.I.P. Pro has a number of specialized pins for input and output, plus 27 general purpose input and output (GPIO) pins. The image above shows the pin location and muxing on C.H.I.P. Pro, and the tables below organize pins according to their specialized functions.

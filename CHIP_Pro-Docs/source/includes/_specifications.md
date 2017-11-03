@@ -58,35 +58,5 @@ FCC Modular certification (47 CFR 15.212) limits the need for final device 	    
 
 To learn more, find the FN-Link Module antenna datasheet [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/v1.0/Component%20Datasheets)
 
-## Mechanical Drawing
 
-![Mechanical Drawing](images/Mech_Draw_sm.jpg)
-
-You can download a high resolution version of this image [here](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Mechanical_Documents).
-
-## PCB Footprint
-
-C.H.I.P. Pro is designed for prototyping and dropping into a production assembly line. We have detailed diagrams for mounting C.H.I.P. Pro by hand soldering and by SMT pick-and-place machines to include in your PCB designs.
-
-* [Footprint - Hand soldering](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Footprint)
-* [Footprint - SMT](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Footprint)
-* [Carrier PCB stencil](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Footprint)
-
-More detailed information on designing a PCB for C.H.I.P. Pro is found [here](https://docs.getchip.com/chip_pro.html#pcb-design-tips). 
-
-![C.H.I.P. Pro PCB Footprint](images/Pro_Footprint_hand.jpg)
-
-![C.H.I.P. Pro PCB Footprint](images/Pro_Footprint_SMT.jpg)
-
-![C.H.I.P. Pro PCB stencil](images/Pro_stencil.jpg)
-
-## Datasheet
-
-The complete datasheet for C.H.I.P. Pro is available [on our C.H.I.P. Pro Hardware GitHub repo](https://github.com/NextThingCo/CHIP_Pro-Hardware/raw/master/Datasheets).
-
-## Open Source Hardware
-
-C.H.I.P. Pro is open source. Find all you need to build a C.H.I.P. Pro in our [Github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware).
-
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 

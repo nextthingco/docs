@@ -10,11 +10,12 @@ includes:
   - overview
   - connectcontrolpro
   - powerpro
+  - technicaldocs
   - specifications
   - pins
+  - chipvchippro
   - CPfaq
   - GR8faq
-  - chipvchippro
   - pinusage
   - compliance
   - howtopcb

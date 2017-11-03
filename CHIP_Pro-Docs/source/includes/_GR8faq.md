@@ -19,5 +19,9 @@ This depends on your product's needs and your company's resources. For most cust
 
 If you have tried C.H.I.P. Pro and have found that you need a different layout and different functionality, then designing around GR8 is a great option. You can find out everything that GR8 has to offer in the GR8 [datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Datasheets).
 
+## I'm sourcing components for a custom PCB, which components work with GR8 out of the box?
+
+The best reference for components that are supported by our operating systems out of the box is C.H.I.P. Pro. To see if they are right for your product, datasheets for these components are found in our [C.H.I.P. Pro Hardware](https://github.com/NextThingCo/CHIP_Pro-Hardware) Github repo. 
+
 ## I’m a distributor, can I carry GR8?
 Yes! Contact us at [sales@nextthing.co](mailto:sales@nextthing.co).

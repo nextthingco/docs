@@ -38,7 +38,17 @@ To see some of the hardware differences between C.H.I.P. and C.H.I.P. Pro take a
 
 Visit our [Compliance Statement](https://docs.getchip.com/chip_pro.html#compliance-statement) section for more information about each certification.
 
-### I am want to in creating a custom PCB and integrate C.H.I.P. Pro, where do I start? 
+### I have designed a circuit and am embedding CHIP Pro into a larger PCB design. Once it is soldered onto the daughter board do I need to get FCC and CE recertification? 
+
+If you are designing a consumer product, you will need some certification but the time and money put into that process can be greatly reduced by leveraging our FCC Part 15 subpart C modular certification. 
+
+C.H.I.P. Pro is modularly certified for use with several external antennas in addition to the included on-board SMT ceramic antenna. A list of pre-cetified antennas are found in the [C.H.I.P. Pro datasheet](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/Datasheets) on page 11 and listed in the [C.H.I.P. Pro online docs](https://docs.getchip.com/chip_pro.html#wifi-antenna). Part 15c covers intentional radiation. If C.H.I.P. Pro is the only radio being used in your product's final circuit and you use one of the precertified antennas you can meet requirements by using our FCC ID. 
+
+Most likely, the final product will still need to be tested for compliance under Part 15 subpart B for unintentional radiation. 
+
+For more information, we recommend you reach out to the [Federal Communications Commision](https://www.fcc.gov/general/equipment-authorization-procedures) with any questions you have. 
+
+### I am interested in creating a custom PCB that integrates C.H.I.P. Pro, where do I start? 
 
 To get started, refer to our [PCB Design Guide](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips). If you need further guidance, you will find recommendations of services to help aid you in PCB design and fabrication. We are also happy to do a PCB review and help where we can. If you have questions reach out to us by emailing [pro@nextthing.co](mailto:pro@nextthing.co).
 

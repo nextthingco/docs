@@ -28,11 +28,11 @@ More detailed information on designing a PCB for C.H.I.P. Pro is found [here](ht
 
 ## GR8 Datasheet
 
-Find the ballout diagram, technical specifications, and mechanical information in the GR8 datasheet available in our C.H.I.P. Pro Hardware Github repository in the [GR8 directory](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/GR8). Looking for a reference design that uses GR8? Check out all the [C.H.I.P. Pro design documents and schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware) also available in that repository.
+Find the ballout diagram, technical specifications, and mechanical information in the GR8 datasheet available in our C.H.I.P. Pro Hardware Github repository in the [GR8 directory](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/GR8). Looking for a reference design that uses GR8? Check out all the [C.H.I.P. Pro design documents and schematics](https://github.com/NextThingCo/CHIP_Pro-Hardware) also available in the C.H.I.P. Pro Hardware repository.
 
 ## GR8 Manual
 
-All details needed to program GR8 is in the GR8 manual available in our [Github repository](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/GR8/Manual).  
+All details needed to program GR8 are in the GR8 manual available in our [Github repository](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/GR8/Manual).  
 
 ## Open Source License
 

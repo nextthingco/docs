@@ -52,9 +52,9 @@ For more information, we recommend you reach out to the [Federal Communications 
 
 #### CE
 
-THe CE Mark is a [label](https://ec.europa.eu/growth/single-market/ce-marking/) placed on manufactured or imported goods in the European Union. C.H.I.P. Pro has been tested and is compliant with the [Radio Equipment Directive](http://ec.europa.eu/growth/sectors/electrical-engineering/red-directive_en) (RED) which recognizes CHIP Pro as low power short range wireless device that can be sold within the European market. 
+THe CE Mark is a [label](https://ec.europa.eu/growth/single-market/ce-marking/) placed on manufactured or imported goods in the European Union. C.H.I.P. Pro has been tested and is compliant with the [Radio Equipment Directive](http://ec.europa.eu/growth/sectors/electrical-engineering/red-directive_en) (RED) which recognizes C.H.I.P. Pro as low power short range wireless device that can be sold within the European market. 
 
-If your product integrates CHIP Pro without modifying any of the radio frequency design and an addition of an antenna with greater gain than the certified ones, your product will likely still comply. 
+If your product integrates C.H.I.P. Pro without modifying any of the radio frequency design and an addition of an antenna with greater gain than the certified ones, your product will likely still comply. 
 
 
 ### I am interested in creating a custom PCB that integrates C.H.I.P. Pro, where do I start? 

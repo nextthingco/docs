@@ -13,12 +13,12 @@ includes:
   - technicaldocs
   - specifications
   - pins
-  - chipvchippro
   - CPfaq
   - GR8faq
   - pinusage
   - compliance
   - howtopcb
+  - chipvchippro
 
 search: true
 ---

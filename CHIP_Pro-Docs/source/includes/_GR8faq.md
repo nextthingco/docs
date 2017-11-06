@@ -23,5 +23,14 @@ If you have tried C.H.I.P. Pro and have found that you need a different layout a
 
 The best reference for components that are supported by our operating systems out of the box is C.H.I.P. Pro. To see if they are right for your product, datasheets for these components are found in our [C.H.I.P. Pro Hardware](https://github.com/NextThingCo/CHIP_Pro-Hardware) Github repo. 
 
+## What WiFi Modules Does GR8 support?
+
+Technically, a WiFi module supported in Arch Linux ARM and that uses the SDIO (Secure Digital Input Output) V2.0 protocol can be used with GR8. A good reference for components supported by our software is C.H.I.P. Pro. C.H.I.P. Pro uses the RTL8723DS module which communicates over a secure digital input/output(SDIO) V2.0 protocol. 
+
+What module you want to use may also depend on what kind of software support is available. Software drivers for the RTL8723DS module come with our C.H.I.P. Pro operating system making it a go-to choice if you need something that works out of the box. 
+
+For more information on the SDIO protocol, please refer to the specifications found on page 221 of the [GR8 manual](https://github.com/NextThingCo/CHIP_Pro-Hardware/tree/master/GR8/Manual). 
+
+
 ## I’m a distributor, can I carry GR8?
 Yes! Contact us at [sales@nextthing.co](mailto:sales@nextthing.co).

@@ -59,10 +59,22 @@ If your product integrates C.H.I.P. Pro without modifying any of the radio frequ
 
 ### I am interested in creating a custom PCB that integrates C.H.I.P. Pro, where do I start? 
 
-To get started, refer to our [PCB Design Guide](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips). If you need further guidance, you will find recommendations of services to help aid you in PCB design and fabrication. We are also happy to do a PCB review and help where we can. If you have questions reach out to us by emailing [pro@nextthing.co](mailto:pro@nextthing.co).
+To get started, refer to our [PCB Design Guide](http://ntc-docs-unstable.surge.sh/chip_pro.html#pcb-design-tips). There, you will find recommendations of services to help aid you in PCB design and fabrication plus best practices. We are also happy to do a PCB review and help where we can. If you have questions reach out to us by emailing [pro@nextthing.co](mailto:pro@nextthing.co).
 
 ### Do you offer custom flashing solutions?
 We offer flashing of custom firmware at the factory for an extra fee when you purchase 1K+ C.H.I.P. Pros.
+
+### What companies have used C.H.I.P. Pro in their products?
+
+There are several products in different R&D and production stages. Some that have been publicly announced and have made it to market are the following:
+
+* [Sandman Doppler Alarm Clock](https://www.paloaltoinnovation.com/collections/sandman-clocks/products/sandmandoppler) by Palo Alto Innovation
+
+* [TRNTBL](https://trntbl.co/) by Vnyl
+
+* [Voyager](https://www.digitalsputnik.com/voyager/) by Digital Sputnik
+
+
 
 ## Power
 

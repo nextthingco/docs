@@ -11,6 +11,7 @@ includes:
   - flashwithos
   - connectcontrol
   - power
+  - technicaldocs
   - whatsontheboard
 
 search: true

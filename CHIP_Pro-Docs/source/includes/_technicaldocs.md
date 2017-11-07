@@ -36,6 +36,6 @@ All details needed to program GR8 are in the GR8 manual available in our [Github
 
 ## Open Source License
 
-C.H.I.P. Pro is open source hardware and software. Find all you need to build a C.H.I.P. Pro in our [Github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware). Search our repositories for core and developing C.H.I.P. Pro software. For up-to-date announcements on software releases visit our website and sign up to our newsletter. Or, join the community on our [forum](https://bbs.nextthing.co/) where we actively post announcements.   
+C.H.I.P. Pro is open source hardware and software. Find all you need to build a C.H.I.P. Pro in our [Github repo](https://github.com/NextThingCo/CHIP_Pro-Hardware). Search our repositories for core and developing C.H.I.P. Pro software. For up-to-date announcements on software releases visit our [website](https://nextthing.co/) and sign up to our newsletter. Or, join the community on our [forum](https://bbs.nextthing.co/) where we actively post announcements.   
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

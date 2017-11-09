@@ -80,8 +80,3 @@ Once you cut a trace it can be reverted to the original behavior. To replace the
 If you need some reminding, circuit paths that came as default are indicated with a silkscreened bar under the originally connected pads.
 
 ![Solder Bridge](images/traces_solderBridge.jpg)
-
-## Schematic + More
-The C.H.I.P. Pro Dev Kit is open source hardware. Find the datasheets, mechanical drawing and schematic are in our [Github repo](https://github.com/NextThingCo/Dev_Kit-Hardware). 
-
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

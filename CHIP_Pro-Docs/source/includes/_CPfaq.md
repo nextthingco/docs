@@ -38,11 +38,8 @@ To see some of the hardware differences between C.H.I.P. and C.H.I.P. Pro take a
 
 Visit our [Compliance Statement](https://docs.getchip.com/chip_pro.html#compliance-statement) section for more information about each certification.
 
-<<<<<<< HEAD
-### I have designed a circuit and am embedding C.H.I.P. Pro into a larger PCB design. Once it is integrated do I need to get FCC and CE re-certification? 
-=======
-### I am interested in creating a custom PCB that integrates C.H.I.P. Pro, where do I start?  
->>>>>>> 84ebe369781aa0d0cc978405ae066db18c175677
+
+### I have designed a circuit and am embedding C.H.I.P. Pro into a larger PCB design. Once it is integrated, do I need to get FCC and CE re-certification? 
 
 #### FCC
 
@@ -72,7 +69,7 @@ We offer flashing of custom firmware at the factory for an extra fee when you pu
 
 There are several products in different R&D and production stages. Some that have been publicly announced and have made it to market are the following:
 
-* [Sandman Doppler Alarm Clock](https://www.paloaltoinnovation.com/collections/sandman-clocks/products/sandmandoppler) by Palo Alto Innovation
+* [Sandman Doppler Alarm Clock](https://www.paloaltoinnovation.com/collections/sandman-clo	cks/products/sandmandoppler) by Palo Alto Innovation
 
 * [TRNTBL](https://trntbl.co/) by Vnyl
 

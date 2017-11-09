@@ -38,7 +38,11 @@ To see some of the hardware differences between C.H.I.P. and C.H.I.P. Pro take a
 
 Visit our [Compliance Statement](https://docs.getchip.com/chip_pro.html#compliance-statement) section for more information about each certification.
 
+<<<<<<< HEAD
 ### I have designed a circuit and am embedding C.H.I.P. Pro into a larger PCB design. Once it is integrated do I need to get FCC and CE re-certification? 
+=======
+### I am interested in creating a custom PCB that integrates C.H.I.P. Pro, where do I start?  
+>>>>>>> 84ebe369781aa0d0cc978405ae066db18c175677
 
 #### FCC
 

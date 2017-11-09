@@ -7,7 +7,7 @@ Gr8 costs $6 in any quantity.
 ## Where can I purchase GR8?
 Contact us at [sales@nextthing.co](mailto:sales@nextthing.co) to tell us more about your product and to set up a purchase order.
 
-## What are the GR8’s dimensions?
+## What are GR8’s dimensions?
 14mm x 14mm x 0.8mm
 
 ## What is the GR8 package?

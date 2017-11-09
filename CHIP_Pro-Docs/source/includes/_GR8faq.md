@@ -25,7 +25,7 @@ The best reference for components that are supported by our operating systems ou
 
 ## What WiFi Modules Does GR8 support?
 
-Technically, a WiFi module supported in Arch Linux ARM and that uses the SDIO (Secure Digital Input Output) V2.0 protocol can be used with GR8. A good reference for components supported by our software is C.H.I.P. Pro. C.H.I.P. Pro uses the RTL8723DS module which communicates over a secure digital input/output(SDIO) V2.0 protocol. 
+Technically, a WiFi module supported in Arch Linux ARM and that uses the SDIO (Secure Digital Input Output) V2.0 protocol can be used with GR8. A good reference for components supported by our software is C.H.I.P. Pro which uses the RTL8723DS module.
 
 What module you want to use may also depend on what kind of software support is available. Software drivers for the RTL8723DS module come with our C.H.I.P. Pro operating system making it a go-to choice if you need something that works right away. 
 
